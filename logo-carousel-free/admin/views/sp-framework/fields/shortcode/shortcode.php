@@ -79,7 +79,7 @@ if ( ! class_exists( 'SPLC_FREE_Field_shortcode' ) ) {
 								/* translators: 1: start strong tag, 2: close tag. */
 								__( 'Logo Carousel has seamless integration with Gutenberg, Classic Editor, %1$sElementor%2$s, Divi, Bricks, Beaver, Oxygen, WPBakery Builder, etc.', 'logo-carousel-free' ),
 								'<strong>',
-								'</strong>',
+								'</strong>'
 							)
 						. '
 					</p>

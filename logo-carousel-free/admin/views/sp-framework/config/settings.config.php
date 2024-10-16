@@ -66,7 +66,7 @@ SPLC::createSection(
 				'title_info' => sprintf(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div>',
 					__( 'Logo Analytics', 'logo-carousel-free' ),
-					__( 'If you turned off this Logo Analytics (performance tracking) option, neither tracking data will appear in Analytics nor be saved in the database.', 'logo-carousel-free' ),
+					__( 'If you turned off this Logo Analytics (performance tracking) option, neither tracking data will appear in Analytics nor be saved in the database.', 'logo-carousel-free' )
 				),
 				'text_width' => 74,
 				'default'    => false,

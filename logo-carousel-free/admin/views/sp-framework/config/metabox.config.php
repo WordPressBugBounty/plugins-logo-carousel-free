@@ -211,7 +211,7 @@ SPLC::createSection(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/carousel-modes/" target="_blank">%s</a></div>',
 					__( 'Carousel Style', 'logo-carousel-free' ),
 					__( 'This feature allows you to select the most suitable carousel style between Standard, Ticker (continuous scrolling), or Center.', 'logo-carousel-free' ),
-					__( 'Live Demo', 'logo-carousel-free' ),
+					__( 'Live Demo', 'logo-carousel-free' )
 				),
 			),
 			array(
@@ -251,7 +251,7 @@ SPLC::createSection(
 					'<a href="https://logocarousel.com/carousel/" target="_blank">',
 					'</a></strong>',
 					'<b><a href="https://logocarousel.com/pricing/?ref=1" target="_blank">',
-					'</a></b>',
+					'</a></b>'
 				),
 			),
 		),
@@ -293,7 +293,7 @@ SPLC::createSection(
 					'<br><i class="fa fa-desktop"></i> <strong>',
 					'<br> <i class="fa fa-laptop"></i> <strong>',
 					'<br> <i class="fa fa-tablet"></i> <strong>',
-					'<br> <i class="fa fa-mobile"></i> <strong>',
+					'<br> <i class="fa fa-mobile"></i> <strong>'
 				),
 				'sanitize'   => 'splogocarousel_sanitize_number_array_field',
 				'default'    => array(
@@ -350,7 +350,7 @@ SPLC::createSection(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-docs" href="https://docs.shapedplugin.com/docs/logo-carousel-free/configurations/how-to-filter-logos/" target="_blank">%s</a></div>',
 					__( 'Filter Logos', 'logo-carousel-free' ),
 					__( 'This option allows you to choose how many logos are displayed by applying filters. You can choose to show all logos, filter by categories, or select specific logos.', 'logo-carousel-free' ),
-					__( 'Open Docs', 'logo-carousel-free' ),
+					__( 'Open Docs', 'logo-carousel-free' )
 				),
 				'default'    => 'latest',
 			),
@@ -388,7 +388,7 @@ SPLC::createSection(
 							__( 'Click Action Type', 'logo-carousel-free' ),
 							__( 'This feature allows you to choose between directing to a link, opening a popup, or disabling the link entirely.', 'logo-carousel-free' ),
 							__( 'Open Docs', 'logo-carousel-free' ),
-							__( 'Live Demo', 'logo-carousel-free' ),
+							__( 'Live Demo', 'logo-carousel-free' )
 						),
 					),
 					array(
@@ -422,7 +422,7 @@ SPLC::createSection(
 				'title_info' => sprintf(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div>',
 					__( 'Random Order', 'logo-carousel-free' ),
-					__( 'If you enable this option, logos will be displayed randomly without following a particular order or sequence.', 'logo-carousel-free' ),
+					__( 'If you enable this option, logos will be displayed randomly without following a particular order or sequence.', 'logo-carousel-free' )
 				),
 
 			),
@@ -464,7 +464,7 @@ SPLC::createSection(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/scheduling/" target="_blank">%s</a></div>',
 					__( 'Scheduling', 'logo-carousel-free' ),
 					__( 'This option allows you to schedule the display of logos at specific time intervals easily.', 'logo-carousel-free' ),
-					__( 'Live Demo', 'logo-carousel-free' ),
+					__( 'Live Demo', 'logo-carousel-free' )
 				),
 			),
 			array(
@@ -493,7 +493,7 @@ SPLC::createSection(
 					__( 'Ajax Logo Live Filters (Pro)', 'logo-carousel-free' ),
 					__( 'Make your visitor\'s logo search easier by enabling the Ajax live filter. This powerful feature allows effortless navigation through logo categories, while the A-Z alphabetical filters ensure that they can easily find exactly what they\'re looking for.', 'logo-carousel-free' ),
 					__( 'Open Docs', 'logo-carousel-free' ),
-					__( 'Live Demo', 'logo-carousel-free' ),
+					__( 'Live Demo', 'logo-carousel-free' )
 				),
 				'dependency' => array( 'lcp_layout', '!=', 'filter', true ),
 			),
@@ -514,7 +514,7 @@ SPLC::createSection(
 					'<a href="https://logocarousel.com/ajax-logo-live-filters/" target="_blank"><strong>',
 					'</strong></a>',
 					'<a href="https://logocarousel.com/ajax-logo-live-filters/#sp-lcpro-id-1645" target="_blank"><strong>',
-					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><strong>',
+					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><strong>'
 				),
 				'dependency' => array( 'logo_live_filter', '==', 'true', true ),
 			),
@@ -674,7 +674,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/ajax-logo-search/" target="_blank">%s</a></div>',
 									__( 'Ajax Logo Search', 'logo-carousel-free' ),
 									__( 'With this feature, your website\'s visitors can easily search for the exact logo they are looking for. It provides a convenient way for them to find what they need quickly.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 							),
 							array(
@@ -718,7 +718,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/5-logo-caption-positions/" target="_blank">%s</a></div>',
 									__( 'Logo Position', 'logo-carousel-free' ),
 									__( 'This feature allows you to select the placement of logos.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 								'desc'       => sprintf(
 									/* translators: %1$s: bold tag starts, %2$s: bold tag ends, %3$s: link tag starts %4$s: link tag ends %5$s: another link tag start %6$s: link tag ends */
@@ -728,7 +728,7 @@ SPLC::createSection(
 									'<a href="https://logocarousel.com/5-logo-caption-positions/" target="_blank">',
 									'</a>',
 									'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-									'</b></a>',
+									'</b></a>'
 								),
 								'default'    => 'default',
 							),
@@ -847,7 +847,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/active-tooltips/" target="_blank">%s</a></div>',
 									__( 'Tooltip', 'logo-carousel-free' ),
 									__( 'This feature enables your website visitors to receive information about logos by simply hovering over them.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 							),
 							array(
@@ -1102,7 +1102,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/box-highlight-style/" target="_blank">%s</a></div>',
 									__( 'BoxShadow', 'logo-carousel-free' ),
 									__( 'The BoxShadow option allows you to apply a box shadow effect to logos, providing a way to enhance their aesthetics with shadow effects.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 							),
 						),
@@ -1122,7 +1122,7 @@ SPLC::createSection(
 									'<strong class="lcp-pro-text">',
 									'</strong>',
 									'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-									'</b></a>',
+									'</b></a>'
 								),
 							),
 							array(
@@ -1153,7 +1153,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/multiple-ajax-paginations/" target="_blank">%s</a></div>',
 									__( 'Pagination Type', 'logo-carousel-free' ),
 									__( 'This option lets you choose the best pagination style for your website visitors.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 							),
 							array(
@@ -1249,7 +1249,7 @@ SPLC::createSection(
 									'<strong class="lcp-pro-text"><a href="https://logocarousel.com/cta-button/" target="_blank">',
 									'</a></strong>',
 									'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-									'</b></a>',
+									'</b></a>'
 								),
 							),
 							array(
@@ -1266,7 +1266,7 @@ SPLC::createSection(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/cta-button/" target="_blank">%s</a></div>',
 									__( 'Contact Us Button', 'logo-carousel-free' ),
 									__( 'This feature allows you to display a "Contact Us" call-to-action button below the logo showcase so that interested individuals to easily can reach out to the website owner.', 'logo-carousel-free' ),
-									__( 'Live Demo', 'logo-carousel-free' ),
+									__( 'Live Demo', 'logo-carousel-free' )
 								),
 							),
 							array(
@@ -1542,7 +1542,7 @@ SPLC::createSection(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/logo-animations/" target="_blank">%s</a></div>',
 					__( 'Hover Animation', 'logo-carousel-free' ),
 					__( 'This feature lets you choose a specific animation effect when hovering over the logo image.', 'logo-carousel-free' ),
-					__( 'Live Demo', 'logo-carousel-free' ),
+					__( 'Live Demo', 'logo-carousel-free' )
 				),
 				'dependency' => array( 'lcp_logo_image|lcp_logo_carousel_mode', '==|any', 'true|standard,ticker', true ),
 			),
@@ -1586,7 +1586,7 @@ SPLC::createSection(
 					'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/grayscale-style/" target="_blank">%s</a></div>',
 					__( 'Logo Image Mode', 'logo-carousel-free' ),
 					__( 'This feature allows you to select the visual style or image mode that aligns with your design preferences for logo presentation.', 'logo-carousel-free' ),
-					__( 'Live Demo', 'logo-carousel-free' ),
+					__( 'Live Demo', 'logo-carousel-free' )
 				),
 				'default'    => 'off',
 				'dependency' => array( 'lcp_logo_image', '==', 'true', true ),
@@ -1643,7 +1643,7 @@ SPLC::createSection(
 					'</strong>',
 					'<strong>',
 					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-					'</b></a>',
+					'</b></a>'
 				),
 			),
 		),
@@ -1709,7 +1709,7 @@ SPLC::createSection(
 								'title_info' => sprintf(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div>',
 									__( 'AutoPlay Delay Time', 'logo-carousel-free' ),
-									__( 'Set autoplay delay or interval time. The amount of time to delay between automatically cycling a weather item. e.g. 1000 milliseconds(ms) = 1 second.', 'logo-carousel-free' ),
+									__( 'Set autoplay delay or interval time. The amount of time to delay between automatically cycling a weather item. e.g. 1000 milliseconds(ms) = 1 second.', 'logo-carousel-free' )
 								),
 
 							),
@@ -1728,7 +1728,7 @@ SPLC::createSection(
 								'title_info' => sprintf(
 									'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div>',
 									__( 'Carousel Speed', 'logo-carousel-free' ),
-									__( 'Set carousel scrolling speed. e.g. 1000 milliseconds(ms) = 1 second.', 'logo-carousel-free' ),
+									__( 'Set carousel scrolling speed. e.g. 1000 milliseconds(ms) = 1 second.', 'logo-carousel-free' )
 								),
 							),
 							array(
@@ -1828,7 +1828,7 @@ SPLC::createSection(
 									'<a href="https://logocarousel.com/center-mode-carousel/" target="_blank">',
 									'<a href="https://logocarousel.com/widget-example/" target="_blank">',
 									'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-									'</b></a>',
+									'</b></a>'
 								),
 							),
 						),
@@ -2110,7 +2110,7 @@ SPLC::createSection(
 									'<strong class="lcp-pro-text">',
 									'</strong>',
 									'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-									'</b></a>',
+									'</b></a>'
 								),
 							),
 
@@ -2212,7 +2212,7 @@ SPLC::createSection(
 					'<strong class="lcp-pro-text">',
 					'</strong>',
 					'<b><a href="https://logocarousel.com/pricing/?ref=1" target="_blank">',
-					'</a></b>',
+					'</a></b>'
 				),
 			),
 			array(
@@ -2378,7 +2378,7 @@ SPLC::createSection(
 					/* translators: %1$s: strong tag starts %2$s: strong tag ends %3$s: link and bold tags start %4$s: bold and link tags end */
 					__( 'To add a link URL for the logo, %1$sUpgrade to Pro!%2$s', 'logo-carousel-free' ),
 					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-					'</b></a>',
+					'</b></a>'
 				),
 				'attributes' => array(
 					'placeholder' => 'http://example.com',
@@ -2408,7 +2408,7 @@ SPLC::createSection(
 				'desc'       => sprintf(
 					'To add tooltip custom text for the logo, %sUpgrade to Pro!%s',
 					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-					'</b></a>',
+					'</b></a>'
 				),
 				'attributes' => array(
 					'placeholder' => 'Tooltip Text',
