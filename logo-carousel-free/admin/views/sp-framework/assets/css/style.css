@@ -2692,7 +2692,6 @@
 	border-color: #222;
 }
 
-#sp_lcp_shortcode_options .lcp-live-filter-notice,
 #sp_lcp_layout_options .lcp-live-filter-notice {
 	margin-top: -30px;
     margin-bottom: -15px;
@@ -2700,7 +2699,8 @@
 }
 
 #sp_lcp_shortcode_options .lcp-live-filter-notice {
-	margin-top: 0;
+    margin: -10px -10px -8px -12px;
+    padding-bottom: 0;
 }
 
 /**

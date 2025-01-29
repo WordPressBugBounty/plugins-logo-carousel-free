@@ -2,8 +2,8 @@
 Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
 Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 4.7
-Tested up to: 6.7
-Stable tag: 3.6.3
+Tested up to: 6.7.1
+Stable tag: 3.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -213,6 +213,14 @@ Thank you!
 
 
 == Changelog ==
+
+= Version 3.6.4 - Jan 29, 2025 =
+* Improved: The plugin-backed options improved.
+* Improved: The review notice section style for small devices.
+* Fix: The shortcode select option gap issue was found in the gutenberg block.
+* Fix: The plugin relative path issue. 
+* Fix: The 404 issue for the recommended plugin's logo URL.
+* Tested: WordPress 6.7.1 compatibility.
 
 = Version 3.6.3 - Nov 21, 2024 =
 * Fix: The plugin style issue for RTL sites.

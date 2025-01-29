@@ -24,6 +24,7 @@
 	border-radius: 5px;
 	margin: 20px 20px 0 0;
 	box-shadow: 0 0 20px 0 rgba(36, 39, 50, .08);
+	clear: both;
 }
 
 #sp-lcfree-review-notice .sp-lcfree-plugin-icon {
@@ -134,6 +135,10 @@
 .splcf-gutenberg-shortcode.editor-styles-wrapper {
 	padding: 0;
 	line-height: 24px;
+}
+
+.splcf-gutenberg-shortcode.editor-styles-wrapper:after {
+	display: none;
 }
 
 .editor-styles-wrapper .splcf_block_shortcode img {

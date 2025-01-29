@@ -478,6 +478,25 @@ SPLC::createSection(
 				'text_width' => 100,
 			),
 			array(
+				'id'      => 'lcp_section_ajax_live_filter',
+				'class'   => 'lcp_only_pro',
+				'type'    => 'subheading',
+				'content' => __( 'Ajax Logo Live Filters (Pro)', 'logo-carousel-free' ),
+			),
+			array(
+				'type'    => 'notice',
+				'style'   => 'normal',
+				'class'   => 'lcp-live-filter-notice',
+				'content' => sprintf(
+					/* translators: %1$s: bold tag starts, %2$s: bold tag ends, %3$s: link tag starts %4$s: link tag ends %5$s: another link tag start %6$s: link tag ends */
+					__( 'To allow your visitors to filter logos by %1$sCategories%2$s, %3$sA-Z filter%2$s, and Ajax Search on the frontend, %4$sUpgrade To Pro!%2$s', 'logo-carousel-free' ),
+					'<a href="https://logocarousel.com/ajax-logo-live-filters/" target="_blank"><strong>',
+					'</strong></a>',
+					'<a href="https://logocarousel.com/ajax-logo-live-filters/#sp-lcpro-id-1645" target="_blank"><strong>',
+					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><strong>'
+				),
+			),
+			array(
 				'id'         => 'logo_live_filter',
 				'class'      => 'logo_live_filter',
 				'type'       => 'switcher',
@@ -496,27 +515,6 @@ SPLC::createSection(
 					__( 'Live Demo', 'logo-carousel-free' )
 				),
 				'dependency' => array( 'lcp_layout', '!=', 'filter', true ),
-			),
-			array(
-				'id'         => 'lcp_section_ajax_live_filter',
-				'class'      => 'lcp_only_pro',
-				'type'       => 'subheading',
-				'content'    => __( 'Ajax Logo Live Filters', 'logo-carousel-free' ),
-				'dependency' => array( 'logo_live_filter', '==', 'true', true ),
-			),
-			array(
-				'type'       => 'notice',
-				'style'      => 'normal',
-				'class'      => 'lcp-live-filter-notice',
-				'content'    => sprintf(
-					/* translators: %1$s: bold tag starts, %2$s: bold tag ends, %3$s: link tag starts %4$s: link tag ends %5$s: another link tag start %6$s: link tag ends */
-					__( 'To allow your visitors to filter logos by %1$sCategories%2$s, %3$sA-Z filter%2$s, and Ajax Search on the frontend, %4$sUpgrade To Pro!%2$s', 'logo-carousel-free' ),
-					'<a href="https://logocarousel.com/ajax-logo-live-filters/" target="_blank"><strong>',
-					'</strong></a>',
-					'<a href="https://logocarousel.com/ajax-logo-live-filters/#sp-lcpro-id-1645" target="_blank"><strong>',
-					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><strong>'
-				),
-				'dependency' => array( 'logo_live_filter', '==', 'true', true ),
 			),
 			array(
 				'id'         => 'live_filter_type',

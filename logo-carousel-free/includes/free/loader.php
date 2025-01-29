@@ -774,13 +774,13 @@ class SPLC_Free_Loader {
 							</a>
 							<a target="_blank" class="sp-logo-carousel-our-plugin-list-box" href="https://logocarousel.com/">
 								<i class="sp-logo-carousel-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/logo-carousel-free/assets/icon-256x256.png" alt="Logo Carousel">
+								<img src="https://ps.w.org/logo-carousel-free/assets/icon-256x256.gif" alt="Logo Carousel">
 								<h4>Logo Carousel</h4>
 								<p>Showcase a group of logo images with Title, Description, Tooltips, Links, and Popup as a grid or in a carousel.</p>
 							</a>
 							<a target="_blank" class="sp-logo-carousel-our-plugin-list-box" href="https://easyaccordion.io/">
 								<i class="sp-logo-carousel-icon-button-arrow-icon"></i>
-								<img src="https://ps.w.org/easy-accordion-free/assets/icon-256x256.png" alt="Easy Accordion">
+								<img src="https://ps.w.org/easy-accordion-free/assets/icon-256x256.gif" alt="Easy Accordion">
 								<h4>Easy Accordion</h4>
 								<p>Minimize customer support by offering comprehensive FAQs and increasing conversions.</p>
 							</a>
@@ -796,7 +796,7 @@ class SPLC_Free_Loader {
 								<h4>WP Tabs</h4>
 								<p>Display tabbed content smartly & quickly on your WordPress site without coding skills.</p>
 							</a>
-							<a target="_blank" class="sp-logo-carousel-our-plugin-list-box" href="https://shapedplugin.com/plugin/woocommerce-quick-view-pro/">
+							<a target="_blank" class="sp-logo-carousel-our-plugin-list-box" href="https://shapedplugin.com/quick-view-for-woocommerce/">
 								<i class="sp-logo-carousel-icon-button-arrow-icon"></i>
 								<img src="https://ps.w.org/woo-quickview/assets/icon-256x256.png" alt="Quick View for WooCommerce">
 								<h4>Quick View for WooCommerce</h4>
