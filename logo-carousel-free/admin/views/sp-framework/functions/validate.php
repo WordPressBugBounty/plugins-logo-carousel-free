@@ -21,7 +21,7 @@ if ( ! function_exists( 'splogocarousel_validate_email' ) ) {
 	 */
 	function splogocarousel_validate_email( $value ) {
 		if ( ! filter_var( $value, FILTER_VALIDATE_EMAIL ) ) {
-			return esc_html__( 'Please enter a valid email address.', 'splogocarousel' );
+			return esc_html__( 'Please enter a valid email address.', 'logo-carousel-free' );
 		}
 	}
 }
@@ -38,7 +38,7 @@ if ( ! function_exists( 'splogocarousel_validate_numeric' ) ) {
 	 */
 	function splogocarousel_validate_numeric( $value ) {
 		if ( ! is_numeric( $value ) ) {
-			return esc_html__( 'Please enter a valid number.', 'splogocarousel' );
+			return esc_html__( 'Please enter a valid number.', 'logo-carousel-free' );
 		}
 	}
 }
@@ -55,7 +55,7 @@ if ( ! function_exists( 'splogocarousel_validate_required' ) ) {
 	 */
 	function splogocarousel_validate_required( $value ) {
 		if ( empty( $value ) ) {
-			return esc_html__( 'This field is required.', 'splogocarousel' );
+			return esc_html__( 'This field is required.', 'logo-carousel-free' );
 		}
 	}
 }
@@ -72,7 +72,7 @@ if ( ! function_exists( 'splogocarousel_validate_url' ) ) {
 	 */
 	function splogocarousel_validate_url( $value ) {
 		if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
-			return esc_html__( 'Please enter a valid URL.', 'splogocarousel' );
+			return esc_html__( 'Please enter a valid URL.', 'logo-carousel-free' );
 		}
 	}
 }

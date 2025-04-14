@@ -42,8 +42,8 @@ if ( ! class_exists( 'SPLC_FREE_Field_switcher' ) ) {
 		public function render() {
 
 			$active     = ( ! empty( $this->value ) ) ? ' splogocarousel--active' : '';
-			$text_on    = ( ! empty( $this->field['text_on'] ) ) ? $this->field['text_on'] : esc_html__( 'On', 'splogocarousel' );
-			$text_off   = ( ! empty( $this->field['text_off'] ) ) ? $this->field['text_off'] : esc_html__( 'Off', 'splogocarousel' );
+			$text_on    = ( ! empty( $this->field['text_on'] ) ) ? $this->field['text_on'] : esc_html__( 'On', 'logo-carousel-free' );
+			$text_off   = ( ! empty( $this->field['text_off'] ) ) ? $this->field['text_off'] : esc_html__( 'Off', 'logo-carousel-free' );
 			$text_width = ( ! empty( $this->field['text_width'] ) ) ? ' style="width: ' . esc_attr( $this->field['text_width'] ) . 'px;"' : '';
 
 			echo wp_kses_post( $this->field_before() );

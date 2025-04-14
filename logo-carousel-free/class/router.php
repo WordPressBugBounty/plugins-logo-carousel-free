@@ -70,6 +70,5 @@ class SPLC_Router {
 		include_once SP_LC_PATH . '/admin/views/sp-framework/config/settings.config.php';
 		include_once SP_LC_PATH . '/admin/views/sp-framework/config/tools.config.php';
 		include_once SP_LC_PATH . '/admin/views/sp-framework/config/metabox.config.php';
-
 	}
 }

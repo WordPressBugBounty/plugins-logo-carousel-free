@@ -146,7 +146,7 @@ class Logo_Carousel_Free_Offer_Banner {
 					</div>
 				<?php } ?>
 				<div class="sp_lcfree-offer-additional-text">
-					<span class="sp_lcfree-clock-icon">⏱</span><p><?php esc_html_e( 'Limited Time Offer, Upgrade Now!', 'wp-carousel-free' ); ?></p>
+					<span class="sp_lcfree-clock-icon">⏱</span><p><?php esc_html_e( 'Limited Time Offer, Upgrade Now!', 'logo-carousel-free' ); ?></p>
 				</div>
 				<?php if ( ! empty( $action_url ) ) { ?>
 					<div class="sp_lcfree-banner-action-button">

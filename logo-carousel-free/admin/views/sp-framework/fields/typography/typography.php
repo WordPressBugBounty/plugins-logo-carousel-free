@@ -81,7 +81,7 @@ if ( ! class_exists( 'SPLC_FREE_Field_typography' ) ) {
 					'custom_style'       => false,
 					'compact'            => false,
 					'margin_bottom'      => false,
-					'exclude'            => '',
+					'exclude'            => '', // phpcs:ignore
 					'unit'               => 'px',
 					'line_height_unit'   => '',
 					'preview_text'       => 'The quick brown fox jumps over the lazy dog',

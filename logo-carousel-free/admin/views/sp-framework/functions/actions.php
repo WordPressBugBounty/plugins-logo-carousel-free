@@ -22,7 +22,7 @@ if ( ! function_exists( 'splogocarousel_get_icons' ) ) {
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'splogocarousel_icon_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'splogocarousel' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ) );
 		}
 
 		ob_start();
@@ -45,7 +45,7 @@ if ( ! function_exists( 'splogocarousel_get_icons' ) ) {
 			}
 		} else {
 
-				echo '<div class="splogocarousel-error-text">' . esc_html__( 'No data available.', 'splogocarousel' ) . '</div>';
+				echo '<div class="splogocarousel-error-text">' . esc_html__( 'No data available.', 'logo-carousel-free' ) . '</div>';
 
 		}
 
@@ -71,7 +71,7 @@ if ( ! function_exists( 'splogocarousel_reset_ajax' ) ) {
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'splogocarousel_backup_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'splogocarousel' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ) );
 		}
 
 		delete_option( $unique );
@@ -95,20 +95,20 @@ if ( ! function_exists( 'splogocarousel_chosen_ajax' ) ) {
 
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'splogocarousel_chosen_ajax_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'splogocarousel' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ) );
 		}
 		$type  = ( ! empty( $_POST['type'] ) ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : '';
 		$term  = ( ! empty( $_POST['term'] ) ) ? sanitize_text_field( wp_unslash( $_POST['term'] ) ) : '';
 		$query = ( ! empty( $_POST['query_args'] ) ) ? wp_kses_post_deep( wp_unslash( $_POST['query_args'] ) ) : array(); // phpcs:ignore
 
 		if ( empty( $type ) || empty( $term ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'splogocarousel' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'logo-carousel-free' ) ) );
 		}
 
 		$capability = apply_filters( 'splogocarousel_chosen_ajax_capability', 'manage_options' );
 
 		if ( ! current_user_can( $capability ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'splogocarousel' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'logo-carousel-free' ) ) );
 		}
 
 		// Success.

@@ -102,7 +102,7 @@ if ( ! class_exists( 'SPLC_FREE_Field_radio' ) ) {
 
 				} else {
 
-					echo ! empty( $this->field['empty_message'] ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'splogocarousel' );
+					echo ! empty( $this->field['empty_message'] ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'logo-carousel-free' );
 
 				}
 			} else {

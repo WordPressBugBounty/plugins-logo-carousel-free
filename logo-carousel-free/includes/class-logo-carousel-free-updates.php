@@ -38,6 +38,7 @@ class Logo_Carousel_Free_Updates {
 		'3.4.18' => 'updates/update-3.4.18.php',
 		'3.5.0'  => 'updates/update-3.5.0.php',
 		'3.6.0'  => 'updates/update-3.6.0.php',
+		'3.6.5'  => 'updates/update-3.6.5.php',
 	);
 
 	/**
@@ -114,8 +115,6 @@ class Logo_Carousel_Free_Updates {
 		}
 
 		update_option( 'logo_carousel_free_version', SP_LC_VERSION );
-
 	}
-
 }
 new Logo_Carousel_Free_Updates();
