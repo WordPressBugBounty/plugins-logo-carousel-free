@@ -39,7 +39,7 @@ SPLC::createSection(
 	array(
 		'id'     => 'advanced_settings',
 		'title'  => __( 'Advanced', 'logo-carousel-free' ),
-		'icon'   => '<i class="splogocarousel-tab-icon fa fa-wrench"></i>',
+		'icon'   => '<i class="splogocarousel-tab-icon lc-icon-advanced"></i>',
 		'fields' => array(
 			array(
 				'id'         => 'lcpro_data_remove',
@@ -119,7 +119,7 @@ SPLC::createSection(
 	array(
 		'id'     => 'custom_css_section',
 		'title'  => __( 'Additional CSS', 'logo-carousel-free' ),
-		'icon'   => '<i class="splogocarousel-tab-icon fa fa-file-code-o"></i>',
+		'icon'   => '<i class="splogocarousel-tab-icon lc-icon-code"></i>',
 		'fields' => array(
 			array(
 				'id'       => 'lcpro_custom_css',
@@ -139,7 +139,7 @@ SPLC::createSection(
 	$prefix,
 	array(
 		'title'  => __( 'License Key', 'logo-carousel-free' ),
-		'icon'   => '<i class="splogocarousel-tab-icon fa fa-key"></i>',
+		'icon'   => '<i class="splogocarousel-tab-icon lc-icon-key-01"></i>',
 		'fields' => array(
 			array(
 				'id'   => 'license_key',

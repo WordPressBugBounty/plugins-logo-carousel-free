@@ -434,6 +434,10 @@ if ( ! class_exists( 'SPLC' ) ) {
 					}
 				}
 			}
+			$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // @codingStandardsIgnoreLine.
+			if ( 'lc_help' === $page ) {
+				self::$enqueue = true;
+			}
 
 			if ( ! apply_filters( 'splogocarousel_enqueue_assets', self::$enqueue ) ) {
 				return;
@@ -507,7 +511,6 @@ if ( ! class_exists( 'SPLC' ) ) {
 			// Help Page.
 			add_filter( 'admin_footer_text', array( 'SPLC', 'add_admin_footer_text' ) );
 			add_filter( 'update_footer', array( 'SPLC', 'footer_version_text' ) );
-			$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // @codingStandardsIgnoreLine.
 
 			if ( 'lc_help' === $page ) {
 				wp_enqueue_style( 'sp-lc-admin-help', SP_LC_URL . 'admin/assets/help-page/css/help-page.min.css', array(), SP_LC_VERSION );

@@ -3,7 +3,7 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           3.6.5
+ * Version:           3.6.6
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com
  * Text Domain:       logo-carousel-free
@@ -49,7 +49,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '3.6.5';
+		public $version = '3.6.6';
 
 		/**
 		 * Single instance of the class
@@ -209,10 +209,12 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		public function admin_live_preview_scripts() {
 			$current_screen        = get_current_screen();
 			$the_current_post_type = $current_screen->post_type;
+			if ( 'sp_lc_shortcodes' === $the_current_post_type || 'sp_logo_carousel' === $the_current_post_type || 'sp_logo_carousel_page_lc_settings' === $current_screen->base ) {
+				wp_enqueue_style( 'sp-lc-fontello' );
+			}
 			if ( 'sp_lc_shortcodes' === $the_current_post_type ) {
 				wp_enqueue_style( 'sp-lc-swiper' );
 				wp_enqueue_style( 'sp-lc-font-awesome' );
-				wp_enqueue_style( 'sp-lc-fontello' );
 				wp_enqueue_style( 'sp-lc-style' );
 				wp_enqueue_script( 'sp-lc-swiper-js' );
 			}
@@ -389,7 +391,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 			$new_columns['cb']        = '<input type="checkbox" />';
 			$new_columns['title']     = __( 'Carousel Title', 'logo-carousel-free' );
 			$new_columns['shortcode'] = __( 'Shortcode', 'logo-carousel-free' );
-			$new_columns['']          = '';
+			$new_columns['layout']    = __( 'Layout', 'logo-carousel-free' );
 			$new_columns['date']      = __( 'Date', 'logo-carousel-free' );
 
 			return $new_columns;
@@ -404,11 +406,15 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 * @return void
 		 */
 		public function add_shortcode_form( $column, $post_id ) {
+			$upload_data = get_post_meta( $post_id, 'sp_lcp_layout_options', true );
+			$layout      = isset( $upload_data['lcp_layout'] ) ? $upload_data['lcp_layout'] : '';
 
 			switch ( $column ) {
-
 				case 'shortcode':
 					echo '<div class="lc-after-copy-text"><i class="fa fa-check-circle"></i> ' . esc_html__( 'Shortcode Copied to Clipboard! ', 'logo-carousel-free' ) . '</div><input class="lc_input_shortcode"  style="width: 210px;padding: 6px; cursor:pointer;" type="text" onClick="this.select();" readonly="readonly" value="[logocarousel id=&quot;' . esc_attr( $post_id ) . '&quot;]"/>';
+					break;
+				case 'layout':
+					echo ucwords( str_replace( '-', ' ', $layout ) ); //phpcs:ignore
 					break;
 				default:
 					break;

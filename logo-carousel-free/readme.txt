@@ -2,8 +2,8 @@
 Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
 Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 4.7
-Tested up to: 6.8
-Stable tag: 3.6.5
+Tested up to: 6.8.1
+Stable tag: 3.6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -213,6 +213,13 @@ Thank you!
 
 
 == Changelog ==
+
+= Version 3.6.6 - Jun 25, 2025 =
+* Improved: Add skip-lazy class to preloader icon to skip lazy.
+* Improved: The plugin setting page tab icons.
+* Fix: The help page style issue was identified during testing with the WordPress Playground.
+* Updated: The language(.pot) file.
+* Tested: WordPress 6.8.1 compatibility.
 
 = Version 3.6.5 - Apr 14, 2025 =
 * Fix: The translation-related warning was found with WP 6.8.

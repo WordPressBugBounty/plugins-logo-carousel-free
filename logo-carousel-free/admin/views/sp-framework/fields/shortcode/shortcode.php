@@ -70,6 +70,42 @@ if ( ! class_exists( 'SPLC_FREE_Field_shortcode' ) ) {
 				</div>
 				
 				' : '';
+			} elseif ( ! empty( $this->field['shortcode'] ) && 'pro_notice' === $this->field['shortcode'] ) {
+				if ( ! empty( $post_id ) ) {
+					echo '<div class="lc_shortcode-area lc-pro-notice-wrapper">';
+					echo '<div class="lc-pro-notice-heading">' . sprintf(
+						/* translators: 1: start span tag, 2: close tag. */
+						esc_html__( 'Grow Faster with %1$sPRO%2$s', 'logo-carousel-free' ),
+						'<span>',
+						'</span>'
+					) . '</div>';
+
+					echo '<p class="lc-pro-notice-desc">' . sprintf(
+						/* translators: 1: start bold tag, 2: close tag. */
+						esc_html__( 'Build Trust and Boost Conversions with Sophisticated %1$sLogo Carousel by Pro!%2$s', 'logo-carousel-free' ),
+						'<b>',
+						'</b>'
+					) . '</p>';
+
+					echo '<ul>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( '20+ Beautiful Layouts', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( ' Bulk Upload: Add Unlimited Logos', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Organize Logos in Categories', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Random Logo Display', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Custom Logo Link & Popup', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Ajax Live Filters & Search', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Logo Analytics to Track Clicks', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( 'Stunning Animations & Effects', 'logo-carousel-free' ) . '</li>';
+					echo '<li><i class="lc-icon-check-icon"></i> ' . esc_html__( '120+ Customizations and More', 'logo-carousel-free' ) . '</li>';
+					echo '</ul>';
+
+					echo '<div class="lc-pro-notice-button">';
+					echo '<a class="lc-open-live-demo" href="https://logocarousel.com/pricing/?ref=1" target="_blank">';
+					echo esc_html__( 'Upgrade to Pro Now', 'logo-carousel-free' ) . ' <i class="lc-icon-shuttle_2285485-1"></i>';
+					echo '</a>';
+					echo '</div>';
+					echo '</div>';
+				}
 			} else {
 				echo ( ! empty( $post_id ) ) ? '
 				<div class="splogocarousel-scode-wrap-side">

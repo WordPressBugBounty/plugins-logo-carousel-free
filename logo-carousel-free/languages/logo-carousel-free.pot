@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Logo Carousel v3.6.5\n"
-"POT-Creation-Date: 2025-04-11 17:17+0600\n"
+"Project-Id-Version: Logo Carousel v3.6.6\n"
+"POT-Creation-Date: 2025-06-02 14:23+0600\n"
 "PO-Revision-Date: 2024-07-01 12:13+0600\n"
 "Last-Translator: \n"
 "Language-Team: ShapedPlugin <support@shapedplugin.com>\n"
@@ -203,129 +203,133 @@ msgstr ""
 msgid "Page Builders"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:112
+#: admin/views/sp-framework/config/metabox.config.php:106
+msgid "Unlock Pro Feature"
+msgstr ""
+
+#: admin/views/sp-framework/config/metabox.config.php:136 main.php:394
 msgid "Layout"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:136
+#: admin/views/sp-framework/config/metabox.config.php:160
 msgid "Layout Preset"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:140
+#: admin/views/sp-framework/config/metabox.config.php:164
 msgid "Carousel"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:145
+#: admin/views/sp-framework/config/metabox.config.php:169
 msgid "Grid"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:150
+#: admin/views/sp-framework/config/metabox.config.php:174
 msgid "Multi Rows"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:156
+#: admin/views/sp-framework/config/metabox.config.php:180
 msgid "Masonry"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:162
+#: admin/views/sp-framework/config/metabox.config.php:186
 msgid "Isotope"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:168
+#: admin/views/sp-framework/config/metabox.config.php:192
 msgid "List"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:174
+#: admin/views/sp-framework/config/metabox.config.php:198
 msgid "Inline"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:180
+#: admin/views/sp-framework/config/metabox.config.php:204
 msgid "Table"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:190
-#: admin/views/sp-framework/config/metabox.config.php:212
+#: admin/views/sp-framework/config/metabox.config.php:214
+#: admin/views/sp-framework/config/metabox.config.php:236
 msgid "Carousel Style"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:194
+#: admin/views/sp-framework/config/metabox.config.php:218
 msgid "Standard"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:198
-#: admin/views/sp-framework/config/metabox.config.php:233
+#: admin/views/sp-framework/config/metabox.config.php:222
+#: admin/views/sp-framework/config/metabox.config.php:257
 #: admin/views/sp-framework/fields/typography/typography.php:222
 msgid "Center"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:203
+#: admin/views/sp-framework/config/metabox.config.php:227
 msgid "Ticker"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:213
+#: admin/views/sp-framework/config/metabox.config.php:237
 msgid ""
 "This feature allows you to select the most suitable carousel style between "
 "Standard, Ticker (continuous scrolling), or Center."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:214
-#: admin/views/sp-framework/config/metabox.config.php:391
-#: admin/views/sp-framework/config/metabox.config.php:467
-#: admin/views/sp-framework/config/metabox.config.php:515
-#: admin/views/sp-framework/config/metabox.config.php:675
-#: admin/views/sp-framework/config/metabox.config.php:719
-#: admin/views/sp-framework/config/metabox.config.php:848
-#: admin/views/sp-framework/config/metabox.config.php:1103
-#: admin/views/sp-framework/config/metabox.config.php:1154
-#: admin/views/sp-framework/config/metabox.config.php:1267
-#: admin/views/sp-framework/config/metabox.config.php:1543
-#: admin/views/sp-framework/config/metabox.config.php:1587
-#: admin/views/sp-framework/config/metabox.config.php:1815 main.php:326
+#: admin/views/sp-framework/config/metabox.config.php:238
+#: admin/views/sp-framework/config/metabox.config.php:415
+#: admin/views/sp-framework/config/metabox.config.php:491
+#: admin/views/sp-framework/config/metabox.config.php:539
+#: admin/views/sp-framework/config/metabox.config.php:699
+#: admin/views/sp-framework/config/metabox.config.php:743
+#: admin/views/sp-framework/config/metabox.config.php:872
+#: admin/views/sp-framework/config/metabox.config.php:1127
+#: admin/views/sp-framework/config/metabox.config.php:1178
+#: admin/views/sp-framework/config/metabox.config.php:1291
+#: admin/views/sp-framework/config/metabox.config.php:1567
+#: admin/views/sp-framework/config/metabox.config.php:1611
+#: admin/views/sp-framework/config/metabox.config.php:1839 main.php:328
 msgid "Live Demo"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:221
+#: admin/views/sp-framework/config/metabox.config.php:245
 msgid "Justify Logo"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:225
-#: admin/views/sp-framework/config/metabox.config.php:701
-#: admin/views/sp-framework/config/metabox.config.php:868
+#: admin/views/sp-framework/config/metabox.config.php:249
+#: admin/views/sp-framework/config/metabox.config.php:725
+#: admin/views/sp-framework/config/metabox.config.php:892
 #: admin/views/sp-framework/fields/typography/typography.php:221
 msgid "Left"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:229
-#: admin/views/sp-framework/config/metabox.config.php:706
-#: admin/views/sp-framework/config/metabox.config.php:872
+#: admin/views/sp-framework/config/metabox.config.php:253
+#: admin/views/sp-framework/config/metabox.config.php:730
+#: admin/views/sp-framework/config/metabox.config.php:896
 #: admin/views/sp-framework/fields/typography/typography.php:223
 msgid "Right"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:247
+#: admin/views/sp-framework/config/metabox.config.php:271
 #, php-format
 msgid ""
 "Want to unleash your creativity with %1$s10+ exclusive %2$slayouts%3$s and "
 "design freedom? %4$sGet Pro Now!%5$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:267
+#: admin/views/sp-framework/config/metabox.config.php:291
 msgid "Shortcode Options"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:280
+#: admin/views/sp-framework/config/metabox.config.php:304
 msgid "General Settings"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:286
+#: admin/views/sp-framework/config/metabox.config.php:310
 msgid "Logo Columns"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:287
+#: admin/views/sp-framework/config/metabox.config.php:311
 msgid "Set number of columns in different devices."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:290
+#: admin/views/sp-framework/config/metabox.config.php:314
 #, php-format
 msgid ""
 "%1$sLarge Desktop%2$s - is larger than 1200px,%3$sDesktop%2$s - size is "
@@ -334,258 +338,258 @@ msgid ""
 "than 576px."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:312
+#: admin/views/sp-framework/config/metabox.config.php:336
 msgid "Space"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:313
+#: admin/views/sp-framework/config/metabox.config.php:337
 msgid "Set a margin or space between the logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:315
-#: admin/views/sp-framework/config/metabox.config.php:885
-#: admin/views/sp-framework/config/metabox.config.php:994
-#: admin/views/sp-framework/config/metabox.config.php:1328
-#: admin/views/sp-framework/config/metabox.config.php:1341
-#: admin/views/sp-framework/config/metabox.config.php:1941
-#: admin/views/sp-framework/config/metabox.config.php:2001
+#: admin/views/sp-framework/config/metabox.config.php:339
+#: admin/views/sp-framework/config/metabox.config.php:909
+#: admin/views/sp-framework/config/metabox.config.php:1018
+#: admin/views/sp-framework/config/metabox.config.php:1352
+#: admin/views/sp-framework/config/metabox.config.php:1365
+#: admin/views/sp-framework/config/metabox.config.php:1965
+#: admin/views/sp-framework/config/metabox.config.php:2025
 msgid "px"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:326
+#: admin/views/sp-framework/config/metabox.config.php:350
 msgid "Space Between Logos"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:332
-#: admin/views/sp-framework/config/metabox.config.php:351
+#: admin/views/sp-framework/config/metabox.config.php:356
+#: admin/views/sp-framework/config/metabox.config.php:375
 msgid "Filter Logos"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:333
+#: admin/views/sp-framework/config/metabox.config.php:357
 msgid "Select an option to display by filtering logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:335
+#: admin/views/sp-framework/config/metabox.config.php:359
 msgid "All"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:337
+#: admin/views/sp-framework/config/metabox.config.php:361
 msgid "Category (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:341
+#: admin/views/sp-framework/config/metabox.config.php:365
 msgid "Specific (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:345
+#: admin/views/sp-framework/config/metabox.config.php:369
 msgid "Exclude (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:352
+#: admin/views/sp-framework/config/metabox.config.php:376
 msgid ""
 "This option allows you to choose how many logos are displayed by applying "
 "filters. You can choose to show all logos, filter by categories, or select "
 "specific logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:353
-#: admin/views/sp-framework/config/metabox.config.php:390
-#: admin/views/sp-framework/config/metabox.config.php:514
+#: admin/views/sp-framework/config/metabox.config.php:377
+#: admin/views/sp-framework/config/metabox.config.php:414
+#: admin/views/sp-framework/config/metabox.config.php:538
 msgid "Open Docs"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:361
-#: admin/views/sp-framework/config/metabox.config.php:786
+#: admin/views/sp-framework/config/metabox.config.php:385
+#: admin/views/sp-framework/config/metabox.config.php:810
 msgid "Limit"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:362
+#: admin/views/sp-framework/config/metabox.config.php:386
 msgid "Number of total logos to show."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:363
+#: admin/views/sp-framework/config/metabox.config.php:387
 msgid "Leave it empty to show all logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:377
-#: admin/views/sp-framework/config/metabox.config.php:388
+#: admin/views/sp-framework/config/metabox.config.php:401
+#: admin/views/sp-framework/config/metabox.config.php:412
 msgid "Click Action Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:378
+#: admin/views/sp-framework/config/metabox.config.php:402
 msgid "Set logo detail link type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:380
-#: admin/views/sp-framework/config/metabox.config.php:1351
+#: admin/views/sp-framework/config/metabox.config.php:404
+#: admin/views/sp-framework/config/metabox.config.php:1375
 msgid "Link"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:381
+#: admin/views/sp-framework/config/metabox.config.php:405
 msgid "Popup"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:382
-#: admin/views/sp-framework/config/metabox.config.php:419
-#: admin/views/sp-framework/config/metabox.config.php:461
-#: admin/views/sp-framework/config/metabox.config.php:477
-#: admin/views/sp-framework/config/metabox.config.php:507
-#: admin/views/sp-framework/config/metabox.config.php:668
-#: admin/views/sp-framework/config/metabox.config.php:1134
-#: admin/views/sp-framework/config/metabox.config.php:1474
-#: admin/views/sp-framework/config/metabox.config.php:1489
-#: admin/views/sp-framework/config/metabox.config.php:1555
-#: admin/views/sp-framework/config/metabox.config.php:1616
-#: admin/views/sp-framework/config/metabox.config.php:1685
-#: admin/views/sp-framework/config/metabox.config.php:1738
-#: admin/views/sp-framework/config/metabox.config.php:1754
-#: admin/views/sp-framework/config/metabox.config.php:1786
-#: admin/views/sp-framework/config/metabox.config.php:2127
-#: admin/views/sp-framework/config/metabox.config.php:2138
-#: admin/views/sp-framework/config/metabox.config.php:2150
-#: admin/views/sp-framework/config/metabox.config.php:2160
-#: admin/views/sp-framework/config/metabox.config.php:2171
-#: admin/views/sp-framework/config/metabox.config.php:2182
+#: admin/views/sp-framework/config/metabox.config.php:406
+#: admin/views/sp-framework/config/metabox.config.php:443
+#: admin/views/sp-framework/config/metabox.config.php:485
+#: admin/views/sp-framework/config/metabox.config.php:501
+#: admin/views/sp-framework/config/metabox.config.php:531
+#: admin/views/sp-framework/config/metabox.config.php:692
+#: admin/views/sp-framework/config/metabox.config.php:1158
+#: admin/views/sp-framework/config/metabox.config.php:1498
+#: admin/views/sp-framework/config/metabox.config.php:1513
+#: admin/views/sp-framework/config/metabox.config.php:1579
+#: admin/views/sp-framework/config/metabox.config.php:1640
+#: admin/views/sp-framework/config/metabox.config.php:1709
+#: admin/views/sp-framework/config/metabox.config.php:1762
+#: admin/views/sp-framework/config/metabox.config.php:1778
+#: admin/views/sp-framework/config/metabox.config.php:1810
+#: admin/views/sp-framework/config/metabox.config.php:2151
+#: admin/views/sp-framework/config/metabox.config.php:2162
+#: admin/views/sp-framework/config/metabox.config.php:2174
+#: admin/views/sp-framework/config/metabox.config.php:2184
+#: admin/views/sp-framework/config/metabox.config.php:2195
+#: admin/views/sp-framework/config/metabox.config.php:2206
 msgid "Disabled"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:389
+#: admin/views/sp-framework/config/metabox.config.php:413
 msgid ""
 "This feature allows you to choose between directing to a link, opening a "
 "popup, or disabling the link entirely."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:398
-#: admin/views/sp-framework/config/metabox.config.php:2391
+#: admin/views/sp-framework/config/metabox.config.php:422
+#: admin/views/sp-framework/config/metabox.config.php:2415
 msgid "Open a New Tab"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:405
+#: admin/views/sp-framework/config/metabox.config.php:429
 msgid "Multiple Popup with Nav"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:416
-#: admin/views/sp-framework/config/metabox.config.php:424
+#: admin/views/sp-framework/config/metabox.config.php:440
+#: admin/views/sp-framework/config/metabox.config.php:448
 msgid "Random Order"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:417
+#: admin/views/sp-framework/config/metabox.config.php:441
 msgid "Enable/Disable logo random order."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:418
-#: admin/views/sp-framework/config/metabox.config.php:460
-#: admin/views/sp-framework/config/metabox.config.php:476
-#: admin/views/sp-framework/config/metabox.config.php:506
-#: admin/views/sp-framework/config/metabox.config.php:667
-#: admin/views/sp-framework/config/metabox.config.php:1133
-#: admin/views/sp-framework/config/metabox.config.php:1473
-#: admin/views/sp-framework/config/metabox.config.php:1488
-#: admin/views/sp-framework/config/metabox.config.php:1554
-#: admin/views/sp-framework/config/metabox.config.php:1615
-#: admin/views/sp-framework/config/metabox.config.php:1684
-#: admin/views/sp-framework/config/metabox.config.php:1737
-#: admin/views/sp-framework/config/metabox.config.php:1753
-#: admin/views/sp-framework/config/metabox.config.php:1785
-#: admin/views/sp-framework/config/metabox.config.php:2126
-#: admin/views/sp-framework/config/metabox.config.php:2137
-#: admin/views/sp-framework/config/metabox.config.php:2149
-#: admin/views/sp-framework/config/metabox.config.php:2159
-#: admin/views/sp-framework/config/metabox.config.php:2170
-#: admin/views/sp-framework/config/metabox.config.php:2181
+#: admin/views/sp-framework/config/metabox.config.php:442
+#: admin/views/sp-framework/config/metabox.config.php:484
+#: admin/views/sp-framework/config/metabox.config.php:500
+#: admin/views/sp-framework/config/metabox.config.php:530
+#: admin/views/sp-framework/config/metabox.config.php:691
+#: admin/views/sp-framework/config/metabox.config.php:1157
+#: admin/views/sp-framework/config/metabox.config.php:1497
+#: admin/views/sp-framework/config/metabox.config.php:1512
+#: admin/views/sp-framework/config/metabox.config.php:1578
+#: admin/views/sp-framework/config/metabox.config.php:1639
+#: admin/views/sp-framework/config/metabox.config.php:1708
+#: admin/views/sp-framework/config/metabox.config.php:1761
+#: admin/views/sp-framework/config/metabox.config.php:1777
+#: admin/views/sp-framework/config/metabox.config.php:1809
+#: admin/views/sp-framework/config/metabox.config.php:2150
+#: admin/views/sp-framework/config/metabox.config.php:2161
+#: admin/views/sp-framework/config/metabox.config.php:2173
+#: admin/views/sp-framework/config/metabox.config.php:2183
+#: admin/views/sp-framework/config/metabox.config.php:2194
+#: admin/views/sp-framework/config/metabox.config.php:2205
 msgid "Enabled"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:425
+#: admin/views/sp-framework/config/metabox.config.php:449
 msgid ""
 "If you enable this option, logos will be displayed randomly without "
 "following a particular order or sequence."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:433
+#: admin/views/sp-framework/config/metabox.config.php:457
 msgid "Order By"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:434
+#: admin/views/sp-framework/config/metabox.config.php:458
 msgid "Select an order by option."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:436
+#: admin/views/sp-framework/config/metabox.config.php:460
 #: includes/functions.php:20
 msgid "Title"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:437
-#: includes/functions.php:22 main.php:393
+#: admin/views/sp-framework/config/metabox.config.php:461
+#: includes/functions.php:22 main.php:395
 msgid "Date"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:438
+#: admin/views/sp-framework/config/metabox.config.php:462
 msgid "Drag & Drop (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:445
+#: admin/views/sp-framework/config/metabox.config.php:469
 msgid "Order"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:446
+#: admin/views/sp-framework/config/metabox.config.php:470
 msgid "Select an order option."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:448
+#: admin/views/sp-framework/config/metabox.config.php:472
 msgid "Ascending"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:449
+#: admin/views/sp-framework/config/metabox.config.php:473
 msgid "Descending"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:457
-#: admin/views/sp-framework/config/metabox.config.php:465
+#: admin/views/sp-framework/config/metabox.config.php:481
+#: admin/views/sp-framework/config/metabox.config.php:489
 msgid "Scheduling"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:458
+#: admin/views/sp-framework/config/metabox.config.php:482
 msgid "Enable to schedule the display of logos at specific time intervals."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:466
+#: admin/views/sp-framework/config/metabox.config.php:490
 msgid ""
 "This option allows you to schedule the display of logos at specific time "
 "intervals easily."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:473
+#: admin/views/sp-framework/config/metabox.config.php:497
 msgid "Preloader"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:474
+#: admin/views/sp-framework/config/metabox.config.php:498
 msgid "Carousel will be hidden until page load completed."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:484
-#: admin/views/sp-framework/config/metabox.config.php:512
+#: admin/views/sp-framework/config/metabox.config.php:508
+#: admin/views/sp-framework/config/metabox.config.php:536
 msgid "Ajax Logo Live Filters (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:492
+#: admin/views/sp-framework/config/metabox.config.php:516
 #, php-format
 msgid ""
 "To allow your visitors to filter logos by %1$sCategories%2$s, %3$sA-Z "
 "filter%2$s, and Ajax Search on the frontend, %4$sUpgrade To Pro!%2$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:504
+#: admin/views/sp-framework/config/metabox.config.php:528
 msgid "Ajax Logo Live Filters"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:505
+#: admin/views/sp-framework/config/metabox.config.php:529
 msgid ""
 "Enable Ajax live filter to navigate through the logo categories and A-Z "
 "alphabetical filters."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:513
+#: admin/views/sp-framework/config/metabox.config.php:537
 msgid ""
 "Make your visitor's logo search easier by enabling the Ajax live filter. "
 "This powerful feature allows effortless navigation through logo categories, "
@@ -593,186 +597,186 @@ msgid ""
 "what they're looking for."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:524
+#: admin/views/sp-framework/config/metabox.config.php:548
 msgid "Live Filter Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:525
+#: admin/views/sp-framework/config/metabox.config.php:549
 msgid "Select a ajax live filter type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:527
+#: admin/views/sp-framework/config/metabox.config.php:551
 msgid "Category"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:528
+#: admin/views/sp-framework/config/metabox.config.php:552
 msgid "A-Z Filter"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:529
+#: admin/views/sp-framework/config/metabox.config.php:553
 msgid "Category & A-Z"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:539
+#: admin/views/sp-framework/config/metabox.config.php:563
 msgid "Filter Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:540
+#: admin/views/sp-framework/config/metabox.config.php:564
 msgid "Choose a filter button type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:544
+#: admin/views/sp-framework/config/metabox.config.php:568
 msgid "Button"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:548
+#: admin/views/sp-framework/config/metabox.config.php:572
 msgid "Dropdown"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:559
+#: admin/views/sp-framework/config/metabox.config.php:583
 msgid "\"All\" Tab"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:560
+#: admin/views/sp-framework/config/metabox.config.php:584
 msgid "Show/Hide \"All\" tab."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:562
-#: admin/views/sp-framework/config/metabox.config.php:657
-#: admin/views/sp-framework/config/metabox.config.php:762
-#: admin/views/sp-framework/config/metabox.config.php:773
-#: admin/views/sp-framework/config/metabox.config.php:810
-#: admin/views/sp-framework/config/metabox.config.php:841
-#: admin/views/sp-framework/config/metabox.config.php:896
-#: admin/views/sp-framework/config/metabox.config.php:1259
-#: admin/views/sp-framework/config/metabox.config.php:1420
-#: admin/views/sp-framework/config/metabox.config.php:1849
-#: admin/views/sp-framework/config/metabox.config.php:2033
+#: admin/views/sp-framework/config/metabox.config.php:586
+#: admin/views/sp-framework/config/metabox.config.php:681
+#: admin/views/sp-framework/config/metabox.config.php:786
+#: admin/views/sp-framework/config/metabox.config.php:797
+#: admin/views/sp-framework/config/metabox.config.php:834
+#: admin/views/sp-framework/config/metabox.config.php:865
+#: admin/views/sp-framework/config/metabox.config.php:920
+#: admin/views/sp-framework/config/metabox.config.php:1283
+#: admin/views/sp-framework/config/metabox.config.php:1444
+#: admin/views/sp-framework/config/metabox.config.php:1873
+#: admin/views/sp-framework/config/metabox.config.php:2057
 msgid "Show"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:563
-#: admin/views/sp-framework/config/metabox.config.php:658
-#: admin/views/sp-framework/config/metabox.config.php:763
-#: admin/views/sp-framework/config/metabox.config.php:774
-#: admin/views/sp-framework/config/metabox.config.php:811
-#: admin/views/sp-framework/config/metabox.config.php:842
-#: admin/views/sp-framework/config/metabox.config.php:897
-#: admin/views/sp-framework/config/metabox.config.php:1260
-#: admin/views/sp-framework/config/metabox.config.php:1421
-#: admin/views/sp-framework/config/metabox.config.php:1850
-#: admin/views/sp-framework/config/metabox.config.php:2034
+#: admin/views/sp-framework/config/metabox.config.php:587
+#: admin/views/sp-framework/config/metabox.config.php:682
+#: admin/views/sp-framework/config/metabox.config.php:787
+#: admin/views/sp-framework/config/metabox.config.php:798
+#: admin/views/sp-framework/config/metabox.config.php:835
+#: admin/views/sp-framework/config/metabox.config.php:866
+#: admin/views/sp-framework/config/metabox.config.php:921
+#: admin/views/sp-framework/config/metabox.config.php:1284
+#: admin/views/sp-framework/config/metabox.config.php:1445
+#: admin/views/sp-framework/config/metabox.config.php:1874
+#: admin/views/sp-framework/config/metabox.config.php:2058
 msgid "Hide"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:572
+#: admin/views/sp-framework/config/metabox.config.php:596
 msgid "\"All\" Tab Label"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:573
+#: admin/views/sp-framework/config/metabox.config.php:597
 msgid "Set \"All\" tab label text."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:582
-#: admin/views/sp-framework/config/metabox.config.php:1188
+#: admin/views/sp-framework/config/metabox.config.php:606
+#: admin/views/sp-framework/config/metabox.config.php:1212
 msgid "Alignment"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:583
+#: admin/views/sp-framework/config/metabox.config.php:607
 msgid "Choose filter button alignment."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:596
-#: admin/views/sp-framework/config/metabox.config.php:600
-#: admin/views/sp-framework/config/metabox.config.php:962
-#: admin/views/sp-framework/config/metabox.config.php:1215
-#: admin/views/sp-framework/config/metabox.config.php:1219
-#: admin/views/sp-framework/config/metabox.config.php:1307
-#: admin/views/sp-framework/config/metabox.config.php:1310
-#: admin/views/sp-framework/config/metabox.config.php:1953
-#: admin/views/sp-framework/config/metabox.config.php:1956
-#: admin/views/sp-framework/config/metabox.config.php:2086
-#: admin/views/sp-framework/config/metabox.config.php:2089
+#: admin/views/sp-framework/config/metabox.config.php:620
+#: admin/views/sp-framework/config/metabox.config.php:624
+#: admin/views/sp-framework/config/metabox.config.php:986
+#: admin/views/sp-framework/config/metabox.config.php:1239
+#: admin/views/sp-framework/config/metabox.config.php:1243
+#: admin/views/sp-framework/config/metabox.config.php:1331
+#: admin/views/sp-framework/config/metabox.config.php:1334
+#: admin/views/sp-framework/config/metabox.config.php:1977
+#: admin/views/sp-framework/config/metabox.config.php:1980
+#: admin/views/sp-framework/config/metabox.config.php:2110
+#: admin/views/sp-framework/config/metabox.config.php:2113
 msgid "Color"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:597
+#: admin/views/sp-framework/config/metabox.config.php:621
 msgid "Set isotope filter category color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:601
-#: admin/views/sp-framework/config/metabox.config.php:1220
-#: admin/views/sp-framework/config/metabox.config.php:1957
+#: admin/views/sp-framework/config/metabox.config.php:625
+#: admin/views/sp-framework/config/metabox.config.php:1244
+#: admin/views/sp-framework/config/metabox.config.php:1981
 msgid "Hover Color"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:602
-#: admin/views/sp-framework/config/metabox.config.php:963
-#: admin/views/sp-framework/config/metabox.config.php:1221
-#: admin/views/sp-framework/config/metabox.config.php:1312
-#: admin/views/sp-framework/config/metabox.config.php:1958
+#: admin/views/sp-framework/config/metabox.config.php:626
+#: admin/views/sp-framework/config/metabox.config.php:987
+#: admin/views/sp-framework/config/metabox.config.php:1245
+#: admin/views/sp-framework/config/metabox.config.php:1336
+#: admin/views/sp-framework/config/metabox.config.php:1982
 msgid "Background"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:603
-#: admin/views/sp-framework/config/metabox.config.php:1959
+#: admin/views/sp-framework/config/metabox.config.php:627
+#: admin/views/sp-framework/config/metabox.config.php:1983
 msgid "Hover Background"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:618
-#: admin/views/sp-framework/config/metabox.config.php:975
-#: admin/views/sp-framework/config/metabox.config.php:1223
-#: admin/views/sp-framework/config/metabox.config.php:1291
-#: admin/views/sp-framework/config/metabox.config.php:1977
+#: admin/views/sp-framework/config/metabox.config.php:642
+#: admin/views/sp-framework/config/metabox.config.php:999
+#: admin/views/sp-framework/config/metabox.config.php:1247
+#: admin/views/sp-framework/config/metabox.config.php:1315
+#: admin/views/sp-framework/config/metabox.config.php:2001
 msgid "Border"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:619
+#: admin/views/sp-framework/config/metabox.config.php:643
 msgid "Set isotope filter category border."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:640
+#: admin/views/sp-framework/config/metabox.config.php:664
 msgid "Display Settings"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:648
+#: admin/views/sp-framework/config/metabox.config.php:672
 msgid "Basic Styles"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:654
+#: admin/views/sp-framework/config/metabox.config.php:678
 msgid "Section Title"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:655
+#: admin/views/sp-framework/config/metabox.config.php:679
 msgid "Display logo section title."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:665
-#: admin/views/sp-framework/config/metabox.config.php:673
+#: admin/views/sp-framework/config/metabox.config.php:689
+#: admin/views/sp-framework/config/metabox.config.php:697
 msgid "Ajax Logo Search"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:666
+#: admin/views/sp-framework/config/metabox.config.php:690
 msgid "Enable/Disable ajax search for logo."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:674
+#: admin/views/sp-framework/config/metabox.config.php:698
 msgid ""
 "With this feature, your website's visitors can easily search for the exact "
 "logo they are looking for. It provides a convenient way for them to find "
 "what they need quickly."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:682
-#: admin/views/sp-framework/config/metabox.config.php:717
+#: admin/views/sp-framework/config/metabox.config.php:706
+#: admin/views/sp-framework/config/metabox.config.php:741
 msgid "Logo Position"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:683
+#: admin/views/sp-framework/config/metabox.config.php:707
 msgid "Choose your logo position to display the logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:687
+#: admin/views/sp-framework/config/metabox.config.php:711
 #: admin/views/sp-framework/fields/typography/typography.php:166
 #: admin/views/sp-framework/fields/typography/typography.php:192
 #: admin/views/sp-framework/fields/typography/typography.php:208
@@ -783,195 +787,195 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:691
-#: admin/views/sp-framework/config/metabox.config.php:750
-#: admin/views/sp-framework/config/metabox.config.php:860
+#: admin/views/sp-framework/config/metabox.config.php:715
+#: admin/views/sp-framework/config/metabox.config.php:774
+#: admin/views/sp-framework/config/metabox.config.php:884
 msgid "Top"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:696
-#: admin/views/sp-framework/config/metabox.config.php:746
-#: admin/views/sp-framework/config/metabox.config.php:864
+#: admin/views/sp-framework/config/metabox.config.php:720
+#: admin/views/sp-framework/config/metabox.config.php:770
+#: admin/views/sp-framework/config/metabox.config.php:888
 msgid "Bottom"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:711
+#: admin/views/sp-framework/config/metabox.config.php:735
 msgid "Overlay"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:718
+#: admin/views/sp-framework/config/metabox.config.php:742
 msgid "This feature allows you to select the placement of logos."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:723
+#: admin/views/sp-framework/config/metabox.config.php:747
 #, php-format
 msgid ""
 "To create a %1$sprofessional-looking logo showcase%2$s with flexible "
 "%3$scontent positions%4$s and boost engagement, %5$sUpgrade To Pro!%6$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:737
+#: admin/views/sp-framework/config/metabox.config.php:761
 msgid "Vertical Alignment"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:738
+#: admin/views/sp-framework/config/metabox.config.php:762
 msgid "Select vertical alignment type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:742
+#: admin/views/sp-framework/config/metabox.config.php:766
 msgid "Middle"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:759
-#: admin/views/sp-framework/config/metabox.config.php:920
+#: admin/views/sp-framework/config/metabox.config.php:783
+#: admin/views/sp-framework/config/metabox.config.php:944
 msgid "Logo Title"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:760
+#: admin/views/sp-framework/config/metabox.config.php:784
 msgid "Show/Hide logo title."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:770
-#: admin/views/sp-framework/config/metabox.config.php:922
+#: admin/views/sp-framework/config/metabox.config.php:794
+#: admin/views/sp-framework/config/metabox.config.php:946
 msgid "Description"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:771
+#: admin/views/sp-framework/config/metabox.config.php:795
 msgid "Show/Hide the logo description."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:781
+#: admin/views/sp-framework/config/metabox.config.php:805
 msgid "Content Display Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:782
+#: admin/views/sp-framework/config/metabox.config.php:806
 msgid "Choose the description display type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:785
+#: admin/views/sp-framework/config/metabox.config.php:809
 msgid "Full"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:797
+#: admin/views/sp-framework/config/metabox.config.php:821
 msgid "Words Limit"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:798
+#: admin/views/sp-framework/config/metabox.config.php:822
 msgid "Set description words limit."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:807
+#: admin/views/sp-framework/config/metabox.config.php:831
 msgid "Read More Button"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:808
+#: admin/views/sp-framework/config/metabox.config.php:832
 msgid "Show/Hide description read more button."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:818
+#: admin/views/sp-framework/config/metabox.config.php:842
 msgid "Tooltips"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:826
+#: admin/views/sp-framework/config/metabox.config.php:850
 #, php-format
 msgid ""
 "Want to enhance your users' experience with %1$seye-catching %2$slogo "
 "tooltips%3$s? %4$sUpgrade To Pro!%5$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:838
-#: admin/views/sp-framework/config/metabox.config.php:846
+#: admin/views/sp-framework/config/metabox.config.php:862
+#: admin/views/sp-framework/config/metabox.config.php:870
 msgid "Tooltip"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:839
+#: admin/views/sp-framework/config/metabox.config.php:863
 msgid "Show/Hide logo tooltip on hover."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:847
+#: admin/views/sp-framework/config/metabox.config.php:871
 msgid ""
 "This feature enables your website visitors to receive information about "
 "logos by simply hovering over them."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:855
-#: admin/views/sp-framework/config/metabox.config.php:1870
+#: admin/views/sp-framework/config/metabox.config.php:879
+#: admin/views/sp-framework/config/metabox.config.php:1894
 msgid "Position"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:856
+#: admin/views/sp-framework/config/metabox.config.php:880
 msgid "Select the tooltip position."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:882
+#: admin/views/sp-framework/config/metabox.config.php:906
 msgid "Tooltip Width"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:883
+#: admin/views/sp-framework/config/metabox.config.php:907
 msgid "Maximum width of the tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:888
+#: admin/views/sp-framework/config/metabox.config.php:912
 msgid "Tooltip Max Width"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:894
+#: admin/views/sp-framework/config/metabox.config.php:918
 msgid "Speech Bubble Arrow"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:905
+#: admin/views/sp-framework/config/metabox.config.php:929
 msgid "Distance"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:906
+#: admin/views/sp-framework/config/metabox.config.php:930
 msgid "The distance between the origin and tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:917
+#: admin/views/sp-framework/config/metabox.config.php:941
 msgid "Tooltip Content Source"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:918
+#: admin/views/sp-framework/config/metabox.config.php:942
 msgid "Choose an content source for the tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:921
-#: admin/views/sp-framework/config/metabox.config.php:2405
+#: admin/views/sp-framework/config/metabox.config.php:945
+#: admin/views/sp-framework/config/metabox.config.php:2429
 msgid "Custom Tooltip Text"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:930
+#: admin/views/sp-framework/config/metabox.config.php:954
 msgid "Tooltip Effect"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:931
+#: admin/views/sp-framework/config/metabox.config.php:955
 msgid "Choose an effect for the tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:933
+#: admin/views/sp-framework/config/metabox.config.php:957
 msgid "Grow"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:934
+#: admin/views/sp-framework/config/metabox.config.php:958
 msgid "Fade"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:935
+#: admin/views/sp-framework/config/metabox.config.php:959
 msgid "Swing"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:936
+#: admin/views/sp-framework/config/metabox.config.php:960
 msgid "Slide"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:937
+#: admin/views/sp-framework/config/metabox.config.php:961
 msgid "Fall"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:938
-#: admin/views/sp-framework/config/metabox.config.php:1038
-#: admin/views/sp-framework/config/metabox.config.php:1095
-#: admin/views/sp-framework/config/metabox.config.php:1499
+#: admin/views/sp-framework/config/metabox.config.php:962
+#: admin/views/sp-framework/config/metabox.config.php:1062
+#: admin/views/sp-framework/config/metabox.config.php:1119
+#: admin/views/sp-framework/config/metabox.config.php:1523
 #: admin/views/sp-framework/fields/border/border.php:94
 #: admin/views/sp-framework/fields/dimensions_advanced/dimensions_advanced.php:98
 #: admin/views/sp-framework/fields/typography/typography.php:259
@@ -979,636 +983,636 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:947
+#: admin/views/sp-framework/config/metabox.config.php:971
 msgid "Tooltip Visibility"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:948
+#: admin/views/sp-framework/config/metabox.config.php:972
 msgid "Choose tooltip visibility."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:950
+#: admin/views/sp-framework/config/metabox.config.php:974
 msgid "Mouseover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:951
+#: admin/views/sp-framework/config/metabox.config.php:975
 msgid "On Click"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:959
+#: admin/views/sp-framework/config/metabox.config.php:983
 msgid "Tooltip Color"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:960
+#: admin/views/sp-framework/config/metabox.config.php:984
 msgid "Set tooltip color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:976
+#: admin/views/sp-framework/config/metabox.config.php:1000
 msgid "Set border for tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:991
-#: admin/views/sp-framework/config/metabox.config.php:1061
-#: admin/views/sp-framework/config/metabox.config.php:1326
-#: admin/views/sp-framework/config/metabox.config.php:1998
+#: admin/views/sp-framework/config/metabox.config.php:1015
+#: admin/views/sp-framework/config/metabox.config.php:1085
+#: admin/views/sp-framework/config/metabox.config.php:1350
+#: admin/views/sp-framework/config/metabox.config.php:2022
 msgid "Border Radius"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:996
+#: admin/views/sp-framework/config/metabox.config.php:1020
 msgid "Set border radius for tooltip."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1007
+#: admin/views/sp-framework/config/metabox.config.php:1031
 msgid "Padding"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1008
+#: admin/views/sp-framework/config/metabox.config.php:1032
 msgid "Set tooltip custom padding."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1022
+#: admin/views/sp-framework/config/metabox.config.php:1046
 msgid "BG, Border & Shadow"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1029
+#: admin/views/sp-framework/config/metabox.config.php:1053
 #, php-format
 msgid ""
 "Want to make your logo showcase %1$svisually impressive%2$s? %3$sUpgrade To "
 "Pro!%4$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1035
+#: admin/views/sp-framework/config/metabox.config.php:1059
 msgid "Logo Background Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1036
+#: admin/views/sp-framework/config/metabox.config.php:1060
 msgid "Choose a logo background type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1039
+#: admin/views/sp-framework/config/metabox.config.php:1063
 #: admin/views/sp-framework/fields/border/border.php:86
 #: admin/views/sp-framework/fields/dimensions_advanced/dimensions_advanced.php:90
 #: admin/views/sp-framework/fields/typography/typography.php:279
 msgid "Solid"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1040
+#: admin/views/sp-framework/config/metabox.config.php:1064
 msgid "Gradient"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1047
+#: admin/views/sp-framework/config/metabox.config.php:1071
 msgid "Logo Border"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1048
+#: admin/views/sp-framework/config/metabox.config.php:1072
 msgid "Set border for logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1062
+#: admin/views/sp-framework/config/metabox.config.php:1086
 msgid "Set logo border radius."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1080
-#: admin/views/sp-framework/config/metabox.config.php:1101
+#: admin/views/sp-framework/config/metabox.config.php:1104
+#: admin/views/sp-framework/config/metabox.config.php:1125
 msgid "BoxShadow"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1081
+#: admin/views/sp-framework/config/metabox.config.php:1105
 msgid "Set boxshadow for the logo."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1085
+#: admin/views/sp-framework/config/metabox.config.php:1109
 #: admin/views/sp-framework/fields/border/border.php:90
 #: admin/views/sp-framework/fields/dimensions_advanced/dimensions_advanced.php:94
 msgid "Inset"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1090
+#: admin/views/sp-framework/config/metabox.config.php:1114
 #: admin/views/sp-framework/fields/border/border.php:91
 #: admin/views/sp-framework/fields/dimensions_advanced/dimensions_advanced.php:95
 msgid "Outset"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1102
+#: admin/views/sp-framework/config/metabox.config.php:1126
 msgid ""
 "The BoxShadow option allows you to apply a box shadow effect to logos, "
 "providing a way to enhance their aesthetics with shadow effects."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1109
+#: admin/views/sp-framework/config/metabox.config.php:1133
 msgid "Ajax Pagination"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1117
+#: admin/views/sp-framework/config/metabox.config.php:1141
 #, php-format
 msgid ""
 "Do you want to enhance your %1$slogo pagination%2$s experience with %3$s10+ "
 "advanced%4$s settings? %5$sUpgrade To Pro!%6$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1130
-#: admin/views/sp-framework/config/metabox.config.php:2019
-#: admin/views/sp-framework/config/metabox.config.php:2030
+#: admin/views/sp-framework/config/metabox.config.php:1154
+#: admin/views/sp-framework/config/metabox.config.php:2043
+#: admin/views/sp-framework/config/metabox.config.php:2054
 msgid "Pagination"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1131
+#: admin/views/sp-framework/config/metabox.config.php:1155
 msgid "Enable/Disable pagination."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1141
-#: admin/views/sp-framework/config/metabox.config.php:1152
+#: admin/views/sp-framework/config/metabox.config.php:1165
+#: admin/views/sp-framework/config/metabox.config.php:1176
 msgid "Pagination Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1142
+#: admin/views/sp-framework/config/metabox.config.php:1166
 msgid "Choose a pagination type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1144
+#: admin/views/sp-framework/config/metabox.config.php:1168
 msgid "Ajax Number Pagination"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1145
+#: admin/views/sp-framework/config/metabox.config.php:1169
 msgid "Load More Button (Ajax)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1146
+#: admin/views/sp-framework/config/metabox.config.php:1170
 msgid "Infinite Scroll (Ajax)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1147
+#: admin/views/sp-framework/config/metabox.config.php:1171
 msgid "No Ajax (Normal Pagination)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1153
+#: admin/views/sp-framework/config/metabox.config.php:1177
 msgid ""
 "This option lets you choose the best pagination style for your website "
 "visitors."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1160
+#: admin/views/sp-framework/config/metabox.config.php:1184
 msgid "Logo(s) To Show Per Page/Click"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1162
+#: admin/views/sp-framework/config/metabox.config.php:1186
 msgid "Set number of logo(s) to show per page or click."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1170
+#: admin/views/sp-framework/config/metabox.config.php:1194
 msgid "Logo(s) To Show Per Click"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1172
+#: admin/views/sp-framework/config/metabox.config.php:1196
 msgid "Set number of logo(s) to show per click."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1180
+#: admin/views/sp-framework/config/metabox.config.php:1204
 msgid "Load More Button Label"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1181
+#: admin/views/sp-framework/config/metabox.config.php:1205
 msgid "Change load more button label text."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1189
+#: admin/views/sp-framework/config/metabox.config.php:1213
 msgid "Choose pagination alignment."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1202
+#: admin/views/sp-framework/config/metabox.config.php:1226
 msgid "Margin"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1203
+#: admin/views/sp-framework/config/metabox.config.php:1227
 msgid "Set pagination margin."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1217
+#: admin/views/sp-framework/config/metabox.config.php:1241
 msgid "Set pagination color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1222
+#: admin/views/sp-framework/config/metabox.config.php:1246
 msgid "Hover BG"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1224
+#: admin/views/sp-framework/config/metabox.config.php:1248
 msgid "Hover Border"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1238
+#: admin/views/sp-framework/config/metabox.config.php:1262
 msgid "CTA Button"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1246
+#: admin/views/sp-framework/config/metabox.config.php:1270
 #, php-format
 msgid ""
 "Want to get a customized %1$sCTA button%2$s below your logo showcase to "
 "boost engagement? %3$sUpgrade To Pro!%4$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1256
-#: admin/views/sp-framework/config/metabox.config.php:1265
+#: admin/views/sp-framework/config/metabox.config.php:1280
+#: admin/views/sp-framework/config/metabox.config.php:1289
 msgid "Contact Us Button"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1258
+#: admin/views/sp-framework/config/metabox.config.php:1282
 msgid "Show/Hide call to action button below logo showcase."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1266
+#: admin/views/sp-framework/config/metabox.config.php:1290
 msgid ""
 "This feature allows you to display a \"Contact Us\" call-to-action button "
 "below the logo showcase so that interested individuals to easily can reach "
 "out to the website owner."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1273
+#: admin/views/sp-framework/config/metabox.config.php:1297
 msgid "Button Style"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1275
+#: admin/views/sp-framework/config/metabox.config.php:1299
 msgid "Choose a call to action button style."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1279
+#: admin/views/sp-framework/config/metabox.config.php:1303
 msgid "Filled"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1283
+#: admin/views/sp-framework/config/metabox.config.php:1307
 msgid "Outline"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1293
+#: admin/views/sp-framework/config/metabox.config.php:1317
 msgid "Set a call to action button border."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1308
+#: admin/views/sp-framework/config/metabox.config.php:1332
 msgid "Set a call to action button color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1311
+#: admin/views/sp-framework/config/metabox.config.php:1335
 msgid "Hover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1313
+#: admin/views/sp-framework/config/metabox.config.php:1337
 msgid "BG Hover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1327
+#: admin/views/sp-framework/config/metabox.config.php:1351
 msgid "Set a border radius for the button shape."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1338
+#: admin/views/sp-framework/config/metabox.config.php:1362
 #: admin/views/sp-framework/fields/typography/typography.php:301
 msgid "Font Size"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1339
+#: admin/views/sp-framework/config/metabox.config.php:1363
 msgid "Set font size for the call to action button."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1347
+#: admin/views/sp-framework/config/metabox.config.php:1371
 msgid "Link Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1349
+#: admin/views/sp-framework/config/metabox.config.php:1373
 msgid "Choose a link type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1352
-#: admin/views/sp-framework/config/metabox.config.php:1371
+#: admin/views/sp-framework/config/metabox.config.php:1376
+#: admin/views/sp-framework/config/metabox.config.php:1395
 msgid "Email"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1353
+#: admin/views/sp-framework/config/metabox.config.php:1377
 msgid "Phone"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1360
+#: admin/views/sp-framework/config/metabox.config.php:1384
 msgid "Link URL"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1362
+#: admin/views/sp-framework/config/metabox.config.php:1386
 msgid "Type custom URL for the call to action button."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1364
-#: admin/views/sp-framework/config/metabox.config.php:1375
+#: admin/views/sp-framework/config/metabox.config.php:1388
+#: admin/views/sp-framework/config/metabox.config.php:1399
 msgid "Open a New Tab "
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1373
+#: admin/views/sp-framework/config/metabox.config.php:1397
 msgid "Type custom email for the call to action button."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1382
+#: admin/views/sp-framework/config/metabox.config.php:1406
 msgid "Phone Number"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1384
+#: admin/views/sp-framework/config/metabox.config.php:1408
 msgid "Type your phone number for the call to action button."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1386
+#: admin/views/sp-framework/config/metabox.config.php:1410
 msgid "Open a Popup "
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1394
+#: admin/views/sp-framework/config/metabox.config.php:1418
 msgid "Text Label"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1395
+#: admin/views/sp-framework/config/metabox.config.php:1419
 msgid "Change call to action button text."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1411
+#: admin/views/sp-framework/config/metabox.config.php:1435
 msgid "Logo Image Settings"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1417 class/logo.php:99
+#: admin/views/sp-framework/config/metabox.config.php:1441 class/logo.php:99
 #: includes/functions.php:56
 msgid "Logo Image"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1418
+#: admin/views/sp-framework/config/metabox.config.php:1442
 msgid "Show/Hide logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1428
+#: admin/views/sp-framework/config/metabox.config.php:1452
 msgid "Logo Image Dimensions"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1430
+#: admin/views/sp-framework/config/metabox.config.php:1454
 msgid "Set a size for logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1436
+#: admin/views/sp-framework/config/metabox.config.php:1460
 msgid "Custom Logo Size"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1437
+#: admin/views/sp-framework/config/metabox.config.php:1461
 msgid "Set width and height of the logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1466
+#: admin/views/sp-framework/config/metabox.config.php:1490
 msgid "Load 2x Resolution Image in Retina Display"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1468
+#: admin/views/sp-framework/config/metabox.config.php:1492
 msgid ""
 "You should upload 2x sized images for the retina display.\n"
 "\t\t\t\t"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1482
+#: admin/views/sp-framework/config/metabox.config.php:1506
 msgid "Lazy Load"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1484
+#: admin/views/sp-framework/config/metabox.config.php:1508
 msgid "Enable to activate lazy loading for logo images."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1495
-#: admin/views/sp-framework/config/metabox.config.php:1541
+#: admin/views/sp-framework/config/metabox.config.php:1519
+#: admin/views/sp-framework/config/metabox.config.php:1565
 msgid "Hover Animation"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1496
+#: admin/views/sp-framework/config/metabox.config.php:1520
 msgid "Select a hover animation effect for the logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1500
+#: admin/views/sp-framework/config/metabox.config.php:1524
 msgid "Zoom In (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1501
+#: admin/views/sp-framework/config/metabox.config.php:1525
 msgid "Zoom Out (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1502
+#: admin/views/sp-framework/config/metabox.config.php:1526
 msgid "Bounce (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1503
+#: admin/views/sp-framework/config/metabox.config.php:1527
 msgid "Flash (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1504
+#: admin/views/sp-framework/config/metabox.config.php:1528
 msgid "Pulse (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1505
+#: admin/views/sp-framework/config/metabox.config.php:1529
 msgid "RubberBand (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1506
+#: admin/views/sp-framework/config/metabox.config.php:1530
 msgid "ShakeY (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1507
+#: admin/views/sp-framework/config/metabox.config.php:1531
 msgid "Swing (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1508
+#: admin/views/sp-framework/config/metabox.config.php:1532
 msgid "Tada (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1509
+#: admin/views/sp-framework/config/metabox.config.php:1533
 msgid "HeartBeat (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1510
+#: admin/views/sp-framework/config/metabox.config.php:1534
 msgid "BackInDown (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1511
+#: admin/views/sp-framework/config/metabox.config.php:1535
 msgid "BackInLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1512
+#: admin/views/sp-framework/config/metabox.config.php:1536
 msgid "BackInRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1513
+#: admin/views/sp-framework/config/metabox.config.php:1537
 msgid "BounceIn (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1514
+#: admin/views/sp-framework/config/metabox.config.php:1538
 msgid "BounceInLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1515
+#: admin/views/sp-framework/config/metabox.config.php:1539
 msgid "BounceInRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1516
+#: admin/views/sp-framework/config/metabox.config.php:1540
 msgid "FadeIn (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1517
+#: admin/views/sp-framework/config/metabox.config.php:1541
 msgid "FadeInDown (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1518
+#: admin/views/sp-framework/config/metabox.config.php:1542
 msgid "FadeInUp (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1519
+#: admin/views/sp-framework/config/metabox.config.php:1543
 msgid "FadeInTopLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1520
+#: admin/views/sp-framework/config/metabox.config.php:1544
 msgid "FadeInTopRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1521
+#: admin/views/sp-framework/config/metabox.config.php:1545
 msgid "FadeInBottomLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1522
+#: admin/views/sp-framework/config/metabox.config.php:1546
 msgid "FadeInBottomRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1523
+#: admin/views/sp-framework/config/metabox.config.php:1547
 msgid "Flip (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1524
+#: admin/views/sp-framework/config/metabox.config.php:1548
 msgid "FlipInX (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1525
+#: admin/views/sp-framework/config/metabox.config.php:1549
 msgid "FlipInY (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1526
+#: admin/views/sp-framework/config/metabox.config.php:1550
 msgid "LightSpeedInRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1527
+#: admin/views/sp-framework/config/metabox.config.php:1551
 msgid "LightSpeedInLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1528
+#: admin/views/sp-framework/config/metabox.config.php:1552
 msgid "RotateIn (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1529
+#: admin/views/sp-framework/config/metabox.config.php:1553
 msgid "RotateInDownLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1530
+#: admin/views/sp-framework/config/metabox.config.php:1554
 msgid "RotateInDownRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1531
+#: admin/views/sp-framework/config/metabox.config.php:1555
 msgid "RotateInUpRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1532
+#: admin/views/sp-framework/config/metabox.config.php:1556
 msgid "JackInTheBox (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1533
+#: admin/views/sp-framework/config/metabox.config.php:1557
 msgid "SlideInDown (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1534
+#: admin/views/sp-framework/config/metabox.config.php:1558
 msgid "SlideInLeft (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1535
+#: admin/views/sp-framework/config/metabox.config.php:1559
 msgid "SlideInRight (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1536
+#: admin/views/sp-framework/config/metabox.config.php:1560
 msgid "SlideInUp (Pro)"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1542
+#: admin/views/sp-framework/config/metabox.config.php:1566
 msgid ""
 "This feature lets you choose a specific animation effect when hovering over "
 "the logo image."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1551
+#: admin/views/sp-framework/config/metabox.config.php:1575
 msgid "Blur"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1552
+#: admin/views/sp-framework/config/metabox.config.php:1576
 msgid "Enable/Disable loge image blur effect."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1564
+#: admin/views/sp-framework/config/metabox.config.php:1588
 msgid "Opacity"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1565
+#: admin/views/sp-framework/config/metabox.config.php:1589
 msgid "Set opacity for the logo images."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1576
-#: admin/views/sp-framework/config/metabox.config.php:1585
+#: admin/views/sp-framework/config/metabox.config.php:1600
+#: admin/views/sp-framework/config/metabox.config.php:1609
 msgid "Logo Image Mode"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1577
+#: admin/views/sp-framework/config/metabox.config.php:1601
 msgid "Set a mode for logo images."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1579
+#: admin/views/sp-framework/config/metabox.config.php:1603
 msgid "Original"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1580
+#: admin/views/sp-framework/config/metabox.config.php:1604
 msgid "Grayscale"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1581
+#: admin/views/sp-framework/config/metabox.config.php:1605
 msgid "Custom color"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1586
+#: admin/views/sp-framework/config/metabox.config.php:1610
 msgid ""
 "This feature allows you to select the visual style or image mode that aligns "
 "with your design preferences for logo presentation."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1596
+#: admin/views/sp-framework/config/metabox.config.php:1620
 msgid "Grayscale on Hover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1597
+#: admin/views/sp-framework/config/metabox.config.php:1621
 msgid "Check to grayscale logo image on hover."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1604
+#: admin/views/sp-framework/config/metabox.config.php:1628
 msgid "Normal on Hover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1605
+#: admin/views/sp-framework/config/metabox.config.php:1629
 msgid "Check to normal grayscale logo image on hover."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1612
+#: admin/views/sp-framework/config/metabox.config.php:1636
 msgid "Grayscale on Tablet & Mobile"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1614
+#: admin/views/sp-framework/config/metabox.config.php:1638
 msgid ""
 "Enable/Disable grayscale effect on table and mobile screen. Screen smaller "
 "than 736px."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1624
+#: admin/views/sp-framework/config/metabox.config.php:1648
 msgid "Logo Title Attribute"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1625
+#: admin/views/sp-framework/config/metabox.config.php:1649
 msgid "Check to add logo title attribute."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1635
+#: admin/views/sp-framework/config/metabox.config.php:1659
 #, php-format
 msgid ""
 "Ready to fascinate your audience with %1$s30+ stunning %2$slogo hover "
@@ -1616,133 +1620,133 @@ msgid ""
 "dimensions,%6$s and %7$sretina readiness?%6$s %8$sUpgrade To Pro!%9$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1655
+#: admin/views/sp-framework/config/metabox.config.php:1679
 msgid "Carousel Settings"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1663
+#: admin/views/sp-framework/config/metabox.config.php:1687
 msgid "Carousel Basics"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1670
+#: admin/views/sp-framework/config/metabox.config.php:1694
 msgid "Carousel Orientation"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1671
+#: admin/views/sp-framework/config/metabox.config.php:1695
 msgid "Choose a carousel orientation."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1673
+#: admin/views/sp-framework/config/metabox.config.php:1697
 msgid "Horizontal"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1674
+#: admin/views/sp-framework/config/metabox.config.php:1698
 msgid "Vertical"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1682
+#: admin/views/sp-framework/config/metabox.config.php:1706
 msgid "AutoPlay"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1683
+#: admin/views/sp-framework/config/metabox.config.php:1707
 msgid "Enable/Disable autoplay for the carousel."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1693
-#: admin/views/sp-framework/config/metabox.config.php:1709
+#: admin/views/sp-framework/config/metabox.config.php:1717
+#: admin/views/sp-framework/config/metabox.config.php:1733
 msgid "AutoPlay Delay Time"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1694
+#: admin/views/sp-framework/config/metabox.config.php:1718
 msgid "Set autoplay delay time in millisecond."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1696
 #: admin/views/sp-framework/config/metabox.config.php:1720
+#: admin/views/sp-framework/config/metabox.config.php:1744
 msgid "ms"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1710
+#: admin/views/sp-framework/config/metabox.config.php:1734
 msgid ""
 "Set autoplay delay or interval time. The amount of time to delay between "
 "automatically cycling a weather item. e.g. 1000 milliseconds(ms) = 1 second."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1718
-#: admin/views/sp-framework/config/metabox.config.php:1728
+#: admin/views/sp-framework/config/metabox.config.php:1742
+#: admin/views/sp-framework/config/metabox.config.php:1752
 msgid "Carousel Speed"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1719
+#: admin/views/sp-framework/config/metabox.config.php:1743
 msgid "Set carousel scroll speed in millisecond."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1729
+#: admin/views/sp-framework/config/metabox.config.php:1753
 msgid "Set carousel scrolling speed. e.g. 1000 milliseconds(ms) = 1 second."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1735
+#: admin/views/sp-framework/config/metabox.config.php:1759
 msgid "Pause on Hover"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1736
+#: admin/views/sp-framework/config/metabox.config.php:1760
 msgid "Enable/Disable pause on hover carousel."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1751
+#: admin/views/sp-framework/config/metabox.config.php:1775
 msgid "Carousel Starts on Screen"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1752
+#: admin/views/sp-framework/config/metabox.config.php:1776
 msgid ""
 "Enable the option to start the carousel when the carousel comes on screen."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1768
+#: admin/views/sp-framework/config/metabox.config.php:1792
 msgid "Slide To Scroll"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1769
+#: admin/views/sp-framework/config/metabox.config.php:1793
 msgid "Set number of slide to scroll on devices."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1783
+#: admin/views/sp-framework/config/metabox.config.php:1807
 msgid "Infinite Loop"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1784
+#: admin/views/sp-framework/config/metabox.config.php:1808
 msgid "Enable/Disable infinite looping for the carousel."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1793
+#: admin/views/sp-framework/config/metabox.config.php:1817
 msgid "Carousel Direction"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1794
+#: admin/views/sp-framework/config/metabox.config.php:1818
 msgid "Set carousel direction as you need."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1796
+#: admin/views/sp-framework/config/metabox.config.php:1820
 msgid "Right to Left"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1797
+#: admin/views/sp-framework/config/metabox.config.php:1821
 msgid "Left to Right"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1805
+#: admin/views/sp-framework/config/metabox.config.php:1829
 msgid "Row"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1806
+#: admin/views/sp-framework/config/metabox.config.php:1830
 msgid "Set number of row on devices."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1815
+#: admin/views/sp-framework/config/metabox.config.php:1839
 msgid "Multi Row"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1822
+#: admin/views/sp-framework/config/metabox.config.php:1846
 #, php-format
 msgid ""
 "To create engaging logo slideshows with intuitive scrolling, %1$smulti-"
@@ -1750,283 +1754,283 @@ msgid ""
 "carousels, %6$sUpgrade To Pro!%7$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1835
-#: admin/views/sp-framework/config/metabox.config.php:1846
+#: admin/views/sp-framework/config/metabox.config.php:1859
+#: admin/views/sp-framework/config/metabox.config.php:1870
 msgid "Navigation"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1848
-#: admin/views/sp-framework/config/metabox.config.php:2032
+#: admin/views/sp-framework/config/metabox.config.php:1872
+#: admin/views/sp-framework/config/metabox.config.php:2056
 msgid "Show/hide navigation."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1859
-#: admin/views/sp-framework/config/metabox.config.php:2043
+#: admin/views/sp-framework/config/metabox.config.php:1883
+#: admin/views/sp-framework/config/metabox.config.php:2067
 msgid "Hide on Mobile"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1871
+#: admin/views/sp-framework/config/metabox.config.php:1895
 msgid "Select a position of the navigation arrows."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1873
+#: admin/views/sp-framework/config/metabox.config.php:1897
 msgid "Top Right"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1874
+#: admin/views/sp-framework/config/metabox.config.php:1898
 msgid "Top Center"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1875
+#: admin/views/sp-framework/config/metabox.config.php:1899
 msgid "Top Left"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1876
+#: admin/views/sp-framework/config/metabox.config.php:1900
 msgid "Bottom Left"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1877
+#: admin/views/sp-framework/config/metabox.config.php:1901
 msgid "Bottom Center"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1878
+#: admin/views/sp-framework/config/metabox.config.php:1902
 msgid "Bottom Right"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1879
+#: admin/views/sp-framework/config/metabox.config.php:1903
 msgid "Vertical Center Inner"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1880
+#: admin/views/sp-framework/config/metabox.config.php:1904
 msgid "Vertical Outer"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1881
+#: admin/views/sp-framework/config/metabox.config.php:1905
 msgid "Vertical Center"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1896
+#: admin/views/sp-framework/config/metabox.config.php:1920
 msgid "Navigation Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1897
+#: admin/views/sp-framework/config/metabox.config.php:1921
 msgid "Select the carousel navigation type."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1899
+#: admin/views/sp-framework/config/metabox.config.php:1923
 msgid "Arrow"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1900
+#: admin/views/sp-framework/config/metabox.config.php:1924
 msgid "Text"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1914
+#: admin/views/sp-framework/config/metabox.config.php:1938
 msgid "Arrow Type"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1915
+#: admin/views/sp-framework/config/metabox.config.php:1939
 msgid "Choose a navigation arrow icon for the carousel."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1938
+#: admin/views/sp-framework/config/metabox.config.php:1962
 msgid "Icon Size"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1939
+#: admin/views/sp-framework/config/metabox.config.php:1963
 msgid "Set font size for the arrow icon."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1954
+#: admin/views/sp-framework/config/metabox.config.php:1978
 msgid "Set navigation color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:1978
+#: admin/views/sp-framework/config/metabox.config.php:2002
 msgid "Set border for navigation."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2002
+#: admin/views/sp-framework/config/metabox.config.php:2026
 msgid "%"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2004
+#: admin/views/sp-framework/config/metabox.config.php:2028
 msgid "Set navigation border radius."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2052
+#: admin/views/sp-framework/config/metabox.config.php:2076
 msgid "Pagination Style"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2053
+#: admin/views/sp-framework/config/metabox.config.php:2077
 msgid "Select a style for pagination."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2057
+#: admin/views/sp-framework/config/metabox.config.php:2081
 msgid "Bullets"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2061
+#: admin/views/sp-framework/config/metabox.config.php:2085
 msgid "Dynamic"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2066
+#: admin/views/sp-framework/config/metabox.config.php:2090
 msgid "Strokes"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2071
+#: admin/views/sp-framework/config/metabox.config.php:2095
 msgid "Scrollbar"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2076
+#: admin/views/sp-framework/config/metabox.config.php:2100
 msgid "Numbers"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2087
+#: admin/views/sp-framework/config/metabox.config.php:2111
 msgid "Set pagination dots color."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2090
+#: admin/views/sp-framework/config/metabox.config.php:2114
 msgid "Active Color"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2107
+#: admin/views/sp-framework/config/metabox.config.php:2131
 #, php-format
 msgid ""
 "Want even more fine-tuned control over your %1$sCarousel Pagination%2$s "
 "display? %3$sUpgrade To Pro!%4$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2118
+#: admin/views/sp-framework/config/metabox.config.php:2142
 msgid "Miscellaneous"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2124
+#: admin/views/sp-framework/config/metabox.config.php:2148
 msgid "Adaptive Height"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2125
+#: admin/views/sp-framework/config/metabox.config.php:2149
 msgid "Enable/Disable adaptive height to set fixed height for the carousel."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2135
+#: admin/views/sp-framework/config/metabox.config.php:2159
 msgid "Tab & Key Navigation"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2136
+#: admin/views/sp-framework/config/metabox.config.php:2160
 msgid "Enable/Disable carousel scroll with tab and keyboard."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2146
+#: admin/views/sp-framework/config/metabox.config.php:2170
 msgid "Touch Swipe"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2147
+#: admin/views/sp-framework/config/metabox.config.php:2171
 msgid "Enable/Disable touch swipe mode."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2157
+#: admin/views/sp-framework/config/metabox.config.php:2181
 msgid "Mouse Draggable"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2158
+#: admin/views/sp-framework/config/metabox.config.php:2182
 msgid "Enable/Disable mouse draggable mode."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2168
+#: admin/views/sp-framework/config/metabox.config.php:2192
 msgid "Free Mode"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2169
+#: admin/views/sp-framework/config/metabox.config.php:2193
 msgid "Enable/Disable carousel free mode."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2179
+#: admin/views/sp-framework/config/metabox.config.php:2203
 msgid "Swipe To Slide"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2180
+#: admin/views/sp-framework/config/metabox.config.php:2204
 msgid ""
 "Allow users to drag or swipe directly to a slide irrespective of slides to "
 "scroll."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2200
+#: admin/views/sp-framework/config/metabox.config.php:2224
 msgid "Typography"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2209
+#: admin/views/sp-framework/config/metabox.config.php:2233
 #, php-format
 msgid ""
 "Want to customize everything %1$s(Colors and Typography)%2$s easily? "
 "%3$sUpgrade To Pro%4$s!"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2220
+#: admin/views/sp-framework/config/metabox.config.php:2244
 msgid "Section Title Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2221
+#: admin/views/sp-framework/config/metabox.config.php:2245
 msgid "Set section title font properties."
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2242
+#: admin/views/sp-framework/config/metabox.config.php:2266
 msgid "Logo Title Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2243
+#: admin/views/sp-framework/config/metabox.config.php:2267
 msgid "Set logo title font properties"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2262
+#: admin/views/sp-framework/config/metabox.config.php:2286
 msgid "Logo Body/Description Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2263
+#: admin/views/sp-framework/config/metabox.config.php:2287
 msgid "Set logo description font properties"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2283
+#: admin/views/sp-framework/config/metabox.config.php:2307
 msgid "Read More Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2284
+#: admin/views/sp-framework/config/metabox.config.php:2308
 msgid "Set description read more font properties"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2301
+#: admin/views/sp-framework/config/metabox.config.php:2325
 msgid "Popup Title Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2302
+#: admin/views/sp-framework/config/metabox.config.php:2326
 msgid "Set logo popup title font properties"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2321
+#: admin/views/sp-framework/config/metabox.config.php:2345
 msgid "Popup Description Font"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2322
+#: admin/views/sp-framework/config/metabox.config.php:2346
 msgid "Set logo popup description font properties"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2352
+#: admin/views/sp-framework/config/metabox.config.php:2376
 msgid "Logo Link URL"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2367
+#: admin/views/sp-framework/config/metabox.config.php:2391
 msgid "Link & Tooltip"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2374
+#: admin/views/sp-framework/config/metabox.config.php:2398
 msgid "Custom URL"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2377
+#: admin/views/sp-framework/config/metabox.config.php:2401
 #, php-format
 msgid "To add a link URL for the logo, %1$sUpgrade to Pro!%2$s"
 msgstr ""
 
-#: admin/views/sp-framework/config/metabox.config.php:2398
+#: admin/views/sp-framework/config/metabox.config.php:2422
 msgid "Nofollow"
 msgstr ""
 
@@ -2309,7 +2313,59 @@ msgstr ""
 msgid "Shortcode Copied to Clipboard!"
 msgstr ""
 
-#: admin/views/sp-framework/fields/shortcode/shortcode.php:80
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:78
+#, php-format
+msgid "Grow Faster with %1$sPRO%2$s"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:85
+#, php-format
+msgid ""
+"Build Trust and Boost Conversions with Sophisticated %1$sLogo Carousel by "
+"Pro!%2$s"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:91
+msgid "20+ Beautiful Layouts"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:92
+msgid " Bulk Upload: Add Unlimited Logos"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:93
+msgid "Organize Logos in Categories"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:94
+msgid "Random Logo Display"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:95
+msgid "Custom Logo Link & Popup"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:96
+msgid "Ajax Live Filters & Search"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:97
+msgid "Logo Analytics to Track Clicks"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:98
+msgid "Stunning Animations & Effects"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:99
+msgid "120+ Customizations and More"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:104
+msgid "Upgrade to Pro Now"
+msgstr ""
+
+#: admin/views/sp-framework/fields/shortcode/shortcode.php:116
 #, php-format
 msgid ""
 "Logo Carousel has seamless integration with Gutenberg, Classic Editor, "
@@ -2683,23 +2739,23 @@ msgstr ""
 msgid "Duplicate"
 msgstr ""
 
-#: main.php:304
+#: main.php:306
 msgid "Add New"
 msgstr ""
 
-#: main.php:308
+#: main.php:310
 msgid "Go Pro!"
 msgstr ""
 
-#: main.php:390
+#: main.php:392
 msgid "Carousel Title"
 msgstr ""
 
-#: main.php:391
+#: main.php:393
 msgid "Shortcode"
 msgstr ""
 
-#: main.php:411
+#: main.php:414
 msgid "Shortcode Copied to Clipboard! "
 msgstr ""
 

@@ -100,6 +100,30 @@ SPLC::createSection(
 	)
 );
 
+SPLC::createMetabox(
+	'sp_lcp_pro_notice',
+	array(
+		'title'            => __( 'Unlock Pro Feature', 'logo-carousel-free' ),
+		'post_type'        => array( 'sp_lc_shortcodes', 'sp_logo_carousel' ),
+		'context'          => 'side',
+		'show_restore'     => false,
+		'sp_lcp_shortcode' => false,
+	)
+);
+
+SPLC::createSection(
+	'sp_lcp_pro_notice',
+	array(
+		'fields' => array(
+			array(
+				'type'      => 'shortcode',
+				'shortcode' => 'pro_notice',
+				'class'     => 'sp_tpro-admin-sidebar',
+			),
+		),
+	)
+);
+
 /**
  * Layout metabox.
  *
