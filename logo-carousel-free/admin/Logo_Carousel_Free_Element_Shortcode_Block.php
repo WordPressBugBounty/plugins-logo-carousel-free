@@ -8,6 +8,10 @@
  * @author     ShapedPlugin <support@shapedplugin.com>
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Logo_Carousel_Free_Element_Shortcode_Block
  */
@@ -141,8 +145,6 @@ class Logo_Carousel_Free_Element_Shortcode_Block {
 		// Register widget.
 		require_once SP_LC_PATH . 'admin/ElementBlock/Logo_Carousel_Free_Element_Shortcode_Widget.php';
 		\Elementor\Plugin::instance()->widgets_manager->register( new Logo_Carousel_Free_Element_Shortcode_Widget() );
-
 	}
-
 }
 Logo_Carousel_Free_Element_Shortcode_Block::instance();

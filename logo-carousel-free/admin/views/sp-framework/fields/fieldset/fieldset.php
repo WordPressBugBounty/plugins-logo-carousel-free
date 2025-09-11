@@ -41,7 +41,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_fieldset' ) ) {
 		 * @return void
 		 */
 		public function render() {
-
 			echo wp_kses_post( $this->field_before() );
 			echo '<div class="splogocarousel-fieldset-content">';
 			foreach ( $this->field['fields'] as $field ) {
@@ -52,7 +51,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_fieldset' ) ) {
 
 				SPLC::field( $field, $field_value, $unique_id, 'field/fieldset' );
 			}
-
 			echo '</div>';
 			echo wp_kses_post( $this->field_after() );
 		}

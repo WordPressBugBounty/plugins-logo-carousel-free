@@ -87,7 +87,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_layout_preset' ) ) {
 				}
 				echo '</div>';
 			}
-
 			echo wp_kses_post( $this->field_after() );
 		}
 	}

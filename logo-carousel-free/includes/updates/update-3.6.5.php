@@ -5,6 +5,10 @@
  * @package logo-carousel-free
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Update version.
  */

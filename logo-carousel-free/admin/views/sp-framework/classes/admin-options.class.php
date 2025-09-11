@@ -182,7 +182,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 
 			// wp enqueue for typography and output css.
 			parent::__construct();
-
 		}
 
 		/**
@@ -214,7 +213,7 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 					$parents[ $section['parent'] ][] = $section;
 					unset( $sections[ $key ] );
 				}
-				$count++;
+				++$count;
 			}
 
 			foreach ( $sections as $key => $section ) {
@@ -223,7 +222,7 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 					$section['subs'] = wp_list_sort( $parents[ $section['id'] ], array( 'priority' => 'ASC' ), 'ASC', true );
 				}
 				$result[] = $section;
-				$count++;
+				++$count;
 			}
 
 			return wp_list_sort( $result, array( 'priority' => 'ASC' ), 'ASC', true );
@@ -315,7 +314,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 					}
 				}
 			}
-
 		}
 
 		/**
@@ -337,7 +335,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 					)
 				);
 			}
-
 		}
 
 		/**
@@ -370,7 +367,83 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 			if ( $this->args['save_defaults'] && empty( $tmp_options ) ) {
 				$this->save_options( $this->options );
 			}
+		}
 
+		/**
+		 * Sanitize Logo Carousel plugin options.
+		 *
+		 * @param array $options Raw options array.
+		 * @return array Sanitized options array.
+		 */
+		public function sanitize_options( $options ) {
+			if ( ! is_array( $options ) ) {
+				return array();
+			}
+
+			$sanitized = array();
+			// --- spf_transient ---
+			foreach ( $options as $key => $value ) {
+				switch ( $key ) {
+					case 'splogocarousel_transient':
+						// Handle nested array (like section).
+						$sanitized['splogocarousel_transient'] = array();
+						if ( is_array( $value ) ) {
+							foreach ( $value as $sub_key => $sub_val ) {
+								switch ( $sub_key ) {
+									case 'section':
+										$sanitized['splogocarousel_transient']['section'] = sanitize_text_field( $sub_val );
+										break;
+									default:
+										$sanitized['splogocarousel_transient'][ $sub_key ] = sanitize_text_field( $sub_val );
+										break;
+								}
+							}
+						}
+						break;
+
+					// --- Nonce & Referer ---
+					case 'splogocarousel_options_nonce_sp_lcpro_options':
+					case '_wp_http_referer':
+						$sanitized[ $key ] = sanitize_text_field( $value );
+						break;
+
+					// --- _sp_lcpro_options ---
+					case '_sp_lcpro_options':
+						$sanitized['_sp_lcpro_options'] = array();
+						if ( is_array( $value ) ) {
+							foreach ( $value as $sub_key => $sub_val ) {
+								switch ( $sub_key ) {
+									// Boolean-like values.
+									case 'lcpro_data_remove':
+									case 'lcpro_google_fonts':
+									case 'enable_logo_stats':
+									case 'lcpro_fontawesome_css':
+									case 'lcpro_swiper_css':
+									case 'lcpro_swiper_js':
+										$sanitized['_sp_lcpro_options'][ $sub_key ] = (int) $sub_val;
+										break;
+
+									// Custom CSS (remove tags completely).
+									case 'lcpro_custom_css':
+										$sanitized['_sp_lcpro_options'][ $sub_key ] = wp_strip_all_tags( $sub_val );
+										break;
+
+									default:
+										$sanitized['_sp_lcpro_options'][ $sub_key ] = sanitize_text_field( $sub_val );
+										break;
+								}
+							}
+						}
+						break;
+
+					default:
+						// Fallback sanitization for unexpected fields.
+						$sanitized[ $key ] = is_scalar( $value ) ? sanitize_text_field( $value ) : '';
+						break;
+				}
+			}
+
+			return $sanitized;
 		}
 
 		/**
@@ -381,127 +454,104 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 		 */
 		public function set_options( $ajax = false ) {
 
+			// Retrieve nonce.
+			$nonce = '';
+			if ( $ajax && ! empty( $_POST['nonce'] ) ) {
+				// Nonce sent via AJAX request.
+				$nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ) );
+			} elseif ( ! empty( $_POST[ 'splogocarousel_options_nonce' . $this->unique ] ) ) {
+				// Nonce sent via standard form (with unique field key).
+				$nonce = sanitize_text_field( wp_unslash( $_POST[ 'splogocarousel_options_nonce' . $this->unique ] ) );
+			}
+
+			if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'splogocarousel_options_nonce' ) ) {
+				return false;
+			}
+
 			// XSS ok.
 			// No worries, This "POST" requests is sanitizing in the below foreach before saving.
-			$response = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : $_POST; // @codingStandardsIgnoreLine
+			$response = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : wp_unslash( $_POST ); // @codingStandardsIgnoreLine
+			$response = $this->sanitize_options( $response ); // Sanitize json response.
 
 			// Set variables.
-			$data     = array();
-			$noncekey = 'splogocarousel_options_nonce' . $this->unique;
-			$nonce    = ( ! empty( $response[ $noncekey ] ) ) ? $response[ $noncekey ] : '';
+			$data = array();
+			// XSS ok.
+			// No worries, This response sanitizing in the below foreach before saving.
+			$options    = ( ! empty( $response[ $this->unique ] ) ) ? $response[ $this->unique ] : array();
+			$transient  = ( ! empty( $response['splogocarousel_transient'] ) ) ? $response['splogocarousel_transient'] : array();
+			$importing  = false;
+			$section_id = ( ! empty( $transient['section'] ) ) ? absint( $transient['section'] ) : '';
 
-			if ( wp_verify_nonce( $nonce, 'splogocarousel_options_nonce' ) ) {
-				// XSS ok.
-				// No worries, This response sanitizing in the below foreach before saving.
-				$options    = ( ! empty( $response[ $this->unique ] ) ) ? $response[ $this->unique ] : array();
-				$transient  = ( ! empty( $response['splogocarousel_transient'] ) ) ? $response['splogocarousel_transient'] : array();
-				$importing  = false;
-				$section_id = ( ! empty( $transient['section'] ) ) ? absint( $transient['section'] ) : '';
-				if ( ! $ajax && ! empty( $response['splogocarousel_import_data'] ) ) {
+			if ( ! empty( $transient['reset'] ) ) {
 
-					// XSS ok.
-					// No worries, This "POST" requests is sanitizing in the below foreach before saving.
-					$import_data  = json_decode( wp_unslash( trim( $response['splogocarousel_import_data'] ) ), true );
-					$options      = ( is_array( $import_data ) && ! empty( $import_data ) ) ? $import_data : array();
-					$importing    = true;
-					$this->notice = esc_html__( 'Settings successfully imported.', 'logo-carousel-free' );
-
+				foreach ( $this->pre_fields as $field ) {
+					if ( ! empty( $field['id'] ) ) {
+						$data[ $field['id'] ] = $this->get_default( $field );
+					}
 				}
+				$this->notice = esc_html__( 'Default settings restored.', 'logo-carousel-free' );
+			} elseif ( ! empty( $transient['reset_section'] ) && ! empty( $section_id ) ) {
 
-				if ( ! empty( $transient['reset'] ) ) {
-
-					foreach ( $this->pre_fields as $field ) {
+				if ( ! empty( $this->pre_sections[ $section_id - 1 ]['fields'] ) ) {
+					foreach ( $this->pre_sections[ $section_id - 1 ]['fields'] as $field ) {
 						if ( ! empty( $field['id'] ) ) {
 							$data[ $field['id'] ] = $this->get_default( $field );
 						}
 					}
+				}
 
-					$this->notice = esc_html__( 'Default settings restored.', 'logo-carousel-free' );
+				$data         = wp_parse_args( $data, $this->options );
+				$this->notice = esc_html__( 'Default settings restored.', 'logo-carousel-free' );
+			} else {
 
-				} elseif ( ! empty( $transient['reset_section'] ) && ! empty( $section_id ) ) {
+				// Sanitize and validate.
+				foreach ( $this->pre_fields as $field ) {
+					if ( ! empty( $field['id'] ) ) {
+						$field_id    = $field['id'];
+						$field_value = isset( $options[ $field_id ] ) ? $options[ $field_id ] : '';
 
-					if ( ! empty( $this->pre_sections[ $section_id - 1 ]['fields'] ) ) {
-
-						foreach ( $this->pre_sections[ $section_id - 1 ]['fields'] as $field ) {
-							if ( ! empty( $field['id'] ) ) {
-								$data[ $field['id'] ] = $this->get_default( $field );
-							}
+						// Ajax and Importing doing wp_unslash already.
+						if ( ! $ajax && ! $importing ) {
+							$field_value = wp_unslash( $field_value );
 						}
-					}
 
-					$data = wp_parse_args( $data, $this->options );
+						// Sanitize "post" request of field.
+						if ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
+							$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
+						} elseif ( is_array( $field_value ) ) {
 
-					$this->notice = esc_html__( 'Default settings restored.', 'logo-carousel-free' );
+							$data[ $field_id ] = wp_kses_post_deep( $field_value );
+						} else {
+							$data[ $field_id ] = wp_kses_post( $field_value );
+						}
 
-				} else {
+						// Validate "post" request of field.
+						if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
 
-					// Sanitize and validate.
-					foreach ( $this->pre_fields as $field ) {
+							$has_validated = call_user_func( $field['validate'], $field_value );
+							if ( ! empty( $has_validated ) ) {
+								$data[ $field_id ]         = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : '';
+								$this->errors[ $field_id ] = $has_validated;
 
-						if ( ! empty( $field['id'] ) ) {
-
-							$field_id    = $field['id'];
-							$field_value = isset( $options[ $field_id ] ) ? $options[ $field_id ] : '';
-
-							// Ajax and Importing doing wp_unslash already.
-							if ( ! $ajax && ! $importing ) {
-								$field_value = wp_unslash( $field_value );
-							}
-
-							// Sanitize "post" request of field.
-							if ( isset( $field['sanitize'] ) && is_callable( $field['sanitize'] ) ) {
-
-								$data[ $field_id ] = call_user_func( $field['sanitize'], $field_value );
-
-							} else {
-
-								if ( is_array( $field_value ) ) {
-
-									$data[ $field_id ] = wp_kses_post_deep( $field_value );
-
-								} else {
-
-									$data[ $field_id ] = wp_kses_post( $field_value );
-
-								}
-							}
-
-							// Validate "post" request of field.
-							if ( isset( $field['validate'] ) && is_callable( $field['validate'] ) ) {
-
-								$has_validated = call_user_func( $field['validate'], $field_value );
-
-								if ( ! empty( $has_validated ) ) {
-
-									$data[ $field_id ]         = ( isset( $this->options[ $field_id ] ) ) ? $this->options[ $field_id ] : '';
-									$this->errors[ $field_id ] = $has_validated;
-
-								}
 							}
 						}
 					}
 				}
-				$data = apply_filters( "splogocarousel_{$this->unique}_save", $data, $this );
+			}
+			$data = apply_filters( "splogocarousel_{$this->unique}_save", $data, $this );
+			do_action( "splogocarousel_{$this->unique}_save_before", $data, $this );
 
-				do_action( "splogocarousel_{$this->unique}_save_before", $data, $this );
+			$this->options = $data;
+			$this->save_options( $data );
 
-				$this->options = $data;
-
-				$this->save_options( $data );
-
-				do_action( "splogocarousel_{$this->unique}_save_after", $data, $this );
-
-				if ( empty( $this->notice ) ) {
-					$this->notice = esc_html__( 'Settings saved.', 'logo-carousel-free' );
-				}
-
-				return true;
-
+			do_action( "splogocarousel_{$this->unique}_save_after", $data, $this );
+			if ( empty( $this->notice ) ) {
+				$this->notice = esc_html__( 'Settings saved.', 'logo-carousel-free' );
 			}
 
-			return false;
-
+			return true;
 		}
+
 		/**
 		 * Save options database
 		 *
@@ -521,7 +571,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 			}
 
 			do_action( "splogocarousel_{$this->unique}_saved", $data, $this );
-
 		}
 
 		/**
@@ -546,7 +595,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 			}
 
 			return $this->options;
-
 		}
 
 		/**
@@ -555,8 +603,17 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 		 * @return void
 		 */
 		public function add_admin_menu() {
+			$args = $this->args;
 
-			extract( $this->args ); // @codingStandardsIgnoreLine
+			$menu_type       = $args['menu_type'] ?? '';
+			$menu_parent     = $args['menu_parent'] ?? '';
+			$menu_title      = $args['menu_title'] ?? '';
+			$menu_capability = $args['menu_capability'] ?? 'manage_options';
+			$menu_slug       = $args['menu_slug'] ?? '';
+			$menu_icon       = $args['menu_icon'] ?? '';
+			$menu_position   = $args['menu_position'] ?? null;
+			$sub_menu_title  = $args['sub_menu_title'] ?? '';
+			$menu_hidden     = $args['menu_hidden'] ?? false;
 
 			if ( 'submenu' === $menu_type ) {
 
@@ -587,7 +644,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 			}
 
 			add_action( 'load-' . $menu_page, array( &$this, 'add_page_on_load' ) );
-
 		}
 
 		/**
@@ -609,7 +665,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 					$screen->set_help_sidebar( $this->args['contextual_help_sidebar'] );
 				}
 			}
-
 		}
 
 		/**
@@ -729,7 +784,7 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 
 						echo '<li class="splogocarousel-tab-item">';
 
-						echo '<a href="#tab=' . esc_attr( $tab_id ) . '" data-tab-id="' . esc_attr( $tab_id ) . '" class="splogocarousel-arrow">' . $tab_icon . wp_kses_post( $tab['title'] . $tab_error ) . '</a>';
+						echo '<a href="#tab=' . esc_attr( $tab_id ) . '" data-tab-id="' . esc_attr( $tab_id ) . '" class="splogocarousel-arrow">' . wp_kses_post( $tab_icon . $tab['title'] . $tab_error ) . '</a>';
 
 						echo '<ul>';
 
@@ -749,7 +804,7 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 
 					} else {
 
-						echo '<li class="splogocarousel-tab-item"><a href="#tab=' . esc_attr( $tab_id ) . '" data-tab-id="' . esc_attr( $tab_id ) . '">' . $tab_icon . wp_kses_post( $tab['title'] . $tab_error ) . '</a></li>';
+						echo '<li class="splogocarousel-tab-item"><a href="#tab=' . esc_attr( $tab_id ) . '" data-tab-id="' . esc_attr( $tab_id ) . '">' . wp_kses_post( $tab_icon . $tab['title'] . $tab_error ) . '</a></li>';
 
 					}
 				}
@@ -842,7 +897,6 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 			echo '</div>';
 
 			do_action( 'splogocarousel_options_after' );
-
 		}
 	}
 }

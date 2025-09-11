@@ -40,21 +40,23 @@ class Logo_Carousel_Import_Export {
 			$shortcodes = get_posts( $args );
 			if ( ! empty( $shortcodes ) ) {
 				foreach ( $shortcodes as $shortcode ) {
-						$shortcode_export = array(
-							'title'       => $shortcode->post_title,
-							'original_id' => $shortcode->ID,
-							'meta'        => array(),
-						);
-						if ( 'all_logos' === $shortcode_ids ) {
-							$shortcode_export['image']     = get_the_post_thumbnail_url( $shortcode->ID, 'single-post-thumbnail' );
-							$shortcode_export['all_logos'] = 'all_logos';
-						}
-						foreach ( get_post_meta( $shortcode->ID ) as $metakey => $value ) {
-							$shortcode_export['meta'][ $metakey ] = $value[0];
-						}
-						$export['shortcode'][] = $shortcode_export;
+					$shortcode_export = array(
+						'title'       => sanitize_text_field( $shortcode->post_title ),
+						'original_id' => absint( $shortcode->ID ),
+						'meta'        => array(),
+					);
+					if ( 'all_logos' === $shortcode_ids ) {
+						$shortcode_export['image']     = get_the_post_thumbnail_url( $shortcode->ID, 'single-post-thumbnail' );
+						$shortcode_export['all_logos'] = 'all_logos';
+					}
+					foreach ( get_post_meta( $shortcode->ID ) as $metakey => $value ) {
+						$meta_key                              = sanitize_key( $metakey );
+						$meta_value                            = is_serialized( $value[0] ) ? $value[0] : sanitize_text_field( $value[0] );
+						$shortcode_export['meta'][ $meta_key ] = $meta_value;
+					}
+					$export['shortcode'][] = $shortcode_export;
 
-						unset( $shortcode_export );
+					unset( $shortcode_export );
 				}
 				$export['metadata'] = array(
 					'version' => SP_LC_VERSION,
@@ -80,6 +82,12 @@ class Logo_Carousel_Import_Export {
 				401
 			);
 		}
+
+		$_capability = apply_filters( 'splogocarousel_import_export_capability', 'manage_options' );
+		if ( ! current_user_can( $_capability ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'You do not have permission to export.', 'logo-carousel-free' ) ) );
+		}
+
 		$shortcode_ids = '';
 		if ( isset( $_POST['lcp_ids'] ) ) {
 			$shortcode_ids = is_array( $_POST['lcp_ids'] ) ? wp_unslash( array_map( 'absint', $_POST['lcp_ids'] ) ) : sanitize_text_field( wp_unslash( $_POST['lcp_ids'] ) );
@@ -90,7 +98,7 @@ class Logo_Carousel_Import_Export {
 		if ( is_wp_error( $export ) ) {
 			wp_send_json_error(
 				array(
-					'message' => $export->get_error_message(),
+					'message' => esc_html( $export->get_error_message() ),
 				),
 				400
 			);
@@ -120,7 +128,7 @@ class Logo_Carousel_Import_Export {
 		// Does the attachment already exist ?
 		$attachment_id = post_exists( $attachment_title, '', '', 'attachment' );
 		if ( $attachment_id ) {
-			return $attachment_id;
+			return absint( $attachment_id );
 		}
 
 		$http     = new WP_Http();
@@ -133,15 +141,23 @@ class Logo_Carousel_Import_Export {
 			return false;
 		}
 
-		$file_path     = $upload['file'];
-		$file_name     = basename( $file_path );
-		$file_type     = wp_check_filetype( $file_name, null );
+		$file_path = $upload['file'];
+		$file_name = basename( $file_path );
+		$file_type = wp_check_filetype( $file_name, null );
+
+		// Double-check MIME type & restrict to safe file types (images only, here).
+		if ( empty( $file_type['type'] ) || ! wp_match_mime_types( 'image', $file_type['type'] ) ) {
+			// Delete the invalid file immediately.
+			wp_delete_file( $file_path );
+			return false;
+		}
+
 		$wp_upload_dir = wp_upload_dir();
 
 		$post_info = array(
-			'guid'           => $wp_upload_dir['url'] . '/' . $file_name,
-			'post_mime_type' => $file_type['type'],
-			'post_title'     => $attachment_title,
+			'guid'           => esc_url_raw( $wp_upload_dir['url'] . '/' . $file_name ),
+			'post_mime_type' => sanitize_mime_type( $file_type['type'] ),
+			'post_title'     => esc_html( $attachment_title ),
 			'post_content'   => '',
 			'post_status'    => 'inherit',
 		);
@@ -159,7 +175,6 @@ class Logo_Carousel_Import_Export {
 		wp_update_attachment_metadata( $attach_id, $attach_data );
 
 		return $attach_id;
-
 	}
 
 	/**
@@ -180,7 +195,7 @@ class Logo_Carousel_Import_Export {
 			try {
 				$new_shortcode_id = wp_insert_post(
 					array(
-						'post_title'  => isset( $shortcode['title'] ) ? $shortcode['title'] : '',
+						'post_title'  => isset( $shortcode['title'] ) ? sanitize_text_field( $shortcode['title'] ) : '',
 						'post_status' => 'publish',
 						'post_type'   => $lcp_post_type,
 					),
@@ -242,25 +257,55 @@ class Logo_Carousel_Import_Export {
 				401
 			);
 		}
-		$data       = isset( $_POST['shortcode'] ) ? wp_kses_data( wp_unslash( $_POST['shortcode'] ) ) : '';
-		$data       = json_decode( $data );
-		$data       = json_decode( $data, true );
-		$shortcodes = $data['shortcode'];
+
+		$_capability = apply_filters( 'splogocarousel_import_export_capability', 'manage_options' );
+		if ( ! current_user_can( $_capability ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'You do not have permission to import.', 'logo-carousel-free' ) ) );
+		}
+
+		$data = isset( $_POST['shortcode'] ) ? wp_kses_data( wp_unslash( $_POST['shortcode'] ) ) : '';
+
 		if ( ! $data ) {
+			wp_send_json_error( array( 'message' => esc_html__( 'Nothing to import.', 'logo-carousel-free' ) ), 400 );
+		}
+
+		// Decode JSON with error checking.
+		$decoded_data = json_decode( $data, true );
+		if ( is_string( $decoded_data ) ) {
+			$decoded_data = json_decode( $decoded_data, true );
+		}
+		if ( json_last_error() !== JSON_ERROR_NONE ) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'Nothing to import.', 'logo-carousel-free' ),
+					'message' => esc_html__( 'Invalid JSON data.', 'logo-carousel-free' ),
 				),
 				400
 			);
 		}
+
+		// Check if shortcode key exists and is valid.
+		if ( ! isset( $decoded_data['shortcode'] ) || ! is_array( $decoded_data['shortcode'] ) ) {
+			wp_send_json_error(
+				array(
+					'message' => esc_html__( 'Invalid shortcode data structure.', 'logo-carousel-free' ),
+				),
+				400
+			);
+		}
+
+		$shortcodes = map_deep(
+			$decoded_data['shortcode'],
+			function ( $value ) {
+				return is_string( $value ) ? sanitize_text_field( $value ) : $value;
+			}
+		);
 
 		$status = $this->import( $shortcodes );
 
 		if ( is_wp_error( $status ) ) {
 			wp_send_json_error(
 				array(
-					'message' => $status->get_error_message(),
+					'message' => esc_html( $status->get_error_message() ),
 				),
 				400
 			);

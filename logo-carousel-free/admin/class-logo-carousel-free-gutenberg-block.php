@@ -28,6 +28,5 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block' ) ) {
 			require_once SP_LC_PATH . 'admin/GutenbergBlock/class-logo-carousel-free-gutenberg-block-init.php';
 			new Logo_Carousel_Free_Gutenberg_Block_Init();
 		}
-
 	}
 }

@@ -8,6 +8,10 @@
  * @author     ShapedPlugin <support@shapedplugin.com>
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Logo_Carousel_Free_Element_Shortcode_Block_Deprecated
  */
@@ -141,8 +145,6 @@ class Logo_Carousel_Free_Element_Shortcode_Block_Deprecated {
 		// Register widget.
 		require_once SP_LC_PATH . 'admin/ElementBlock_Deprecated/Logo_Carousel_Free_Element_Shortcode_Widget_Deprecated.php';
 		\Elementor\Plugin::instance()->widgets_manager->register( new Logo_Carousel_Free_Element_Shortcode_Widget_Deprecated() );
-
 	}
-
 }
 Logo_Carousel_Free_Element_Shortcode_Block_Deprecated::instance();

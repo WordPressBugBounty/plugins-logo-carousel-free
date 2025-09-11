@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Field: Color g
+ * Field: Color group
  *
  * @link       https://shapedplugin.com/
  *
@@ -42,14 +42,11 @@ if ( ! class_exists( 'SPLC_FREE_Field_color_group' ) ) {
 		 * @return void
 		 */
 		public function render() {
-
 			$options = ( ! empty( $this->field['options'] ) ) ? $this->field['options'] : array();
-
 			echo wp_kses_post( $this->field_before() );
 
 			if ( ! empty( $options ) ) {
 				foreach ( $options as $key => $option ) {
-
 					$color_value  = ( ! empty( $this->value[ $key ] ) ) ? $this->value[ $key ] : '';
 					$default_attr = ( ! empty( $this->field['default'][ $key ] ) ) ? ' data-default-color="' . esc_attr( $this->field['default'][ $key ] ) . '"' : '';
 
@@ -57,13 +54,9 @@ if ( ! class_exists( 'SPLC_FREE_Field_color_group' ) ) {
 					echo '<div class="splogocarousel--title">' . wp_kses_post( $option ) . '</div>';
 					echo '<input type="text" name="' . esc_attr( $this->field_name( '[' . $key . ']' ) ) . '" value="' . esc_attr( $color_value ) . '" class="splogocarousel-color"' . $default_attr . $this->field_attributes() . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					echo '</div>';
-
 				}
 			}
-
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

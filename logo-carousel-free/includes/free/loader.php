@@ -6,6 +6,10 @@
  * @since 3.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * The Free Loader Class
  *
@@ -240,7 +244,17 @@ class SPLC_Free_Loader {
 								<?php } ?>
 								</li>
 								<li>
-									<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal" aria-label="<?php echo esc_attr( sprintf( esc_html__( 'More information about %s', 'logo-carousel-free' ), $plugin['name'] ) ); ?>" title="<?php echo esc_attr( $plugin['name'] ); ?>">
+									<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal" aria-label="
+									<?php
+									echo esc_attr(
+										sprintf(
+											/* translators: %s: Plugin name. */
+											esc_html__( 'More information about %s', 'logo-carousel-free' ),
+											$plugin['name']
+										)
+									);
+									?>
+									" title="<?php echo esc_attr( $plugin['name'] ); ?>">
 								<?php esc_html_e( 'More Details', 'logo-carousel-free' ); ?>
 									</a>
 								</li>
@@ -279,19 +293,26 @@ class SPLC_Free_Loader {
 					}
 					if ( isset( $plugin['active_installs'] ) ) {
 						?>
-						<div class="column-downloaded">
-						<?php echo number_format_i18n( $plugin['active_installs'] ) . esc_html__( '+ Active Installations', 'logo-carousel-free' ); ?>
-						</div>
-									<?php
+							<div class="column-downloaded">
+								<?php echo esc_html( number_format_i18n( $plugin['active_installs'] ) ) . esc_html__( '+ Active Installations', 'logo-carousel-free' ); ?>
+							</div>
+						<?php
 					}
 
 					if ( isset( $plugin['last_updated'] ) ) {
 						?>
 						<div class="column-compatibility">
 							<strong><?php esc_html_e( 'Last Updated:', 'logo-carousel-free' ); ?></strong>
-							<span><?php printf( esc_html__( '%s ago', 'logo-carousel-free' ), esc_html( human_time_diff( $plugin['last_updated'] ) ) ); ?></span>
+							<span>
+								<?php
+								printf( /* translators: %s: Human-readable time difference. */
+									esc_html__( '%s ago', 'logo-carousel-free' ),
+									esc_html( human_time_diff( $plugin['last_updated'] ) )
+								);
+								?>
+							</span>
 						</div>
-									<?php
+						<?php
 					}
 
 					echo '</div>';
@@ -720,7 +741,7 @@ class SPLC_Free_Loader {
 							</div>
 						</div>
 						<div class="sp-logo-carousel-about-img">
-							<img src="https://shapedplugin.com/wp-content/uploads/2024/01/shapedplugin-team.jpg" alt="">
+							<img src="<?php echo esc_url( SP_LC_URL . 'admin/assets/help-page/img/shapedplugin-team.jpg' ); ?>" alt="ShapedPlugin Team">
 							<span>Team ShapedPlugin LLC at WordCamp Sylhet</span>
 						</div>
 					</div>
@@ -839,7 +860,23 @@ class SPLC_Free_Loader {
 		?>
 		<div class="lcp-logo-indicator-notice">Want to know valuable insights or analytics into logos performance? To track impressions, clicks, and more to optimize engagement, <a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>Upgrade to Pro!</b></a></div>
 		<div class="lcp-logo-indicator">
+		<?php echo esc_attr( $this->sp_eap_upgrade_to_pro_btn() ); ?>
 		<img src="<?php echo esc_url( SP_LC_URL ) . 'admin/assets/css/images/analytic.webp'; ?>" alt="logo-indicator">
+		</div>
+		<?php
+	}
+
+	/**
+	 * Display the upgrade to pro button.
+	 *
+	 * @return void
+	 */
+	public function sp_eap_upgrade_to_pro_btn() {
+		?>
+		<div class="lcp-logo-upgrade-to-pro-button">
+			<a href="https://logocarousel.com/pricing/?ref=1" target="_blank">
+				Upgrade to Pro!
+			</a>
 		</div>
 		<?php
 	}

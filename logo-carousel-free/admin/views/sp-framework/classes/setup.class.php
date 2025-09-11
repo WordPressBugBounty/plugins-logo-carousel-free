@@ -143,7 +143,6 @@ if ( ! class_exists( 'SPLC' ) ) {
 			add_action( 'init', array( 'SPLC', 'setup' ) );
 			add_action( 'switch_theme', array( 'SPLC', 'setup' ) );
 			add_action( 'admin_enqueue_scripts', array( 'SPLC', 'add_admin_enqueue_scripts' ) );
-			add_action( 'wp_enqueue_scripts', array( 'SPLC', 'add_typography_enqueue_styles' ), 80 );
 		}
 
 		/**
@@ -348,7 +347,6 @@ if ( ! class_exists( 'SPLC' ) ) {
 					'column',
 					'fieldset',
 					'layout_preset',
-					'license',
 					'notice',
 					'radio',
 					'select',
@@ -453,13 +451,7 @@ if ( ! class_exists( 'SPLC' ) ) {
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
 
-			// Font awesome 4 and 5 loader.
-			if ( apply_filters( 'splogocarousel_fa4', true ) ) {
-				wp_enqueue_style( 'splogocarousel-fa', 'https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome' . $min . '.css', array(), '4.7.0', 'all' );
-			} else {
-				wp_enqueue_style( 'splogocarousel-fa5', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all' . $min . '.css', array(), '5.15.3', 'all' );
-				wp_enqueue_style( 'splogocarousel-fa5-v4-shims', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/v4-shims' . $min . '.css', array(), '5.15.3', 'all' );
-			}
+			wp_enqueue_style( 'spftestimonial-font-awesome-icons', self::include_plugin_url( 'assets/css/font-awesome.min.css' ), array(), self::$version, 'all' );
 
 			// Main style.
 			wp_enqueue_style( 'splogocarousel', self::include_plugin_url( 'assets/css/style' . $min . '.css' ), array(), self::$version, 'all' );
@@ -529,7 +521,7 @@ if ( ! class_exists( 'SPLC' ) ) {
 		 */
 		public static function add_admin_footer_text() {
 			/* translators: %1$s: bold tag start %2$s: bold tag end %3$s: span tag start %4$s: span tag end %5$s: link tag start %6$s: link tag end */
-			$default = sprintf( __( 'Enjoying %1$sLogo Carousel%2$s? Please rate us %3$s★★★★★%4$s on %5$s WordPress.org%6$s. Your positive feedback will help us grow more. Thank you! 😊', 'logo-carousel-free' ), '<b>', '</b>', '<span class="sp-logo-carousel-footer-text-star">', '</span>', '<a href="https://wordpress.org/support/plugin/logo-carousel-free/reviews/?filter=5" target="_blank">', '</a>' );
+			$default = sprintf( __( 'Enjoying %1$sLogo Carousel%2$s? Please rate us %3$s★★★★★%4$s on %5$s WordPress.org%6$s. Your positive feedback will help us grow more. Thank you! 😊', 'logo-carousel-free' ), '<b>', '</b>', '<span class="sp-logo-carousel-footer-text-star">', '</span>', '<a href="https://wordpress.org/support/plugin/logo-carousel-free/reviews/" target="_blank">', '</a>' );
 			echo wp_kses_post( $default );
 		}
 
@@ -542,51 +534,6 @@ if ( ! class_exists( 'SPLC' ) ) {
 			$default = 'Logo Carousel ' . SP_LC_VERSION;
 			echo wp_kses_post( $default );
 		}
-
-		/**
-		 * Add typography enqueue styles to front page.
-		 *
-		 * @return void
-		 */
-		public static function add_typography_enqueue_styles() {
-			if ( ! empty( self::$webfonts ) ) {
-
-				if ( ! empty( self::$webfonts['enqueue'] ) ) {
-
-					$query = array();
-					$fonts = array();
-
-					foreach ( self::$webfonts['enqueue'] as $family => $styles ) {
-						$fonts[] = $family . ( ( ! empty( $styles ) ) ? ':' . implode( ',', $styles ) : '' );
-					}
-
-					if ( ! empty( $fonts ) ) {
-						$query['family'] = implode( '%7C', $fonts );
-					}
-
-					if ( ! empty( self::$subsets ) ) {
-						$query['subset'] = implode( ',', self::$subsets );
-					}
-
-					$query['display'] = 'swap';
-
-				}
-
-				if ( ! empty( self::$webfonts['async'] ) ) {
-
-					$fonts = array();
-
-					foreach ( self::$webfonts['async'] as $family => $styles ) {
-						$fonts[] = $family . ( ( ! empty( $styles ) ) ? ':' . implode( ',', $styles ) : '' );
-					}
-
-					wp_enqueue_script( 'splogocarousel-google-web-fonts', esc_url( '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' ), array(), null, false );
-
-					wp_localize_script( 'splogocarousel-google-web-fonts', 'WebFontConfig', array( 'google' => array( 'families' => $fonts ) ) );
-				}
-			}
-		}
-
 
 		/**
 		 * Add a new framework field

@@ -48,7 +48,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_color' ) ) {
 			echo wp_kses_post( $this->field_before() );
 			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="splogocarousel-color"' . $default_attr . $this->field_attributes() . '/>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo wp_kses_post( $this->field_after() );
-
 		}
 	}
 }

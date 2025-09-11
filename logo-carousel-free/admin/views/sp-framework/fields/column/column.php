@@ -141,8 +141,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_column' ) ) {
 			echo '</div>';
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

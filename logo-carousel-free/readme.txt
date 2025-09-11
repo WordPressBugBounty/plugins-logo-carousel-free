@@ -1,9 +1,10 @@
 === Logo Carousel – Responsive Logo Slider, Logo Showcase, and Clients Logo Gallery ===
 Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
 Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
-Requires at least: 4.7
-Tested up to: 6.8.1
-Stable tag: 3.6.6
+Requires at least: 5.0
+Requires PHP: 7.0
+Tested up to: 6.8
+Stable tag: 3.6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,20 +12,18 @@ Add, display, and manage clients, partners, sponsors, and brand logos with multi
 
 == Description ==
 
-[__Live Demo__](https://logocarousel.com/logo-carousel-lite-version-demos/) | [__Documentation__](https://docs.shapedplugin.com/docs/logo-carousel/introduction/) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
+[__Logo Carousel__](https://logocarousel.com/?ref=1) is a beautiful logo showcase and clients logo gallery plugin that allows you to display a group of logo images in a visually appealing carousel through an intuitive Shortcode Generator. It’s very user-friendly and convenient to manage & display the logo images in your any WordPress site.
+
+The plugin is aesthetically designed for everyone including designers & developers and perfect to display your clients, sponsors, partners, affiliates, supporters, brands logos in a simple and unique style. It is highly customizable and flexible logo showcase builder plugin and NO CODING knowledge required!
 
 [youtube https://www.youtube.com/watch?v=Gf1EbH4T1bg&list=PLoUb-7uG-5jN7hMCpV5dtKLqAMsk_NmZc]
 
-[__Logo Carousel__](https://logocarousel.com/?ref=1) is a beautiful logo showcase and clients logo gallery plugin that allows you to display a group of logo images in a visually appealing carousel through an intuitive Shortcode Generator. It’s very user-friendly and convenient to manage & display the logo images in your any WordPress site.
-
-The plugin is aesthetically designed for everyone including designers & developers and perfect to display your clients, sponsors, partners, affiliates, supporters, brands logos in a simple and unique style. It is highly customizable and flexible logo showcase builder plugin that's both EASY and POWERFUL and NO CODING knowledge required!
-
-
+[__Live Demo__](https://logocarousel.com/logo-carousel-lite-version-demos/) | [__Documentation__](https://docs.shapedplugin.com/docs/logo-carousel/introduction/) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
 
 = Key features comes with this plugin =
 
 * Fully responsive & mobile friendly.
-* Elegant, lightweight, and powerful.
+* Elegant, lightweight.
 * Easy Shortcode Generator.
 * Unlimited logo carousels (Multiple instances on the same page).
 * Unique settings for each carousel.
@@ -88,7 +87,7 @@ The plugin is aesthetically designed for everyone including designers & develope
 
 We are very responsive about support requests – so if you face a problem or find any bugs, post it in the support, and we will respond within 15 hours (except holidays).
 
->Ask us at either via our [__Support__](https://shapedplugin.com/support/?user=lite) or [__WordPress.org__](https://wordpress.org/support/plugin/logo-carousel-free/)
+>Ask us at our [__Support__](https://shapedplugin.com/create-new-ticket/)
 
 
 = Author =
@@ -101,9 +100,9 @@ Designed and Developed by [__ShapedPlugin__](https://shapedplugin.com/)
 
 = MINIMUM REQUIREMENTS =
 
-* PHP 5.6 or later
+* PHP 7.0 or later
 * MySQL 5.6 or later
-* WordPress 4.3 or later
+* WordPress 5.0 or later
 
 **This section describes how to install the plugin and get it working**
 
@@ -151,10 +150,8 @@ Finally, You need insert it any page or post through tinyMCE button easily.
 = Do I need to have coding skills to use Logo Carousel? =
 No. You don’t need any coding skill. No more pain writing any shortcode attributes to display logo carousel in your website. With just few clicks, you can amazingly showcase your logos using Shortcode Generator.
 
-
 = Is Logo Carousel responsive? =
 Yes, Logo Carousel is fully responsive, mobile and touch friendly.
-
 
 = Can I add Logo Carousel anywhere on my website? =
 Yes, you can add Logo Carousel inside your blog posts, pages, widgets, and anywhere else on your WordPress website with a shortcode or PHP function.
@@ -168,30 +165,22 @@ Logo Carousel works with any WordPress theme if themes are developed according t
 = Is Logo Carousel supported with WordPress multisite? =
 Yes, Logo Carousel works perfectly with WordPress multi network site.
 
-
 = How can I get support if the plugin is not working? =
 If you face any problem with our plugin or something is not working as it should, first follow the preliminary steps:
 Test the plugin with a WordPress default theme, to be sure that the error is not caused by the theme you are currently using.
 
 Deactivate all plugins you are using and check if the problem is still occurring.
 
-If none of the previous listed actions helps you solve the problem, then, submit a ticket in the **Support** and describe your problem accurately, specify WordPress and plugin versions you are using and any other information that might help us solve your problem as quickly as possible.
-
-Pro version users [__Support__](https://shapedplugin.com/support/) and Free or Lite Version [__Support__](https://shapedplugin.com/support/?user=lite).
+If none of the previous listed actions helps you solve the problem, then, submit a ticket in the [__Support__](https://shapedplugin.com/create-new-ticket/) and describe your problem accurately, specify WordPress and plugin versions you are using and any other information that might help us solve your problem as quickly as possible.
 
 = Where can I report bugs? =
-Bugs can be reported in our [__Support__](https://shapedplugin.com/support/?user=lite).
+Bugs can be reported in our [__Support__](https://shapedplugin.com/create-new-ticket/).
 
 = I’d like access to more features. How can I get them? =
-You can get access to more features when you purchase a license of the plugin. Purchasing a license of [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) gets you access to the full version of Logo Carousel, automatic lifetime updates and support.
+You can get access to more features when you purchase a license of the plugin. Purchasing a license of [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) gets you access to the full version of Logo Carousel.
 
 = Is Logo Carousel Translation Ready? =
 Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://wpml.org/), [Polylang](https://wordpress.org/plugins/polylang/), [qTranslate-x](https://wordpress.org/plugins/qtranslate-x/), [GTranslate](https://wordpress.org/plugins/gtranslate/), [Google Language Translator](https://wordpress.org/plugins/google-language-translator/), [WPGlobus](https://wordpress.org/plugins/wpglobus/)
-
-= Do you Like this Plugin and want to encourage us for improvement? =
-Please give the plugin [__5 Star__](https://wordpress.org/support/plugin/logo-carousel-free/reviews/?filter=5#new-post) rating and your precious appreciation will help us to make it much great in future.
-
-Thank you!
 
 
 
@@ -213,6 +202,10 @@ Thank you!
 
 
 == Changelog ==
+
+= Version 3.6.7 - Sep 11, 2025 =
+* Improved: Enhanced plugin security and data validation.
+* Improved: The Additional CSS option.
 
 = Version 3.6.6 - Jun 25, 2025 =
 * Improved: Add skip-lazy class to preloader icon to skip lazy.

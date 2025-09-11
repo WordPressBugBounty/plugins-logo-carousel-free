@@ -401,9 +401,9 @@ SPLC::createSection(
 						'title'      => __( 'Click Action Type', 'logo-carousel-free' ),
 						'subtitle'   => __( 'Set logo detail link type.', 'logo-carousel-free' ),
 						'options'    => array(
+							'none'          => __( 'Disabled', 'logo-carousel-free' ),
 							'external_link' => __( 'Link', 'logo-carousel-free' ),
 							'popup'         => __( 'Popup', 'logo-carousel-free' ),
-							'none'          => __( 'Disabled', 'logo-carousel-free' ),
 						),
 						'default'    => 'none',
 						'only_pro'   => true,
@@ -1690,7 +1690,7 @@ SPLC::createSection(
 							array(
 								'id'         => 'lcp_vertical_horizontal',
 								'type'       => 'button_set',
-								'class'      => 'sp-lc-pro-only',
+								'class'      => 'sp-lc-pro-only vertical-orientation',
 								'title'      => __( 'Carousel Orientation', 'logo-carousel-free' ),
 								'subtitle'   => __( 'Choose a carousel orientation.', 'logo-carousel-free' ),
 								'options'    => array(
@@ -2073,6 +2073,7 @@ SPLC::createSection(
 							array(
 								'id'         => 'carousel_pagination_type',
 								'type'       => 'layout_preset',
+								'class'      => 'carousel_pagination_type',
 								'title'      => __( 'Pagination Style', 'logo-carousel-free' ),
 								'subtitle'   => __( 'Select a style for pagination.', 'logo-carousel-free' ),
 								'options'    => array(

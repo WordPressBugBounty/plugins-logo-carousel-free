@@ -161,7 +161,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_dimensions_advanced' ) ) {
 			echo '<div class="clear"></div>';
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
 	}
 }

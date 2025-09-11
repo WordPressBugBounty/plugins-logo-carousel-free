@@ -26,7 +26,6 @@ class SPLC_Shortcode {
 	public function __construct() {
 		add_filter( 'init', array( $this, 'register_post_type' ) );
 		add_filter( 'post_updated_messages', array( $this, 'lc_update_notice' ) );
-
 	}
 
 	/**
@@ -97,5 +96,4 @@ class SPLC_Shortcode {
 
 		return $messages;
 	}
-
 }

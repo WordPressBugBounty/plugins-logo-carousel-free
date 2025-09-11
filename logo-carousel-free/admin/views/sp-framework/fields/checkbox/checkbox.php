@@ -94,25 +94,19 @@ if ( ! class_exists( 'SPLC_FREE_Field_checkbox' ) ) {
 
 						}
 					}
-
 					echo '</ul>';
-
 				} else {
 					echo ! empty( $this->field['empty_message'] ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'logo-carousel-free' );
 				}
 			} else {
-
-						echo '<label class="splogocarousel-checkbox">';
-						echo '<input type="hidden" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="splogocarousel--input"' . $this->field_attributes() . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo '<input type="checkbox" name="_pseudo" class="splogocarousel--checkbox"' . esc_attr( checked( $this->value, 1, false ) ) . '/>';
-						echo ( ! empty( $this->field['label'] ) ) ? '<span class="splogocarousel--text">' . esc_attr( $this->field['label'] ) . '</span>' : '';
-						echo '</label>';
-
+				echo '<label class="splogocarousel-checkbox">';
+				echo '<input type="hidden" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="splogocarousel--input"' . $this->field_attributes() . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<input type="checkbox" name="_pseudo" class="splogocarousel--checkbox"' . esc_attr( checked( $this->value, 1, false ) ) . '/>';
+				echo ( ! empty( $this->field['label'] ) ) ? '<span class="splogocarousel--text">' . esc_attr( $this->field['label'] ) . '</span>' : '';
+				echo '</label>';
 			}
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

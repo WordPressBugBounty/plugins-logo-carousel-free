@@ -52,7 +52,6 @@ if ( ! function_exists( 'splogocarousel_get_icons' ) ) {
 		$content = ob_get_clean();
 
 		wp_send_json_success( array( 'content' => $content ) );
-
 	}
 	add_action( 'wp_ajax_splogocarousel-get-icons', 'splogocarousel_get_icons' );
 }
@@ -77,7 +76,6 @@ if ( ! function_exists( 'splogocarousel_reset_ajax' ) ) {
 		delete_option( $unique );
 
 		wp_send_json_success();
-
 	}
 	add_action( 'wp_ajax_splogocarousel-reset', 'splogocarousel_reset_ajax' );
 }
@@ -115,7 +113,6 @@ if ( ! function_exists( 'splogocarousel_chosen_ajax' ) ) {
 		$options = SPLC_FREE_Fields::field_data( $type, $term, $query );
 
 		wp_send_json_success( $options );
-
 	}
 	add_action( 'wp_ajax_splogocarousel-chosen', 'splogocarousel_chosen_ajax' );
 }

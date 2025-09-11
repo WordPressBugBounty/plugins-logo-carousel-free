@@ -11,6 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die; } // Cannot access directly.
+
 if ( ! class_exists( 'SPLC_FREE_Field_switcher' ) ) {
 	/**
 	 *
@@ -58,8 +59,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_switcher' ) ) {
 			echo ( ! empty( $this->field['label'] ) ) ? '<span class="splogocarousel--label">' . esc_attr( $this->field['label'] ) . '</span>' : '';
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

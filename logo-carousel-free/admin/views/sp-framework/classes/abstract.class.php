@@ -45,7 +45,6 @@ if ( ! class_exists( 'SPLC_FREE_Abstract' ) ) {
 			if ( ! empty( $this->args['output_css'] ) || ! empty( $this->args['enqueue_webfont'] ) ) {
 				add_action( 'wp_enqueue_scripts', array( &$this, 'collect_output_css_and_typography' ), 10 );
 			}
-
 		}
 
 		/**
@@ -139,8 +138,6 @@ if ( ! class_exists( 'SPLC_FREE_Abstract' ) ) {
 					}
 				}
 			}
-
 		}
-
 	}
 }

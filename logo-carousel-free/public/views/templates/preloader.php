@@ -6,6 +6,10 @@
  * @subpackage logo-carousel-free/public
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( $preloader ) {
 	$preloader_class = ' lcp-preloader';
 	$preloader_image = SP_LC_URL . 'admin/assets/images/spinner.svg';

@@ -61,6 +61,7 @@ if ( ! function_exists( 'splogocarousel_title_placeholder' ) ) {
 	/**
 	 * Post type title placeholder
 	 *
+	 * @param string $title The title.
 	 * @return string
 	 * @since 4.0.0
 	 */

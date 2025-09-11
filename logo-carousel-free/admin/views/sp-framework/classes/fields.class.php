@@ -88,7 +88,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 			}
 
 			return $field_name . $nested_name;
-
 		}
 
 		/**
@@ -124,7 +123,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 			}
 
 			return $atts;
-
 		}
 
 		/**
@@ -159,7 +157,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 			$output .= ( ! empty( $this->field['_error'] ) ) ? '<div class="splogocarousel-error-text">' . $error . '</div>' : '';
 
 			return $output;
-
 		}
 
 		/**
@@ -421,7 +418,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 			}
 
 			return $options;
-
 		}
 
 		/**
@@ -531,8 +527,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 			}
 
 			return $options;
-
 		}
-
 	}
 }

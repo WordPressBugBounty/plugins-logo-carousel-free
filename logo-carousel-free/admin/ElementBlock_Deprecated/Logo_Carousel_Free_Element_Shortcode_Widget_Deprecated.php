@@ -9,6 +9,10 @@
  * @author     ShapedPlugin <support@shapedplugin.com>
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Elementor Logo Carousel Free ShortCode Widget.
  *
@@ -153,15 +157,14 @@ class Logo_Carousel_Free_Element_Shortcode_Widget_Deprecated extends \Elementor\
 			// Stylesheet loading problem solving here. Shortcode id to push page id option for getting how many shortcode in the page.
 			require_once SP_LC_PATH . 'public/views/shortcoderender.php';
 			$dynamic_style = SPLC_Shortcode_Render::load_dynamic_style( $post_id, $logo_data, $layout_data );
-			echo '<style id="sp_lcp_dynamic_css' . esc_attr( $post_id ) . '">' . $dynamic_style['dynamic_css'] . '</style>';
+			// @codingStandardsIgnoreLine
+			echo '<style id="sp_lcp_dynamic_css' . esc_attr( $post_id ) . '">' . wp_strip_all_tags( $dynamic_style['dynamic_css'] ) . '</style>';
 
 			SPLC_Shortcode_Render::splcp_html_show( $post_id, $logo_data, $layout_data, $main_section_title );
 			?>
-			<script src="<?php echo esc_url( SP_LC_URL . 'public/assets/js/splc-script.min.js' ); ?>" ></script>
 			<?php
 		} else {
 			echo do_shortcode( '[logocarousel id="' . $post_id . '"]' );
 		}
-
 	}
 }

@@ -57,7 +57,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_spinner' ) ) {
 			echo '<div class="splogocarousel--spin"><input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . $this->field_attributes( array( 'class' => 'splogocarousel-input-number' ) ) . ' data-min="' . esc_attr( $args['min'] ) . '" data-max="' . esc_attr( $args['max'] ) . '" data-step="' . esc_attr( $args['step'] ) . '" data-unit="' . esc_attr( $args['unit'] ) . '" step="any" /></div>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
 
 		/**
@@ -70,8 +69,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_spinner' ) ) {
 			if ( ! wp_script_is( 'jquery-ui-spinner' ) ) {
 				wp_enqueue_script( 'jquery-ui-spinner' );
 			}
-
 		}
-
 	}
 }

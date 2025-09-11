@@ -41,16 +41,11 @@ if ( ! class_exists( 'SPLC_FREE_Field_text' ) ) {
 		 * @return void
 		 */
 		public function render() {
-
 			$type = ( ! empty( $this->field['attributes']['type'] ) ) ? $this->field['attributes']['type'] : 'text';
-
 			echo wp_kses_post( $this->field_before() );
 
 			echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . $this->field_attributes() . ' />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

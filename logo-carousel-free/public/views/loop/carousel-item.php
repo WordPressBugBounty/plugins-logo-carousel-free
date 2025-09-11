@@ -6,6 +6,10 @@
  * @subpackage logo-carousel-free/public
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 while ( $args->have_posts() ) :
 	$args->the_post();
 	$ids       = get_the_ID();

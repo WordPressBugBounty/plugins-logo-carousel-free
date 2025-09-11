@@ -6,6 +6,10 @@
  * @package log-carousel-free
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Logo and URL columns on admin panel
  *
@@ -67,7 +71,7 @@ add_action( 'add_meta_boxes', 'sp_lc_add_meta_box' );
 function sp_logo_carousel_admin_footer( $text ) {
 	$screen = get_current_screen();
 	if ( 'sp_lc_shortcodes' === get_post_type() || 'sp_logo_carousel' === get_post_type() || 'sp_logo_carousel_page_lc_category' === $screen->id ) {
-		$url = 'https://wordpress.org/support/plugin/logo-carousel-free/reviews/?filter=5#new-post';
+		$url = 'https://wordpress.org/support/plugin/logo-carousel-free/reviews/';
 		/* translators: %1$s: bold tag start %2$s: bold tag end %3$s: 5 stars with link  */
 		$text = sprintf( __( 'If you like %1$sLogo Carousel%2$s please leave us a %3$s rating. Your Review is very important to us as it helps us to grow more. ', 'logo-carousel-free' ), '<strong>', '</strong>', '<a href="' . esc_url( $url ) . '" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a>' );
 	}

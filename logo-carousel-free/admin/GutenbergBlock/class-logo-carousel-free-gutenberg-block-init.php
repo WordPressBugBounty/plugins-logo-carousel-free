@@ -34,7 +34,7 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 		public function splcf_block_editor_assets() {
 			wp_enqueue_script(
 				'sp-logo-carousel-free-shortcode-block',
-				plugins_url( '/GutenbergBlock/build/index.js', dirname( __FILE__ ) ),
+				plugins_url( '/GutenbergBlock/build/index.js', __DIR__ ),
 				array( 'jquery' ),
 				SP_LC_VERSION,
 				true

@@ -50,11 +50,13 @@ if ( ! class_exists( 'SPLC_FREE_Field_shortcode' ) ) {
 				<div class="splogocarousel-scode-wrap-side lc_shortcode">
 					<p>
 					' .
-					sprintf(
+					wp_kses_post(
+						sprintf(
 						/* translators: 1: start link tag, 2: close tag. */
-						__( 'To display your logo carousel view, add the following shortcode to your post, custom post types, page, widget, or block editor. If you are adding the logo carousel view to your theme files, additionally include the surrounding PHP code, %1$ssee how%2$s.', 'logo-carousel-free' ),
-						'<a href="https://docs.shapedplugin.com/docs/logo-carousel-pro/configurations/how-to-insert-logo-carousel-view-to-your-theme-files-or-other-php-files/" target="_blank">',
-						'</a>'
+							__( 'To display your logo carousel view, add the following shortcode to your post, custom post types, page, widget, or block editor. If you are adding the logo carousel view to your theme files, additionally include the surrounding PHP code, %1$ssee how%2$s.', 'logo-carousel-free' ),
+							'<a href="https://docs.shapedplugin.com/docs/logo-carousel-pro/configurations/how-to-insert-logo-carousel-view-to-your-theme-files-or-other-php-files/" target="_blank">',
+							'</a>'
+						)
 					) . '
 					</p>
 				
@@ -111,12 +113,14 @@ if ( ! class_exists( 'SPLC_FREE_Field_shortcode' ) ) {
 				<div class="splogocarousel-scode-wrap-side">
 					<p>
 						' .
+						wp_kses_post(
 							sprintf(
 								/* translators: 1: start strong tag, 2: close tag. */
 								__( 'Logo Carousel has seamless integration with Gutenberg, Classic Editor, %1$sElementor%2$s, Divi, Bricks, Beaver, Oxygen, WPBakery Builder, etc.', 'logo-carousel-free' ),
 								'<strong>',
 								'</strong>'
 							)
+						)
 						. '
 					</p>
 				</div>

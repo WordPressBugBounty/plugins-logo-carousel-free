@@ -3,7 +3,7 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           3.6.6
+ * Version:           3.6.7
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com
  * Text Domain:       logo-carousel-free
@@ -26,7 +26,6 @@ require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'logo-carousel-pro/logo-carousel-pro.php' ) || is_plugin_active_for_network( 'logo-carousel-pro/logo-carousel-pro.php' ) ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-logo-carousel-free-updates.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/review.php';
-	require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/offer-banner.php';
 }
 
 if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
@@ -49,7 +48,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '3.6.6';
+		public $version = '3.6.7';
 
 		/**
 		 * Single instance of the class
@@ -147,7 +146,6 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 */
 		private function init_actions() {
 			add_action( 'after_setup_theme', array( $this->router, 'splc_metabox' ) );
-			add_action( 'plugins_loaded', array( $this, 'textdomain' ) );
 			add_action( 'wp_loaded', array( $this, 'register_all_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'public_scripts' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_live_preview_scripts' ) );
@@ -260,34 +258,6 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 				wp_register_script( 'sp-lc-swiper-js', SP_LC_URL . 'public/assets/js/swiper-bundle.min.js', array( 'jquery' ), SP_LC_VERSION, true );
 			}
 			wp_register_script( 'sp-lc-script', SP_LC_URL . 'public/assets/js/splc-script.min.js', array( 'jquery' ), SP_LC_VERSION, true );
-		}
-
-		/**
-		 * Loads the plugin's translated strings.
-		 *
-		 * This function attempts to load the translation files for the plugin from
-		 * the global WordPress languages directory and the plugin's own languages
-		 * folder. It uses the 'logo-carousel-free' text domain.
-		 *
-		 * The function first tries to load the translation files from the global
-		 * directory located at wp-content/languages/plugins/. If unavailable, it
-		 * falls back to loading from the plugin's languages directory.
-		 *
-		 * @return void
-		 */
-		public static function textdomain() {
-			// Load language files from the global WordPress languages directory (wp-content/languages/plugins/).
-			load_textdomain(
-				'logo-carousel-free',
-				WP_LANG_DIR . '/plugins/logo-carousel-free-' . apply_filters( 'plugin_locale', get_locale(), 'logo-carousel-free' ) . '.mo'
-			);
-
-			// Load language files from the plugin's own languages folder.
-			load_plugin_textdomain(
-				'logo-carousel-free',
-				false,
-				dirname( plugin_basename( __FILE__ ) ) . '/languages/'
-			);
 		}
 
 		/**

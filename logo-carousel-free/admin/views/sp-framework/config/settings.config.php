@@ -126,24 +126,10 @@ SPLC::createSection(
 				'type'     => 'code_editor',
 				'sanitize' => 'wp_strip_all_tags',
 				'settings' => array(
-					'theme' => 'mbo',
+					'theme' => 'default',
 					'mode'  => 'css',
 				),
 				'title'    => __( 'Custom CSS', 'logo-carousel-free' ),
-			),
-		),
-	)
-);
-// Custom CSS.
-SPLC::createSection(
-	$prefix,
-	array(
-		'title'  => __( 'License Key', 'logo-carousel-free' ),
-		'icon'   => '<i class="splogocarousel-tab-icon lc-icon-key-01"></i>',
-		'fields' => array(
-			array(
-				'id'   => 'license_key',
-				'type' => 'license',
 			),
 		),
 	)

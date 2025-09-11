@@ -298,7 +298,8 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 				wp_enqueue_style( 'sp-lc-style' );
 				$dynamic_style = self::load_dynamic_style( $post_id, $logo_data, $layout_data );
 				// Load dynamic style.
-				echo '<style id="sp_lcp_dynamic_css' . esc_attr( $post_id ) . '">' . $dynamic_style['dynamic_css'] . '</style>';
+				// @codingStandardsIgnoreLine
+				echo '<style id="sp_lcp_dynamic_css' . esc_attr( $post_id ) . '">' . wp_strip_all_tags( $dynamic_style['dynamic_css'] ) . '</style>';
 			}
 			// Update options if the existing shortcode id option not found.
 			self::lcp_db_options_update( $post_id, $get_page_data );

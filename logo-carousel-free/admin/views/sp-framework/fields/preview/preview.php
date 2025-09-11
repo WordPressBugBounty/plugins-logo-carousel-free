@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * Field: Preview
  *
  * @link       https://shapedplugin.com/

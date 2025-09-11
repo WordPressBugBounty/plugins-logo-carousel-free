@@ -62,15 +62,12 @@ if ( ! class_exists( 'SPLC_FREE_Field_image_sizes' ) ) {
 
 			foreach ( get_intermediate_image_sizes() as $_size ) {
 				if ( in_array( $_size, array( 'thumbnail', 'medium', 'medium_large', 'large' ) ) ) {
-
 					$width  = get_option( "{$_size}_size_w" );
 					$height = get_option( "{$_size}_size_h" );
 					$crop   = (bool) get_option( "{$_size}_crop" ) ? 'hard' : 'soft';
 
 					$sizes[ $_size ] = ucfirst( "{$_size} - $crop:{$width}x{$height}" );
-
 				} elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
-
 					$width  = $_wp_additional_image_sizes[ $_size ]['width'];
 					$height = $_wp_additional_image_sizes[ $_size ]['height'];
 					$crop   = $_wp_additional_image_sizes[ $_size ]['crop'] ? 'hard' : 'soft';
@@ -86,7 +83,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_image_sizes' ) ) {
 				)
 			);
 			if ( ! empty( $sizes ) ) {
-
 				$multiple_name    = ( $args['multiple'] ) ? '[]' : '';
 				$multiple_attr    = ( $args['multiple'] ) ? ' multiple="multiple"' : '';
 				$chosen_rtl       = ( is_rtl() ) ? ' chosen-rtl' : '';
@@ -94,7 +90,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_image_sizes' ) ) {
 				$placeholder_attr = ( $args['chosen'] && $args['placeholder'] ) ? ' data-placeholder="' . esc_attr( $args['placeholder'] ) . '"' : '';
 
 				if ( ! empty( $sizes ) ) {
-
 					echo '<select name="' . esc_attr( $this->field_name( $multiple_name ) ) . '"' . $multiple_attr . $chosen_attr . $placeholder_attr . $this->field_attributes() . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 					if ( $args['placeholder'] && empty( $args['multiple'] ) ) {
@@ -106,18 +101,13 @@ if ( ! class_exists( 'SPLC_FREE_Field_image_sizes' ) ) {
 					}
 
 					foreach ( $sizes as $option_key => $option ) {
-
 						if ( is_array( $option ) && ! empty( $option ) ) {
-
 							echo '<optgroup label="' . esc_attr( $option_key ) . '">';
-
 							foreach ( $option as $sub_key => $sub_value ) {
 								$selected = ( in_array( $sub_key, $this->value ) ) ? ' selected' : '';
 								echo '<option value="' . esc_attr( $sub_key ) . '" ' . esc_attr( $selected ) . '>' . esc_html( $sub_value ) . '</option>';
 							}
-
 							echo '</optgroup>';
-
 						} else {
 							$selected = ( in_array( $option_key, $this->value ) ) ? ' selected' : '';
 							echo '<option value="' . esc_attr( $option_key ) . '" ' . esc_attr( $selected ) . '>' . esc_html( $option ) . '</option>';
@@ -125,17 +115,12 @@ if ( ! class_exists( 'SPLC_FREE_Field_image_sizes' ) ) {
 					}
 
 					echo '</select>';
-
 				} else {
-
 					echo ! empty( $this->field['empty_message'] ) ? wp_kses_post( $this->field['empty_message'] ) : esc_html__( 'No image sizes found.', 'logo-carousel-free' );
-
 				}
 			}
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

@@ -52,12 +52,10 @@ if ( ! class_exists( 'SPLC_FREE_Field_tabbed' ) ) {
 
 			echo '<div class="splogocarousel-tabbed-nav">';
 			foreach ( $this->field['tabs'] as $key => $tab ) {
-
 				$tabbed_icon   = ( ! empty( $tab['icon'] ) ) ? $tab['icon'] : '';
 				$tabbed_active = ( empty( $key ) ) ? ' class="splogocarousel-tabbed-active"' : '';
 
-				echo '<a href="#"' . wp_kses_post( $tabbed_active ) . '>' . $tabbed_icon . wp_kses_post( $tab['title'] ) . '</a>';
-
+				echo '<a href="#"' . wp_kses_post( $tabbed_active ) . '>' . $tabbed_icon . wp_kses_post( $tab['title'] ) . '</a>'; // phpcs:ignore -- Skip escaping to allow svg image as icon.
 			}
 			echo '</div>';
 
@@ -77,7 +75,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_tabbed' ) ) {
 					$unique_id     = ( ! empty( $this->unique ) ) ? $this->unique : '';
 
 					SPLC::field( $field, $field_value, $unique_id, 'field/tabbed' );
-
 				}
 
 				echo '</div>';
@@ -86,8 +83,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_tabbed' ) ) {
 			echo '</div>';
 
 			echo wp_kses_post( $this->field_after() );
-
 		}
-
 	}
 }

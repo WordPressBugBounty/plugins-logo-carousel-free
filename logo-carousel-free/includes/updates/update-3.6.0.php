@@ -2,6 +2,11 @@
 /**
  * Update version.
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 update_option( 'logo_carousel_free_version', '3.6.0' );
 update_option( 'logo_carousel_free_db_version', '3.6.0' );
 
@@ -32,7 +37,7 @@ if ( count( $shortcode_ids ) > 0 ) {
 		/**
 		 * Multi rows option updater
 		 */
-		$lcp_layout                = isset( $shortcode_data['lcp_layout'] ) ? $shortcode_data['lcp_layout'] : '';
+		$lcp_layout = isset( $shortcode_data['lcp_layout'] ) ? $shortcode_data['lcp_layout'] : '';
 
 		// Update main layouts.
 		if ( $lcp_layout ) {

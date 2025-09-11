@@ -42,10 +42,7 @@ if ( ! class_exists( 'SPLC_FREE_Field_subheading' ) ) {
 		 * @return void
 		 */
 		public function render() {
-
 			echo ( ! empty( $this->field['content'] ) ) ? wp_kses_post( $this->field['content'] ) : '';
-
 		}
-
 	}
 }

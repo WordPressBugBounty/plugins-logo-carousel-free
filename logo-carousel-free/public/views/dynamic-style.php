@@ -5,6 +5,10 @@
  * @package Logo Carousel free
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $section_title_margin_bottom = isset( $logo_data['lcp_section_title_typography']['margin-bottom'] ) ? $logo_data['lcp_section_title_typography']['margin-bottom'] : '30';
 $nav_color_data              = isset( $logo_data['lcp_nav_color'] ) ? $logo_data['lcp_nav_color'] : '';
 $nav_color                   = isset( $nav_color_data['color1'] ) ? $nav_color_data['color1'] : '#aaaaaa';

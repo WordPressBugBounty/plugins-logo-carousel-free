@@ -24,21 +24,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_code_editor' ) ) {
 	 * @version 1.0.0
 	 */
 	class SPLC_FREE_Field_code_editor extends SPLC_FREE_Fields {
-
-
-		/**
-		 * Version
-		 *
-		 * @var string
-		 */
-		public $version = '5.60.0';
-		/**
-		 * Cdn_url
-		 *
-		 * @var string
-		 */
-		public $cdn_url = 'https://cdn.jsdelivr.net/npm/codemirror@';
-
 		/**
 		 * The class constructor.
 		 *
@@ -63,8 +48,6 @@ if ( ! class_exists( 'SPLC_FREE_Field_code_editor' ) ) {
 				'tabSize'     => 2,
 				'lineNumbers' => true,
 				'theme'       => 'default',
-				'mode'        => 'htmlmixed',
-				'cdnURL'      => $this->cdn_url . $this->version,
 			);
 
 			$settings = ( ! empty( $this->field['settings'] ) ) ? $this->field['settings'] : array();
@@ -81,20 +64,9 @@ if ( ! class_exists( 'SPLC_FREE_Field_code_editor' ) ) {
 		 * @return void
 		 */
 		public function enqueue() {
-			$page = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-			// Do not loads CodeMirror in revslider page.
-			if ( in_array( $page, array( 'revslider' ) ) ) {
-				return;
-			}
-
-			if ( ! wp_script_is( 'splogocarousel-codemirror' ) ) {
-				wp_enqueue_script( 'splogocarousel-codemirror', esc_url( $this->cdn_url . $this->version . '/lib/codemirror.min.js' ), array( 'splogocarousel' ), $this->version, true );
-				wp_enqueue_script( 'splogocarousel-codemirror-loadmode', esc_url( $this->cdn_url . $this->version . '/addon/mode/loadmode.min.js' ), array( 'splogocarousel-codemirror' ), $this->version, true );
-			}
-
-			if ( ! wp_style_is( 'splogocarousel-codemirror' ) ) {
-				wp_enqueue_style( 'splogocarousel-codemirror', esc_url( $this->cdn_url . $this->version . '/lib/codemirror.min.css' ), array(), $this->version );
-			}
+			// Enqueue code-mirror.
+			wp_enqueue_script( 'code-editor' );
+			wp_enqueue_style( 'code-editor' );
 		}
 	}
 }

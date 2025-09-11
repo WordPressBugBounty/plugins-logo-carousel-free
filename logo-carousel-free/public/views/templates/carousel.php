@@ -6,6 +6,9 @@
  * @subpackage logo-carousel-free/public
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 
 <div id='logo-carousel-free-<?php echo esc_attr( $post_id ); ?>' class="logo-carousel-free logo-carousel-free-area sp-lc-container">
