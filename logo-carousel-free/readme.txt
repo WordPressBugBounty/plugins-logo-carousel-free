@@ -3,8 +3,8 @@ Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
 Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 5.0
 Requires PHP: 7.0
-Tested up to: 6.8
-Stable tag: 3.6.7
+Tested up to: 6.9
+Stable tag: 3.6.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -202,6 +202,17 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 
 == Changelog ==
+
+= Version 3.6.10 - Dec 26, 2025 =
+* Improved: Standardized singleton instance property naming.
+* Improved: Code readability and maintainability improved.
+
+= Version 3.6.9 - Nov 25, 2025 =
+* Tested: WordPress 6.9 compatibility.
+
+= Version 3.6.8 - Oct 29, 2025 =
+* New: Added lazy loading support for logo images to improve page performance.
+* Tested: WordPress 6.8.3 compatibility.
 
 = Version 3.6.7 - Sep 11, 2025 =
 * Improved: Enhanced plugin security and data validation.

@@ -1502,7 +1502,7 @@ SPLC::createSection(
 			array(
 				'id'         => 'lcp_logo_lazy_load',
 				'type'       => 'switcher',
-				'class'      => 'lcp_only_pro',
+				// 'class'      => 'lcp_only_pro',
 				'title'      => __( 'Lazy Load', 'logo-carousel-free' ),
 				'subtitle'   => __(
 					'Enable to activate lazy loading for logo images.',

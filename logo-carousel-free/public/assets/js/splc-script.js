@@ -131,9 +131,49 @@
 		$('.logo-carousel-free-area').addClass('splc-logo-carousel-loaded');
 	}
 
+	// Custom lazy load scripts for the logo image.
+	const observer = new IntersectionObserver(function (entries) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				let img = entry.target;
+				if (img.dataset.src) {
+					img.src = img.dataset.src;
+					// Remove the data-src attribute
+					img.removeAttribute('data-src');
+				}
+				if (img.dataset.srcset) {
+					img.srcset = img.dataset.srcset;
+					// Remove the data-srcset attribute
+					img.removeAttribute('data-srcset');
+				}
+				img.classList.remove('lcp-lazyload');
+				img.classList.add("lcp-lazyloaded");
+				observer.unobserve(img);
+				setTimeout(function () {
+					img.style.removeProperty('height');
+				}, 300);
+			}
+		});
+	});
+
+	// Lazy-load scripts for the all logo images.
+	function custom_lazyLoad() {
+		let lazyImages = document.querySelectorAll(".lcp-lazyload");
+		lazyImages.forEach(function (img) {
+			let image_height = (img.getAttribute('height') / img.getAttribute('width')) * img.offsetWidth;
+			if (image_height > 10) {
+				img.style.height = image_height + 'px';
+			}
+			observer.observe(img);
+		});
+	}
+	
 	// Initialize the carousel when the document is ready
 	$(document).ready(function () {
 		SP_LCP_CarouselInit();
+
+		// Initialize the custom lazy load function.
+		custom_lazyLoad();
 	});
 
 	// Register the handler with Elementor's frontend event.

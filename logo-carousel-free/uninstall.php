@@ -39,6 +39,10 @@ function sp_lcp_delete_plugin_data() {
 	delete_post_meta_by_key( 'sp_lcp_layout_options' );
 	delete_post_meta_by_key( 'sp_lcp_shortcode_options' );
 	delete_post_meta_by_key( 'sp_logo_carousel_link_option' );
+
+	// Delete offer banner related option keys.
+	delete_option( 'shapedplugin_offer_banner_dismissed_new_year_2026' );
+	delete_option( 'shapedplugin_offer_banner_dismissed_black_friday_2025' );
 }
 
 	// Load lc file.

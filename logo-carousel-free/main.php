@@ -3,7 +3,7 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           3.6.7
+ * Version:           3.6.10
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com
  * Text Domain:       logo-carousel-free
@@ -26,6 +26,13 @@ require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! ( is_plugin_active( 'logo-carousel-pro/logo-carousel-pro.php' ) || is_plugin_active_for_network( 'logo-carousel-pro/logo-carousel-pro.php' ) ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-logo-carousel-free-updates.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/review.php';
+
+	if ( ! defined( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED' ) ) {
+		define( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED', true );
+
+		// Load Plugin Offer Banner.
+		require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/offer-banner.php';
+	}
 }
 
 if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
@@ -48,14 +55,14 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '3.6.7';
+		public $version = '3.6.10';
 
 		/**
 		 * Single instance of the class
 		 *
 		 * @var mixed
 		 */
-		protected static $_instance = null;
+		protected static $instance = null;
 
 		/**
 		 * Logo
@@ -87,11 +94,11 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 * @return self Main instance
 		 */
 		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 			}
 
-			return self::$_instance;
+			return self::$instance;
 		}
 
 		/**

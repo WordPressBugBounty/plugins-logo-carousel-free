@@ -182,6 +182,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$show_image_title_attr = isset( $logo_data['lcp_image_title_attr'] ) ? $logo_data['lcp_image_title_attr'] : false;
 			$logo_margin           = isset( $logo_data['lcp_logo_margin']['all'] ) && $logo_data['lcp_logo_margin']['all'] >= -50 ? (int) $logo_data['lcp_logo_margin']['all'] : '8';
 			$logo_margin_vertical  = isset( $logo_data['lcp_logo_margin']['vertical'] ) && $logo_data['lcp_logo_margin']['vertical'] >= -50 ? (int) $logo_data['lcp_logo_margin']['vertical'] : '8';
+			$enable_lazy_load      = isset( $logo_data['lcp_logo_lazy_load'] ) && $logo_data['lcp_logo_lazy_load'] ? 'true' : 'false';
 
 			$args = new WP_Query(
 				array(
