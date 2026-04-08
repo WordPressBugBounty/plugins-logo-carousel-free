@@ -167,7 +167,12 @@ class SPLC_Free_Loader {
 			if ( ! is_wp_error( $response ) ) {
 
 				$plugins_arr = array();
-				$plugins     = unserialize( $response['body'] );
+				$plugins     = unserialize( // phpcs:ignore -- security audit -- WordPress.org API response is safe to unserialize and we are using allowed_classes to prevent any potential security issues
+					$response['body'],
+					array(
+						'allowed_classes' => array( 'stdClass' ),
+					)
+				);
 
 				if ( isset( $plugins->plugins ) && ( count( $plugins->plugins ) > 0 ) ) {
 					foreach ( $plugins->plugins as $pl ) {
@@ -471,8 +476,8 @@ class SPLC_Free_Loader {
 								<div class="sp-logo-carousel-info-box-title">
 									<h4><i class="sp-logo-carousel-icon-team-icon"></i> Join The Community</h4>
 								</div>
-								<span class='sp-logo-carousel-normal-paragraph'>Join the official ShapedPlugin Facebook group to share your experiences, thoughts, and ideas.</span>
-								<a target="_blank" class='sp-logo-carousel-small-btn' href="https://www.facebook.com/groups/ShapedPlugin/">Join Now</a>
+								<span class='sp-logo-carousel-normal-paragraph'>Join the official ShapedPlugin community to share your experiences, thoughts, and ideas.</span>
+								<a target="_blank" class='sp-logo-carousel-small-btn' href="https://community.shapedplugin.com/portal/">Join Now</a>
 							</div>
 						</div>
 					</div>
