@@ -15,15 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use ShapedPlugin\LogoCarouselPro\Admin\views\sp_framework\classes\SPLC_PRO;
 
-/**
- *
- * Field: tabbed
- *
- * @since 1.0.0
- * @version 1.0.0
- */
 if ( ! class_exists( 'SPLC_FREE_Field_tabbed' ) ) {
-
+	/**
+	 *
+	 * Field: tabbed
+	 *
+	 * @since 1.0.0
+	 * @version 1.0.0
+	 */
 	class SPLC_FREE_Field_tabbed extends SPLC_FREE_Fields {
 
 		/**

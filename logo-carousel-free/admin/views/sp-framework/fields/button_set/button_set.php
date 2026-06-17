@@ -12,14 +12,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die; } // Cannot access directly.
 
-/**
- *
- * Field: button_set
- *
- * @since 1.0.0
- * @version 1.0.0
- */
+
 if ( ! class_exists( 'SPLC_FREE_Field_button_set' ) ) {
+	/**
+	 *
+	 * Field: button_set
+	 *
+	 * @since 1.0.0
+	 * @version 1.0.0
+	 */
 	class SPLC_FREE_Field_button_set extends SPLC_FREE_Fields {
 
 		/**

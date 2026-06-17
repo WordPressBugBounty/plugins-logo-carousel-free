@@ -13,14 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 } // Cannot access directly.
 
-/**
- *
- * Field: color_group
- *
- * @since 1.0.0
- * @version 1.0.0
- */
 if ( ! class_exists( 'SPLC_FREE_Field_color_group' ) ) {
+	/**
+	 *
+	 * Field: color_group
+	 *
+	 * @since 1.0.0
+	 * @version 1.0.0
+	 */
 	class SPLC_FREE_Field_color_group extends SPLC_FREE_Fields {
 
 		/**

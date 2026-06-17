@@ -87,6 +87,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 		 *
 		 * @param  mixed $found_generator_id to push id option for getting how many shortcode in the page.
 		 * @param  mixed $logo_data to push all options.
+		 * @param  mixed $layout_data to push all layout options.
 		 * @return array dynamic style use in the existing shortcodes in the current page.
 		 */
 		public static function load_dynamic_style( $found_generator_id, $logo_data = '', $layout_data = '' ) {
@@ -141,14 +142,13 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 						update_option( $option_key, $found_generator_id );
 					}
 				}
-			} else {
-				// If option not set in current page add option.
-				if ( $current_page_id ) {
-					if ( is_multisite() ) {
-						add_site_option( $option_key, array( $post_id ) );
-					} else {
-						add_option( $option_key, array( $post_id ) );
-					}
+			} elseif ( $current_page_id ) {
+
+				// If not found the page option, create new option with the shortcode id.
+				if ( is_multisite() ) {
+					add_site_option( $option_key, array( $post_id ) );
+				} else {
+					add_option( $option_key, array( $post_id ) );
 				}
 			}
 		}
@@ -158,6 +158,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 		 *
 		 * @param array $post_id Shortcode ID.
 		 * @param array $logo_data get all meta options.
+		 * @param array $layout_data get all layout options.
 		 * @param array $main_section_title shows section title.
 		 */
 		public static function splcp_html_show( $post_id, $logo_data, $layout_data, $main_section_title ) {
@@ -242,7 +243,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$infinite         = isset( $logo_data['lcp_carousel_infinite'] ) && $logo_data['lcp_carousel_infinite'] ? 'true' : 'false';
 
 			$rtl_mode = isset( $logo_data['lcp_rtl_mode'] ) ? $logo_data['lcp_rtl_mode'] : 'false';
-			$rtl      = ( 'true' == $rtl_mode ) ? 'rtl' : 'ltr';
+			$rtl      = ( 'true' === $rtl_mode ) ? 'rtl' : 'ltr';
 
 			$autoplay_speed   = isset( $logo_data['lcp_carousel_auto_play_speed'] ) ? $logo_data['lcp_carousel_auto_play_speed'] : '3000';
 			$pagination_speed = isset( $logo_data['lcp_carousel_scroll_speed'] ) ? $logo_data['lcp_carousel_scroll_speed'] : '600';

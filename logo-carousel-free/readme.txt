@@ -4,7 +4,7 @@ Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 5.0
 Requires PHP: 7.0
 Tested up to: 7.0
-Stable tag: 3.6.11
+Stable tag: 3.6.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -202,6 +202,10 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 
 == Changelog ==
+
+= Version 3.6.12 - Jun 17, 2026 =
+* Fix: Resolved WPCS-related code warnings to align with WordPress coding standards.
+* Compatibility: Tested and confirmed compatibility with the Elementor Atomic Editor
 
 = Version 3.6.11 - Apr 07, 2026 =
 * Fix: Some CSS style issues found with WP 7.0.

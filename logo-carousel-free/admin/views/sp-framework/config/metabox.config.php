@@ -1030,7 +1030,7 @@ SPLC::createSection(
 								'class'       => 'lcp_pro_option',
 								'title'       => __( 'Padding', 'logo-carousel-free' ),
 								'subtitle'    => __( 'Set tooltip custom padding.', 'logo-carousel-free' ),
-								'output_mode' => 'padding', // or margin, relative
+								'output_mode' => 'padding', // or margin, relative.
 								'default'     => array(
 									'top'    => '6',
 									'right'  => '14',
@@ -1502,7 +1502,6 @@ SPLC::createSection(
 			array(
 				'id'         => 'lcp_logo_lazy_load',
 				'type'       => 'switcher',
-				// 'class'      => 'lcp_only_pro',
 				'title'      => __( 'Lazy Load', 'logo-carousel-free' ),
 				'subtitle'   => __(
 					'Enable to activate lazy loading for logo images.',

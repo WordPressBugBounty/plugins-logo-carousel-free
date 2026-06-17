@@ -54,11 +54,9 @@ class Logo_Carousel_Free_Review {
 				'dismissed' => false,
 			);
 			add_option( 'sp_logo_carousel_free_review_notice_dismiss', $review );
-		} else {
+		} elseif ( ( isset( $review['dismissed'] ) && ! $review['dismissed'] ) && ( isset( $review['time'] ) && ( ( $review['time'] + ( DAY_IN_SECONDS * 3 ) ) <= $time ) ) ) {
 			// Check if it has been dismissed or not.
-			if ( ( isset( $review['dismissed'] ) && ! $review['dismissed'] ) && ( isset( $review['time'] ) && ( ( $review['time'] + ( DAY_IN_SECONDS * 3 ) ) <= $time ) ) ) {
-				$load = true;
-			}
+			$load = true;
 		}
 
 		// If we cannot load, return early.

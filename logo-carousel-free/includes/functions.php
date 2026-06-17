@@ -112,7 +112,7 @@ function sp_lc_shortcode_duplicate() {
 	$new_post_author = $current_user->ID;
 
 	// if shortcode data exists, create the shortcode duplicate.
-	if ( isset( $post ) && null != $post ) {
+	if ( isset( $post ) && null !== $post ) {
 		// new shortcode data array.
 		$args = array(
 			'comment_status' => $post->comment_status,
