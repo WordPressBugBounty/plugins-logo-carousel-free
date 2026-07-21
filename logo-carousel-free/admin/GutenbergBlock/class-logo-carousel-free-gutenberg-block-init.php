@@ -154,10 +154,10 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 			}
 
 			if ( ! $attributes['is_admin'] ) {
-				return '<div ' . $class_name . ' >' . do_shortcode( '[logocarousel id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
+				return '<div ' . $class_name . ' >' . do_shortcode( '[logocarousel id="' . intval( $attributes['shortcode'] ) . '"]' ) . '</div>';
 			}
-			$edit_page_link = get_edit_post_link( sanitize_text_field( $attributes['shortcode'] ) );
-			return '<div id="' . uniqid() . '" ' . $class_name . '><a href="' . $edit_page_link . '" target="_blank" class="sp_logo_block_edit_button">Edit View</a>' . do_shortcode( '[logocarousel id="' . sanitize_text_field( $attributes['shortcode'] ) . '"]' ) . '</div>';
+			$edit_page_link = get_edit_post_link( intval( $attributes['shortcode'] ) );
+			return '<div id="' . uniqid() . '" ' . $class_name . '><a href="' . $edit_page_link . '" target="_blank" class="sp_logo_block_edit_button">Edit View</a>' . do_shortcode( '[logocarousel id="' . intval( $attributes['shortcode'] ) . '"]' ) . '</div>';
 		}
 	}
 }

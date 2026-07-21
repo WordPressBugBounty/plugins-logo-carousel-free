@@ -110,6 +110,8 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			// Custom css merge with dynamic style.
 			$custom_css = isset( $setting_data['lcpro_custom_css'] ) ? trim( html_entity_decode( $setting_data['lcpro_custom_css'] ) ) : '';
 			if ( ! empty( $custom_css ) ) {
+				// Strip any potentially dangerous patterns.
+				$custom_css   = preg_replace( '/javascript:|expression\(|@import|<script|<iframe/i', '', $custom_css );
 				$dynamic_css .= $custom_css;
 			}
 			$dynamic_style = array(

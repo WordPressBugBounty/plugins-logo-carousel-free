@@ -468,6 +468,11 @@ if ( ! class_exists( 'SPLC_FREE_Options' ) ) {
 				return false;
 			}
 
+			$capability = apply_filters( 'sp_lc_ui_permission', 'manage_options' );
+			if ( ! current_user_can( $capability ) ) {
+				return false;
+			}
+
 			// XSS ok.
 			// No worries, This "POST" requests is sanitizing in the below foreach before saving.
 			$response = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : wp_unslash( $_POST ); // @codingStandardsIgnoreLine

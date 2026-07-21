@@ -134,7 +134,7 @@ class Logo_Carousel_Free_Element_Shortcode_Widget extends \Elementor\Widget_Base
 			return;
 		}
 
-		$post_id = $splcf_shortcode;
+		$post_id = intval( $splcf_shortcode );
 
 		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			$layout_data        = get_post_meta( $post_id, 'sp_lcp_layout_options', true );

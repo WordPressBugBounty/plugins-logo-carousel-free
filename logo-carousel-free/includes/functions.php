@@ -96,13 +96,15 @@ function sp_lc_shortcode_duplicate() {
 		return;
 	}
 
-	// Get the original shortcode id.
-	$post_id = ( isset( $_GET['post'] ) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
-
 	$capability = apply_filters( 'sp_lc_ui_permission', 'manage_options' );
 	$show_ui    = current_user_can( $capability ) ? true : false;
+	if ( ! $show_ui ) {
+		wp_die( esc_html__( 'You do not have permission to duplicate shortcodes.', 'logo-carousel-free' ) );
+	}
 
-	if ( ! $show_ui && get_post_type( $post_id ) !== 'sp_lc_shortcodes' ) {
+	// Get the original shortcode id.
+	$post_id = ( isset( $_GET['post'] ) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
+	if ( get_post_type( $post_id ) !== 'sp_lc_shortcodes' ) {
 		wp_die( esc_html__( 'No shortcode to duplicate has been supplied!', 'logo-carousel-free' ) );
 	}
 	// And all the original shortcode data then.
@@ -144,7 +146,10 @@ function sp_lc_shortcode_duplicate() {
 		// Duplicate all post meta just.
 		foreach ( $post_meta_infos as $key => $values ) {
 			foreach ( $values as $value ) {
-				$value = wp_slash( maybe_unserialize( $value ) ); // Unserialize data to avoid conflicts.
+				if ( is_serialized( $value ) ) {
+					$value = unserialize( $value, ['allowed_classes' => false] ); // phpcs:ignore -- no classes allowed.
+				}
+				$value = wp_slash( $value ); // Unserialize data to avoid conflicts.
 				add_post_meta( $new_post_id, $key, $value );
 			}
 		}

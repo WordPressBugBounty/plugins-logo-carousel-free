@@ -48,7 +48,7 @@ function sp_lcp_delete_plugin_data() {
 	// Load lc file.
 	require plugin_dir_path( __FILE__ ) . '/main.php';
 	$sp_lc_plugin_settings = get_option( '_sp_lcpro_options' );
-	$delate_plugin_data    = $sp_lc_plugin_settings['lcpro_data_remove'];
+	$delate_plugin_data    = isset( $sp_lc_plugin_settings['lcpro_data_remove'] ) ? $sp_lc_plugin_settings['lcpro_data_remove'] : false;
 
 if ( $delate_plugin_data ) {
 	sp_lcp_delete_plugin_data();

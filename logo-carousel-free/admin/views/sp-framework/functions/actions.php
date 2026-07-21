@@ -25,6 +25,11 @@ if ( ! function_exists( 'splogocarousel_get_icons' ) ) {
 			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ) );
 		}
 
+		$capability = apply_filters( 'sp_lc_ui_permission', 'manage_options' );
+		if ( ! current_user_can( $capability ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'logo-carousel-free' ) ) );
+		}
+
 		ob_start();
 
 		$icon_library = ( apply_filters( 'splogocarousel_fa4', false ) ) ? 'fa4' : 'fa5';
@@ -71,6 +76,11 @@ if ( ! function_exists( 'splogocarousel_reset_ajax' ) ) {
 
 		if ( ! wp_verify_nonce( $nonce, 'splogocarousel_backup_nonce' ) ) {
 			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ) );
+		}
+
+		$capability = apply_filters( 'sp_lc_ui_permission', 'manage_options' );
+		if ( ! current_user_can( $capability ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'logo-carousel-free' ) ) );
 		}
 
 		delete_option( $unique );

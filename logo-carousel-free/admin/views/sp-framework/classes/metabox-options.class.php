@@ -413,6 +413,11 @@ if ( ! class_exists( 'SPLC_FREE_Metabox' ) ) {
 		 * @return mixed
 		 */
 		public function save_meta_box( $post_id ) {
+			// Check permissions first.
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
+
 			$count    = 1;
 			$data     = array();
 			$errors   = array();
@@ -477,6 +482,10 @@ if ( ! class_exists( 'SPLC_FREE_Metabox' ) ) {
 			$nonce = isset( $_POST['ajax_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['ajax_nonce'] ) ) : ''; // @codingStandardsIgnoreLine
 			if ( ! wp_verify_nonce( $nonce, 'splogocarousel_metabox_nonce' ) ) {
 				return;
+			}
+			// Add capability check.
+			if ( ! current_user_can( 'edit_posts' ) ) {
+				wp_send_json_error( array( 'error' => esc_html__( 'Unauthorized.', 'logo-carousel-free' ) ) );
 			}
 
 			$data = ( ! empty( $_POST[ 'data'] ) ) ? wp_unslash( $_POST['data' ] ) : array(); // @codingStandardsIgnoreLine
