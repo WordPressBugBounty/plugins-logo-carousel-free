@@ -131,21 +131,20 @@
 	display: none;
 }
 
-/* Gutenberg selector field style */
-.splcf-gutenberg-shortcode.editor-styles-wrapper {
+/* Gutenberg selector field style.
+   Keep editor canvas selectors out of this admin stylesheet: WordPress copies
+   any admin sheet that targets the canvas wrapper into the editor iframe and
+   warns about it. The canvas gets its own copy of these rules from the block
+   initializer instead. */
+.splcf-gutenberg-shortcode {
 	padding: 0;
 	line-height: 24px;
 }
 
-.splcf-gutenberg-shortcode.editor-styles-wrapper:after {
+.splcf-gutenberg-shortcode:after {
 	display: none;
 }
 
-.editor-styles-wrapper .splcf_block_shortcode img {
-	box-shadow: none;
-}
-
-.block-editor-page .editor-styles-wrapper select.splcf-shortcode-selector,
 .block-editor-page select.splcf-shortcode-selector,
 .block-editor-page select.splcf-shortcode-selector:focus,
 .block-editor-page select.splcf-shortcode-selector:focus-visible {
@@ -154,10 +153,6 @@
 	border: 1px solid #ccc;
 	font-size: 13px;
 	padding-right: 25px;
-}
-
-.block-editor-page .editor-styles-wrapper i {
-	font-style: normal;
 }
 
 #adminmenu #menu-posts-sp_logo_carousel li:nth-child(9) a,

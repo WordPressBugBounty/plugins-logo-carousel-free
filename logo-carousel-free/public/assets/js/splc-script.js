@@ -176,6 +176,12 @@
 		custom_lazyLoad();
 	});
 
+	// Expose the initializers so consumers that inject markup after page load can
+	// re-run them. The block editor canvas, which is an iframe with its own window,
+	// uses these after every server side render of the shortcode block.
+	window.SP_LCP_CarouselInit = SP_LCP_CarouselInit;
+	window.SP_LCP_LazyLoad = custom_lazyLoad;
+
 	// Register the handler with Elementor's frontend event.
 	$(window).on('elementor/frontend/init', function () {
 		// For General Widget.

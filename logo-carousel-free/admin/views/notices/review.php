@@ -124,6 +124,10 @@ class Logo_Carousel_Free_Review {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'sp_lcfree_review_notice' ) ) {
 			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'logo-carousel-free' ) ), 401 );
 		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You are not allowed to perform this action.', 'logo-carousel-free' ) ), 403 );
+		}
 		$review         = array();
 		$dismissed_data = isset( $_POST['notice_dismissed_data'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_dismissed_data'] ) ) : ''; // phpcs:ignore
 		switch ( $dismissed_data ) {
@@ -141,7 +145,7 @@ class Logo_Carousel_Free_Review {
 				break;
 		}
 		update_option( 'sp_logo_carousel_free_review_notice_dismiss', $review );
-		die;
+		wp_send_json_success();
 	}
 }
 
