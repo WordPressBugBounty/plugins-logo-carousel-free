@@ -1,0 +1,319 @@
+/**
+ * Missing Media Placeholder Styles
+ *
+ * Provides consistent styling for missing media placeholders across
+ * both editor and frontend contexts.
+ *
+ * @package Logo Carousel Pro
+ */
+
+/* Base container styles */
+.sp-lcpro-missing-media-container {
+	display: inline-block;
+	position: relative;
+	line-height: 1.3;
+	vertical-align: middle;
+}
+
+/* Placeholder wrapper */
+.sp-lcpro-missing-media-placeholder {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(22, 160, 139, 0.06), rgba(22, 160, 139, 0.12));
+	border: 1px solid #2ab674;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+/* Hover effect for placeholders */
+.sp-lcpro-missing-media-placeholder:hover {
+	border-color: #dee2e6;
+	background-color: #f1f3f5;
+}
+
+/* Error state styling */
+.sp-lcpro-missing-media-error {
+	border-color: #faa !important;
+	background-color: #fff5f5 !important;
+}
+
+.sp-lcpro-missing-media-error::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 10px,
+		rgba(255, 170, 170, 0.1) 10px,
+		rgba(255, 170, 170, 0.1) 20px
+	);
+	pointer-events: none;
+}
+
+/* Attention needed state */
+.sp-lcpro-missing-media-attention {
+	border-color: #ffc107 !important;
+}
+
+/* Editor-specific styles */
+.sp-lcpro-missing-media-editor {
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sp-lcpro-missing-media-editor:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	transform: translateY(-1px);
+}
+
+/* Placeholder image styling */
+.sp-lcpro-placeholder-image {
+	opacity: 0.7;
+	filter: grayscale( 50% );
+}
+
+.sp-lcpro-placeholder-image:hover {
+	opacity: 0.8;
+	filter: grayscale( 30% );
+}
+
+/* SVG placeholder styling */
+.sp-lcpro-missing-media-svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.sp-lcpro-missing-media-compact-card {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	height: 100%;
+	padding: 8px 10px;
+	box-sizing: border-box;
+	background:
+		repeating-linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.55),
+			rgba(255, 255, 255, 0.55) 10px,
+			rgba(22, 160, 139, 0.04) 10px,
+			rgba(22, 160, 139, 0.04) 20px
+		);
+}
+
+.sp-lcpro-missing-media-compact-card__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 28px;
+	width: 28px;
+	height: 28px;
+	border-radius: 999px;
+	background: rgba(22, 160, 139, 0.12);
+	color: #16a08b;
+}
+
+.sp-lcpro-missing-media-compact-card__icon .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+.sp-lcpro-missing-media-compact-card__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	gap: 1px;
+	width: 100%;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.sp-lcpro-missing-media-compact-card__status {
+	color: #4b5563;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+.sp-lcpro-missing-media-compact-card__title {
+	color: #1f2937;
+	font-size: 11px;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+/* Warning overlay for editor */
+.sp-lcpro-media-warning-overlay {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	background-color: #ffc107;
+	color: #000;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: bold;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	z-index: 10;
+	animation: pulse 2s infinite;
+}
+
+.sp-lcpro-logo-source__missing-media {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.sp-lcpro-logo-source__missing-media .sp-lcpro-missing-media-container {
+	width: 100%;
+	height: 100%;
+}
+
+.sp-lcpro-logo-source__missing-media .sp-lcpro-missing-media-placeholder {
+	border-radius: 8px;
+}
+
+.sp-lcpro-selected-logo__missing-media {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.sp-lcpro-selected-logo__missing-media .sp-lcpro-missing-media-container {
+	width: 100%;
+	height: 100%;
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+/* Responsive adjustments */
+@media ( max-width: 768px ) {
+	.sp-lcpro-missing-media-placeholder {
+		border-width: 2px;
+	}
+
+	.sp-lcpro-media-warning-overlay {
+		width: 20px;
+		height: 20px;
+		font-size: 12px;
+	}
+}
+
+/* Dark theme support */
+@media ( prefers-color-scheme: dark ) {
+	.sp-lcpro-missing-media-placeholder {
+		background-color: #2d2d2d;
+		border-color: #3d3d3d;
+	}
+
+	.sp-lcpro-missing-media-placeholder:hover {
+		background-color: #3d3d3d;
+		border-color: #4d4d4d;
+	}
+
+	.sp-lcpro-missing-media-error {
+		background-color: #3d2d2d !important;
+		border-color: #faa !important;
+	}
+}
+
+/* Reduced motion support */
+@media ( prefers-reduced-motion: reduce ) {
+	.sp-lcpro-missing-media-placeholder,
+	.sp-lcpro-missing-media-editor,
+	.sp-lcpro-media-warning-overlay {
+		transition: none;
+		animation: none;
+	}
+
+	.sp-lcpro-missing-media-editor:hover {
+		transform: none;
+	}
+}
+
+/* High contrast mode support */
+@media ( prefers-contrast: high ) {
+	.sp-lcpro-missing-media-placeholder {
+		border-width: 2px;
+		border-color: #000;
+	}
+
+	.sp-lcpro-media-warning-overlay {
+		border: 2px solid #000;
+	}
+}
+
+/* Print styles - ensure placeholders look good in print */
+@media print {
+	.sp-lcpro-missing-media-placeholder {
+		border: 1px solid #000;
+		background-color: #fff;
+		page-break-inside: avoid;
+	}
+
+	.sp-lcpro-media-warning-overlay {
+		display: none;
+	}
+
+	.sp-lcpro-missing-media-error::before {
+		display: none;
+	}
+}
+
+/* Accessibility improvements */
+.sp-lcpro-missing-media-placeholder:focus-within {
+	outline: 2px solid #0073aa;
+	outline-offset: 2px;
+}
+
+/* Loading state */
+.sp-lcpro-missing-media-placeholder.is-loading {
+	min-height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sp-lcpro-missing-media-placeholder.is-loading::after {
+	content: '';
+	width: 30px;
+	height: 30px;
+	border: 3px solid #f3f3f3;
+	border-top: 3px solid #0073aa;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate( 0deg ); }
+	100% { transform: rotate( 360deg ); }
+}

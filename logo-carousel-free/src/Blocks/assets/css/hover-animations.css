@@ -1,0 +1,199 @@
+/**
+ * Logo hover animation keyframes.
+ *
+ * Shared, constant definitions. The per-block dynamic CSS only names the
+ * animation it wants, so these are declared once for the page rather than
+ * regenerated for every block instance.
+ *
+ * Every name is prefixed so a theme's own `bounce`/`pulse`/`shake` keyframes
+ * can never be picked up by mistake.
+ */
+
+@keyframes sp-lcpro-hover-bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	30% {
+		transform: translateY(-10px);
+	}
+
+	55% {
+		transform: translateY(0);
+	}
+
+	75% {
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes sp-lcpro-hover-shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	20% {
+		transform: translateX(-6px);
+	}
+
+	40% {
+		transform: translateX(6px);
+	}
+
+	60% {
+		transform: translateX(-4px);
+	}
+
+	80% {
+		transform: translateX(4px);
+	}
+}
+
+@keyframes sp-lcpro-hover-jelly {
+	0%,
+	100% {
+		transform: scale(1, 1);
+	}
+
+	30% {
+		transform: scale(1.12, 0.88);
+	}
+
+	50% {
+		transform: scale(0.92, 1.08);
+	}
+
+	70% {
+		transform: scale(1.05, 0.95);
+	}
+}
+
+@keyframes sp-lcpro-hover-swing {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(9deg);
+	}
+
+	50% {
+		transform: rotate(-7deg);
+	}
+
+	75% {
+		transform: rotate(4deg);
+	}
+}
+
+@keyframes sp-lcpro-hover-wobble {
+	0%,
+	100% {
+		transform: translateX(0) rotate(0deg);
+	}
+
+	25% {
+		transform: translateX(-6px) rotate(-4deg);
+	}
+
+	50% {
+		transform: translateX(5px) rotate(3deg);
+	}
+
+	75% {
+		transform: translateX(-3px) rotate(-2deg);
+	}
+}
+
+@keyframes sp-lcpro-hover-heartbeat {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	15% {
+		transform: scale(1.12);
+	}
+
+	30% {
+		transform: scale(1);
+	}
+
+	45% {
+		transform: scale(1.09);
+	}
+
+	60% {
+		transform: scale(1);
+	}
+}
+
+@keyframes sp-lcpro-hover-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes sp-lcpro-hover-float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+@keyframes sp-lcpro-hover-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Full turns, so the logo ends the right way round rather than mirrored. */
+@keyframes sp-lcpro-hover-flip-x {
+	from {
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+	to {
+		transform: perspective(600px) rotateY(360deg);
+	}
+}
+
+@keyframes sp-lcpro-hover-flip-y {
+	from {
+		transform: perspective(600px) rotateX(0deg);
+	}
+
+	to {
+		transform: perspective(600px) rotateX(360deg);
+	}
+}
+
+/**
+ * Respect a reader who has asked for less motion.
+ *
+ * The looping presets are the ones that matter here — a wall of pulsing logos
+ * is exactly what this setting exists to stop — but every preset is covered so
+ * nothing jitters unexpectedly.
+ */
+@media (prefers-reduced-motion: reduce) {
+	.sp-lcpro-logo-source__figure:hover .sp-lcpro-logo-source__image {
+		animation: none !important;
+		transition-duration: 1ms !important;
+	}
+}

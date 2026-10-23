@@ -1,0 +1,206 @@
+/**
+ * Missing Media Frontend Styles
+ *
+ * Provides styling for missing media indicators in the frontend carousel.
+ *
+ * @package Logo Carousel Pro
+ */
+
+/* Base missing media image styling */
+.sp-lcpro-logo-source__image--missing {
+	opacity: 0.7;
+	filter: grayscale( 50% );
+	transition: all 0.3s ease;
+}
+
+.sp-lcpro-logo-source__image--missing:hover {
+	opacity: 0.85;
+	filter: grayscale( 30% );
+}
+
+.sp-lcpro-logo-source__image--placeholder {
+	background-color: #f8fbf9;
+	border: 1px solid #2ab674;
+	border-radius: 8px;
+}
+
+/* Needs attention indicator */
+.sp-lcpro-logo-source__image--needs-attention {
+	position: relative;
+}
+
+.sp-lcpro-logo-source__image--needs-attention:not(.sp-lcpro-missing-media-placeholder)::after {
+	content: '';
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 8px;
+	height: 8px;
+	background-color: #ffc107;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* List item with missing media */
+.sp-lcpro-logo-source__item--has-missing-media {
+	opacity: 0.8;
+}
+
+.sp-lcpro-logo-source__item--has-missing-media:hover {
+	opacity: 1;
+}
+
+.sp-lcpro-logo-source__item--needs-attention {
+	position: relative;
+}
+
+.sp-lcpro-logo-source__item--needs-attention:not(.sp-lcpro-logo-source__item--has-missing-media)::before {
+	content: '⚠';
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background-color: #ffc107;
+	color: #000;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: bold;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	z-index: 10;
+	animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+	0%, 100% {
+		opacity: 1;
+		transform: scale( 1 );
+	}
+	50% {
+		opacity: 0.8;
+		transform: scale( 1.1 );
+	}
+}
+
+/* Disabled link styling for missing media */
+.sp-lcpro-logo-source__link--disabled {
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity: 0.6;
+}
+
+.sp-lcpro-logo-source__link--disabled:hover {
+	opacity: 0.6;
+}
+
+/* Disabled popup trigger for missing media */
+.sp-lcpro-logo-source__popup-trigger--disabled {
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media ( max-width: 768px ) {
+	.sp-lcpro-logo-source__item--needs-attention:not(.sp-lcpro-logo-source__item--has-missing-media)::before {
+		width: 16px;
+		height: 16px;
+		font-size: 10px;
+	}
+
+	.sp-lcpro-logo-source__image--needs-attention:not(.sp-lcpro-missing-media-placeholder)::after {
+		width: 6px;
+		height: 6px;
+	}
+}
+
+/* Reduced motion support */
+@media ( prefers-reduced-motion: reduce ) {
+	.sp-lcpro-logo-source__image--missing,
+	.sp-lcpro-logo-source__image--placeholder,
+	.sp-lcpro-logo-source__item--has-missing-media {
+		transition: none;
+	}
+
+	.sp-lcpro-logo-source__item--needs-attention::before {
+		animation: none;
+	}
+}
+
+/* High contrast mode support */
+@media ( prefers-contrast: high ) {
+	.sp-lcpro-logo-source__image--missing,
+	.sp-lcpro-logo-source__image--placeholder {
+		border-width: 2px;
+		border-color: #000;
+	}
+
+	.sp-lcpro-logo-source__item--needs-attention::before {
+		border: 2px solid #000;
+	}
+}
+
+/* Print styles */
+@media print {
+	.sp-lcpro-logo-source__image--missing,
+	.sp-lcpro-logo-source__image--placeholder {
+		border: 1px solid #000;
+		background-color: #fff;
+		page-break-inside: avoid;
+	}
+
+	.sp-lcpro-logo-source__item--needs-attention::before {
+		display: none;
+	}
+
+	.sp-lcpro-logo-source__image--needs-attention::after {
+		display: none;
+	}
+}
+
+/* Dark theme support */
+@media ( prefers-color-scheme: dark ) {
+	.sp-lcpro-logo-source__image--placeholder {
+		background-color: #2d2d2d;
+		border-color: #3d3d3d;
+	}
+
+	.sp-lcpro-logo-source__image--missing:hover {
+		opacity: 0.9;
+	}
+}
+
+/* Placeholder-specific enhancement */
+[data-sp-lcpro-placeholder="true"] {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ensure placeholder maintains aspect ratio */
+.sp-lcpro-logo-source__figure {
+	overflow: hidden;
+	position: relative;
+}
+
+/* Accessibility improvements */
+.sp-lcpro-logo-source__item--has-missing-media:focus-within {
+	outline: 2px solid #0073aa;
+	outline-offset: 2px;
+}
+
+/* Loading state for placeholders */
+.sp-lcpro-logo-source__image--placeholder[loading="lazy"] {
+	background-color: #f0f0f0;
+	min-height: 100px;
+}
+
+/* Responsive images for placeholders */
+.sp-lcpro-logo-source__image--placeholder {
+	display: block;
+	width: auto;
+	max-width: var(--sp-lcpro-slot-width, 140px);
+	height: var(--sp-lcpro-slot-height, 52px);
+	object-fit: contain;
+}

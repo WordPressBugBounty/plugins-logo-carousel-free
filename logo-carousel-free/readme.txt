@@ -1,63 +1,53 @@
 === Logo Carousel – Responsive Logo Slider, Logo Showcase, and Clients Logo Gallery ===
 Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
 Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
-Requires at least: 5.0
-Requires PHP: 7.0
+Requires at least: 6.3
+Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 3.6.14
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add, display, and manage clients, partners, sponsors, and brand logos with multiple slideshows on your site. Customizable – No coding required!
+Showcase clients, partners, sponsors and brand logos with Carousel and Grid blocks, Ready Patterns and an AI builder. No coding required!
 
 == Description ==
 
-[__Logo Carousel__](https://logocarousel.com/?ref=1) is a beautiful logo showcase and clients logo gallery plugin that allows you to display a group of logo images in a visually appealing carousel through an intuitive Shortcode Generator. It’s very user-friendly and convenient to manage & display the logo images in your any WordPress site.
+[__Logo Carousel__](https://logocarousel.com/?ref=1) is a logo showcase plugin for the WordPress block editor. Add the **Carousel** or **Grid** block from the Logo Carousel category, drop in your logos and style every detail — or start from a Ready Pattern, or describe the showcase you want and let the AI builder create it. Perfect for clients, sponsors, partners, affiliates, supporters and brand logos, with NO CODING knowledge required.
 
-The plugin is aesthetically designed for everyone including designers & developers and perfect to display your clients, sponsors, partners, affiliates, supporters, brands logos in a simple and unique style. It is highly customizable and flexible logo showcase builder plugin and NO CODING knowledge required!
+Version 4.0 is a complete rebuild around Gutenberg blocks. Your existing shortcodes (`[logocarousel id="…"]`), the classic Logo Carousel block and the Elementor widget keep working exactly as before.
 
-[youtube https://www.youtube.com/watch?v=Gf1EbH4T1bg&list=PLoUb-7uG-5jN7hMCpV5dtKLqAMsk_NmZc]
+[youtube https://www.youtube.com/watch?v=jZC44B7cBCM&list=PLoUb-7uG-5jNQCZorsMl_TBePe8WZilDw]
 
-[__Live Demo__](https://logocarousel.com/logo-carousel-lite-version-demos/) | [__Documentation__](https://docs.shapedplugin.com/docs/logo-carousel/introduction/) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
+[__Live Demo__](https://logocarousel.com/patterns/) | [__Documentation__](https://docs.logocarousel.com/guide/introduction) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
 
-= Key features comes with this plugin =
+= Two powerful blocks =
 
-* Fully responsive & mobile friendly.
-* Elegant, lightweight.
-* Easy Shortcode Generator.
-* Unlimited logo carousels (Multiple instances on the same page).
-* Unique settings for each carousel.
-* Control logo columns in different devices.
-* Logo section title and bottom margin.
-* Logo margin (space between logos).
-* Logo border width, style, color, and hover color.
-* Logo title attribute.
-* AutoPlay On/Off.
-* AutoPlay speed control.
-* Pagination speed control.
-* Stop on the hover carousel.
-* Infinite looping for the carousel.
-* Preloader option.
-* Show/hide navigation.
-* Show/hide pagination.
-* Navigation and pagination hide on mobile.
-* Navigation color control options.
-* Pagination dots color and hover color.
-* Logo order & order by.
-* Touch swipe enable/disable.
-* Mouse draggable enable/disable.
-* Translation ready.
-* RTL and LTR carousel direction.
-* Advanced plugin settings page.
-* Clean-up data on deletion option.
-* Custom CSS field to override styles.
-* Scripts and styles enqueue and dequeue options.
-* Compatible with any theme.
-* Developer friendly.
-* SEO friendly & optimized for speed.
-* Support all modern browsers: IE, Firefox, Chrome, Safari, etc.
-* Fast and active support.
-* And many more options.
+* **Carousel block** – Standard, Staggered, Center and Multi Columns (multi-row) styles, horizontal or vertical orientation, center emphasis, partial slide view, variable width, edge fade.
+* **Grid block** – Standard, Strip, Staggered and Zigzag styles, responsive columns, gaps and alignment, Load More or numbered pagination with infinite scroll.
+
+= Key features =
+
+* Fully responsive: columns, rows, gaps and visibility per device.
+* Upload logos or pick them from the Media Library, then edit title, caption, tagline, description, categories, tooltip text, link, alt text and rating per logo.
+* Carousel controls: autoplay, speed, pause on hover, loop, direction, slides to scroll, sliding effects, adaptive height, keyboard, mousewheel and free scroll.
+* 13 navigation arrow icons and 6 pagination dot styles, fully styleable.
+* Ajax Live Filter (by logo category) and Ajax Search.
+* Logo tooltips with position, arrow, effects, typography and colours.
+* Display elements: title, tagline, description, rating and read more, with sortable order, typography, colours, borders and card backgrounds.
+* Logo details popup, or link each logo to a URL.
+* 17 hover animations, image filters (grayscale, blur and more), opacity, overlay, aspect ratio and resolution control.
+* Lazy loading and SVG support.
+* **Ready Patterns Library** – insert pre-designed logo showcases in one click.
+* **Create with AI** – describe a logo showcase and the AI builder matches a pattern or builds the block (uses your own OpenAI, Groq, Anthropic or Google Gemini API key, or a provider connected in WordPress; optional).
+* **Saved Templates** – save a showcase once and reuse it anywhere with the `[lc_template]` shortcode.
+* A modern dashboard to switch blocks and modules on or off, plus a setup wizard.
+* Import and export logos and logo carousels (JSON).
+* Custom CSS and JS, and FontAwesome/Swiper enqueue controls.
+* Translation ready, RTL ready, developer friendly and SEO friendly.
+
+= Logo Carousel Pro =
+
+Need more? [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) adds the List, Marquee and Table blocks, Scheduling, Motion Effects, Glassmorphism backgrounds, Logo Analytics (impressions and clicks) and priority support. See the **Lite vs Pro** tab in the plugin dashboard for the full comparison.
 
 
 = Multilingual Ready =
@@ -72,7 +62,7 @@ The plugin is aesthetically designed for everyone including designers & develope
 
 = Page Builders Ready =
 
-* Gutenberg
+* Gutenberg (blocks)
 * WPBakery
 * Elementor
 * Divi Builders
@@ -100,9 +90,9 @@ Designed and Developed by [__ShapedPlugin__](https://shapedplugin.com/)
 
 = MINIMUM REQUIREMENTS =
 
-* PHP 7.0 or later
+* PHP 7.4 or later
 * MySQL 5.6 or later
-* WordPress 5.0 or later
+* WordPress 6.3 or later
 
 **This section describes how to install the plugin and get it working**
 
@@ -137,15 +127,12 @@ The WordPress codex contains <a href="https://codex.wordpress.org/Managing_Plugi
 == Frequently Asked Questions ==
 
 = How can I create Logo Carousel? =
-After activating the plugin, you will see “Logo Carousel” in WordPress Admin Dashboard.
+Open any post or page in the block editor and add the **Carousel** or **Grid** block from the Logo Carousel category. Choose **Ready Patterns**, **Create with AI** or **Build from Scratch**, add your logos and customise the block from the sidebar.
 
-Firstly, Go to “Add New Logo” and upload your logos as many as you want.
+Existing shortcode users can keep using Logo Carousel → Manage Logo Views and the `[logocarousel id="…"]` shortcode.
 
-Secondly, Go to Shortcode Generator > Add New Shortcode and you will find 3 Tabs “General Settings”, “Carousel Settings” and “Stylization”
-
-You can customize the setting fields how you want & publish and you will see a generated shortcode in the top area.
-
-Finally, You need insert it any page or post through tinyMCE button easily.
+= Will my existing shortcodes still work after updating to 4.0? =
+Yes. Shortcodes, the classic Logo Carousel block and the Elementor widget are unchanged. Your plugin settings are kept and are now managed from Logo Carousel → Settings in the new dashboard.
 
 = Do I need to have coding skills to use Logo Carousel? =
 No. You don’t need any coding skill. No more pain writing any shortcode attributes to display logo carousel in your website. With just few clicks, you can amazingly showcase your logos using Shortcode Generator.
@@ -171,7 +158,7 @@ Test the plugin with a WordPress default theme, to be sure that the error is not
 
 Deactivate all plugins you are using and check if the problem is still occurring.
 
-If none of the previous listed actions helps you solve the problem, then, submit a ticket in the [__Support__](https://shapedplugin.com/create-new-ticket/) and describe your problem accurately, specify WordPress and plugin versions you are using and any other information that might help us solve your problem as quickly as possible.
+If none of the previous listed actions helps you solve the problem, then, open a topic in the [__Support Forum__](https://wordpress.org/support/plugin/logo-carousel-free/) and describe your problem accurately, specify WordPress and plugin versions you are using and any other information that might help us solve your problem as quickly as possible.
 
 = Where can I report bugs? =
 Bugs can be reported in our [__Support__](https://shapedplugin.com/create-new-ticket/).
@@ -202,6 +189,21 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 
 == Changelog ==
+
+= Version 4.0.0 – Oct 23, 2026 =
+* New: Carousel block with Standard and Center styles for smooth, eye-catching logo sliders.
+* New: Grid block with responsive columns that look great on every device.
+* New: Create with AI module to describe a showcase and get a ready-made design, using your own OpenAI, Anthropic, Gemini, or Groq key, or a provider connected in WordPress.
+* New: Ready Patterns library to insert pre-designed logo showcases in one click.
+* New: Saved Templates to design once and reuse anywhere with the [lc_template] shortcode, including Elementor, Divi 4 and 5, WPBakery, Oxygen, Beaver Builder and Bricks.
+* New: Edit Logos window to reorder logos, update titles, alt text, links and descriptions, and add more from the Media Library in one place.
+* New: Secure SVG logo uploads, plus lazy loading, 17 hover animations, and image filters.
+* Improved: Admin Dashboard with a Placements tab showing where each showcase is used.
+* Improved: Rebuilt around Gutenberg blocks, while existing shortcodes, the classic block, and the Elementor widget keep working unchanged.
+* Improved: 13 navigation arrow styles, including all former Pro styles, and 6 pagination dot styles, all fully customizable.
+* Improved: Settings, Control Assets, Import & Export, and Custom CSS now live in the dashboard; old pages redirect there automatically.
+* Improved: Now requires WordPress 6.3 and PHP 7.4.
+* Tested: Compatible with WordPress 7.1.3.
 
 = Version 3.6.14 – Aug 18, 2026 =
 * Fixed: Logo Carousel block compatibility with WordPress 7.1 iframed editor.
@@ -562,3 +564,8 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 = 1.0 =
 * First Release
+
+== Upgrade Notice ==
+
+= 4.0.0 =
+Major update: new Carousel and Grid blocks, Ready Patterns, AI builder, Saved Templates and a new dashboard. Existing shortcodes keep working. Requires WordPress 6.3+ and PHP 7.4+. Please back up your site before updating.

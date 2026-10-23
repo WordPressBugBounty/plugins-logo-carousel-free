@@ -3,7 +3,9 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           3.6.14
+ * Version:           4.0.0
+ * Requires at least: 6.3
+ * Requires PHP:      7.4
  * Author:            ShapedPlugin LLC
  * Author URI:        https://shapedplugin.com
  * Text Domain:       logo-carousel-free
@@ -55,7 +57,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '3.6.14';
+		public $version = '4.0.0';
 
 		/**
 		 * Single instance of the class
@@ -314,6 +316,10 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 * @param string $class requested class name.
 		 */
 		public function autoload( $class ) {
+			// Namespaced classes belong to Composer's autoloader (src/).
+			if ( false !== strpos( $class, '\\' ) ) {
+				return;
+			}
 			$name = explode( '_', $class );
 			if ( isset( $name[1] ) ) {
 				$class_name = strtolower( $name[1] );
@@ -400,15 +406,30 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		}
 
 		/**
-		 * Redirect after active
+		 * Redirect after activation.
+		 *
+		 * Sends the site owner to the React dashboard. The setup wizard never
+		 * opens on its own; it stays reachable from Get Help → Setup Wizard.
 		 *
 		 * @param string $plugin plugin.
 		 */
 		public function redirect_help_page( $plugin ) {
-			if ( SP_LC_BASENAME === $plugin && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) && ! ( defined( 'WP_CLI' ) && WP_CLI ) ) {
-				wp_safe_redirect( admin_url( 'edit.php?post_type=sp_logo_carousel&page=lc_help' ) );
-				exit;
+			if ( SP_LC_BASENAME !== $plugin || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+				return;
 			}
+
+			// Bulk activation must not hijack the screen.
+			if ( isset( $_REQUEST['action'] ) && 'activate-selected' === sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				return;
+			}
+
+			$dashboard = 'ShapedPlugin\\LogoCarouselFree\\Admin\\Dashboard\\Dashboard';
+			if ( ! class_exists( $dashboard ) ) {
+				return;
+			}
+
+			wp_safe_redirect( admin_url( $dashboard::PARENT_SLUG . '&page=' . $dashboard::PAGE_SLUG ) );
+			exit;
 		}
 	}
 }
@@ -426,4 +447,26 @@ function sp_logo_carousel() {
 if ( ! ( is_plugin_active( 'logo-carousel-pro/logo-carousel-pro.php' ) || is_plugin_active_for_network( 'logo-carousel-pro/logo-carousel-pro.php' ) ) ) {
 	// sp_logo_carousel instance.
 	$cpm = sp_logo_carousel();
+
+	/*
+	 * Block-based system (Carousel + Grid blocks, dashboard).
+	 *
+	 * Loaded only while Pro is inactive: Pro ships the same block names,
+	 * option keys and REST routes, so the two must never boot together.
+	 */
+	define( 'SP_LOGO_CAROUSEL_FREE_FILE', __FILE__ );
+	define( 'SP_LOGO_CAROUSEL_FREE_ITEM_NAME', 'Logo Carousel' );
+	define( 'SP_LOGO_CAROUSEL_FREE_ITEM_SLUG', 'logo-carousel-free' );
+	define( 'SP_LOGO_CAROUSEL_FREE_VERSION', SP_LC_VERSION );
+	define( 'SP_LOGO_CAROUSEL_FREE_PATH', plugin_dir_path( __FILE__ ) . 'src/' );
+	define( 'SP_LOGO_CAROUSEL_FREE_URL', plugin_dir_url( __FILE__ ) . 'src/' );
+	define( 'SP_LOGO_CAROUSEL_FREE_BASENAME', plugin_basename( __FILE__ ) );
+	define( 'SP_LOGO_CAROUSEL_FREE_PRODUCT_URL', 'https://logocarousel.com/' );
+	// Collector key for opt-in diagnostic data; must match the collector's config.
+	define( 'SP_LOGO_CAROUSEL_FREE_SDR_KEY', '6b19608a5f11b0be9b4e502fe690353f58d26b' );
+
+	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+		require_once __DIR__ . '/vendor/autoload.php';
+		new ShapedPlugin\LogoCarouselFree\Includes\LogoCarouselFree();
+	}
 }

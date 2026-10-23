@@ -1,0 +1,113 @@
+/**
+ * Logo Slot Dimensions - Universal Containment Strategy
+ *
+ * Implements CSS custom properties for consistent logo sizing across all layouts.
+ * Single source of truth for slot dimensions with responsive breakpoints.
+ *
+ * @package Logo_Carousel_Pro
+ */
+
+/* ============================================
+   BASE SLOT DIMENSIONS (Mobile First)
+   ============================================ */
+:root {
+	/* Default slot dimensions - mobile first approach */
+	--sp-lcpro-slot-width: 140px;
+	--sp-lcpro-slot-height: auto;
+	--sp-lcpro-slot-max-width: 100%;
+	--sp-lcpro-slot-max-height: 150px;
+	--sp-lcpro-slot-padding-vertical: 8px;
+	--sp-lcpro-slot-padding-horizontal: 6px;
+
+	/* Legacy fallback - ensures existing content remains stable */
+	--sp-lcpro-legacy-width: 140px;
+	--sp-lcpro-legacy-height: 52px;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet - 768px and up */
+@media (min-width: 768px) {
+	:root {
+		--sp-lcpro-slot-width: 160px;
+		--sp-lcpro-slot-height: auto;
+		--sp-lcpro-slot-max-width: 100%;
+		--sp-lcpro-slot-max-height: 180px;
+		--sp-lcpro-slot-padding-vertical: 10px;
+		--sp-lcpro-slot-padding-horizontal: 8px;
+	}
+}
+
+/* Desktop - 1024px and up */
+@media (min-width: 1024px) {
+	:root {
+		--sp-lcpro-slot-width: 180px;
+		--sp-lcpro-slot-height: auto;
+		--sp-lcpro-slot-max-width: 100%;
+		--sp-lcpro-slot-max-height: 210px;
+		--sp-lcpro-slot-padding-vertical: 12px;
+		--sp-lcpro-slot-padding-horizontal: 10px;
+	}
+}
+
+/* Large Desktop - 1440px and up */
+@media (min-width: 1440px) {
+	:root {
+		--sp-lcpro-slot-width: 200px;
+		--sp-lcpro-slot-height: auto;
+		--sp-lcpro-slot-max-width: 100%;
+		--sp-lcpro-slot-max-height: 240px;
+	}
+}
+
+/* ============================================
+   CONTAINMENT OWNERSHIP NOTE
+   ============================================ */
+
+/*
+ * This file is the single source of truth for the --sp-lcpro-slot-* DESIGN TOKENS
+ * and their responsive breakpoints ONLY.
+ *
+ * It must NOT set width / height / max-width / object-fit / aspect-ratio on
+ * .sp-lcpro-logo-source__image or .sp-lcpro-logo-source__figure. Those properties
+ * are owned by the logoImages CSS concern (logoImagesDynamicCss.js / LogoImagesCss.php),
+ * which is scoped per block by uniqueId and consumes the tokens defined here.
+ *
+ * Putting box-sizing here too would double-own those properties and silently override
+ * the scoped concern (see CSS Ownership Rule). Keep this file tokens-only.
+ */
+
+/* ============================================
+   LAYOUT-SPECIFIC ADJUSTMENTS
+   ============================================ */
+
+/* Compact layout - tighter spacing */
+@media (max-width: 767px) {
+	.sp-lcpro-logo-carousel--compact .sp-lcpro-logo-source__figure {
+		padding: 6px 4px;
+	}
+}
+
+/* ============================================
+   THEME OVERRIDES GUIDE
+   ============================================ */
+
+/*
+ * Theming API for developers:
+ *
+ * To customize slot dimensions in your theme, override these properties:
+ *
+ * :root {
+ *     --sp-lcpro-slot-width: 180px;
+ *     --sp-lcpro-slot-height: 68px;
+ * }
+ *
+ * For aspect ratio-specific overrides:
+ *
+ * [data-sp-lcpro-aspect-ratio="1:1"] .sp-lcpro-logo-source__figure {
+ *     --sp-lcpro-slot-width: 150px;
+ *     --sp-lcpro-slot-height: 150px;
+ * }
+ */

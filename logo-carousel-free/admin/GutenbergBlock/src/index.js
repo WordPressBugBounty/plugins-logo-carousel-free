@@ -2,7 +2,7 @@ import icons from './shortcode/blockIcon';
 import DynamicShortcodeInput from './shortcode/dynamicShortcode';
 import { escapeAttribute, escapeHTML } from "@wordpress/escape-html";
 import { __ } from '@wordpress/i18n';
-import { createBlock, registerBlockType } from '@wordpress/blocks';
+import { createBlock, getCategories, registerBlockType } from '@wordpress/blocks';
 import { PanelBody, PanelRow } from '@wordpress/components';
 import { createElement, useEffect, useRef } from '@wordpress/element';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
@@ -21,6 +21,23 @@ const useBlockPropsCompat = 'function' === typeof useBlockProps ? useBlockProps 
 const SHORTCODE_PATTERN = /\[logocarousel[^\]]*\bid=["']?(\d+)/;
 
 /**
+ * Sits with the plugin's own blocks under "Logo Carousel". That category is
+ * registered by the block architecture, which needs WordPress 5.8, while this
+ * block loads from 5.3 — so where it is absent the block stays in "common"
+ * rather than failing to register against a category that does not exist.
+ */
+const BLOCK_CATEGORY = getCategories().some(
+	(category) => 'sp-logo-carousel' === category.slug
+)
+	? 'sp-logo-carousel'
+	: 'common';
+
+/**
+ * Block icon, shared by the inserter and the placeholders.
+ */
+const ICON_URL = escapeAttribute(sp_logo_carousel_free_g.path + 'admin/GutenbergBlock/assets/classic-shortcode.svg');
+
+/**
  * Register: Logo Carousel Gutenberg Block.
  */
 registerBlockType(
@@ -29,10 +46,10 @@ registerBlockType(
 		// Block API v3 marks the block as compatible with the iframed editor
 		// canvas, which WordPress 7.1 uses for every editor.
 		apiVersion: 3,
-		title: __('Logo Carousel', 'logo-carousel-free'),
-		description: __('Use Logo Carousel Pro to insert a carousel (shortcode) in your page.', 'logo-carousel-free'),
-		icon: icons.teamPro,
-		category: 'media',
+		title: __('Classic Shortcode', 'logo-carousel-free'),
+		description: __('Use Logo Carousel to insert a carousel (shortcode) in your page.', 'logo-carousel-free'),
+		icon: icons.classicShortcode,
+		category: BLOCK_CATEGORY,
 		supports: {
 			html: false,
 		},
@@ -141,7 +158,9 @@ registerBlockType(
 			if (isPreview) {
 				return (
 					el('div', blockProps,
-						el('img', { src: escapeAttribute(sp_logo_carousel_free_g.path + 'admin/GutenbergBlock/assets/logo-carousel-block-preview.svg') })
+						el('div', { className: 'splcf_shortcode_block_preview_image' },
+							el('img', { src: escapeAttribute(sp_logo_carousel_free_g.path + 'admin/GutenbergBlock/assets/logo-carousel-block-preview.svg') })
+						)
 					)
 				)
 			}
@@ -151,13 +170,13 @@ registerBlockType(
 					el('div', blockProps,
 						el('div', { className: 'components-placeholder components-placeholder is-large' },
 							el('div', { className: 'components-placeholder__label' },
-								el('img', { className: 'block-editor-block-icon', src: escapeAttribute(sp_logo_carousel_free_g.path + 'admin/GutenbergBlock/assets/logo-carousel.svg') }),
+								el('img', { className: 'block-editor-block-icon', src: ICON_URL }),
 								escapeHTML(__('Logo Carousel', 'logo-carousel-free'))
 							),
 							el('div', { className: 'components-placeholder__instructions' },
-								escapeHTML(__("No logo carousel found. ", "logo-carousel-free")),
+								escapeHTML(__("No shortcode found. ", "logo-carousel-free")),
 								el('a', { href: escapeAttribute(sp_logo_carousel_free_g.url) },
-									escapeHTML(__("Create a carousel (shortcode) now!", "logo-carousel-free"))
+									escapeHTML(__("Create a shortcode now!", "logo-carousel-free"))
 								)
 							)
 						)
@@ -169,7 +188,7 @@ registerBlockType(
 				return (
 					el('div', blockProps,
 						<InspectorControls>
-							<PanelBody title="Select a carousel (shortcode)">
+							<PanelBody title={__('Select a carousel (shortcode)', 'logo-carousel-free')}>
 								<PanelRow>
 									<DynamicShortcodeInput
 										attributes={attributes}
@@ -181,7 +200,7 @@ registerBlockType(
 						</InspectorControls>,
 						el('div', { className: 'components-placeholder components-placeholder is-large' },
 							el('div', { className: 'components-placeholder__label' },
-								el('img', { className: 'block-editor-block-icon', src: escapeAttribute(sp_logo_carousel_free_g.path + 'admin/GutenbergBlock/assets/logo-carousel.svg') }),
+								el('img', { className: 'block-editor-block-icon', src: ICON_URL }),
 								escapeHTML(__("Logo Carousel", "logo-carousel-free"))
 							),
 							el('div', { className: 'components-placeholder__instructions' }, escapeHTML(__("Select a carousel (shortcode)", "logo-carousel-free"))),
@@ -198,7 +217,7 @@ registerBlockType(
 			return (
 				el('div', blockProps,
 					<InspectorControls>
-						<PanelBody title="Select a carousel (shortcode)">
+						<PanelBody title={__('Select a carousel (shortcode)', 'logo-carousel-free')}>
 							<PanelRow>
 								<DynamicShortcodeInput
 									attributes={attributes}

@@ -84,7 +84,17 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 			// exists on the outer document, so the canvas needs its own copy.
 			wp_add_inline_style(
 				'sp-lc-style',
-				'.splcf-gutenberg-shortcode{padding:0;line-height:24px}.splcf-gutenberg-shortcode:after{display:none}.splcf-gutenberg-shortcode select.splcf-shortcode-selector{width:250px;padding:5px 25px 5px 5px;border:1px solid #ccc;font-size:13px}.splcf-block-preview .logo-carousel-free-area i{font-style:normal}'
+				// The `::after` reset out-ranks core's `:root :where(.editor-styles-wrapper)::after`
+				// 40vh spacer (0,2,1 vs 0,1,1), in case an older cached script still
+				// puts that canvas class on the selector's wrapper.
+				'.splcf-gutenberg-shortcode{padding:0;line-height:24px}'
+				. '.splcf-gutenberg-shortcode::after,.splcf-gutenberg-shortcode.editor-styles-wrapper::after{content:none;display:none;height:auto}'
+				. '.splcf-gutenberg-shortcode select.splcf-shortcode-selector{appearance:none;-webkit-appearance:none;-moz-appearance:none;box-sizing:border-box;width:100%;max-width:none;min-height:0;margin:0;padding:8px 36px 8px 12px;font-size:14px;line-height:1.4;color:#1e1e1e;background-color:#fff;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23555\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:18px;border:1px solid #949494;border-radius:4px;cursor:pointer;transition:border-color .15s ease,box-shadow .15s ease}'
+				. '.splcf-gutenberg-shortcode select.splcf-shortcode-selector:hover{border-color:#1e1e1e}'
+				. '.splcf-gutenberg-shortcode select.splcf-shortcode-selector:focus{outline:none;border-color:#007cba;box-shadow:0 0 0 1px #007cba}'
+				. '.splcf-gutenberg-shortcode select.splcf-shortcode-selector:disabled{background-color:#f0f0f0;color:#a7a7a7;cursor:not-allowed}'
+				. '.splcf_shortcode_block_preview_image img{display:block;max-width:100%;height:auto}'
+				. '.splcf-block-preview .logo-carousel-free-area i{font-style:normal}'
 			);
 		}
 

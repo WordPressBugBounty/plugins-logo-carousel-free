@@ -41,7 +41,7 @@ class Logo_Carousel_Free_Element_Shortcode_Widget extends \Elementor\Widget_Base
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Logo Carousel Free', 'logo-carousel-free' );
+		return __( 'Logo Carousel Shortcode', 'logo-carousel-free' );
 	}
 
 	/**

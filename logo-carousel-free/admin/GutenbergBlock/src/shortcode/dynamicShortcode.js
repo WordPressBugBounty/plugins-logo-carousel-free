@@ -8,11 +8,14 @@ const el = createElement;
 
 const DynamicShortcodeInput = ( { attributes : { shortcode }, shortCodeList, shortcodeUpdate } ) => (
     <Fragment>
-        {el('div', {className: 'splcf-gutenberg-shortcode editor-styles-wrapper'},
+        {/* Not `editor-styles-wrapper`: that class marks the editor canvas
+            itself, and core then gives this box the canvas's 40vh `::after`
+            spacer, leaving a large gap under the selector. */}
+        {el('div', {className: 'splcf-gutenberg-shortcode'},
             el('select', {className: 'splcf-shortcode-selector', onChange: e => shortcodeUpdate(e), value: escapeAttribute( shortcode ) },
                 el('option', {value: escapeAttribute('0')}, escapeHTML( __('-- Select a carousel (shortcode) --', 'logo-carousel-free'))),
                 shortCodeList.map( shortcode => {
-                    var title = (shortcode.title.length > 30) ? shortcode.title.substring(0,25) + '.... #(' + shortcode.id + ')' : shortcode.title + ' #(' + shortcode.id + ')';
+                    var title = (shortcode.title.length > 35) ? shortcode.title.substring(0,30) + '.... #(' + shortcode.id + ')' : shortcode.title + ' #(' + shortcode.id + ')';
                     return el('option', {value: escapeAttribute( shortcode.id.toString() ), key: escapeAttribute( shortcode.id.toString() )}, escapeHTML( title ) )
                 })
             )
