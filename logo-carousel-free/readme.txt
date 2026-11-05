@@ -4,7 +4,7 @@ Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 6.3
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,34 +20,36 @@ Version 4.0 is a complete rebuild around Gutenberg blocks. Your existing shortco
 
 [__Live Demo__](https://logocarousel.com/patterns/) | [__Documentation__](https://docs.logocarousel.com/guide/introduction) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
 
-= Two powerful blocks =
+= Powerful blocks =
 
-* **Carousel block** – Standard, Staggered, Center and Multi Columns (multi-row) styles, horizontal or vertical orientation, center emphasis, partial slide view, variable width, edge fade.
-* **Grid block** – Standard, Strip, Staggered and Zigzag styles, responsive columns, gaps and alignment, Load More or numbered pagination with infinite scroll.
+* **Carousel block** – Standard and Center styles with autoplay, speed, pause on hover, infinite loop, adaptive height, and free scroll. Navigation arrows with 12 icons and 9 positions, and 6 pagination styles (Dots, Dynamic, Ring, Dash, Scrollbar, and Numbers).
+* **Grid block** – Standard grid with responsive columns, gaps, and left or right alignment.
+* **Marquee block (Pro)** – A continuous, auto-scrolling marquee of partner, client, or brand logos.
+* **List block (Pro)** – Logos displayed vertically in a clean stacked list.
+* **Table block (Pro)** – Logos displayed in a structured table layout.
+
+Pro also unlocks the Ticker, Staggered, and Multi Columns carousel styles, vertical and multi-row carousels, the Strip, Staggered, and Zigzag grid styles, and Ajax pagination (Numbers, Load More, and Infinite Scroll).
 
 = Key features =
 
-* Fully responsive: columns, rows, gaps and visibility per device.
-* Upload logos or pick them from the Media Library, then edit title, caption, tagline, description, categories, tooltip text, link, alt text and rating per logo.
-* Carousel controls: autoplay, speed, pause on hover, loop, direction, slides to scroll, sliding effects, adaptive height, keyboard, mousewheel and free scroll.
-* 13 navigation arrow icons and 6 pagination dot styles, fully styleable.
-* Ajax Live Filter (by logo category) and Ajax Search.
-* Logo tooltips with position, arrow, effects, typography and colours.
-* Display elements: title, tagline, description, rating and read more, with sortable order, typography, colours, borders and card backgrounds.
-* Logo details popup, or link each logo to a URL.
-* 17 hover animations, image filters (grayscale, blur and more), opacity, overlay, aspect ratio and resolution control.
-* Lazy loading and SVG support.
+* Fully responsive: columns, gaps, and visibility per device.
+* Upload logos or pick them from the Media Library, then edit the title, alt text, and image of each logo.
+* Carousel controls: autoplay, speed, pause on hover, infinite loop, adaptive height, keyboard, mousewheel, and free scroll.
+* 12 navigation arrow icons with 9 positions, and 6 pagination styles, fully styleable.
+* Logo image settings: aspect ratio, size, and lazy loading.
+* SVG logo uploads.
+* Section background, spacing, responsive visibility, and custom CSS class.
 * **Ready Patterns Library** – insert pre-designed logo showcases in one click.
-* **Create with AI** – describe a logo showcase and the AI builder matches a pattern or builds the block (uses your own OpenAI, Groq, Anthropic or Google Gemini API key, or a provider connected in WordPress; optional).
+* **Create with AI** – describe a logo showcase and the AI builder matches a pattern or builds the block (uses your own OpenAI, Groq, Anthropic, or Google Gemini API key, or a provider connected in WordPress; optional).
 * **Saved Templates** – save a showcase once and reuse it anywhere with the `[lc_template]` shortcode.
 * A modern dashboard to switch blocks and modules on or off, plus a setup wizard.
 * Import and export logos and logo carousels (JSON).
 * Custom CSS and JS, and FontAwesome/Swiper enqueue controls.
-* Translation ready, RTL ready, developer friendly and SEO friendly.
+* Translation ready, RTL ready, developer friendly, and SEO friendly.
 
 = Logo Carousel Pro =
 
-Need more? [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) adds the List, Marquee and Table blocks, Scheduling, Motion Effects, Glassmorphism backgrounds, Logo Analytics (impressions and clicks) and priority support. See the **Lite vs Pro** tab in the plugin dashboard for the full comparison.
+Need more? [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) adds the List, Marquee, and Table blocks, logo titles, descriptions, and read more, tooltips, custom links or a details popup per logo, 40+ hover animations, image filters, overlays, Ajax Live Filter and Ajax Search, sliding effects, slide to scroll, Scheduling, Motion Effects, Glassmorphism backgrounds, Logo Analytics (impressions and clicks), and priority support. See the **Lite vs Pro** tab in the plugin dashboard for the full comparison.
 
 
 = Multilingual Ready =
@@ -172,23 +174,33 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 
 == Screenshots ==
-1. Live Demo
-2. General Settings
-3. Style Settings
-4. Logo Image Settings
-5. Carousel Controls
-6. Typography (Pro)
-7. All Logo Carousels (Shortcodes)
-8. Advanced Settings
-9. Custom CSS
-10. Tools (Export)
-11. Tools (Import)
-12. Add New Logo
-13. All Logos
+1. Live demo: a responsive logo carousel showcasing client and partner logos on the front end.
+2. Logo Carousel block: add and customize carousels directly in the Gutenberg block editor.
+3. Choose logo images: select or upload logos from the WordPress Media Library.
+4. Ready-made patterns: insert a pre-designed logo carousel in one click.
+5. Build with AI: generate a logo carousel design in seconds using AI.
+6. Saved Templates: save your favorite carousel designs and reuse them across your site.
+7. Modules manager: enable or disable plugin modules to keep your site lightweight.
+8. Classic Logo Carousel: build carousels with the classic shortcode-based editor.
+9. Style settings: customize colors, spacing, borders, and layout.
+10. Logo image settings: control logo size, effects, and links.
+11. Carousel controls: configure autoplay, speed, navigation arrows, and pagination dots.
+12. Typography settings: fine-tune fonts, sizes, and text styles.
+13. All Logo Carousels: manage your carousels and copy shortcodes in one place.
+14. Add New Logo: add a logo with its title, image, and website link.
+15. All Logos: view, edit, and organize your entire logo library.
 
 
 
 == Changelog ==
+
+= Version 4.0.1 – Nov 05, 2026 =
+* Improved: The bundled Swiper library has been updated to the latest version for smoother sliding.
+* Improved: The logo import now only accepts real image files from public URLs.
+* Fixed: Carousel styles could break when CSS optimization plugins minify or combine stylesheets.
+* Fixed: The navigation and pagination Hide on Mobile options were not applied.
+* Fixed: Private, pending, and scheduled carousels could be displayed to visitors.
+* Fixed: Settings framework actions could affect data outside the plugin.
 
 = Version 4.0.0 – Oct 23, 2026 =
 * New: Carousel block with Standard and Center styles for smooth, eye-catching logo sliders.

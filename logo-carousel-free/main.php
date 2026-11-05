@@ -3,7 +3,7 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           4.0.0
+ * Version:           4.0.1
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            ShapedPlugin LLC
@@ -57,7 +57,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '4.0.0';
+		public $version = '4.0.1';
 
 		/**
 		 * Single instance of the class
@@ -397,7 +397,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 					echo '<div class="lc-after-copy-text"><i class="fa fa-check-circle"></i> ' . esc_html__( 'Shortcode Copied to Clipboard! ', 'logo-carousel-free' ) . '</div><input class="lc_input_shortcode"  style="width: 210px;padding: 6px; cursor:pointer;" type="text" onClick="this.select();" readonly="readonly" value="[logocarousel id=&quot;' . esc_attr( $post_id ) . '&quot;]"/>';
 					break;
 				case 'layout':
-					echo ucwords( str_replace( '-', ' ', $layout ) ); //phpcs:ignore
+					echo esc_html( ucwords( str_replace( '-', ' ', $layout ) ) );
 					break;
 				default:
 					break;

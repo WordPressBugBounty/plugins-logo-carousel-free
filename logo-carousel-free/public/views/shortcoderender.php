@@ -212,10 +212,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$nav_data                  = isset( $carousel_navigation_group['lcp_nav_show'] ) ? $carousel_navigation_group['lcp_nav_show'] : '';
 			if ( $nav_data ) {
 				$nav        = 'true';
-				$nav_mobile = 'true';
-			} elseif ( $nav_data && $hide_on_mobile ) {
-				$nav        = 'true';
-				$nav_mobile = 'false';
+				$nav_mobile = $hide_on_mobile ? 'false' : 'true';
 			} else {
 				$nav        = 'false';
 				$nav_mobile = 'false';
@@ -225,10 +222,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$dots_data                 = isset( $carousel_pagination_group['lcp_carousel_dots'] ) ? $carousel_pagination_group['lcp_carousel_dots'] : '';
 			if ( $dots_data ) {
 				$dots        = 'true';
-				$dots_mobile = 'true';
-			} elseif ( $dots_data && $pagination_hide_on_mobile ) {
-				$dots        = 'true';
-				$dots_mobile = 'false';
+				$dots_mobile = $pagination_hide_on_mobile ? 'false' : 'true';
 			} else {
 				$dots        = 'false';
 				$dots_mobile = 'false';
@@ -284,7 +278,12 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 		 * @return mixed
 		 */
 		public function sp_logo_carousel_render( $attribute ) {
-			if ( empty( $attribute['id'] ) || 'sp_lc_shortcodes' !== get_post_type( $attribute['id'] ) || ( get_post_status( $attribute['id'] ) === 'trash' ) || ( get_post_status( $attribute['id'] ) === 'draft' ) ) {
+			if ( empty( $attribute['id'] ) || 'sp_lc_shortcodes' !== get_post_type( $attribute['id'] ) ) {
+				return;
+			}
+			// Published carousels are public; private, pending, future and draft ones only render for users who can read them.
+			$carousel_status = get_post_status( $attribute['id'] );
+			if ( 'trash' === $carousel_status || ( 'publish' !== $carousel_status && ! current_user_can( 'read_post', (int) $attribute['id'] ) ) ) {
 				return;
 			}
 			$post_id = esc_attr( intval( $attribute['id'] ) );

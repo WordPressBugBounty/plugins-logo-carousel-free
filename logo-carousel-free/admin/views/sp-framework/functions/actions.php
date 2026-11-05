@@ -83,6 +83,12 @@ if ( ! function_exists( 'splogocarousel_reset_ajax' ) ) {
 			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'logo-carousel-free' ) ) );
 		}
 
+		// Only the framework's own options may be reset.
+		$allowed_options = array( '_sp_lcpro_options', 'sp_lcp_tools' );
+		if ( ! in_array( $unique, $allowed_options, true ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid option.', 'logo-carousel-free' ) ) );
+		}
+
 		delete_option( $unique );
 
 		wp_send_json_success();

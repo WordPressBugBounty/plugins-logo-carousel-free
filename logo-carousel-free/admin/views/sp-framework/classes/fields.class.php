@@ -388,14 +388,7 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 					break;
 
 				default:
-					if ( is_callable( $type ) ) {
-						if ( ! empty( $term ) ) {
-							$options = call_user_func( $type, $query_args );
-						} else {
-							$options = call_user_func( $type, $term, $query_args );
-						}
-					}
-
+					// Never call a function named by the request; unknown types return no options.
 					break;
 
 			}
@@ -516,10 +509,6 @@ if ( ! class_exists( 'SPLC_FREE_Fields' ) ) {
 							break;
 
 						default:
-							if ( is_callable( $type . '_title' ) ) {
-								$options[ $value ] = call_user_func( $type . '_title', $value );
-							}
-
 							break;
 
 					}

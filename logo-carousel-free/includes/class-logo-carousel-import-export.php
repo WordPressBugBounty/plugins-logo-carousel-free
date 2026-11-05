@@ -120,10 +120,11 @@ class Logo_Carousel_Import_Export {
 	 * @return Int    Attachment ID
 	 */
 	public function insert_attachment_from_url( $url, $parent_post_id = null ) {
+		require_once ABSPATH . 'wp-admin/includes/post.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
 
-		if ( ! class_exists( 'WP_Http' ) ) {
-			include_once ABSPATH . WPINC . '/class-http.php';
-		}
 		$attachment_title = sanitize_file_name( pathinfo( $url, PATHINFO_FILENAME ) );
 		// Does the attachment already exist ?
 		$attachment_id = post_exists( $attachment_title, '', '', 'attachment' );
@@ -131,48 +132,56 @@ class Logo_Carousel_Import_Export {
 			return absint( $attachment_id );
 		}
 
-		$http     = new WP_Http();
-		$response = $http->request( $url );
-		if ( is_wp_error( $response ) ) {
-			return false;
-		}
-		$upload = wp_upload_bits( basename( $url ), null, $response['body'] );
-		if ( ! empty( $upload['error'] ) ) {
+		$url       = esc_url_raw( $url );
+		$file_name = sanitize_file_name( basename( (string) wp_parse_url( $url, PHP_URL_PATH ) ) );
+		if ( empty( $url ) || empty( $file_name ) ) {
 			return false;
 		}
 
-		$file_path = $upload['file'];
-		$file_name = basename( $file_path );
-		$file_type = wp_check_filetype( $file_name, null );
-
-		// Double-check MIME type & restrict to safe file types (images only, here).
-		if ( empty( $file_type['type'] ) || ! wp_match_mime_types( 'image', $file_type['type'] ) ) {
-			// Delete the invalid file immediately.
-			wp_delete_file( $file_path );
+		// Download to a temp file. wp_safe_remote_get() rejects local and private network addresses (SSRF).
+		$tmp_file = wp_tempnam( $file_name );
+		if ( ! $tmp_file ) {
 			return false;
 		}
-
-		$wp_upload_dir = wp_upload_dir();
-
-		$post_info = array(
-			'guid'           => esc_url_raw( $wp_upload_dir['url'] . '/' . $file_name ),
-			'post_mime_type' => sanitize_mime_type( $file_type['type'] ),
-			'post_title'     => esc_html( $attachment_title ),
-			'post_content'   => '',
-			'post_status'    => 'inherit',
+		$response = wp_safe_remote_get(
+			$url,
+			array(
+				'timeout'             => 10,
+				'redirection'         => 3,
+				'stream'              => true,
+				'filename'            => $tmp_file,
+				'limit_response_size' => 10 * MB_IN_BYTES,
+			)
 		);
+		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+			wp_delete_file( $tmp_file );
+			return false;
+		}
 
-		// Create the attachment.
-		$attach_id = wp_insert_attachment( $post_info, $file_path, $parent_post_id );
+		// Restrict to images, checked against the actual file content, not just the file name.
+		$file_type = wp_check_filetype_and_ext( $tmp_file, $file_name );
+		if ( empty( $file_type['type'] ) || ! wp_match_mime_types( 'image', $file_type['type'] ) || ! wp_get_image_mime( $tmp_file ) ) {
+			wp_delete_file( $tmp_file );
+			return false;
+		}
+		if ( ! empty( $file_type['proper_filename'] ) ) {
+			$file_name = $file_type['proper_filename'];
+		}
 
-		// Include image.php.
-		require_once ABSPATH . 'wp-admin/includes/image.php';
-
-		// Define attachment metadata.
-		$attach_data = wp_generate_attachment_metadata( $attach_id, $file_path );
-
-		// Assign metadata to attachment.
-		wp_update_attachment_metadata( $attach_id, $attach_data );
+		// Let WordPress move the file into uploads and create the attachment with its metadata.
+		$attach_id = media_handle_sideload(
+			array(
+				'name'     => $file_name,
+				'tmp_name' => $tmp_file,
+			),
+			(int) $parent_post_id,
+			null,
+			array( 'post_title' => $attachment_title )
+		);
+		if ( is_wp_error( $attach_id ) ) {
+			wp_delete_file( $tmp_file );
+			return false;
+		}
 
 		return $attach_id;
 	}

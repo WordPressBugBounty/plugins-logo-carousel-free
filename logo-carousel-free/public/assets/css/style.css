@@ -462,6 +462,18 @@ video {
 	right: 0;
 }
 
+/*
+ * Hide the arrows when Swiper locks the carousel (every slide already fits
+ * the view — nothing to navigate). The base arrow rule above sets
+ * `display: flex`, which out-cascades Swiper's own
+ * `.swiper-button-lock { display: none }`, so re-state the hide with the
+ * lock class appended; Swiper toggles it per breakpoint on its own.
+ */
+.sp-lc-container .sp-lc-button-next.swiper-button-lock,
+.sp-lc-container .sp-lc-button-prev.swiper-button-lock {
+	display: none;
+}
+
 .logo-carousel-free .sp-lc-logo img {
 	margin: 0 auto;
 	display: block;

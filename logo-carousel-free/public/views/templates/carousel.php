@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// Section title.
 	require SP_LC_PATH . 'public/views/templates/section-title.php';
 	?>
-	<div id="sp-logo-carousel-id-<?php echo esc_attr( $post_id ); ?>" class="swiper-container sp-logo-carousel <?php echo esc_attr( $preloader_class ); ?>" dir="<?php echo esc_attr( $rtl ); ?>" <?php echo wp_kses_post( $swiper_data_attr ); ?>>
+	<div id="sp-logo-carousel-id-<?php echo esc_attr( $post_id ); ?>" class="swiper sp-logo-carousel <?php echo esc_attr( $preloader_class ); ?>" dir="<?php echo esc_attr( $rtl ); ?>" <?php echo wp_kses_post( $swiper_data_attr ); ?>>
 		<div class="swiper-wrapper">
 			<?php require SP_LC_PATH . 'public/views/loop/carousel-item.php'; ?>
 		</div>

@@ -30,10 +30,7 @@ $hide_on_mobile          = isset( $lcp_carousel_navigation['lcp_hide_on_mobile']
 $nav_data                = isset( $lcp_carousel_navigation['lcp_nav_show'] ) ? $lcp_carousel_navigation['lcp_nav_show'] : '';
 if ( $nav_data ) {
 	$nav        = 'true';
-	$nav_mobile = 'true';
-} elseif ( $nav_data && $hide_on_mobile ) {
-	$nav        = 'true';
-	$nav_mobile = 'false';
+	$nav_mobile = $hide_on_mobile ? 'false' : 'true';
 } else {
 	$nav        = 'false';
 	$nav_mobile = 'false';
@@ -44,10 +41,7 @@ $pagination_hide_on_mobile = isset( $lcp_carousel_pagination['lcp_pagination_hid
 $dots_data                 = isset( $lcp_carousel_pagination['lcp_carousel_dots'] ) ? $lcp_carousel_pagination['lcp_carousel_dots'] : '';
 if ( $dots_data ) {
 	$dots        = 'true';
-	$dots_mobile = 'true';
-} elseif ( $dots_data && $pagination_hide_on_mobile ) {
-	$dots        = 'true';
-	$dots_mobile = 'false';
+	$dots_mobile = $pagination_hide_on_mobile ? 'false' : 'true';
 } else {
 	$dots        = 'false';
 	$dots_mobile = 'false';
@@ -103,11 +97,11 @@ if ( 'false' === $nav_mobile ) {
 		#logo-carousel-free-' . esc_attr( $post_id ) . '.sp-lc-container .sp-lc-button-next {
 			display: none;
 		}';
-	if ( 'false' === $dots_mobile ) {
-		$dynamic_css .= '#logo-carousel-free-' . esc_attr( $post_id ) . '.sp-lc-container .sp-lc-pagination .swiper-pagination-bullet  {
-			display: none;
-		}';
-	}
+}
+if ( 'false' === $dots_mobile ) {
+	$dynamic_css .= '#logo-carousel-free-' . esc_attr( $post_id ) . '.sp-lc-container .sp-lc-pagination.swiper-pagination {
+		display: none;
+	}';
 }
 $dynamic_css .= '}';
 if ( $preloader ) {

@@ -38,21 +38,34 @@
 				spLogoCarouselStartsOnscreen = spLogoCarousel.data('carousel-starts-onscreen');
 			// Check the length of carousel settings and already initialized or not.
 			if (spLogoCarousel.length > 0 && !$('#' + splc_container_id + ' .sp-logo-carousel[class*="-initialized"]').length > 0) {
+				var carousel_items = spLogoCarousel.find('.swiper-slide').length;
+
+				// Swiper 12 builds a degenerate loop when a breakpoint's view
+				// needs every slide (prev-only wiggle, dead arrows, console
+				// warning spam). Its loop needs at least one slide more than
+				// the view, so gate `infinite` per device before Swiper sees it.
+				var splc_loop = function (device) {
+					if (spLogoCarouselData.infinite != true) {
+						return false;
+					}
+					var view = Math.max(1, Math.ceil(Number(spLogoCarouselData.slidesPerView[device]) || 1));
+					return carousel_items >= view + 1;
+				};
+
 				// Carousel Swiper for Standard mode.
 				var splcSwiper = new Swiper('#' + splc_container_id + ' .sp-logo-carousel', {
 					speed: spLogoCarouselData.speed,
 					slidesPerView: spLogoCarouselData.slidesPerView.mobile,
 					spaceBetween: spLogoCarouselData.spaceBetween,
-					loop: spLogoCarouselData.infinite,
-					loopFillGroupWithBlank: true,
+					loop: splc_loop('mobile'),
 					simulateTouch: spLogoCarouselData.simulateTouch,
 					allowTouchMove: spLogoCarouselData.allowTouchMove,
-					freeMode: spLogoCarouselData.freeMode,
+					freeMode: spLogoCarouselData.freeMode ? { enabled: true } : false,
 					autoHeight: spLogoCarouselData.adaptiveHeight,
 					keyboard: {
 						enabled: spLogoCarouselData.carousel_accessibility,
 					},
-					mousewheel: spLogoCarouselData.swipeToSlide,
+					mousewheel: spLogoCarouselData.swipeToSlide ? { enabled: true } : false,
 					pagination:
 						spLogoCarouselData.pagination == true
 							? {
@@ -76,19 +89,20 @@
 					breakpoints: {
 						576: {
 							slidesPerView: spLogoCarouselData.slidesPerView.mobile_landscape,
+							loop: splc_loop('mobile_landscape'),
 						},
 						768: {
 							slidesPerView: spLogoCarouselData.slidesPerView.tablet,
+							loop: splc_loop('tablet'),
 						},
 						992: {
 							slidesPerView: spLogoCarouselData.slidesPerView.desktop,
+							loop: splc_loop('desktop'),
 						},
 						1200: {
 							slidesPerView: spLogoCarouselData.slidesPerView.lg_desktop,
+							loop: splc_loop('lg_desktop'),
 						},
-					},
-					fadeEffect: {
-						crossFade: true
 					},
 				});
 				if (spLogoCarouselData.autoplay === false) {
