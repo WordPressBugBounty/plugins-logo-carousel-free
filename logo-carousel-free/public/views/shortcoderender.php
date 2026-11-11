@@ -193,6 +193,7 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 					'orderby'        => $order_by,
 					'order'          => $order,
 					'posts_per_page' => $total_items,
+					'has_password'   => false,
 				)
 			);
 
@@ -285,6 +286,9 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$carousel_status = get_post_status( $attribute['id'] );
 			if ( 'trash' === $carousel_status || ( 'publish' !== $carousel_status && ! current_user_can( 'read_post', (int) $attribute['id'] ) ) ) {
 				return;
+			}
+			if ( post_password_required( (int) $attribute['id'] ) ) {
+				return get_the_password_form( (int) $attribute['id'] );
 			}
 			$post_id = esc_attr( intval( $attribute['id'] ) );
 			// All Options of Shortcode.

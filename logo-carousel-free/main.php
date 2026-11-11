@@ -3,7 +3,7 @@
  * Plugin Name:       Logo Carousel
  * Plugin URI:        https://logocarousel.com/?ref=1
  * Description:       Display and highlight your clients, partners, supporters, and sponsors logos on your WordPress site in a nice logo carousel. Easy Shortcode Generator | Highly Customizable | No Coding Knowledge Required!
- * Version:           4.0.1
+ * Version:           4.0.2
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            ShapedPlugin LLC
@@ -29,11 +29,22 @@ if ( ! ( is_plugin_active( 'logo-carousel-pro/logo-carousel-pro.php' ) || is_plu
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-logo-carousel-free-updates.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/review.php';
 
-	if ( ! defined( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED' ) ) {
-		define( 'SHAPEDPLIUGIN_OFFER_BANNER_LOADED', true );
+	if ( is_admin() ) {
+		/**
+		 * Shared ShapedPlugin BFCM notice. Only one notice renders even when
+		 * several ShapedPlugin free plugins are active.
+		 */
+		require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/shapedplugin-bfcm-notice.php';
 
-		// Load Plugin Offer Banner.
-		require_once plugin_dir_path( __FILE__ ) . 'admin/views/notices/offer-banner.php';
+		ShapedPlugin_BFCM_Notice_2026::register(
+			array(
+				'slug'       => 'logo-carousel-free',
+				'name'       => 'Logo Carousel Pro',
+				'image'      => plugin_dir_url( __FILE__ ) . 'admin/assets/images/offer-banner/bfcm-notice-2026.webp',
+				'link'       => 'https://logocarousel.com/pricing/?utm_source=dashboard&utm_medium=lc_dealbutton&utm_campaign=bfcm26',
+				'post_types' => array( 'sp_logo_carousel', 'sp_lc_shortcodes' ),
+			)
+		);
 	}
 }
 
@@ -57,7 +68,7 @@ if ( ! class_exists( 'SP_Logo_Carousel' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '4.0.1';
+		public $version = '4.0.2';
 
 		/**
 		 * Single instance of the class

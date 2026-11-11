@@ -12,7 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 while ( $args->have_posts() ) :
 	$args->the_post();
-	$ids       = get_the_ID();
+	$ids = get_the_ID();
+	if ( post_password_required( $ids ) ) {
+		continue;
+	}
 	$lcp_thumb = get_post_thumbnail_id();
 	$image_url = wp_get_attachment_image_src( $lcp_thumb, $image_sizes );
 	if ( ! $image_url ) {

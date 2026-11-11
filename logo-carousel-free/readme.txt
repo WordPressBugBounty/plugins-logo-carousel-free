@@ -4,7 +4,7 @@ Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
 Requires at least: 6.3
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 4.0.1
+Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -193,6 +193,9 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 
 
 == Changelog ==
+
+= Version 4.0.2 – Nov 11, 2026 =
+* Fixed: Password-protected carousels, logos, and saved templates could be displayed without entering the password.
 
 = Version 4.0.1 – Nov 05, 2026 =
 * Improved: The bundled Swiper library has been updated to the latest version for smoother sliding.

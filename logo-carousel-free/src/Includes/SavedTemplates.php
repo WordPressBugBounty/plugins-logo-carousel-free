@@ -280,6 +280,10 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\SavedTemplates' ) )
 				return '';
 			}
 
+			if ( post_password_required( $post ) ) {
+				return get_the_password_form( $post );
+			}
+
 			// Guard the block-render pass against self-embedding recursion.
 			self::$rendering[ $id ] = true;
 			$content                = do_shortcode( do_blocks( $post->post_content ) );

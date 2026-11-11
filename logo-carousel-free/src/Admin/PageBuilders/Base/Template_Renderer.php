@@ -96,6 +96,10 @@ class Template_Renderer {
 			return self::error_message( esc_html__( 'Enable the Saved Templates module in Logo Carousel → Modules to display this template.', 'logo-carousel-free' ) );
 		}
 
+		if ( ! $is_editor && post_password_required( $template_post ) ) {
+			return get_the_password_form( $template_post );
+		}
+
 		$content = (string) do_shortcode( SavedTemplates::build_shortcode( $template_id ) );
 
 		return sprintf(
