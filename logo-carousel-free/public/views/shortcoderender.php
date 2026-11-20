@@ -156,6 +156,47 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 		}
 
 		/**
+		 * Wrap a logo image in its Logo URL link when the Click Action Type is "Link".
+		 *
+		 * Mirrors the Pro classic shortcode: the URL, "Open a New Tab" and "Nofollow"
+		 * come from the logo's own Logo Link URL metabox; when the logo doesn't ask for
+		 * a new tab, the shortcode's own "Open a New Tab" option decides. Popup stays a
+		 * Pro feature, so any other click action renders the bare image.
+		 *
+		 * @param string $image            The logo <img> markup.
+		 * @param int    $logo_id          The logo post ID.
+		 * @param string $link_type        The shortcode's click action type.
+		 * @param string $link_open_target The shortcode's link target (_blank or _top).
+		 * @return string
+		 */
+		public static function logo_link_wrap( $image, $logo_id, $link_type, $link_open_target ) {
+			if ( 'external_link' !== $link_type || '' === $image ) {
+				return $image;
+			}
+			$logo_link_data = get_post_meta( $logo_id, 'sp_logo_carousel_link_option', true );
+			$logo_link      = is_array( $logo_link_data ) && ! empty( $logo_link_data['lcp_logo_link'] ) ? esc_url( $logo_link_data['lcp_logo_link'] ) : '';
+			if ( '' === $logo_link ) {
+				return $image;
+			}
+			$target = ! empty( $logo_link_data['lcp_logo_link_target'] ) ? '_blank' : $link_open_target;
+			$rel    = array();
+			if ( ! empty( $logo_link_data['lcp_logo_link_ref'] ) ) {
+				$rel[] = 'nofollow';
+			}
+			if ( '_blank' === $target ) {
+				$rel[] = 'noopener';
+			}
+
+			return sprintf(
+				'<a class="sp-lc-logo-link" href="%1$s" target="%2$s"%3$s>%4$s</a>',
+				$logo_link,
+				esc_attr( $target ),
+				$rel ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '',
+				$image
+			);
+		}
+
+		/**
 		 * Full html show.
 		 *
 		 * @param array $post_id Shortcode ID.
@@ -186,6 +227,11 @@ if ( ! class_exists( 'SPLC_Shortcode_Render' ) ) {
 			$logo_margin           = isset( $logo_data['lcp_logo_margin']['all'] ) && $logo_data['lcp_logo_margin']['all'] >= -50 ? (int) $logo_data['lcp_logo_margin']['all'] : '8';
 			$logo_margin_vertical  = isset( $logo_data['lcp_logo_margin']['vertical'] ) && $logo_data['lcp_logo_margin']['vertical'] >= -50 ? (int) $logo_data['lcp_logo_margin']['vertical'] : '8';
 			$enable_lazy_load      = isset( $logo_data['lcp_logo_lazy_load'] ) && $logo_data['lcp_logo_lazy_load'] ? 'true' : 'false';
+
+			// Click action type (Link is free; Popup is Pro-only and renders no link here).
+			$click_action_groups = isset( $logo_data['lcp_click_action_groups'] ) && is_array( $logo_data['lcp_click_action_groups'] ) ? $logo_data['lcp_click_action_groups'] : array();
+			$link_type           = isset( $click_action_groups['lcp_link_type'] ) ? $click_action_groups['lcp_link_type'] : 'none';
+			$link_open_target    = ! empty( $click_action_groups['lcp_link_open_target'] ) ? '_blank' : '_top';
 
 			$args = new WP_Query(
 				array(

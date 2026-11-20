@@ -5,9 +5,9 @@
  * The free Carousel follows the Figma sidebar kit: carousel styles other than
  * Standard and Center, display orientation, partial slide view, variable width, edge
  * fade, Ajax filter/search, slide to scroll, sliding effects, logo hover
- * animations / custom colour / image filter / overlay, logo click actions
- * and random display order are Pro. Every arrow icon preset and SVG logo
- * uploads are free. A block saved in Pro
+ * animations / custom colour / image filter / overlay, the Popup click
+ * action and random display order are Pro. Every arrow icon preset, the Logo
+ * URL click action and SVG logo uploads are free. A block saved in Pro
  * keeps every one of those values — this runs on a render-time copy, never on
  * the saved post — and renders them neutrally.
  *

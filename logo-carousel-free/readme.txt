@@ -1,198 +1,334 @@
 === Logo Carousel – Responsive Logo Slider, Logo Showcase, and Clients Logo Gallery ===
 Contributors: shapedplugin, shamimmiashuhagh, rubel_miah, khalilu
-Tags: logo carousel, logo slider, logo gallery, logo showcase, display logo
+Tags: logo carousel, logo slider, logo showcase, logo grid, client logos
 Requires at least: 6.3
+Tested up to: 7.2
 Requires PHP: 7.4
-Tested up to: 7.1
-Stable tag: 4.0.2
+Stable tag: 4.1.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Showcase clients, partners, sponsors and brand logos with Carousel and Grid blocks, Ready Patterns and an AI builder. No coding required!
+Display client logos, partner logos, and sponsor logos in a responsive logo carousel or logo grid. Build it with AI or start from a Ready Pattern.
 
 == Description ==
 
-[__Logo Carousel__](https://logocarousel.com/?ref=1) is a logo showcase plugin for the WordPress block editor. Add the **Carousel** or **Grid** block from the Logo Carousel category, drop in your logos and style every detail — or start from a Ready Pattern, or describe the showcase you want and let the AI builder create it. Perfect for clients, sponsors, partners, affiliates, supporters and brand logos, with NO CODING knowledge required.
-
-Version 4.0 is a complete rebuild around Gutenberg blocks. Your existing shortcodes (`[logocarousel id="…"]`), the classic Logo Carousel block and the Elementor widget keep working exactly as before.
+**Logo Carousel** is a block-based logo showcase plugin. Use the Carousel and Grid blocks to display your client, partner, sponsor, and brand logos. Build a showcase with AI, then refine any block by telling the AI what to change. Ready Patterns and full manual controls are there whenever you want them.
 
 [youtube https://www.youtube.com/watch?v=jZC44B7cBCM&list=PLoUb-7uG-5jNQCZorsMl_TBePe8WZilDw]
 
-[__Live Demo__](https://logocarousel.com/patterns/) | [__Documentation__](https://docs.logocarousel.com/guide/introduction) | [__Upgrade to Pro!__](https://logocarousel.com/pricing/?ref=1)
+[Live Demo](https://logocarousel.com/patterns/) | [Documentation](https://docs.logocarousel.com/guide/introduction) | [Support](https://shapedplugin.com/create-new-ticket/) | [Upgrade to Pro](https://logocarousel.com/pricing/?ref=1)
 
-= Powerful blocks =
+== What Does Logo Carousel Mainly Do? ==
+* Shows your logos in responsive Carousel, Grid, Masonry, and 3D Carousel blocks
+* Insert ready-made designs in one click with Ready Patterns
+* Build and Refine logo showcases with AI
+* Saves any showcase as a template you can reuse in Elementor, Divi, Bricks, and other page builders
+* Keeps your existing `[logocarousel]` shortcodes, classic block, and Elementor widget working
 
-* **Carousel block** – Standard and Center styles with autoplay, speed, pause on hover, infinite loop, adaptive height, and free scroll. Navigation arrows with 12 icons and 9 positions, and 6 pagination styles (Dots, Dynamic, Ring, Dash, Scrollbar, and Numbers).
-* **Grid block** – Standard grid with responsive columns, gaps, and left or right alignment.
-* **Marquee block (Pro)** – A continuous, auto-scrolling marquee of partner, client, or brand logos.
-* **List block (Pro)** – Logos displayed vertically in a clean stacked list.
-* **Table block (Pro)** – Logos displayed in a structured table layout.
+== Key Features List ==
+**Display Your Logos with Four Free Blocks**
+Four fully responsive blocks to show your logos, each styled right from the block editor sidebar.
 
-Pro also unlocks the Ticker, Staggered, and Multi Columns carousel styles, vertical and multi-row carousels, the Strip, Staggered, and Zigzag grid styles, and Ajax pagination (Numbers, Load More, and Infinite Scroll).
+* **[Carousel](https://logocarousel.com/patterns/?layout=carousel)**: a smooth, touch-friendly logo slider, perfect as a client logo carousel, in Standard or Center style, with autoplay, speed, loop, and pause on hover controls.
+* **[Grid](https://logocarousel.com/patterns/?layout=grid)**: a clean logo grid that shows all your logos at once, with columns and gaps you can set for desktop, tablet, and mobile.
+* **[Masonry](https://logocarousel.com/patterns/?layout=masonry)**: fits logos of different sizes into a compact, gap-free layout.
+* **[3D Carousel](https://logocarousel.com/patterns/?layout=carousel3d)**: makes your logos stand out with depth and motion.
 
-= Key features =
+Need more ways to show your logos? [Logo Carousel Pro](https://logocarousel.com/) adds 6 more blocks: Marquee, Justified, List, Table, Nexus, and Animated Orbit.
 
-* Fully responsive: columns, gaps, and visibility per device.
-* Upload logos or pick them from the Media Library, then edit the title, alt text, and image of each logo.
-* Carousel controls: autoplay, speed, pause on hover, infinite loop, adaptive height, keyboard, mousewheel, and free scroll.
-* 12 navigation arrow icons with 9 positions, and 6 pagination styles, fully styleable.
-* Logo image settings: aspect ratio, size, and lazy loading.
-* SVG logo uploads.
-* Section background, spacing, responsive visibility, and custom CSS class.
-* **Ready Patterns Library** – insert pre-designed logo showcases in one click.
-* **Create with AI** – describe a logo showcase and the AI builder matches a pattern or builds the block (uses your own OpenAI, Groq, Anthropic, or Google Gemini API key, or a provider connected in WordPress; optional).
-* **Saved Templates** – save a showcase once and reuse it anywhere with the `[lc_template]` shortcode.
-* A modern dashboard to switch blocks and modules on or off, plus a setup wizard.
-* Import and export logos and logo carousels (JSON).
-* Custom CSS and JS, and FontAwesome/Swiper enqueue controls.
-* Translation ready, RTL ready, developer friendly, and SEO friendly.
+**One-Click 120+ Ready Patterns**
+Browse a library of [Ready Patterns](https://logocarousel.com/patterns/) with carousel, grid, and logo gallery designs, search and filter them by category, preview any pattern, save your favorites, and insert it in one click. Then swap in your own logos and adjust it as you like.
 
-= Logo Carousel Pro =
+**Build and Refine Logo Showcases with AI**
+Let AI handle the setup for you:
 
-Need more? [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) adds the List, Marquee, and Table blocks, logo titles, descriptions, and read more, tooltips, custom links or a details popup per logo, 40+ hover animations, image filters, overlays, Ajax Live Filter and Ajax Search, sliding effects, slide to scroll, Scheduling, Motion Effects, Glassmorphism backgrounds, Logo Analytics (impressions and clicks), and priority support. See the **Lite vs Pro** tab in the plugin dashboard for the full comparison.
+* **Build with AI**: describe the logo showcase you want, for example "6 logos per row with a slower autoplay", and the AI picks a matching pattern or builds the block for you.
+* **Refine with AI**: select any Carousel or Grid block, click Refine with AI in the block toolbar, and describe what should change, such as "make the logos grayscale and slow down the autoplay".
 
+Both work with OpenAI, Anthropic, Google Gemini, and Groq using your own API key, or with an AI provider already connected in WordPress. They are optional and stay off until you set them up.
 
-= Multilingual Ready =
+**Reusable Saved Templates**
+Design a logo showcase once, save it as a template, and reuse it anywhere with the `[lc_template id="xxx"]` shortcode. Saved Templates work with Elementor, Divi 4 and Divi 5, WPBakery, Beaver Builder, Bricks, and Oxygen.
 
-* [WPML](https://wpml.org/)
-* [Polylang](https://wordpress.org/plugins/polylang/)
-* [qTranslate-x](https://wordpress.org/plugins/qtranslate-x/)
-* [GTranslate](https://wordpress.org/plugins/gtranslate/)
-* [Google Language Translator](https://wordpress.org/plugins/google-language-translator/)
-* [WPGlobus](https://wordpress.org/plugins/wpglobus/)
+**Manage Logos in the Gutenberg Editor**
+Upload logos or pick them from the Media Library without leaving the editor. In the Edit Logos window you can reorder logos by drag and drop, replace an image, and edit each logo's title, alt text, and custom link in one place.
 
+**Secure SVG Logo Support**
+Upload crisp, scalable SVG logos. Every SVG file is cleaned of unsafe code when it's uploaded, and only administrators can turn SVG uploads on.
 
-= Page Builders Ready =
+**Consistent Logo Sizes and Ratios**
+Keep every logo the same shape and size with preset aspect ratios such as 1:1, 4:3, 3:2, and 16:9, or set a custom ratio. Choose the image resolution and turn on lazy loading to keep your pages fast.
 
-* Gutenberg (blocks)
-* WPBakery
-* Elementor
-* Divi Builders
-* BeaverBuilder
-* SiteOrgin
-* Themify Builder
-* Fusion Builder
-* Genesis Framework
+**Responsive Device Controls**
+Set columns, gaps, and spacing separately for desktop, tablet, and mobile, and hide the whole showcase on any device.
 
+**Section Styling for Any Page**
+Style the area around your logos with a section background, padding and margin, and your own CSS class or ID.
 
-= For fast support, features request, and bug reporting =
+**Track Logo Showcase Placements**
+See every page, post, and template where a logo showcase is used, all in one list in the dashboard, so you always know what changes when you edit one.
 
-We are very responsive about support requests – so if you face a problem or find any bugs, post it in the support, and we will respond within 15 hours (except holidays).
+**Lightweight and Fast Loading**
+Logo Carousel loads its styles and scripts only on pages that show a logo showcase. Lazy loading delays off-screen logos, you can switch off any block or module you don't use, and you can stop the plugin from loading Swiper or Font Awesome if your theme already includes them.
 
->Ask us at our [__Support__](https://shapedplugin.com/create-new-ticket/)
+**Built-In Accessibility for Everyone**
+Every logo has its own alt text, and visitors can move through the carousel with the keyboard. Carousel controls carry screen reader labels.
 
+**Quick Setup Wizard and Dashboard**
+A setup wizard gets you started in minutes. The dashboard keeps blocks, modules, settings, custom CSS and JS, and the Lite vs Pro comparison in one place.
 
-= Author =
+**Transfer Logos Across Sites**
+Move your logos and logo views between sites with a JSON export file.
 
-Designed and Developed by [__ShapedPlugin__](https://shapedplugin.com/)
+**Classic Shortcode Builder Included**
+Prefer shortcodes? The classic Manage Logo Views builder and the `[logocarousel id="…"]` shortcode are still included, along with the classic Logo Carousel block and the Elementor widget. Updating to version 4 doesn't change any of your existing logo carousels.
 
+**Translation and RTL Ready**
+Logo Carousel is translation ready, RTL ready, and includes German, Spanish, French, Italian, Japanese, and Dutch translations. It works with multilingual plugins such as WPML, Polylang, GTranslate, and WPGlobus.
 
+== Logo Carousel Pro Features ==
+Logo Carousel Pro builds on everything in the free version and gives you complete control over how your logos look and behave.
+
+**More Blocks and Styles for Every Layout**
+Go beyond the carousel and grid. [Logo Carousel Pro](https://logocarousel.com/) adds six more blocks, 15+ layouts, and extra carousel and grid styles for any design.
+
+* **[Marquee](https://logocarousel.com/patterns/?layout=marquee)**: a continuous, auto-scrolling logo marquee
+* **[Justified](https://logocarousel.com/patterns/?layout=justified)**: logos in evenly justified rows that fill the full width
+* **[List](https://logocarousel.com/patterns/?layout=list)**: logos in a clean, stacked list
+* **[Table](https://logocarousel.com/patterns/?layout=table)**: logos in a structured table
+* **[Nexus](https://logocarousel.com/patterns/?layout=nexus)**: logos connected around a central logo, like a network
+* **[Animated Orbit](https://logocarousel.com/patterns/?layout=orbit)**: logos that orbit around a central logo
+* 15+ layouts, including Isotope and Inline
+* [Ticker](https://logocarousel.com/patterns/?layout=marquee#demo69) (logo ticker), [Staggered](https://logocarousel.com/patterns/?layout=carousel#demo438), and Multi Columns carousel styles
+* Strip, [Staggered](https://logocarousel.com/patterns/?layout=grid#demo245), and [Zigzag](https://logocarousel.com/patterns/?layout=grid#demo246) grid styles
+* Vertical and [multi-row](https://logocarousel.com/patterns/?layout=carousel#demo327) logo carousels
+
+**Advanced Motion and Animations**
+Bring your logos to life. [Logo Carousel Pro](https://logocarousel.com/) adds smooth sliding effects, hover and staggered animations, and scroll-based motion to every showcase.
+
+* Sliding effects such as Fade, Spring Bounce, and Snappy
+* Slide to scroll, edge fade, partial slide view, and variable width
+* 40+ hover animations and 11 staggered logo animations
+* Scroll and sticky effects with 40+ entrance animations
+
+**Stand Out with Advanced Logo Styling**
+Match every logo to your brand. With [Logo Carousel Pro](https://logocarousel.com/), you can recolor logos, apply image filters, and add backgrounds, shadows, and glass effects.
+
+* Custom logo color with grayscale, blur, brightness, contrast, saturation, and hue filters
+* Overlays, solid or gradient backgrounds, and box shadows
+* Six Glassmorphism background styles
+* Typography with 1500+ Google Fonts
+
+**Logo Details Popup & Call To Action**
+Show more than a logo. [Logo Carousel Pro](https://logocarousel.com/) opens a popup with each logo's name, description, and more.
+
+* Logo title, description, and Read More button
+* A popup with the logo's full details
+* Call To Action button
+
+**Share Logo Details as Tooltips**
+Give visitors context without a click. [Logo Carousel Pro](https://logocarousel.com/) shows each logo's name and description in a tooltip, with your choice of position, effect, and colors.
+
+**Logo Category Filter and Ajax Search**
+Help visitors find the right logo fast. [Logo Carousel Pro](https://logocarousel.com/) adds live category filters, instant search, and smart loading for large logo collections.
+
+* Ajax Live Filter by category and instant Ajax Search
+* Show logos from selected categories, show specific logos, or exclude logos
+* Load More or Infinite Scroll for large collections, and random display order
+
+**Schedule Logos for Events and Promotions**
+Show the right logos at the right time. [Logo Carousel Pro](https://logocarousel.com/) lets you schedule sponsor logos and partner logos to appear only between two dates, which is ideal for events and seasonal campaigns.
+
+**Logo Analytics: Impressions, Clicks, and CTR**
+See exactly how each logo performs. [Logo Carousel Pro](https://logocarousel.com/) records every view and click on your logo showcases, so you know which partners and clients get the most attention.
+
+* Impressions, clicks, and unique logo viewers for every logo
+* Click-through rate (CTR) in a per-logo performance table
+* Trends over the last 7, 15, 30, or 90 days, or a custom date range
+* Export logo reports to CSV
+
+== Upgrade to Logo Carousel Pro ==
+If logos of your clients and partners help you win trust, Logo Carousel Pro gives you the layouts, effects, and analytics to present them at their best.
+
+[Get Logo Carousel Pro](https://logocarousel.com/pricing/?ref=1)
+
+== Fully Compatible with Page Builders & Themes ==
+No compatibility worries! Logo Carousel works with your existing setup and integrates with:
+
+* **Gutenberg Block Editor**: native Carousel and Grid blocks
+* **Popular Page Builders**: Elementor, Divi 4 and Divi 5, WPBakery, Beaver Builder, Bricks, and Oxygen, through Saved Templates and the shortcode
+* **WordPress Themes**: any theme built to WordPress coding standards
+* **Multilingual Plugins**: WPML, Polylang, GTranslate, WPGlobus, and more. You can [translate](https://translate.wordpress.org/projects/wp-plugins/logo-carousel-free) Logo Carousel on translate.wordpress.org.
+* **WordPress Multisite** networks
+
+== Documentation & Support ==
+Logo Carousel is beginner-friendly with a minimal learning curve, and it's well documented. Dedicated support is there whenever you need it.
+
+👉 Read the well-organized Logo Carousel [Documentation](https://docs.logocarousel.com/guide/introduction)
+
+👉 Watch the Logo Carousel [YouTube Playlist](https://www.youtube.com/watch?v=LpeZBT8Y-9Y&list=PLoUb-7uG-5jNQCZorsMl_TBePe8WZilDw)
+
+👉 Need help? [Contact our support team](https://shapedplugin.com/create-new-ticket/) for dedicated support.
+
+👉 Learn more about Logo Carousel at [https://logocarousel.com/](https://logocarousel.com/)
+
+== Author ==
+**[Logo Carousel](https://logocarousel.com/)** is developed by **[ShapedPlugin LLC](https://shapedplugin.com/)**, a team with over a decade of experience in building WordPress plugins, focused on quality, performance, and ongoing improvements.
+
+== 🔥 WHAT’S NEXT ==
+If you like Logo Carousel, then consider checking out our other WordPress plugins:
+
+**[Easy Accordion](https://wordpress.org/plugins/easy-accordion-free/)** – Build responsive accordions and FAQ sections that keep long content tidy and easy to scan
+
+**[Real Testimonials](https://wordpress.org/plugins/testimonial-free/)** – Collect and showcase customer reviews and testimonials to build trust and boost conversions
+
+**[WP Carousel](https://wordpress.org/plugins/wp-carousel-free/)** – Create responsive carousels and sliders for images, posts, and other content
+
+**[Smart Tabs](https://wordpress.org/plugins/wp-expand-tabs-free/)** – Organize content into clean, responsive tabs and add custom WooCommerce product tabs to reduce clutter on any page
+
+**[Location Weather](https://wordpress.org/plugins/location-weather/)** – Display real-time weather for any location with customizable layouts
+
+**[Smart Post](https://wordpress.org/plugins/post-carousel/)** – Post grid and Gutenberg page builder blocks for blogs, magazines, and news sites
+
+**[Smart Team](https://wordpress.org/plugins/team-free/)** – Showcase your team members with stylish, customizable layouts
+
+**[Reno Product Gallery](https://wordpress.org/plugins/gallery-slider-for-woocommerce/)** – Responsive WooCommerce product galleries that put your product images front and center
+
+**[Smart Swatches](https://wordpress.org/plugins/smart-swatches/)** – Replace WooCommerce variation dropdowns with color, image, and label swatches
+
+**[Product Slider (Smart Store)](https://wordpress.org/plugins/woo-product-slider/)** – Modern WooCommerce product sliders and layouts that boost product visibility and sales
+
+**[Reno Product Category](https://wordpress.org/plugins/woo-category-slider-grid/)** – Display WooCommerce product categories in stylish grids or sliders
 
 == Installation ==
 
-= MINIMUM REQUIREMENTS =
+= Minimum Requirements =
 
-* PHP 7.4 or later
-* MySQL 5.6 or later
 * WordPress 6.3 or later
+* PHP 7.4 or later
 
-**This section describes how to install the plugin and get it working**
+= Automatic Installation (Easiest) =
 
-= AUTOMATIC INSTALLATION (EASIEST WAY) =
+1. In your WordPress dashboard, go to **Plugins > Add New Plugin**.
+2. Search for **Logo Carousel** by ShapedPlugin.
+3. Click **Install Now**, then **Activate**.
+4. Follow the setup wizard, or go to **Logo Carousel > Getting Started**.
+5. Open any page or post and add the **Carousel** or **Grid** block from the Logo Carousel category.
 
-To do an automatic install of Logo Carousel, log in to your WordPress dashboard, navigate to the Plugins menu and click
-Add New.
-In the search field type "Logo Carousel" by ShapedPlugin. Once you have found it you can install it by simply clicking
-"Install Now" and then "Activate".
+= Manual Installation =
 
-= MANUAL INSTALLATION =
+**Uploading in the WordPress Dashboard**
 
-**Uploading in WordPress Dashboard**
-
-* Download logo-carousel-free.zip
-* Navigate to the ‘Add New’ in the plugins dashboard
-* Navigate to the ‘Upload’ area
-* Select logo-carousel-free.zip from your computer
-* Click ‘Install Now’
-* Activate the plugin in the Plugin dashboard
+1. Download the plugin ZIP file.
+2. Go to **Plugins > Add New Plugin** and click **Upload Plugin**.
+3. Choose the ZIP file and click **Install Now**.
+4. Activate the plugin, then go to **Logo Carousel > Getting Started**.
 
 **Using FTP**
 
-* Download logo-carousel-free.zip
-* Extract the logo-carousel-free directory to your computer
-* Upload the logo-carousel-free directory to the /wp-content/plugins/ directory
-* Activate the plugin in the Plugin dashboard
-
-The WordPress codex contains <a href="https://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation">instructions</a> on how to install a WordPress plugin.
-
+1. Download the plugin ZIP file and extract it on your computer.
+2. Upload the `logo-carousel-free` folder to the `/wp-content/plugins/` directory on your server.
+3. Go to the **Plugins** screen in WordPress and activate the plugin.
+4. Go to **Logo Carousel > Getting Started** to set up the plugin.
 
 == Frequently Asked Questions ==
 
-= How can I create Logo Carousel? =
-Open any post or page in the block editor and add the **Carousel** or **Grid** block from the Logo Carousel category. Choose **Ready Patterns**, **Create with AI** or **Build from Scratch**, add your logos and customise the block from the sidebar.
+= How do I create a logo carousel? =
 
-Existing shortcode users can keep using Logo Carousel → Manage Logo Views and the `[logocarousel id="…"]` shortcode.
+Open any page or post in the block editor and add the **Carousel** or **Grid** block from the Logo Carousel category. Choose **Ready Patterns**, **Build with AI**, or **Build from Scratch**, add your logos, and customize the block from the settings sidebar.
 
-= Will my existing shortcodes still work after updating to 4.0? =
-Yes. Shortcodes, the classic Logo Carousel block and the Elementor widget are unchanged. Your plugin settings are kept and are now managed from Logo Carousel → Settings in the new dashboard.
+= Will my existing shortcodes still work after updating to version 4? =
 
-= Do I need to have coding skills to use Logo Carousel? =
-No. You don’t need any coding skill. No more pain writing any shortcode attributes to display logo carousel in your website. With just few clicks, you can amazingly showcase your logos using Shortcode Generator.
+Yes. Your `[logocarousel id="…"]` shortcodes, the classic Logo Carousel block, and the Elementor widget keep working exactly as before. Your plugin settings are kept and now live in **Logo Carousel > Settings**.
+
+= Do I need coding skills to use Logo Carousel? =
+
+No. Everything is set up with visual controls in the block editor or the settings panel.
+
+= Do I need an API key to use Build with AI or Refine with AI? =
+
+Only for the AI features. Add your own OpenAI, Anthropic, Google Gemini, or Groq API key in the plugin settings, or use an AI provider already connected in WordPress. Ready Patterns and Build from Scratch work without any API key.
+
+= Can I use Logo Carousel with Elementor, Divi, or another page builder? =
+
+Yes. Save your logo showcase as a Saved Template and add it with the `[lc_template id="xxx"]` shortcode, or use the built-in integration for Elementor, Divi 4 and Divi 5, WPBakery, Beaver Builder, Bricks, or Oxygen.
+
+= Can I upload SVG logos? =
+
+Yes. SVG logos are uploaded securely, and administrators can turn SVG uploads on or off.
+
+= Can I use Logo Carousel as a client logo slider or logo gallery? =
+
+Yes. Use the Carousel block as a client logo slider, or the Grid block as a logo gallery that shows every logo at once.
+
+= How do I display brand logos or partner logos on my site? =
+
+To display logos on any page or post, add the Carousel or Grid block, choose your brand logos or partner logos from the Media Library, and publish. You can also start from a Ready Pattern or build the layout with AI.
 
 = Is Logo Carousel responsive? =
-Yes, Logo Carousel is fully responsive, mobile and touch friendly.
 
-= Can I add Logo Carousel anywhere on my website? =
-Yes, you can add Logo Carousel inside your blog posts, pages, widgets, and anywhere else on your WordPress website with a shortcode or PHP function.
+Yes. Logo Carousel is fully responsive and touch friendly, and you can set columns, gaps, and visibility separately for desktop, tablet, and mobile.
 
-= Can I have multiple logo carousel with separate setting? =
-Yes. You can have unlimited logo carousel or showcase with each separate setting in page, post or template.
+= Can I add more than one logo carousel? =
+
+Yes. You can add as many logo carousels and grids as you like, each with its own settings, on any page, post, or template.
+
+= Can I link each logo to a website? =
+
+Yes. Add a custom link to any logo in the free version, in both the blocks and the classic shortcode. The logo details popup is available in Logo Carousel Pro.
 
 = Will Logo Carousel work with my theme? =
-Logo Carousel works with any WordPress theme if themes are developed according to WordPress standard.
 
-= Is Logo Carousel supported with WordPress multisite? =
-Yes, Logo Carousel works perfectly with WordPress multi network site.
+Logo Carousel works with any theme that follows WordPress coding standards. If something doesn't look right, contact our support team and we'll help.
 
-= How can I get support if the plugin is not working? =
-If you face any problem with our plugin or something is not working as it should, first follow the preliminary steps:
-Test the plugin with a WordPress default theme, to be sure that the error is not caused by the theme you are currently using.
+= Does Logo Carousel work on WordPress multisite? =
 
-Deactivate all plugins you are using and check if the problem is still occurring.
+Yes. Logo Carousel works on WordPress multisite networks.
 
-If none of the previous listed actions helps you solve the problem, then, open a topic in the [__Support Forum__](https://wordpress.org/support/plugin/logo-carousel-free/) and describe your problem accurately, specify WordPress and plugin versions you are using and any other information that might help us solve your problem as quickly as possible.
+= Is Logo Carousel translation ready? =
 
-= Where can I report bugs? =
-Bugs can be reported in our [__Support__](https://shapedplugin.com/create-new-ticket/).
+Yes. Logo Carousel is translation ready, includes German, Spanish, French, Italian, Japanese, and Dutch translations, and works with WPML, Polylang, GTranslate, WPGlobus, and other multilingual plugins.
 
-= I’d like access to more features. How can I get them? =
-You can get access to more features when you purchase a license of the plugin. Purchasing a license of [__Logo Carousel Pro__](https://logocarousel.com/pricing/?ref=1) gets you access to the full version of Logo Carousel.
+= What happens to the free version if I install Pro? =
 
-= Is Logo Carousel Translation Ready? =
-Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://wpml.org/), [Polylang](https://wordpress.org/plugins/polylang/), [qTranslate-x](https://wordpress.org/plugins/qtranslate-x/), [GTranslate](https://wordpress.org/plugins/gtranslate/), [Google Language Translator](https://wordpress.org/plugins/google-language-translator/), [WPGlobus](https://wordpress.org/plugins/wpglobus/)
+When Logo Carousel Pro is active, it takes over and the free version steps aside, so your logo showcases keep working without conflicts.
 
+= Where can I get help or report a bug? =
 
+Post your question in the [support forum](https://wordpress.org/support/plugin/logo-carousel-free/) or [open a support ticket](https://shapedplugin.com/create-new-ticket/). Please include your WordPress and plugin versions so we can help you faster.
 
 == Screenshots ==
-1. Live demo: a responsive logo carousel showcasing client and partner logos on the front end.
-2. Logo Carousel block: add and customize carousels directly in the Gutenberg block editor.
-3. Choose logo images: select or upload logos from the WordPress Media Library.
-4. Ready-made patterns: insert a pre-designed logo carousel in one click.
-5. Build with AI: generate a logo carousel design in seconds using AI.
-6. Saved Templates: save your favorite carousel designs and reuse them across your site.
-7. Modules manager: enable or disable plugin modules to keep your site lightweight.
-8. Classic Logo Carousel: build carousels with the classic shortcode-based editor.
-9. Style settings: customize colors, spacing, borders, and layout.
-10. Logo image settings: control logo size, effects, and links.
-11. Carousel controls: configure autoplay, speed, navigation arrows, and pagination dots.
-12. Typography settings: fine-tune fonts, sizes, and text styles.
-13. All Logo Carousels: manage your carousels and copy shortcodes in one place.
-14. Add New Logo: add a logo with its title, image, and website link.
-15. All Logos: view, edit, and organize your entire logo library.
 
-
+1. A responsive logo carousel showing client and partner logos on the front end.
+2. The Logo Carousel block in the Gutenberg block editor.
+3. Choose logo images from the WordPress Media Library or upload new ones.
+4. Ready Patterns: insert a pre-designed logo showcase in one click.
+5. Build with AI: describe a logo showcase and let AI build it.
+6. Saved Templates: save a logo showcase and reuse it anywhere.
+7. Modules manager: turn plugin modules on or off.
+8. Classic Logo Carousel: build logo carousels with the classic shortcode builder.
+9. Style settings for colors, spacing, borders, and layout.
+10. Logo image settings for size and effects.
+11. Carousel controls for autoplay, speed, navigation arrows, and pagination.
+12. Typography settings.
+13. All Logo Carousels: manage your logo views and copy their shortcodes.
+14. Add New Logo: add a logo with its title and image.
+15. All Logos: view, edit, and organize your logo library.
 
 == Changelog ==
+
+= Version 4.1.0 – Nov 20, 2026 =
+* New: Masonry block that fits logos of different sizes into a compact, gap-free layout with no wasted space.
+* New: 3D Carousel block that makes your logos stand out with eye-catching depth and motion.
+* New: Custom Link feature for blocks and the classic shortcode, so every logo can link to its website.
+* New: Classic Shortcode block can be turned on or off from the Blocks tab, so you only keep the blocks you use.
+* New: German, Spanish, French, Italian, Japanese, and Dutch translations, so you can use the plugin in your own language.
+* Improved: Logo image Opacity option now works in the classic shortcode for a consistent look across your showcases.
+* Improved: Build with AI now uses Ready Patterns even when the Patterns Library is turned off, so you always get polished results.
+* Fixed: Logo boxes with a fixed aspect ratio now display as true squares for a neat, even layout.
+* Fixed: Block settings tab icons now line up with their labels, making settings easier to scan.
+* Updated: Language (.pot) file, so translations stay up to date.
+* Tested: Compatible with WordPress 7.2.
 
 = Version 4.0.2 – Nov 11, 2026 =
 * Fixed: Password-protected carousels, logos, and saved templates could be displayed without entering the password.
@@ -212,10 +348,10 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 * New: Ready Patterns library to insert pre-designed logo showcases in one click.
 * New: Saved Templates to design once and reuse anywhere with the [lc_template] shortcode, including Elementor, Divi 4 and 5, WPBakery, Oxygen, Beaver Builder and Bricks.
 * New: Edit Logos window to reorder logos, update titles, alt text, links and descriptions, and add more from the Media Library in one place.
-* New: Secure SVG logo uploads, plus lazy loading, 17 hover animations, and image filters.
+* New: Secure SVG logo uploads and lazy loading for logo images.
 * Improved: Admin Dashboard with a Placements tab showing where each showcase is used.
 * Improved: Rebuilt around Gutenberg blocks, while existing shortcodes, the classic block, and the Elementor widget keep working unchanged.
-* Improved: 13 navigation arrow styles, including all former Pro styles, and 6 pagination dot styles, all fully customizable.
+* Improved: 12 navigation arrow icons, including all former Pro styles, and 6 pagination styles, all fully customizable.
 * Improved: Settings, Control Assets, Import & Export, and Custom CSS now live in the dashboard; old pages redirect there automatically.
 * Improved: Now requires WordPress 6.3 and PHP 7.4.
 * Tested: Compatible with WordPress 7.1.3.
@@ -581,6 +717,12 @@ Yes, **Logo Carousel** is 100% translation ready and tested with [WPML](https://
 * First Release
 
 == Upgrade Notice ==
+
+= 4.1.0 =
+Adds the Masonry and 3D Carousel blocks, custom links for every logo, and six new translations. Tested with WordPress 7.2.
+
+= 4.0.1 =
+This update fixes carousel styles breaking with CSS optimization plugins and stops private or scheduled carousels from showing to visitors. Updating is recommended.
 
 = 4.0.0 =
 Major update: new Carousel and Grid blocks, Ready Patterns, AI builder, Saved Templates and a new dashboard. Existing shortcodes keep working. Requires WordPress 6.3+ and PHP 7.4+. Please back up your site before updating.

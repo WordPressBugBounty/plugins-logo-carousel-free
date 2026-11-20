@@ -15,6 +15,7 @@ use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoShowcase\AttributeSeriali
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoShowcase\LogoCardConfig;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoShowcase\LogoShowcaseItemRenderer;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoShowcase\LogoShowcaseRootRenderer;
+use ShapedPlugin\LogoCarouselFree\Blocks\Sections\MasonryLayout\MasonryLayoutCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\CssUtils;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoInfoPopupRenderer;
 
@@ -54,6 +55,9 @@ if ( ! class_exists( 'LogoShowcaseRenderer' ) ) {
 			$images_flags    = isset( $render_data['imagesFlags'] ) && is_array( $render_data['imagesFlags'] ) ? $render_data['imagesFlags'] : ( $config ? $config->get_images_flags() : array() );
 			$unique_id       = $config ? $config->get_unique_id() : '';
 			$uses_swiper     = $config ? $config->uses_swiper() : true;
+			$slug            = $config ? $config->get_slug() : 'carousel';
+			// Masonry sizes each item from its own aspect ratio.
+			$uses_logo_ratio = 'masonry' === $slug;
 			$swiper_config   = $config ? $config->get_swiper_config() : array();
 			if ( $uses_swiper && empty( $swiper_config ) ) {
 				$swiper_config = ( new SwiperConfig() )->normalize( $config ? $config->get_attributes() : array() );
@@ -108,7 +112,8 @@ if ( ! class_exists( 'LogoShowcaseRenderer' ) ) {
 					$images_settings,
 					$item_popup_id,
 					$this->get_slide_loading_config( $slide_index, $total_slides, $swiper_config, $images_settings ),
-					$card_config
+					$card_config,
+					$uses_logo_ratio ? MasonryLayoutCss::item_style( $item ) : ''
 				);
 				++$slide_index;
 
@@ -207,6 +212,11 @@ if ( ! class_exists( 'LogoShowcaseRenderer' ) ) {
 
 			if ( ! empty( $behavior['languageDirection'] ) ) {
 				$classes[] = 'sp-lcpro-logo-carousel--dir-' . CssUtils::sanitize_wrapper_token( (string) $behavior['languageDirection'] );
+			}
+
+			if ( ! empty( $swiper_config['carousel3d']['style'] ) ) {
+				$classes[] = 'sp-lcpro-logo-carousel--3d';
+				$classes[] = 'sp-lcpro-logo-carousel--3d-' . CssUtils::sanitize_wrapper_token( (string) $swiper_config['carousel3d']['style'] );
 			}
 
 			$presentation = isset( $swiper_config['presentation'] ) && is_array( $swiper_config['presentation'] ) ? $swiper_config['presentation'] : array();

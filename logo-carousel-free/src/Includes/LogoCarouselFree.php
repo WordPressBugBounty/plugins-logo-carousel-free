@@ -45,6 +45,7 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\LogoCarouselFree' )
 		 * Constructor.
 		 */
 		public function __construct() {
+			I18n::register_hooks();
 			new Dashboard();
 			// Stamps widget saves, so the Placements table can date them.
 			BlockUsage::register_hooks();

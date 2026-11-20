@@ -80,6 +80,30 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 				'filterSearchGap',
 				'justifyFilterSearch',
 			),
+			'masonry'  => array(
+				'columns',
+				'horizontalGap',
+				'verticalGap',
+				'pagination',
+				'ajaxLiveFilter',
+				'ajaxSearch',
+				'filterSearchOrientation',
+				'filterSearchGap',
+				'justifyFilterSearch',
+			),
+		);
+
+		/**
+		 * Blocks that store another block's `layout` attribute, by that block.
+		 *
+		 * The 3D Carousel keeps the Carousel's whole layout shape, pinned to its
+		 * standard profile at render (`Carousel3dConfig::neutralize_layout`), so
+		 * its shared fields and branches are the Carousel's.
+		 *
+		 * @var array<string, string>
+		 */
+		const LAYOUT_ALIASES = array(
+			'carousel3d' => 'carousel',
 		);
 
 		/**
@@ -88,8 +112,9 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 		 * @var array<string, string>
 		 */
 		const STYLE_KEYS = array(
-			'carousel' => 'carouselStyle',
-			'grid'     => 'gridStyle',
+			'carousel'   => 'carouselStyle',
+			'carousel3d' => 'carouselStyle',
+			'grid'       => 'gridStyle',
 		);
 
 		/**
@@ -97,17 +122,23 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 		 *
 		 * Only the Carousel renames one ("staggered-carousel" stores under
 		 * "staggered"); in the Grid the style value is the branch name.
+		 * Masonry has no style picker at all, so it has no entry — it keeps
+		 * every field on `shared`. The 3D Carousel always renders the standard
+		 * profile, whatever style is stored.
 		 *
 		 * @var array<string, array<string, string>>
 		 */
 		const PROFILE_KEYS = array(
-			'carousel' => array(
+			'carousel'   => array(
 				'standard'           => 'standard',
 				'staggered-carousel' => 'staggered',
 				'center'             => 'center',
 				'multirow'           => 'multirow',
 			),
-			'grid'     => array(
+			'carousel3d' => array(
+				'standard' => 'standard',
+			),
+			'grid'       => array(
 				'standard'  => 'standard',
 				'strip'     => 'strip',
 				'staggered' => 'staggered',
@@ -127,6 +158,7 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 		const CONTAINER_KEYS = array(
 			'carousel' => array( 'shared', 'standard', 'staggered', 'center', 'multirow' ),
 			'grid'     => array( 'shared', 'standard', 'strip', 'staggered', 'zigzag' ),
+			'masonry'  => array( 'shared' ),
 		);
 
 		/**
@@ -142,8 +174,8 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 				return $layout_partial;
 			}
 
-			$containers = isset( self::CONTAINER_KEYS[ $slug ] ) ? self::CONTAINER_KEYS[ $slug ] : array( 'shared' );
-			$shared_set = isset( self::SHARED_FIELDS[ $slug ] ) ? self::SHARED_FIELDS[ $slug ] : array();
+			$containers = self::container_keys( $slug );
+			$shared_set = self::shared_fields( $slug );
 			$profile    = self::active_profile_key( $layout_partial, $slug, $existing_layout );
 
 			$expanded = $layout_partial;
@@ -198,19 +230,49 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AILayoutProfileW
 		 * @return string[] Accepted top-level layout keys.
 		 */
 		public static function allowed_fields( $slug, array $layout_default ) {
-			$allowed = array_keys( $layout_default );
+			$allowed = array_merge( array_keys( $layout_default ), self::shared_fields( $slug ) );
 
-			if ( isset( self::SHARED_FIELDS[ $slug ] ) ) {
-				$allowed = array_merge( $allowed, self::SHARED_FIELDS[ $slug ] );
-			}
-
-			foreach ( self::CONTAINER_KEYS[ $slug ] ?? array( 'shared' ) as $container ) {
+			foreach ( self::container_keys( $slug ) as $container ) {
 				if ( isset( $layout_default[ $container ] ) && is_array( $layout_default[ $container ] ) ) {
 					$allowed = array_merge( $allowed, array_keys( $layout_default[ $container ] ) );
 				}
 			}
 
 			return array_values( array_unique( $allowed ) );
+		}
+
+		/**
+		 * Layout keys that are style branches for a block (see `CONTAINER_KEYS`).
+		 *
+		 * @param string $slug Block slug, without the namespace prefix.
+		 * @return string[]
+		 */
+		public static function container_keys( $slug ) {
+			$family = self::layout_family( $slug );
+
+			return isset( self::CONTAINER_KEYS[ $family ] ) ? self::CONTAINER_KEYS[ $family ] : array( 'shared' );
+		}
+
+		/**
+		 * Layout fields stored under `shared` for a block (see `SHARED_FIELDS`).
+		 *
+		 * @param string $slug Block slug, without the namespace prefix.
+		 * @return string[]
+		 */
+		private static function shared_fields( $slug ) {
+			$family = self::layout_family( $slug );
+
+			return isset( self::SHARED_FIELDS[ $family ] ) ? self::SHARED_FIELDS[ $family ] : array();
+		}
+
+		/**
+		 * The block whose layout shape a block stores.
+		 *
+		 * @param string $slug Block slug, without the namespace prefix.
+		 * @return string Block slug.
+		 */
+		private static function layout_family( $slug ) {
+			return isset( self::LAYOUT_ALIASES[ $slug ] ) ? self::LAYOUT_ALIASES[ $slug ] : $slug;
 		}
 
 		/**

@@ -45,7 +45,7 @@ if ( ! class_exists( 'DisplayElementsDefaults' ) ) {
 				'border'                     => self::get_card_border_defaults(),
 				'borderWidth'                => self::responsive_box_defaults( 1 ),
 				'borderRadius'               => self::responsive_box_defaults( 4 ),
-				'innerPadding'               => self::responsive_box_defaults( 8 ),
+				'innerPadding'               => self::responsive_box_defaults( 16 ),
 				'readMoreButtonTypography'   => self::read_more_typography_default(),
 				'readMoreButtonColor'        => self::color_pair_default( '#ffffff', '#ffffff' ),
 				'readMoreButtonBackground'   => self::color_pair_default( '#2F2F2F', '#2F2F2F' ),

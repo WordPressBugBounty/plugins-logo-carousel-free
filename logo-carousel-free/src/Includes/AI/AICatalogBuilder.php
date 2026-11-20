@@ -11,8 +11,10 @@
 
 namespace ShapedPlugin\LogoCarouselFree\Includes\AI;
 
+use ShapedPlugin\LogoCarouselFree\Blocks\Schema\Carousel3dSchema;
 use ShapedPlugin\LogoCarouselFree\Blocks\Schema\CarouselSchema;
 use ShapedPlugin\LogoCarouselFree\Blocks\Schema\GridSchema;
+use ShapedPlugin\LogoCarouselFree\Blocks\Schema\MasonrySchema;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -42,14 +44,16 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AICatalogBuilder
 		/**
 		 * Block slug → Schema class, shared with the validators so the generated
 		 * attributes are checked against the block they were generated for.
-		 * The free plugin ships only Carousel and Grid, so the AI builder can
-		 * only ever produce those two blocks.
+		 * The free plugin ships Carousel, Grid, Masonry and 3D Carousel, so the
+		 * AI builder can only ever produce those four blocks.
 		 *
 		 * @var array<string, string>
 		 */
 		const SCHEMA_MAP = array(
-			'carousel' => CarouselSchema::class,
-			'grid'     => GridSchema::class,
+			'carousel'   => CarouselSchema::class,
+			'carousel3d' => Carousel3dSchema::class,
+			'grid'       => GridSchema::class,
+			'masonry'    => MasonrySchema::class,
 		);
 
 		/**
@@ -60,13 +64,14 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AICatalogBuilder
 		/**
 		 * Blocks whose schema carries the `navigation` and `pagination` groups.
 		 *
-		 * Only the Carousel runs a Swiper instance with arrows and dots; the Grid
-		 * has no such attributes at all, so naming them would just be
-		 * dropped by the schema-key filter in `AISchemaValidator`.
+		 * Only the Carousel and the 3D Carousel run a Swiper instance with
+		 * arrows and dots; the other blocks have no such attributes at all, so
+		 * naming them would just be dropped by the schema-key filter in
+		 * `AISchemaValidator`.
 		 *
 		 * @var string[]
 		 */
-		const NAV_PAGINATION_BLOCKS = array( 'carousel' );
+		const NAV_PAGINATION_BLOCKS = array( 'carousel', 'carousel3d' );
 
 		/**
 		 * Value shapes referenced by more than one catalog line, spelled out once.
@@ -110,9 +115,15 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AICatalogBuilder
 		 * @var array<string, string>
 		 */
 		const BLOCK_DELTAS = array(
-			'carousel' => '- "layout": { "carouselStyle": "standard"|"center" (the middle logo is scaled up and its neighbours faded), "columns": <count> (logos visible across), "rows": <count> (logos visible down a vertical carousel), "gapBetweenLogos": <size>, "displayOrientation": "horizontal"|"vertical", "alignment": { "horizontal": "flex-start"|"center"|"flex-end", "vertical": "flex-start"|"center"|"flex-end" }, "autoplay": bool, "autoplayDelay": int ms (500-15000), "sliderSpeed": int ms (100-5000), "pauseOnHover": bool, "infiniteLoop": bool, "adaptiveHeight": bool, "navigationArrows": bool, "paginationDots": bool, "partialSlideView": bool (peek at the next logo), "variableWidth": bool (each logo keeps its natural width), "carouselDirection": "left-to-right"|"right-to-left", "slideToScroll": <count>, "slidingEffects": "none"|"slide"|"ease-in-out-slide"|"spring-bounce"|"snappy"|"fade"|"slide-fade", "tabsAndKeyNavigation": bool, "mouseWheelControl": bool, "freeScrollMode": bool, "edgeFade": { "enabled": bool, "strength": 0-100, "width": 0-400, "colorMode": "auto"|"custom", "color": <color> } (fades the track\'s left/right edges), "centeredLogoScale": 1-2 and "slideLogosOpacity": 0-1 (only read when "carouselStyle" is "center") }',
-			'grid'     => '- "layout": { "gridStyle": "standard", "columns": <count>, "horizontalGap": <size>, "verticalGap": <size>, "justify": "flex-start"|"center"|"flex-end"|"space-between"|"space-around"|"space-evenly", "alignment": "start"|"center"|"end"|"stretch" }
+			'carousel'   => '- "layout": { "carouselStyle": "standard"|"center" (the middle logo is scaled up and its neighbours faded), "columns": <count> (logos visible across), "rows": <count> (logos visible down a vertical carousel), "gapBetweenLogos": <size>, "displayOrientation": "horizontal"|"vertical", "alignment": { "horizontal": "flex-start"|"center"|"flex-end", "vertical": "flex-start"|"center"|"flex-end" }, "autoplay": bool, "autoplayDelay": int ms (500-15000), "sliderSpeed": int ms (100-5000), "pauseOnHover": bool, "infiniteLoop": bool, "adaptiveHeight": bool, "navigationArrows": bool, "paginationDots": bool, "partialSlideView": bool (peek at the next logo), "variableWidth": bool (each logo keeps its natural width), "carouselDirection": "left-to-right"|"right-to-left", "slideToScroll": <count>, "slidingEffects": "none"|"slide"|"ease-in-out-slide"|"spring-bounce"|"snappy"|"fade"|"slide-fade", "tabsAndKeyNavigation": bool, "mouseWheelControl": bool, "freeScrollMode": bool, "edgeFade": { "enabled": bool, "strength": 0-100, "width": 0-400, "colorMode": "auto"|"custom", "color": <color> } (fades the track\'s left/right edges), "centeredLogoScale": 1-2 and "slideLogosOpacity": 0-1 (only read when "carouselStyle" is "center") }',
+			'carousel3d' => '- "carousel3d": { "sideItems": <count> (1-4 logos shown on each side of the centre), "autoplayDirection": "right-to-left"|"left-to-right", "grabCursor": bool }
+		- "layout": { "autoplay": bool, "autoplayDelay": int ms (1000-10000), "sliderSpeed": int ms (100-5000), "pauseOnHover": bool, "infiniteLoop": bool, "navigationArrows": bool, "paginationDots": bool, "carouselStartsOnScreen": bool (autoplay waits until the block is scrolled into view), "tabsAndKeyNavigation": bool, "mouseWheelControl": bool }
+		- This block is a Coverflow 3D stage that always centres one logo: it has no columns, rows, gap or orientation. Its autoplay direction lives on "carousel3d", not on "layout".',
+			'grid'       => '- "layout": { "gridStyle": "standard", "columns": <count>, "horizontalGap": <size>, "verticalGap": <size>, "justify": "flex-start"|"center"|"flex-end"|"space-between"|"space-around"|"space-evenly", "alignment": "start"|"center"|"end"|"stretch" }
 		- This block is a static grid, not a slider: it has no autoplay, speed, arrows or bullets. Ignore any request for those rather than inventing keys for them.',
+			'masonry'    => '- "layout": { "columns": <count> (1-10), "horizontalGap": <size> (between columns), "verticalGap": <size> (between logos in a column) }
+		- Columns of logos at their own heights: each logo fills its column\'s width at its own shape and drops into the shortest column, so tall and wide marks pack without gaps. "imagesSettings.aspectRatio": "original" keeps that varied rhythm; a fixed ratio makes every logo the same height (an even grid).
+		- This block is a static layout, not a slider: no autoplay, speed, arrows or bullets.',
 		);
 
 		/**

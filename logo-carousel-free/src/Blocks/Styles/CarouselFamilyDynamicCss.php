@@ -16,6 +16,7 @@ use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\LogoSourceCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\NavigationCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\PaginationCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Sections\GridLayout\GridLayoutCss;
+use ShapedPlugin\LogoCarouselFree\Blocks\Sections\MasonryLayout\MasonryLayoutCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\SectionCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\TypographyCss;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\Concerns\VisibilityCss;
@@ -108,6 +109,15 @@ if ( ! class_exists( 'CarouselFamilyDynamicCss' ) ) {
 				$base_rules   = array_merge( $base_rules, LogoCardCss::base_rules( $selectors, $attributes ) );
 				$tablet_rules = array_merge( $tablet_rules, LogoCardCss::tablet_rules( $selectors, $attributes ) );
 				$mobile_rules = array_merge( $mobile_rules, LogoCardCss::mobile_rules( $selectors, $attributes ) );
+			}
+
+			// Masonry runs after Logo Images and the logo card: it re-asserts the
+			// Original image sizing on LogoImagesCss's own selector, so the later
+			// same-selector properties must win the merge.
+			if ( 'masonry' === $block_type ) {
+				$base_rules   = array_merge( $base_rules, MasonryLayoutCss::base_rules( $selectors, $attributes ) );
+				$tablet_rules = array_merge( $tablet_rules, MasonryLayoutCss::tablet_rules( $selectors, $attributes ) );
+				$mobile_rules = array_merge( $mobile_rules, MasonryLayoutCss::mobile_rules( $selectors, $attributes ) );
 			}
 
 			if ( in_array( 'logoInfoPopup', $features, true ) ) {

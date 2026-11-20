@@ -13,14 +13,14 @@ use ShapedPlugin\LogoCarouselFree\Blocks\Schema\Defaults\LogoImagesDefaults;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\CssUtils;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\CssValueHelper;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if (! class_exists('LogoImagesCss')) {
+if ( ! class_exists( 'LogoImagesCss' ) ) {
 	/**
 	 * Shared logo images rules mirrored from the editor CSS concern.
 	 */
-	class LogoImagesCss
-	{
+	class LogoImagesCss {
+
 		/**
 		 * Base logo image rules.
 		 *
@@ -28,11 +28,10 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed>  $attributes Block attributes.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		public static function base_rules(array $selectors, array $attributes = array())
-		{
+		public static function base_rules( array $selectors, array $attributes = array() ) {
 			return array_merge(
-				self::get_aspect_ratio_rules($selectors, $attributes, 'Desktop'),
-				self::get_style_preview_rules($selectors, $attributes)
+				self::get_aspect_ratio_rules( $selectors, $attributes, 'Desktop' ),
+				self::get_style_preview_rules( $selectors, $attributes )
 			);
 		}
 
@@ -43,9 +42,8 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed>  $attributes Block attributes.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		public static function tablet_rules(array $selectors, array $attributes = array())
-		{
-			return self::get_custom_size_rules($selectors, $attributes, 'Tablet');
+		public static function tablet_rules( array $selectors, array $attributes = array() ) {
+			return self::get_custom_size_rules( $selectors, $attributes, 'Tablet' );
 		}
 
 		/**
@@ -55,9 +53,8 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed>  $attributes Block attributes.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		public static function mobile_rules(array $selectors, array $attributes = array())
-		{
-			return self::get_custom_size_rules($selectors, $attributes, 'Mobile');
+		public static function mobile_rules( array $selectors, array $attributes = array() ) {
+			return self::get_custom_size_rules( $selectors, $attributes, 'Mobile' );
 		}
 
 		/**
@@ -66,13 +63,12 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed> $attributes Block attributes.
 		 * @return array<string, mixed>
 		 */
-		private static function get_logo_images_style(array $attributes)
-		{
-			if (isset($attributes['logoImagesStyle']) && is_array($attributes['logoImagesStyle'])) {
+		private static function get_logo_images_style( array $attributes ) {
+			if ( isset( $attributes['logoImagesStyle'] ) && is_array( $attributes['logoImagesStyle'] ) ) {
 				return $attributes['logoImagesStyle'];
 			}
 
-			if (isset($attributes['logoImageStyle']) && is_array($attributes['logoImageStyle'])) {
+			if ( isset( $attributes['logoImageStyle'] ) && is_array( $attributes['logoImageStyle'] ) ) {
 				return $attributes['logoImageStyle'];
 			}
 
@@ -85,11 +81,10 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed> $spacing Spacing branch.
 		 * @return string
 		 */
-		private static function get_spacing_value(array $spacing)
-		{
-			$value = CssValueHelper::responsive_spacing($spacing, 'Desktop');
+		private static function get_spacing_value( array $spacing ) {
+			$value = CssValueHelper::responsive_spacing( $spacing, 'Desktop' );
 
-			return is_string($value) ? $value : '';
+			return is_string( $value ) ? $value : '';
 		}
 
 		/**
@@ -98,10 +93,9 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed> $spacing Spacing branch.
 		 * @return array{shorthand:string,left:string,right:string,has_horizontal:bool}
 		 */
-		private static function get_spacing_sides(array $spacing)
-		{
-			$shorthand = self::get_spacing_value($spacing);
-			if ('' === $shorthand) {
+		private static function get_spacing_sides( array $spacing ) {
+			$shorthand = self::get_spacing_value( $spacing );
+			if ( '' === $shorthand ) {
 				return array(
 					'shorthand'      => '',
 					'left'           => '0',
@@ -110,15 +104,15 @@ if (! class_exists('LogoImagesCss')) {
 				);
 			}
 
-			$parts = preg_split('/\s+/', trim($shorthand));
-			$left  = isset($parts[3]) ? $parts[3] : '0';
-			$right = isset($parts[1]) ? $parts[1] : '0';
+			$parts = preg_split( '/\s+/', trim( $shorthand ) );
+			$left  = isset( $parts[3] ) ? $parts[3] : '0';
+			$right = isset( $parts[1] ) ? $parts[1] : '0';
 
 			return array(
 				'shorthand'      => $shorthand,
 				'left'           => $left,
 				'right'          => $right,
-				'has_horizontal' => (! in_array($left, array('0', '0px', '0%'), true)) || (! in_array($right, array('0', '0px', '0%'), true)),
+				'has_horizontal' => ( ! in_array( $left, array( '0', '0px', '0%' ), true ) ) || ( ! in_array( $right, array( '0', '0px', '0%' ), true ) ),
 			);
 		}
 
@@ -126,18 +120,17 @@ if (! class_exists('LogoImagesCss')) {
 		 * Keep a full-width logo box inside its item when left/right margin is set.
 		 *
 		 * @param array{left:string,right:string,has_horizontal:bool} $sides Margin sides.
-		 * @param string                                               $mode  force-width|max-only.
+		 * @param string                                              $mode  force-width|max-only.
 		 * @return array<string, string>
 		 */
-		private static function get_horizontal_inset_width_styles(array $sides, $mode = 'force-width')
-		{
-			if (empty($sides['has_horizontal'])) {
+		private static function get_horizontal_inset_width_styles( array $sides, $mode = 'force-width' ) {
+			if ( empty( $sides['has_horizontal'] ) ) {
 				return array();
 			}
 
 			$inset_width = 'calc(100% - ' . $sides['left'] . ' - ' . $sides['right'] . ')';
 
-			if ('max-only' === $mode) {
+			if ( 'max-only' === $mode ) {
 				return array(
 					'max-width'  => $inset_width,
 					'box-sizing' => 'border-box',
@@ -157,36 +150,35 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed> $filter Filter branch.
 		 * @return string
 		 */
-		private static function get_filter_value(array $filter)
-		{
+		private static function get_filter_value( array $filter ) {
 			$parts      = array();
-			$blur       = isset($filter['blur']) && is_numeric($filter['blur']) ? (int) $filter['blur'] : 0;
-			$brightness = isset($filter['brightness']) && is_numeric($filter['brightness']) ? (int) $filter['brightness'] : 0;
-			$contrast   = isset($filter['contrast']) && is_numeric($filter['contrast']) ? (int) $filter['contrast'] : 0;
-			$saturation = isset($filter['saturation']) && is_numeric($filter['saturation']) ? (int) $filter['saturation'] : 0;
-			$hue        = isset($filter['hue']) && is_numeric($filter['hue']) ? (int) $filter['hue'] : 0;
+			$blur       = isset( $filter['blur'] ) && is_numeric( $filter['blur'] ) ? (int) $filter['blur'] : 0;
+			$brightness = isset( $filter['brightness'] ) && is_numeric( $filter['brightness'] ) ? (int) $filter['brightness'] : 0;
+			$contrast   = isset( $filter['contrast'] ) && is_numeric( $filter['contrast'] ) ? (int) $filter['contrast'] : 0;
+			$saturation = isset( $filter['saturation'] ) && is_numeric( $filter['saturation'] ) ? (int) $filter['saturation'] : 0;
+			$hue        = isset( $filter['hue'] ) && is_numeric( $filter['hue'] ) ? (int) $filter['hue'] : 0;
 
-			if ($blur) {
+			if ( $blur ) {
 				$parts[] = 'blur(' . $blur . 'px)';
 			}
 
-			if ($brightness) {
-				$parts[] = 'brightness(' . (100 + $brightness) . '%)';
+			if ( $brightness ) {
+				$parts[] = 'brightness(' . ( 100 + $brightness ) . '%)';
 			}
 
-			if ($contrast) {
-				$parts[] = 'contrast(' . (100 + $contrast) . '%)';
+			if ( $contrast ) {
+				$parts[] = 'contrast(' . ( 100 + $contrast ) . '%)';
 			}
 
-			if ($saturation) {
-				$parts[] = 'saturate(' . (100 + $saturation) . '%)';
+			if ( $saturation ) {
+				$parts[] = 'saturate(' . ( 100 + $saturation ) . '%)';
 			}
 
-			if ($hue) {
+			if ( $hue ) {
 				$parts[] = 'hue-rotate(' . $hue . 'deg)';
 			}
 
-			return empty($parts) ? 'none' : implode(' ', $parts);
+			return empty( $parts ) ? 'none' : implode( ' ', $parts );
 		}
 
 		/**
@@ -195,19 +187,18 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string ...$filters Filter fragments.
 		 * @return string
 		 */
-		private static function merge_filters()
-		{
+		private static function merge_filters() {
 			$filters = func_get_args();
 			$filters = array_values(
 				array_filter(
 					$filters,
-					static function ($filter) {
-						return is_string($filter) && '' !== $filter && 'none' !== $filter;
+					static function ( $filter ) {
+						return is_string( $filter ) && '' !== $filter && 'none' !== $filter;
 					}
 				)
 			);
 
-			return implode(' ', $filters);
+			return implode( ' ', $filters );
 		}
 
 		/**
@@ -216,9 +207,8 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param float $value Channel value.
 		 * @return float
 		 */
-		private static function clamp_byte($value)
-		{
-			return max(0, min(255, (float) $value));
+		private static function clamp_byte( $value ) {
+			return max( 0, min( 255, (float) $value ) );
 		}
 
 		/**
@@ -229,23 +219,22 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string $value CSS color.
 		 * @return array<string, float>|null
 		 */
-		private static function parse_custom_color($value)
-		{
-			$value = trim((string) $value);
-			if ('' === $value) {
+		private static function parse_custom_color( $value ) {
+			$value = trim( (string) $value );
+			if ( '' === $value ) {
 				return null;
 			}
 
-			if ('#' === substr($value, 0, 1)) {
-				return self::parse_hex_custom_color($value);
+			if ( '#' === substr( $value, 0, 1 ) ) {
+				return self::parse_hex_custom_color( $value );
 			}
 
-			if (preg_match('/^rgba?\(\s*([+-]?(?:\d+|\d*\.\d+))\s*,\s*([+-]?(?:\d+|\d*\.\d+))\s*,\s*([+-]?(?:\d+|\d*\.\d+))(?:\s*,\s*([+-]?(?:\d+|\d*\.\d+))\s*)?\)$/i', $value, $matches)) {
+			if ( preg_match( '/^rgba?\(\s*([+-]?(?:\d+|\d*\.\d+))\s*,\s*([+-]?(?:\d+|\d*\.\d+))\s*,\s*([+-]?(?:\d+|\d*\.\d+))(?:\s*,\s*([+-]?(?:\d+|\d*\.\d+))\s*)?\)$/i', $value, $matches ) ) {
 				return array(
-					'r' => self::clamp_byte($matches[1]),
-					'g' => self::clamp_byte($matches[2]),
-					'b' => self::clamp_byte($matches[3]),
-					'a' => isset($matches[4]) ? max(0, min(1, (float) $matches[4])) : 1.0,
+					'r' => self::clamp_byte( $matches[1] ),
+					'g' => self::clamp_byte( $matches[2] ),
+					'b' => self::clamp_byte( $matches[3] ),
+					'a' => isset( $matches[4] ) ? max( 0, min( 1, (float) $matches[4] ) ) : 1.0,
 				);
 			}
 
@@ -258,26 +247,25 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string $value Hex color.
 		 * @return array<string, float>|null
 		 */
-		private static function parse_hex_custom_color($value)
-		{
-			$hex = ltrim(trim($value), '#');
-			if (in_array(strlen($hex), array(3, 4), true)) {
+		private static function parse_hex_custom_color( $value ) {
+			$hex = ltrim( trim( $value ), '#' );
+			if ( in_array( strlen( $hex ), array( 3, 4 ), true ) ) {
 				$expanded = '';
-				foreach (str_split($hex) as $char) {
+				foreach ( str_split( $hex ) as $char ) {
 					$expanded .= $char . $char;
 				}
 				$hex = $expanded;
 			}
 
-			if (! in_array(strlen($hex), array(6, 8), true) || ! ctype_xdigit($hex)) {
+			if ( ! in_array( strlen( $hex ), array( 6, 8 ), true ) || ! ctype_xdigit( $hex ) ) {
 				return null;
 			}
 
 			return array(
-				'r' => (float) hexdec(substr($hex, 0, 2)),
-				'g' => (float) hexdec(substr($hex, 2, 2)),
-				'b' => (float) hexdec(substr($hex, 4, 2)),
-				'a' => 8 === strlen($hex) ? hexdec(substr($hex, 6, 2)) / 255 : 1.0,
+				'r' => (float) hexdec( substr( $hex, 0, 2 ) ),
+				'g' => (float) hexdec( substr( $hex, 2, 2 ) ),
+				'b' => (float) hexdec( substr( $hex, 4, 2 ) ),
+				'a' => 8 === strlen( $hex ) ? hexdec( substr( $hex, 6, 2 ) ) / 255 : 1.0,
 			);
 		}
 
@@ -287,10 +275,9 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string $value Sanitized CSS color.
 		 * @return string
 		 */
-		private static function get_custom_color_filter($value)
-		{
-			$rgba = self::parse_custom_color($value);
-			if (! is_array($rgba)) {
+		private static function get_custom_color_filter( $value ) {
+			$rgba = self::parse_custom_color( $value );
+			if ( ! is_array( $rgba ) ) {
 				return '';
 			}
 
@@ -312,8 +299,7 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, string> $selectors Selector map.
 		 * @return string
 		 */
-		private static function tintable_image_selector(array $selectors)
-		{
+		private static function tintable_image_selector( array $selectors ) {
 			$base = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel .sp-lcpro-logo-source__image';
 			return $base . '.sp-lcpro-logo-source__image--tintable';
 		}
@@ -324,9 +310,8 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, string> $selectors Selector map.
 		 * @return string
 		 */
-		private static function hover_tintable_image_selector(array $selectors)
-		{
-			$base = self::hover_host($selectors) . ':hover .sp-lcpro-logo-source__image';
+		private static function hover_tintable_image_selector( array $selectors ) {
+			$base = self::hover_host( $selectors ) . ':hover .sp-lcpro-logo-source__image';
 			return $base . '.sp-lcpro-logo-source__image--tintable';
 		}
 
@@ -341,9 +326,8 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, string> $selectors Selector map.
 		 * @return string
 		 */
-		private static function hover_host(array $selectors)
-		{
-			if (isset($selectors['logoImageHoverHost']) && '' !== $selectors['logoImageHoverHost']) {
+		private static function hover_host( array $selectors ) {
+			if ( isset( $selectors['logoImageHoverHost'] ) && '' !== $selectors['logoImageHoverHost'] ) {
 				return (string) $selectors['logoImageHoverHost'];
 			}
 
@@ -368,33 +352,32 @@ if (! class_exists('LogoImagesCss')) {
 		 *
 		 * @return array<string, array<string, string>>
 		 */
-		private static function hover_animation_presets()
-		{
+		private static function hover_animation_presets() {
 			return array(
 				// Eased state changes.
-				'scale-up'    => array( 'transform' => 'scale(1.06)' ),
-				'fade-scale'  => array(
+				'scale-up'   => array( 'transform' => 'scale(1.06)' ),
+				'fade-scale' => array(
 					'transform' => 'scale(1.06)',
 					'opacity'   => '0.85',
 				),
-				'rotate'      => array( 'transform' => 'rotate(4deg)' ),
-				'slide-up'    => array( 'transform' => 'translateY(-6px)' ),
-				'skew'        => array( 'transform' => 'skewX(-6deg)' ),
+				'rotate'     => array( 'transform' => 'rotate(4deg)' ),
+				'slide-up'   => array( 'transform' => 'translateY(-6px)' ),
+				'skew'       => array( 'transform' => 'skewX(-6deg)' ),
 
 				// Motion, played from shared keyframes.
-				'bounce'      => array( 'animation' => 'sp-lcpro-hover-bounce 800ms ease' ),
-				'shake'       => array( 'animation' => 'sp-lcpro-hover-shake 600ms ease' ),
-				'jelly'       => array( 'animation' => 'sp-lcpro-hover-jelly 700ms ease' ),
-				'swing'       => array( 'animation' => 'sp-lcpro-hover-swing 900ms ease' ),
-				'wobble'      => array( 'animation' => 'sp-lcpro-hover-wobble 900ms ease' ),
-				'spin-360'    => array( 'animation' => 'sp-lcpro-hover-spin 900ms linear' ),
-				'flip-x'      => array( 'animation' => 'sp-lcpro-hover-flip-x 700ms ease' ),
-				'flip-y'      => array( 'animation' => 'sp-lcpro-hover-flip-y 700ms ease' ),
+				'bounce'     => array( 'animation' => 'sp-lcpro-hover-bounce 800ms ease' ),
+				'shake'      => array( 'animation' => 'sp-lcpro-hover-shake 600ms ease' ),
+				'jelly'      => array( 'animation' => 'sp-lcpro-hover-jelly 700ms ease' ),
+				'swing'      => array( 'animation' => 'sp-lcpro-hover-swing 900ms ease' ),
+				'wobble'     => array( 'animation' => 'sp-lcpro-hover-wobble 900ms ease' ),
+				'spin-360'   => array( 'animation' => 'sp-lcpro-hover-spin 900ms linear' ),
+				'flip-x'     => array( 'animation' => 'sp-lcpro-hover-flip-x 700ms ease' ),
+				'flip-y'     => array( 'animation' => 'sp-lcpro-hover-flip-y 700ms ease' ),
 
 				// Motion that keeps going while the pointer rests.
-				'float'       => array( 'animation' => 'sp-lcpro-hover-float 1800ms ease-in-out infinite' ),
-				'pulse'       => array( 'animation' => 'sp-lcpro-hover-pulse 1400ms ease-in-out infinite' ),
-				'heartbeat'   => array( 'animation' => 'sp-lcpro-hover-heartbeat 1300ms ease-in-out infinite' ),
+				'float'      => array( 'animation' => 'sp-lcpro-hover-float 1800ms ease-in-out infinite' ),
+				'pulse'      => array( 'animation' => 'sp-lcpro-hover-pulse 1400ms ease-in-out infinite' ),
+				'heartbeat'  => array( 'animation' => 'sp-lcpro-hover-heartbeat 1300ms ease-in-out infinite' ),
 			);
 		}
 
@@ -405,22 +388,21 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string                $animation Hover animation.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		private static function get_hover_effect_rules(array $selectors, $animation)
-		{
+		private static function get_hover_effect_rules( array $selectors, $animation ) {
 			$animation = (string) $animation;
 
-			if ('none' === $animation) {
+			if ( 'none' === $animation ) {
 				return array();
 			}
 
-			$host           = self::hover_host($selectors);
+			$host           = self::hover_host( $selectors );
 			$image_selector = $host . ':hover .sp-lcpro-logo-source__image';
 
 			// The ring is painted on the hover host itself, not the image, so it
 			// is the one preset that does not touch the image. Nothing else here
 			// sets box-shadow: a blanket reset would wipe a card shadow the user
 			// configured.
-			if ('border-ring' === $animation) {
+			if ( 'border-ring' === $animation ) {
 				return array(
 					array(
 						'selector' => $host,
@@ -439,17 +421,17 @@ if (! class_exists('LogoImagesCss')) {
 
 			$presets = self::hover_animation_presets();
 
-			if (! isset($presets[$animation])) {
+			if ( ! isset( $presets[ $animation ] ) ) {
 				return array();
 			}
 
-			$preset = $presets[$animation];
+			$preset = $presets[ $animation ];
 
 			// Filter and opacity keep easing either way — that is how the custom
 			// colour hover fades. Transform is only transitioned for the presets
 			// that settle on one; a keyframed preset owns transform outright, and
 			// transitioning it as well makes the motion fight its own easing.
-			$transition = isset($preset['animation'])
+			$transition = isset( $preset['animation'] )
 				? 'filter 220ms ease, opacity 220ms ease'
 				: 'transform 220ms ease, filter 220ms ease, opacity 220ms ease';
 
@@ -458,9 +440,9 @@ if (! class_exists('LogoImagesCss')) {
 					'selector' => $image_selector,
 					'styles'   => array(
 						'transition' => $transition,
-						'transform'  => isset($preset['transform']) ? $preset['transform'] : null,
-						'opacity'    => isset($preset['opacity']) ? $preset['opacity'] : null,
-						'animation'  => isset($preset['animation']) ? $preset['animation'] : null,
+						'transform'  => isset( $preset['transform'] ) ? $preset['transform'] : null,
+						'opacity'    => isset( $preset['opacity'] ) ? $preset['opacity'] : null,
+						'animation'  => isset( $preset['animation'] ) ? $preset['animation'] : null,
 					),
 				),
 			);
@@ -479,8 +461,7 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string                $device Desktop|Tablet|Mobile.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		private static function get_aspect_ratio_rules(array $selectors, array $attributes = array(), $device = 'Desktop')
-		{
+		private static function get_aspect_ratio_rules( array $selectors, array $attributes = array(), $device = 'Desktop' ) {
 			$fixed    = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel[data-sp-lcpro-aspect-ratio]:not([data-sp-lcpro-aspect-ratio="original"]):not([data-sp-lcpro-aspect-ratio="custom"])';
 			$original = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel[data-sp-lcpro-aspect-ratio="original"]';
 			// When Display Elements is active the figure is the card (title/
@@ -490,6 +471,26 @@ if (! class_exists('LogoImagesCss')) {
 			$figure_de = '.sp-lcpro-logo-source__figure.sp-lcpro-logo-source__figure--has-display-elements';
 
 			$rules = array(
+				/*
+				 * Slot padding: the default inset of a plain logo box, in every
+				 * ratio mode (Original / fixed / Custom). One deliberately
+				 * low-specificity rule:
+				 * - never on a logo card — its Inner Padding alone owns that
+				 *   card's padding, so Border and Inner Padding stay independent
+				 *   (the fixed-ratio figure rule used to out-rank the card rule
+				 *   and override Inner Padding, which left 1:1 boxes non-square);
+				 * - above the static figure default (LogoSourceCss), and level
+				 *   with / below the layouts that theme their own cell padding
+				 *   (Grid Strip, emitted after this concern), so those always win.
+				 * Mirrored in logoImagesDynamicCss.js (same as Pro).
+				 */
+				array(
+					'selector' => $selectors['wrapper'] . ' .sp-lcpro-logo-carousel .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
+					'styles'   => array(
+						'padding' => 'var(--sp-lcpro-slot-padding-vertical, 8px) var(--sp-lcpro-slot-padding-horizontal, 6px)',
+					),
+				),
+
 				/*
 				 * Original mode = uniform logo height. Both orientations use the same
 				 * visual model: logos are compared by height, width stays natural, and
@@ -506,16 +507,15 @@ if (! class_exists('LogoImagesCss')) {
 						'width'           => 'auto',
 						'height'          => 'auto',
 						'max-width'       => 'var(--sp-lcpro-slot-max-width, 200px)',
-						'padding'         => 'var(--sp-lcpro-slot-padding-vertical, 8px) var(--sp-lcpro-slot-padding-horizontal, 6px)',
 					),
 				),
 				array(
-				// Logos-only: the figure IS the shaped slot, so it clips. A
-				// logo card is not a slot — it owns its own clipping (see
-				// LogoCardCss, which clips only when the card is rounded), so
-				// this concern must not assert `overflow` there.
-					'selector' => $original . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
-					'styles'   => array(
+					// Logos-only: the figure IS the shaped slot, so it clips. A
+					// logo card is not a slot — it owns its own clipping (see
+					// LogoCardCss, which clips only when the card is rounded), so
+					// this concern must not assert `overflow` there.
+						'selector' => $original . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
+					'styles'       => array(
 						'overflow' => 'hidden',
 					),
 				),
@@ -571,16 +571,15 @@ if (! class_exists('LogoImagesCss')) {
 						'box-sizing'      => 'border-box',
 						'width'           => '100%',
 						'max-width'       => 'var(--sp-lcpro-slot-max-width, 200px)',
-						'padding'         => 'var(--sp-lcpro-slot-padding-vertical, 8px) var(--sp-lcpro-slot-padding-horizontal, 6px)',
 					),
 				),
 				array(
-				// Logos-only: the figure IS the shaped slot, so it clips. A
-				// logo card is not a slot — it owns its own clipping (see
-				// LogoCardCss, which clips only when the card is rounded), so
-				// this concern must not assert `overflow` there.
-					'selector' => $fixed . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
-					'styles'   => array(
+					// Logos-only: the figure IS the shaped slot, so it clips. A
+					// logo card is not a slot — it owns its own clipping (see
+					// LogoCardCss, which clips only when the card is rounded), so
+					// this concern must not assert `overflow` there.
+						'selector' => $fixed . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
+					'styles'       => array(
 						'overflow' => 'hidden',
 					),
 				),
@@ -649,14 +648,14 @@ if (! class_exists('LogoImagesCss')) {
 				array(
 					'selector' => $selectors['wrapper'] . ' .sp-lcpro-logo-carousel[data-sp-lcpro-click-action="popup"] .sp-lcpro-logo-source__popup-trigger',
 					'styles'   => array(
-						'display'      => 'block',
-						'padding'      => '0',
-						'border'       => '0',
-						'background'   => 'transparent',
-						'box-shadow'   => 'none',
+						'display'            => 'block',
+						'padding'            => '0',
+						'border'             => '0',
+						'background'         => 'transparent',
+						'box-shadow'         => 'none',
 						'-webkit-appearance' => 'none',
-						'appearance'   => 'none',
-						'cursor'       => 'pointer',
+						'appearance'         => 'none',
+						'cursor'             => 'pointer',
 					),
 				),
 				array(
@@ -667,8 +666,8 @@ if (! class_exists('LogoImagesCss')) {
 				),
 			);
 
-			foreach (array('1:1', '4:3', '3:4', '3:2', '2:3', '16:9', '9:16') as $ratio) {
-				$css_ratio = str_replace(':', ' / ', $ratio);
+			foreach ( array( '1:1', '4:3', '3:4', '3:2', '2:3', '16:9', '9:16' ) as $ratio ) {
+				$css_ratio = str_replace( ':', ' / ', $ratio );
 				$root      = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel[data-sp-lcpro-aspect-ratio="' . $ratio . '"]';
 				$rules[]   = array(
 					'selector' => $root . ' .sp-lcpro-logo-source__figure',
@@ -676,13 +675,13 @@ if (! class_exists('LogoImagesCss')) {
 						'aspect-ratio' => $css_ratio,
 					),
 				);
-				$rules[] = array(
+				$rules[]   = array(
 					'selector' => $root . ' ' . $figure_de,
 					'styles'   => array(
 						'aspect-ratio' => 'auto',
 					),
 				);
-				$rules[] = array(
+				$rules[]   = array(
 					'selector' => $root . ' ' . $figure_de . ' .sp-lcpro-logo-source__image',
 					'styles'   => array(
 						'aspect-ratio' => $css_ratio,
@@ -690,7 +689,7 @@ if (! class_exists('LogoImagesCss')) {
 				);
 			}
 
-			return array_merge($rules, self::get_custom_size_rules($selectors, $attributes, $device));
+			return array_merge( $rules, self::get_custom_size_rules( $selectors, $attributes, $device ) );
 		}
 
 		/**
@@ -701,24 +700,23 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param string                $device Desktop|Tablet|Mobile.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		private static function get_custom_size_rules(array $selectors, array $attributes = array(), $device = 'Desktop')
-		{
-			$images_settings = isset($attributes['imagesSettings']) && is_array($attributes['imagesSettings']) ? $attributes['imagesSettings'] : array();
-			$aspect_ratio    = isset($images_settings['aspectRatio']) ? (string) $images_settings['aspectRatio'] : 'original';
+		private static function get_custom_size_rules( array $selectors, array $attributes = array(), $device = 'Desktop' ) {
+			$images_settings = isset( $attributes['imagesSettings'] ) && is_array( $attributes['imagesSettings'] ) ? $attributes['imagesSettings'] : array();
+			$aspect_ratio    = isset( $images_settings['aspectRatio'] ) ? (string) $images_settings['aspectRatio'] : 'original';
 
-			if ('custom' !== $aspect_ratio) {
+			if ( 'custom' !== $aspect_ratio ) {
 				return array();
 			}
 
 			$width  = LogoImagesSettingsConfig::resolve_css_size(
-				isset($images_settings['customAspectRatioWidth']) ? $images_settings['customAspectRatioWidth'] : null,
-				LogoImagesDefaults::single_responsive_default(100, '%'),
+				isset( $images_settings['customAspectRatioWidth'] ) ? $images_settings['customAspectRatioWidth'] : null,
+				LogoImagesDefaults::single_responsive_default( 100, '%' ),
 				LogoImagesDefaults::get_custom_width_units(),
 				$device
 			);
 			$height = LogoImagesSettingsConfig::resolve_css_size(
-				isset($images_settings['customAspectRatioHeight']) ? $images_settings['customAspectRatioHeight'] : null,
-				LogoImagesDefaults::single_responsive_default('', 'auto'),
+				isset( $images_settings['customAspectRatioHeight'] ) ? $images_settings['customAspectRatioHeight'] : null,
+				LogoImagesDefaults::single_responsive_default( '', 'auto' ),
 				LogoImagesDefaults::get_custom_height_units(),
 				$device
 			);
@@ -745,16 +743,15 @@ if (! class_exists('LogoImagesCss')) {
 						'height'          => $height,
 						'max-width'       => '100%',
 						'aspect-ratio'    => 'auto',
-						'padding'         => 'var(--sp-lcpro-slot-padding-vertical, 8px) var(--sp-lcpro-slot-padding-horizontal, 6px)',
 					),
 				),
 				array(
-				// Logos-only: the figure IS the shaped slot, so it clips. A
-				// logo card is not a slot — it owns its own clipping (see
-				// LogoCardCss, which clips only when the card is rounded), so
-				// this concern must not assert `overflow` there.
-					'selector' => $custom . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
-					'styles'   => array(
+					// Logos-only: the figure IS the shaped slot, so it clips. A
+					// logo card is not a slot — it owns its own clipping (see
+					// LogoCardCss, which clips only when the card is rounded), so
+					// this concern must not assert `overflow` there.
+						'selector' => $custom . ' .sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)',
+					'styles'       => array(
 						'overflow' => 'hidden',
 					),
 				),
@@ -876,47 +873,46 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed>  $attributes Block attributes.
 		 * @return array<int, array{selector:string, styles:array<string, mixed>}>
 		 */
-		private static function get_style_preview_rules(array $selectors, array $attributes)
-		{
-			$logo_images_style = self::get_logo_images_style($attributes);
-			$normal_state      = isset($logo_images_style['normal']) && is_array($logo_images_style['normal']) ? $logo_images_style['normal'] : array();
-			$hover_state       = isset($logo_images_style['hover']) && is_array($logo_images_style['hover']) ? $logo_images_style['hover'] : array();
-			$hover_animation   = isset($logo_images_style['hoverAnimation']) && is_string($logo_images_style['hoverAnimation']) ? $logo_images_style['hoverAnimation'] : 'none';
-			$margin_sides      = self::get_spacing_sides(isset($logo_images_style['margin']) && is_array($logo_images_style['margin']) ? $logo_images_style['margin'] : array());
-			$margin            = $margin_sides['shorthand'];
-			$force_inset_styles = self::get_horizontal_inset_width_styles($margin_sides, 'force-width');
-			$max_only_inset_styles = self::get_horizontal_inset_width_styles($margin_sides, 'max-only');
-			$carousel_root = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel';
-			$logos_only_figure = '.sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)';
-			$figure_de = '.sp-lcpro-logo-source__figure.sp-lcpro-logo-source__figure--has-display-elements';
-			$logos_only_fixed_figure_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio]:not([data-sp-lcpro-aspect-ratio="original"]):not([data-sp-lcpro-aspect-ratio="custom"]) ' . $logos_only_figure;
-			$logos_only_original_figure_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio="original"] ' . $logos_only_figure;
-			$logos_only_custom_figure_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio="custom"] ' . $logos_only_figure;
-			$display_elements_fixed_image_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio]:not([data-sp-lcpro-aspect-ratio="original"]):not([data-sp-lcpro-aspect-ratio="custom"]) ' . $figure_de . ' .sp-lcpro-logo-source__image';
+		private static function get_style_preview_rules( array $selectors, array $attributes ) {
+			$logo_images_style                        = self::get_logo_images_style( $attributes );
+			$normal_state                             = isset( $logo_images_style['normal'] ) && is_array( $logo_images_style['normal'] ) ? $logo_images_style['normal'] : array();
+			$hover_state                              = isset( $logo_images_style['hover'] ) && is_array( $logo_images_style['hover'] ) ? $logo_images_style['hover'] : array();
+			$hover_animation                          = isset( $logo_images_style['hoverAnimation'] ) && is_string( $logo_images_style['hoverAnimation'] ) ? $logo_images_style['hoverAnimation'] : 'none';
+			$margin_sides                             = self::get_spacing_sides( isset( $logo_images_style['margin'] ) && is_array( $logo_images_style['margin'] ) ? $logo_images_style['margin'] : array() );
+			$margin                                   = $margin_sides['shorthand'];
+			$force_inset_styles                       = self::get_horizontal_inset_width_styles( $margin_sides, 'force-width' );
+			$max_only_inset_styles                    = self::get_horizontal_inset_width_styles( $margin_sides, 'max-only' );
+			$carousel_root                            = $selectors['wrapper'] . ' .sp-lcpro-logo-carousel';
+			$logos_only_figure                        = '.sp-lcpro-logo-source__figure:not(.sp-lcpro-logo-source__figure--has-display-elements)';
+			$figure_de                                = '.sp-lcpro-logo-source__figure.sp-lcpro-logo-source__figure--has-display-elements';
+			$logos_only_fixed_figure_selector         = $carousel_root . '[data-sp-lcpro-aspect-ratio]:not([data-sp-lcpro-aspect-ratio="original"]):not([data-sp-lcpro-aspect-ratio="custom"]) ' . $logos_only_figure;
+			$logos_only_original_figure_selector      = $carousel_root . '[data-sp-lcpro-aspect-ratio="original"] ' . $logos_only_figure;
+			$logos_only_custom_figure_selector        = $carousel_root . '[data-sp-lcpro-aspect-ratio="custom"] ' . $logos_only_figure;
+			$display_elements_fixed_image_selector    = $carousel_root . '[data-sp-lcpro-aspect-ratio]:not([data-sp-lcpro-aspect-ratio="original"]):not([data-sp-lcpro-aspect-ratio="custom"]) ' . $figure_de . ' .sp-lcpro-logo-source__image';
 			$display_elements_original_image_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio="original"] ' . $figure_de . ' .sp-lcpro-logo-source__image';
-			$display_elements_custom_image_selector = $carousel_root . '[data-sp-lcpro-aspect-ratio="custom"] ' . $figure_de . ' .sp-lcpro-logo-source__image';
-			$normal_filter     = self::get_filter_value(isset($normal_state['imageFilter']) && is_array($normal_state['imageFilter']) ? $normal_state['imageFilter'] : array());
-			$hover_filter      = self::get_filter_value(isset($hover_state['imageFilter']) && is_array($hover_state['imageFilter']) ? $hover_state['imageFilter'] : array());
-			$normal_opacity    = self::normalize_opacity(isset($normal_state['opacity']) ? $normal_state['opacity'] : null, 100);
-			$hover_opacity     = self::normalize_opacity(isset($hover_state['opacity']) ? $hover_state['opacity'] : null, 100);
-			$normal_overlay    = isset($normal_state['overlay']) && is_array($normal_state['overlay']) ? $normal_state['overlay'] : array();
-			$hover_overlay     = isset($hover_state['overlay']) && is_array($hover_state['overlay']) ? $hover_state['overlay'] : array();
-			$normal_custom     = ! empty($normal_state['customColorEnabled'])
-				? self::get_custom_color_filter(CssUtils::sanitize_css_color(isset($normal_state['customColor']) ? $normal_state['customColor'] : '', ''))
+			$display_elements_custom_image_selector   = $carousel_root . '[data-sp-lcpro-aspect-ratio="custom"] ' . $figure_de . ' .sp-lcpro-logo-source__image';
+			$normal_filter                            = self::get_filter_value( isset( $normal_state['imageFilter'] ) && is_array( $normal_state['imageFilter'] ) ? $normal_state['imageFilter'] : array() );
+			$hover_filter                             = self::get_filter_value( isset( $hover_state['imageFilter'] ) && is_array( $hover_state['imageFilter'] ) ? $hover_state['imageFilter'] : array() );
+			$normal_opacity                           = self::normalize_opacity( isset( $normal_state['opacity'] ) ? $normal_state['opacity'] : null, 100 );
+			$hover_opacity                            = self::normalize_opacity( isset( $hover_state['opacity'] ) ? $hover_state['opacity'] : null, 100 );
+			$normal_overlay                           = isset( $normal_state['overlay'] ) && is_array( $normal_state['overlay'] ) ? $normal_state['overlay'] : array();
+			$hover_overlay                            = isset( $hover_state['overlay'] ) && is_array( $hover_state['overlay'] ) ? $hover_state['overlay'] : array();
+			$normal_custom                            = ! empty( $normal_state['customColorEnabled'] )
+				? self::get_custom_color_filter( CssUtils::sanitize_css_color( isset( $normal_state['customColor'] ) ? $normal_state['customColor'] : '', '' ) )
 				: '';
-			$hover_custom      = ! empty($hover_state['customColorEnabled'])
-				? self::get_custom_color_filter(CssUtils::sanitize_css_color(isset($hover_state['customColor']) ? $hover_state['customColor'] : '', ''))
+			$hover_custom                             = ! empty( $hover_state['customColorEnabled'] )
+				? self::get_custom_color_filter( CssUtils::sanitize_css_color( isset( $hover_state['customColor'] ) ? $hover_state['customColor'] : '', '' ) )
 				: '';
-			$tintable_image_selector = self::tintable_image_selector($selectors);
-			$hover_tintable_image_selector = self::hover_tintable_image_selector($selectors);
-			$custom_base_filter = 'grayscale(1) brightness(0) saturate(100%)';
-			$active_hover_custom = $hover_custom ? $hover_custom : $normal_custom;
-			$normal_image_filter = self::merge_filters(
+			$tintable_image_selector                  = self::tintable_image_selector( $selectors );
+			$hover_tintable_image_selector            = self::hover_tintable_image_selector( $selectors );
+			$custom_base_filter                       = 'grayscale(1) brightness(0) saturate(100%)';
+			$active_hover_custom                      = $hover_custom ? $hover_custom : $normal_custom;
+			$normal_image_filter                      = self::merge_filters(
 				$normal_custom ? $custom_base_filter : '',
 				$normal_custom,
 				$normal_filter
 			);
-			$hover_image_filter  = self::merge_filters(
+			$hover_image_filter                       = self::merge_filters(
 				$active_hover_custom ? $custom_base_filter : '',
 				$active_hover_custom,
 				$hover_filter
@@ -987,13 +983,13 @@ if (! class_exists('LogoImagesCss')) {
 						'position'       => 'absolute',
 						'inset'          => '0',
 						'pointer-events' => 'none',
-						'background'     => self::overlay_background_value($normal_overlay),
-						'opacity'        => self::normalize_overlay_opacity(isset($normal_overlay['opacity']) ? $normal_overlay['opacity'] : null, 0),
+						'background'     => self::overlay_background_value( $normal_overlay ),
+						'opacity'        => self::normalize_overlay_opacity( isset( $normal_overlay['opacity'] ) ? $normal_overlay['opacity'] : null, 0 ),
 						'transition'     => 'opacity 220ms ease, background 220ms ease',
 					),
 				),
 				array(
-					'selector' => self::hover_host($selectors) . ':hover .sp-lcpro-logo-source__image',
+					'selector' => self::hover_host( $selectors ) . ':hover .sp-lcpro-logo-source__image',
 					'styles'   => array(
 						'filter'  => $hover_filter,
 						'opacity' => $hover_opacity,
@@ -1013,13 +1009,13 @@ if (! class_exists('LogoImagesCss')) {
 				array(
 					'selector' => $selectors['wrapper'] . ' .sp-lcpro-logo-carousel .sp-lcpro-logo-source__figure:hover::after',
 					'styles'   => array(
-						'background' => self::overlay_background_value($hover_overlay),
-						'opacity'    => self::normalize_overlay_opacity(isset($hover_overlay['opacity']) ? $hover_overlay['opacity'] : null, 0),
+						'background' => self::overlay_background_value( $hover_overlay ),
+						'opacity'    => self::normalize_overlay_opacity( isset( $hover_overlay['opacity'] ) ? $hover_overlay['opacity'] : null, 0 ),
 					),
 				),
 			);
 
-			$rules = array_merge($rules, self::get_hover_effect_rules($selectors, $hover_animation));
+			$rules = array_merge( $rules, self::get_hover_effect_rules( $selectors, $hover_animation ) );
 
 			return $rules;
 		}
@@ -1037,17 +1033,16 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param array<string, mixed> $overlay Overlay branch.
 		 * @return string
 		 */
-		private static function overlay_background_value(array $overlay)
-		{
-			$type = isset($overlay['type']) ? (string) $overlay['type'] : 'solid';
+		private static function overlay_background_value( array $overlay ) {
+			$type = isset( $overlay['type'] ) ? (string) $overlay['type'] : 'solid';
 
-			if ('gradient' === $type) {
-				$gradient = isset($overlay['gradient']) ? trim((string) $overlay['gradient']) : '';
+			if ( 'gradient' === $type ) {
+				$gradient = isset( $overlay['gradient'] ) ? trim( (string) $overlay['gradient'] ) : '';
 
 				return '' !== $gradient ? $gradient : 'transparent';
 			}
 
-			$color = CssUtils::sanitize_css_color(isset($overlay['color']) ? $overlay['color'] : '', 'transparent');
+			$color = CssUtils::sanitize_css_color( isset( $overlay['color'] ) ? $overlay['color'] : '', 'transparent' );
 
 			return $color ?: 'transparent';
 		}
@@ -1059,15 +1054,14 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param int   $default Default percentage.
 		 * @return string
 		 */
-		private static function normalize_overlay_opacity($value, $default)
-		{
-			if (! is_numeric($value)) {
+		private static function normalize_overlay_opacity( $value, $default ) {
+			if ( ! is_numeric( $value ) ) {
 				$value = $default;
 			}
 
-			$value = max(0, min(1, (float) $value));
+			$value = max( 0, min( 1, (float) $value ) );
 
-			return rtrim(rtrim(sprintf('%.2F', $value), '0'), '.');
+			return rtrim( rtrim( sprintf( '%.2F', $value ), '0' ), '.' );
 		}
 
 		/**
@@ -1077,25 +1071,24 @@ if (! class_exists('LogoImagesCss')) {
 		 * @param int   $default Default percentage.
 		 * @return string
 		 */
-		private static function normalize_opacity($value, $default)
-		{
-			if (! is_numeric($value)) {
+		private static function normalize_opacity( $value, $default ) {
+			if ( ! is_numeric( $value ) ) {
 				$value = $default;
 			}
 
-			$value = max(0, min(100, (float) $value)) / 100;
+			$value = max( 0, min( 100, (float) $value ) ) / 100;
 
-			return rtrim(rtrim(sprintf('%.2F', $value), '0'), '.');
+			return rtrim( rtrim( sprintf( '%.2F', $value ), '0' ), '.' );
 		}
 	}
 }
 
-if (! class_exists('LogoImagesCssColorSolver')) {
+if ( ! class_exists( 'LogoImagesCssColorSolver' ) ) {
 	/**
 	 * Converts a target RGB color into the legacy CSS filter chain.
 	 */
-	class LogoImagesCssColorSolver
-	{
+	class LogoImagesCssColorSolver {
+
 		/** @var float */
 		private $target_r;
 		/** @var float */
@@ -1109,13 +1102,12 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 		/** @var array<string, float> */
 		private $reused_color;
 
-		public function __construct($r, $g, $b, $a = 1.0)
-		{
-			$this->target_r   = self::clamp_byte($r);
-			$this->target_g   = self::clamp_byte($g);
-			$this->target_b   = self::clamp_byte($b);
-			$this->target_a   = max(0, min(1, (float) $a));
-			$this->target_hsl = self::hsl(
+		public function __construct( $r, $g, $b, $a = 1.0 ) {
+			$this->target_r     = self::clamp_byte( $r );
+			$this->target_g     = self::clamp_byte( $g );
+			$this->target_b     = self::clamp_byte( $b );
+			$this->target_a     = max( 0, min( 1, (float) $a ) );
+			$this->target_hsl   = self::hsl(
 				$this->target_r,
 				$this->target_g,
 				$this->target_b
@@ -1127,25 +1119,23 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			);
 		}
 
-		public function solve()
-		{
+		public function solve() {
 			$wide = $this->solve_wide();
-			$best = $this->solve_narrow($wide);
+			$best = $this->solve_narrow( $wide );
 
-			return $this->css($best['values']);
+			return $this->css( $best['values'] );
 		}
 
-		private function solve_wide()
-		{
-			$a = array(60, 180, 18000, 600, 1.2, 1.2);
+		private function solve_wide() {
+			$a    = array( 60, 180, 18000, 600, 1.2, 1.2 );
 			$best = array(
 				'loss'   => INF,
-				'values' => array(50, 20, 3750, 50, 100, 100),
+				'values' => array( 50, 20, 3750, 50, 100, 100 ),
 			);
 
-			for ($i = 0; $best['loss'] > 25 && $i < 3; $i++) {
-				$result = $this->spsa(5, $a, 15, array(50, 20, 3750, 50, 100, 100), 1000);
-				if ($result['loss'] < $best['loss']) {
+			for ( $i = 0; $best['loss'] > 25 && $i < 3; $i++ ) {
+				$result = $this->spsa( 5, $a, 15, array( 50, 20, 3750, 50, 100, 100 ), 1000 );
+				if ( $result['loss'] < $best['loss'] ) {
 					$best = $result;
 				}
 			}
@@ -1153,45 +1143,43 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			return $best;
 		}
 
-		private function solve_narrow(array $wide)
-		{
+		private function solve_narrow( array $wide ) {
 			$a0 = $wide['loss'] + 1;
 			return $this->spsa(
 				$wide['loss'],
-				array(0.25 * $a0, 0.25 * $a0, $a0, 0.25 * $a0, 0.2 * $a0, 0.2 * $a0),
+				array( 0.25 * $a0, 0.25 * $a0, $a0, 0.25 * $a0, 0.2 * $a0, 0.2 * $a0 ),
 				2,
 				$wide['values'],
 				500
 			);
 		}
 
-		private function spsa($A, array $a, $c, array $values, $iterations)
-		{
-			$best = null;
+		private function spsa( $A, array $a, $c, array $values, $iterations ) {
+			$best      = null;
 			$best_loss = INF;
 
-			for ($k = 0; $k < $iterations; $k++) {
-				$ck = $c / pow($k + 1, 1 / 6);
-				$deltas = array();
+			for ( $k = 0; $k < $iterations; $k++ ) {
+				$ck        = $c / pow( $k + 1, 1 / 6 );
+				$deltas    = array();
 				$high_args = array();
-				$low_args = array();
+				$low_args  = array();
 
-				for ($i = 0; $i < 6; $i++) {
-					$deltas[$i] = mt_rand(0, 1) ? 1 : -1;
-					$high_args[$i] = $values[$i] + $ck * $deltas[$i];
-					$low_args[$i]  = $values[$i] - $ck * $deltas[$i];
+				for ( $i = 0; $i < 6; $i++ ) {
+					$deltas[ $i ]    = mt_rand( 0, 1 ) ? 1 : -1;
+					$high_args[ $i ] = $values[ $i ] + $ck * $deltas[ $i ];
+					$low_args[ $i ]  = $values[ $i ] - $ck * $deltas[ $i ];
 				}
 
-				$loss_diff = $this->loss($high_args) - $this->loss($low_args);
-				for ($i = 0; $i < 6; $i++) {
-					$gradient  = ($loss_diff / (2 * $ck)) * $deltas[$i];
-					$ak        = $a[$i] / pow($A + $k + 1, 1);
-					$values[$i] = $this->fix_value($values[$i] - $ak * $gradient, $i);
+				$loss_diff = $this->loss( $high_args ) - $this->loss( $low_args );
+				for ( $i = 0; $i < 6; $i++ ) {
+					$gradient     = ( $loss_diff / ( 2 * $ck ) ) * $deltas[ $i ];
+					$ak           = $a[ $i ] / pow( $A + $k + 1, 1 );
+					$values[ $i ] = $this->fix_value( $values[ $i ] - $ak * $gradient, $i );
 				}
 
-				$loss = $this->loss($values);
-				if ($loss < $best_loss) {
-					$best = $values;
+				$loss = $this->loss( $values );
+				if ( $loss < $best_loss ) {
+					$best      = $values;
 					$best_loss = $loss;
 				}
 			}
@@ -1202,91 +1190,89 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			);
 		}
 
-		private function loss(array $filters)
-		{
-			$color = array('r' => 0.0, 'g' => 0.0, 'b' => 0.0);
-			$color = $this->invert($color, $filters[0] / 100);
-			$color = $this->sepia($color, $filters[1] / 100);
-			$color = $this->saturate($color, $filters[2] / 100);
-			$color = $this->hue_rotate($color, $filters[3] * 3.6);
-			$color = $this->brightness($color, $filters[4] / 100);
-			$color = $this->contrast($color, $filters[5] / 100);
+		private function loss( array $filters ) {
+			$color = array(
+				'r' => 0.0,
+				'g' => 0.0,
+				'b' => 0.0,
+			);
+			$color = $this->invert( $color, $filters[0] / 100 );
+			$color = $this->sepia( $color, $filters[1] / 100 );
+			$color = $this->saturate( $color, $filters[2] / 100 );
+			$color = $this->hue_rotate( $color, $filters[3] * 3.6 );
+			$color = $this->brightness( $color, $filters[4] / 100 );
+			$color = $this->contrast( $color, $filters[5] / 100 );
 
-			$color_hsl = self::hsl($color['r'], $color['g'], $color['b']);
+			$color_hsl = self::hsl( $color['r'], $color['g'], $color['b'] );
 
-			return abs($color['r'] - $this->target_r)
-				+ abs($color['g'] - $this->target_g)
-				+ abs($color['b'] - $this->target_b)
-				+ abs($color_hsl['h'] - $this->target_hsl['h'])
-				+ abs($color_hsl['s'] - $this->target_hsl['s'])
-				+ abs($color_hsl['l'] - $this->target_hsl['l']);
+			return abs( $color['r'] - $this->target_r )
+				+ abs( $color['g'] - $this->target_g )
+				+ abs( $color['b'] - $this->target_b )
+				+ abs( $color_hsl['h'] - $this->target_hsl['h'] )
+				+ abs( $color_hsl['s'] - $this->target_hsl['s'] )
+				+ abs( $color_hsl['l'] - $this->target_hsl['l'] );
 		}
 
-		private function css(array $filters)
-		{
+		private function css( array $filters ) {
 			return sprintf(
 				'invert(%d%%) sepia(%d%%) saturate(%d%%) hue-rotate(%ddeg) brightness(%d%%) contrast(%d%%) opacity(%s)',
-				round($filters[0]),
-				round($filters[1]),
-				round($filters[2]),
-				round($filters[3] * 3.6),
-				round($filters[4]),
-				round($filters[5]),
-				rtrim(rtrim(sprintf('%.3F', $this->target_a), '0'), '.')
+				round( $filters[0] ),
+				round( $filters[1] ),
+				round( $filters[2] ),
+				round( $filters[3] * 3.6 ),
+				round( $filters[4] ),
+				round( $filters[5] ),
+				rtrim( rtrim( sprintf( '%.3F', $this->target_a ), '0' ), '.' )
 			);
 		}
 
-		private function fix_value($value, $idx)
-		{
+		private function fix_value( $value, $idx ) {
 			$max = 100;
-			if (2 === $idx) {
+			if ( 2 === $idx ) {
 				$max = 7500;
-			} elseif (4 === $idx || 5 === $idx) {
+			} elseif ( 4 === $idx || 5 === $idx ) {
 				$max = 200;
 			}
 
-			if (3 === $idx) {
-				if ($value > $max) {
-					return fmod($value, $max);
+			if ( 3 === $idx ) {
+				if ( $value > $max ) {
+					return fmod( $value, $max );
 				}
-				if ($value < 0) {
-					return $max + fmod($value, $max);
+				if ( $value < 0 ) {
+					return $max + fmod( $value, $max );
 				}
 				return $value;
 			}
 
-			return max(0, min($max, $value));
+			return max( 0, min( $max, $value ) );
 		}
 
-		private function invert(array $color, $value)
-		{
+		private function invert( array $color, $value ) {
 			return array(
-				'r' => self::clamp_byte(($value + ($color['r'] / 255) * (1 - 2 * $value)) * 255),
-				'g' => self::clamp_byte(($value + ($color['g'] / 255) * (1 - 2 * $value)) * 255),
-				'b' => self::clamp_byte(($value + ($color['b'] / 255) * (1 - 2 * $value)) * 255),
+				'r' => self::clamp_byte( ( $value + ( $color['r'] / 255 ) * ( 1 - 2 * $value ) ) * 255 ),
+				'g' => self::clamp_byte( ( $value + ( $color['g'] / 255 ) * ( 1 - 2 * $value ) ) * 255 ),
+				'b' => self::clamp_byte( ( $value + ( $color['b'] / 255 ) * ( 1 - 2 * $value ) ) * 255 ),
 			);
 		}
 
-		private function sepia(array $color, $value)
-		{
+		private function sepia( array $color, $value ) {
 			return $this->multiply(
 				$color,
 				array(
-					0.393 + 0.607 * (1 - $value),
-					0.769 - 0.769 * (1 - $value),
-					0.189 - 0.189 * (1 - $value),
-					0.349 - 0.349 * (1 - $value),
-					0.686 + 0.314 * (1 - $value),
-					0.168 - 0.168 * (1 - $value),
-					0.272 - 0.272 * (1 - $value),
-					0.534 - 0.534 * (1 - $value),
-					0.131 + 0.869 * (1 - $value),
+					0.393 + 0.607 * ( 1 - $value ),
+					0.769 - 0.769 * ( 1 - $value ),
+					0.189 - 0.189 * ( 1 - $value ),
+					0.349 - 0.349 * ( 1 - $value ),
+					0.686 + 0.314 * ( 1 - $value ),
+					0.168 - 0.168 * ( 1 - $value ),
+					0.272 - 0.272 * ( 1 - $value ),
+					0.534 - 0.534 * ( 1 - $value ),
+					0.131 + 0.869 * ( 1 - $value ),
 				)
 			);
 		}
 
-		private function saturate(array $color, $value)
-		{
+		private function saturate( array $color, $value ) {
 			return $this->multiply(
 				$color,
 				array(
@@ -1303,11 +1289,10 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			);
 		}
 
-		private function hue_rotate(array $color, $angle)
-		{
-			$radians = deg2rad($angle);
-			$sin = sin($radians);
-			$cos = cos($radians);
+		private function hue_rotate( array $color, $angle ) {
+			$radians = deg2rad( $angle );
+			$sin     = sin( $radians );
+			$cos     = cos( $radians );
 
 			return $this->multiply(
 				$color,
@@ -1325,55 +1310,50 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			);
 		}
 
-		private function brightness(array $color, $value)
-		{
-			return $this->linear($color, $value, 0);
+		private function brightness( array $color, $value ) {
+			return $this->linear( $color, $value, 0 );
 		}
 
-		private function contrast(array $color, $value)
-		{
-			return $this->linear($color, $value, -0.5 * $value + 0.5);
+		private function contrast( array $color, $value ) {
+			return $this->linear( $color, $value, -0.5 * $value + 0.5 );
 		}
 
-		private function linear(array $color, $slope, $intercept)
-		{
+		private function linear( array $color, $slope, $intercept ) {
 			return array(
-				'r' => self::clamp_byte($color['r'] * $slope + $intercept * 255),
-				'g' => self::clamp_byte($color['g'] * $slope + $intercept * 255),
-				'b' => self::clamp_byte($color['b'] * $slope + $intercept * 255),
+				'r' => self::clamp_byte( $color['r'] * $slope + $intercept * 255 ),
+				'g' => self::clamp_byte( $color['g'] * $slope + $intercept * 255 ),
+				'b' => self::clamp_byte( $color['b'] * $slope + $intercept * 255 ),
 			);
 		}
 
-		private function multiply(array $color, array $matrix)
-		{
+		private function multiply( array $color, array $matrix ) {
 			return array(
-				'r' => self::clamp_byte($color['r'] * $matrix[0] + $color['g'] * $matrix[1] + $color['b'] * $matrix[2]),
-				'g' => self::clamp_byte($color['r'] * $matrix[3] + $color['g'] * $matrix[4] + $color['b'] * $matrix[5]),
-				'b' => self::clamp_byte($color['r'] * $matrix[6] + $color['g'] * $matrix[7] + $color['b'] * $matrix[8]),
+				'r' => self::clamp_byte( $color['r'] * $matrix[0] + $color['g'] * $matrix[1] + $color['b'] * $matrix[2] ),
+				'g' => self::clamp_byte( $color['r'] * $matrix[3] + $color['g'] * $matrix[4] + $color['b'] * $matrix[5] ),
+				'b' => self::clamp_byte( $color['r'] * $matrix[6] + $color['g'] * $matrix[7] + $color['b'] * $matrix[8] ),
 			);
 		}
 
-		private static function hsl($r, $g, $b)
-		{
-			$r /= 255;
-			$g /= 255;
-			$b /= 255;
-			$max = max($r, $g, $b);
-			$min = min($r, $g, $b);
-			$h = 0.0;
-			$s = 0.0;
-			$l = ($max + $min) / 2;
+		private static function hsl( $r, $g, $b ) {
+			$r  /= 255;
+			$g  /= 255;
+			$b  /= 255;
+			$max = max( $r, $g, $b );
+			$min = min( $r, $g, $b );
+			$h   = 0.0;
+			$s   = 0.0;
+			$l   = ( $max + $min ) / 2;
 
-			if ($max !== $min) {
+			if ( $max !== $min ) {
 				$d = $max - $min;
-				$s = $l > 0.5 ? $d / (2 - $max - $min) : $d / ($max + $min);
+				$s = $l > 0.5 ? $d / ( 2 - $max - $min ) : $d / ( $max + $min );
 
-				if ($max === $r) {
-					$h = ($g - $b) / $d + ($g < $b ? 6 : 0);
-				} elseif ($max === $g) {
-					$h = ($b - $r) / $d + 2;
+				if ( $max === $r ) {
+					$h = ( $g - $b ) / $d + ( $g < $b ? 6 : 0 );
+				} elseif ( $max === $g ) {
+					$h = ( $b - $r ) / $d + 2;
 				} else {
-					$h = ($r - $g) / $d + 4;
+					$h = ( $r - $g ) / $d + 4;
 				}
 				$h /= 6;
 			}
@@ -1385,9 +1365,8 @@ if (! class_exists('LogoImagesCssColorSolver')) {
 			);
 		}
 
-		private static function clamp_byte($value)
-		{
-			return max(0, min(255, (float) $value));
+		private static function clamp_byte( $value ) {
+			return max( 0, min( 255, (float) $value ) );
 		}
 	}
 }

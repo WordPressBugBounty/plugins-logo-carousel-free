@@ -9,8 +9,10 @@
 
 namespace ShapedPlugin\LogoCarouselFree\Includes;
 
+use ShapedPlugin\LogoCarouselFree\Blocks\Schema\Carousel3dSchema;
 use ShapedPlugin\LogoCarouselFree\Blocks\Schema\CarouselSchema;
 use ShapedPlugin\LogoCarouselFree\Blocks\Schema\GridSchema;
+use ShapedPlugin\LogoCarouselFree\Blocks\Schema\MasonrySchema;
 use ShapedPlugin\LogoCarouselFree\Blocks\Config\PerformanceConfig;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\GoogleFontsResolver;
 use ShapedPlugin\LogoCarouselFree\Includes\Dashboard\BlocksVisibility;
@@ -111,6 +113,11 @@ if ( ! class_exists( 'AssetManager' ) ) {
 				$ver,
 				true
 			);
+			// Every block's editor strings live in this bundle. The blocks get it
+			// as a pre-registered `editor_script` handle, which WordPress does
+			// not wire for translations on its own. I18n supplies the bundled
+			// languages/ JSON when no language pack covers a string.
+			wp_set_script_translations( 'sp-logo-carousel-editor', 'logo-carousel-free' );
 			wp_localize_script(
 				'sp-logo-carousel-editor',
 				'spLcproBlockSchemas',
@@ -448,6 +455,11 @@ if ( ! class_exists( 'AssetManager' ) ) {
 				self::block_schemas(),
 				array(
 					'visibility'       => ( new BlocksVisibility() )->all(),
+					// Where the "Enable the block" actions lead; empty for users who
+					// cannot change the dashboard settings.
+					'blocksPageUrl'    => current_user_can( apply_filters( 'sp_lc_ui_permission', 'manage_options' ) )
+						? admin_url( 'edit.php?post_type=sp_logo_carousel&page=lcpro_dashboard#blocks' )
+						: '',
 					'settings'         => array(
 						'upload'      => $this->get_editor_upload_settings(),
 						'performance' => $this->get_performance_settings(),
@@ -487,14 +499,17 @@ if ( ! class_exists( 'AssetManager' ) ) {
 		/**
 		 * Attribute schemas for the blocks the free plugin registers.
 		 *
-		 * Only Carousel and Grid: List, Marquee and Table are Pro-only blocks.
+		 * Carousel, Grid, Masonry and 3D Carousel: List, Marquee, Table,
+		 * Justified, Nexus and Animated Orbit are Pro-only blocks.
 		 *
 		 * @return array<string, array<string, array<string, mixed>>>
 		 */
 		public static function block_schemas() {
 			return array(
-				'carousel' => ( new CarouselSchema() )->get_attributes(),
-				'grid'     => ( new GridSchema() )->get_attributes(),
+				'carousel'   => ( new CarouselSchema() )->get_attributes(),
+				'grid'       => ( new GridSchema() )->get_attributes(),
+				'masonry'    => ( new MasonrySchema() )->get_attributes(),
+				'carousel3d' => ( new Carousel3dSchema() )->get_attributes(),
 			);
 		}
 

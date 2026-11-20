@@ -74,7 +74,7 @@ if ( ! class_exists( 'AbstractBlock' ) ) {
 			}
 
 			$args = array_merge(
-				$metadata,
+				$this->translate_block_metadata( $metadata ),
 				array(
 					'editor_script' => $this->get_editor_script_handle(),
 					'editor_style'  => $this->get_editor_style_handle(),
@@ -103,6 +103,41 @@ if ( ! class_exists( 'AbstractBlock' ) ) {
 			}
 
 			register_block_type( $block_name, $args );
+		}
+
+		/**
+		 * Translate the block.json fields WordPress shows to people.
+		 *
+		 * WordPress does this in register_block_type_from_metadata() for
+		 * block.json files. These blocks register from the generated metadata
+		 * array, so it is done here with the contexts make-pot extracts from
+		 * block.json.
+		 *
+		 * @param array $metadata Block metadata.
+		 * @return array
+		 */
+		protected function translate_block_metadata( $metadata ) {
+			$domain = ! empty( $metadata['textdomain'] ) ? $metadata['textdomain'] : 'logo-carousel-free';
+
+			// phpcs:disable WordPress.WP.I18n -- Strings come from block.json and are extracted from it.
+			if ( ! empty( $metadata['title'] ) && is_string( $metadata['title'] ) ) {
+				$metadata['title'] = translate_with_gettext_context( $metadata['title'], 'block title', $domain );
+			}
+
+			if ( ! empty( $metadata['description'] ) && is_string( $metadata['description'] ) ) {
+				$metadata['description'] = translate_with_gettext_context( $metadata['description'], 'block description', $domain );
+			}
+
+			if ( ! empty( $metadata['keywords'] ) && is_array( $metadata['keywords'] ) ) {
+				foreach ( $metadata['keywords'] as $index => $keyword ) {
+					if ( is_string( $keyword ) ) {
+						$metadata['keywords'][ $index ] = translate_with_gettext_context( $keyword, 'block keyword', $domain );
+					}
+				}
+			}
+			// phpcs:enable WordPress.WP.I18n
+
+			return $metadata;
 		}
 
 		/**

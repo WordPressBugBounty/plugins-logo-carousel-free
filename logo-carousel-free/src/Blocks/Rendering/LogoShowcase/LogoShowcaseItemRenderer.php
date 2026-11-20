@@ -22,9 +22,10 @@ if ( ! class_exists( 'LogoShowcaseItemRenderer' ) ) {
 		 * @param string               $popup_id Popup ID for this item.
 		 * @param array<string, mixed> $loading_config Loading configuration.
 		 * @param array<string, mixed> $card_config Normalized logo card config (`LogoCardConfig`).
+		 * @param string               $item_style Optional inline style for the item (Masonry logo ratio).
 		 * @return string
 		 */
-		public function render( array $item, array $images_settings, $popup_id, array $loading_config, array $card_config = array() ) {
+		public function render( array $item, array $images_settings, $popup_id, array $loading_config, array $card_config = array(), $item_style = '' ) {
 			$title        = isset( $item['title'] ) ? (string) $item['title'] : '';
 			$link_url     = isset( $item['url'] ) ? (string) $item['url'] : '';
 			$categories   = $this->resolve_categories( $item );
@@ -106,7 +107,7 @@ if ( ! class_exists( 'LogoShowcaseItemRenderer' ) ) {
 				$this->escape_attr( implode( ' ', $figure_classes ) ),
 				$figure_content,
 				'',
-				'',
+				'' !== (string) $item_style ? ' style="' . $this->escape_attr( (string) $item_style ) . '"' : '',
 				$this->escape_attr( $categories_json )
 			);
 		}

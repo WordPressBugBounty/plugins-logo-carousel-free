@@ -31,6 +31,7 @@ while ( $args->have_posts() ) :
 	$data_src             = 'true' === $enable_lazy_load ? 'data-src="' . esc_url( $image_url[0] ) . '"' : '';
 
 	$image = has_post_thumbnail() && $show_image ? sprintf( '<img %1$s src="%2$s" title="%3$s" alt="%4$s" width="%5$s" height="%6$s" class="sp-lc-image%7$s">', $data_src, esc_url( $src_url ), esc_attr( $image_title_attr ), esc_attr( $logo_image_alt_tag ), esc_attr( $image_url[1] ), esc_attr( $image_url[2] ), esc_attr( $lazy_load_class ) ) : '';
+	$image = self::logo_link_wrap( $image, $ids, $link_type, $link_open_target );
 	?>
 
 	<div class="sp-lc-grid-item sp-lc-col-xl-<?php echo esc_attr( $items ); ?> sp-lc-col-lg-<?php echo esc_attr( $items_desktop ); ?> sp-lc-col-md-<?php echo esc_attr( $items_desktop_small ); ?> sp-lc-col-sm-<?php echo esc_attr( $items_tablet ); ?> sp-lc-col-xs-<?php echo esc_attr( $items_mobile ); ?>">

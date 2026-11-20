@@ -30,9 +30,35 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 		}
 
 		/**
+		 * Whether the Classic Shortcode block is switched on in the dashboard's
+		 * Blocks tab.
+		 *
+		 * Switching it off only takes it out of the editor: the block type stays
+		 * registered on the server, so carousels already saved in posts keep
+		 * rendering on the front end (as the `[logocarousel]` shortcode does).
+		 *
+		 * @return bool
+		 */
+		private function is_block_enabled() {
+			$store = '\ShapedPlugin\LogoCarouselFree\Includes\Dashboard\BlocksVisibility';
+
+			if ( ! class_exists( $store ) ) {
+				return true;
+			}
+
+			return ( new $store() )->is_enabled( $store::CLASSIC_SHORTCODE );
+		}
+
+		/**
 		 * Register the block script for the outer block editor document.
 		 */
 		public function splcf_block_editor_assets() {
+			// Switched off in the dashboard: not registered in the editor, so it
+			// is gone from the inserter.
+			if ( ! $this->is_block_enabled() ) {
+				return;
+			}
+
 			$asset_file = plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 			$asset      = file_exists( $asset_file ) ? require $asset_file : array(
 				'dependencies' => array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-escape-html', 'wp-i18n', 'wp-server-side-render' ),
@@ -46,6 +72,7 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 				$asset['version'],
 				true
 			);
+			wp_set_script_translations( 'sp-logo-carousel-free-shortcode-block', 'logo-carousel-free' );
 
 			wp_localize_script(
 				'sp-logo-carousel-free-shortcode-block',
@@ -69,7 +96,8 @@ if ( ! class_exists( 'Logo_Carousel_Free_Gutenberg_Block_Init' ) ) {
 		 * server side rendered carousel preview stayed unstyled and uninitialized.
 		 */
 		public function splcf_block_canvas_assets() {
-			if ( ! is_admin() ) {
+			// Only the block's preview uses these, and a disabled block has none.
+			if ( ! is_admin() || ! $this->is_block_enabled() ) {
 				return;
 			}
 

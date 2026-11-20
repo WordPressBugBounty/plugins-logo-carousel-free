@@ -7,6 +7,7 @@
 
 namespace ShapedPlugin\LogoCarouselFree\Blocks\Config;
 
+use ShapedPlugin\LogoCarouselFree\Blocks\Sections\Carousel3d\Carousel3dConfig;
 use ShapedPlugin\LogoCarouselFree\Blocks\Support\UniqueId;
 
 defined( 'ABSPATH' ) || exit;
@@ -42,6 +43,13 @@ if ( ! class_exists( 'BlockConfigBuilder' ) ) {
 		 * @return BlockConfig
 		 */
 		public function build( $slug, array $attributes, array $capabilities = array() ) {
+			// 3D Carousel reuses the Carousel `layout` branch for its Swiper
+			// behaviors — pin the flat-carousel geometry first, so every consumer
+			// (Swiper config, CSS, renderer) sees the stage's own layout.
+			if ( 'carousel3d' === $slug ) {
+				$attributes = Carousel3dConfig::neutralize_layout( $attributes );
+			}
+
 			$defaults              = $this->get_defaults();
 			$content_state         = $this->resolve_content_state( $attributes, $defaults );
 			$unique_id             = UniqueId::from_attributes( $attributes );
@@ -59,6 +67,13 @@ if ( ! class_exists( 'BlockConfigBuilder' ) ) {
 				$logo_images_style     = isset( $section_payloads['logoImagesStyle'] ) && is_array( $section_payloads['logoImagesStyle'] ) ? $section_payloads['logoImagesStyle'] : array();
 				$swiper_config         = isset( $section_payloads['swiperConfig'] ) && is_array( $section_payloads['swiperConfig'] ) ? $section_payloads['swiperConfig'] : array();
 				$normalized_attributes = $this->logo_carousel_sections_builder->merge_into_attributes( $normalized_attributes, $section_payloads );
+			}
+
+			// The 3D stage's own settings ride inside the Swiper payload, where
+			// the runtime already reads its config from.
+			if ( 'carousel3d' === $slug && $uses_swiper ) {
+				$swiper_config['carousel3d']           = ( new Carousel3dConfig() )->normalize( $attributes );
+				$normalized_attributes['swiperConfig'] = $swiper_config;
 			}
 
 			return new BlockConfig(

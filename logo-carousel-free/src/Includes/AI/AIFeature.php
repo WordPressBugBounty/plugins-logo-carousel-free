@@ -66,6 +66,33 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIFeature' ) ) {
 		}
 
 		/**
+		 * Whether the AI builder may answer a prompt with a Ready Pattern.
+		 *
+		 * Deliberately independent of the Ready Patterns Library module: that
+		 * toggle hides the library browser in the editor, it does not take the
+		 * catalog away from the AI. A prompt a published pattern already answers
+		 * is still best served by that pattern (and an attribute build still
+		 * borrows its demo logos), with generation as the fallback — so turning
+		 * the library off must not leave Build with AI producing empty blocks.
+		 *
+		 * The catalog itself can still be switched off for everything through
+		 * `sp_lcpro_patterns_remote_url` (an empty URL means no manifest at all).
+		 *
+		 * @return bool
+		 */
+		public static function uses_ready_patterns() {
+			/**
+			 * Filter whether the AI builder consults the Ready Patterns catalog.
+			 *
+			 * Return false to make every AI build generate attributes from
+			 * scratch, with no pattern match and no borrowed demo logos.
+			 *
+			 * @param bool $enabled Default true.
+			 */
+			return (bool) apply_filters( 'lcpro_ai_use_ready_patterns', true );
+		}
+
+		/**
 		 * Error describing why AI is unavailable, for callers that must say so.
 		 *
 		 * The two reasons carry different codes and statuses: a module the site

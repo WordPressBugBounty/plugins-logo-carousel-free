@@ -15,6 +15,8 @@ namespace ShapedPlugin\LogoCarouselFree\Includes\AI;
 use ShapedPlugin\LogoCarouselFree\Includes\AI\Gateway\GatewayResolver;
 use ShapedPlugin\LogoCarouselFree\Includes\AI\Gateway\RemoteHttpGateway;
 use ShapedPlugin\LogoCarouselFree\Includes\AI\Gateway\TextGateway;
+use ShapedPlugin\LogoCarouselFree\Includes\ReadyPatterns\Controller as PatternsController;
+use ShapedPlugin\LogoCarouselFree\Includes\ReadyPatterns\PatternRepository;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -63,8 +65,9 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIController' ) 
 
 			$prompt = self::trim_prompt( $prompt );
 
-			// The free plugin builds only Carousel and Grid: a request aimed at
-			// any other block (a Pro-only List/Marquee/Table) falls back to the
+			// The free plugin builds only Carousel, Grid, Masonry and 3D Carousel:
+			// a request aimed at any other block (a Pro-only List, Marquee, Table,
+			// Justified, Nexus or Animated Orbit) falls back to the
 			// default rather than returning a block type this site cannot insert.
 			if ( ! isset( AICatalogBuilder::SCHEMA_MAP[ AICatalogBuilder::slug( $block_name ) ] ) ) {
 				$block_name = self::DEFAULT_BLOCK;
@@ -83,10 +86,17 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIController' ) 
 
 			if ( $allow_patterns && AIPatternMatcher::allows_pattern_insert( $existing_attributes ) ) {
 				$pattern_result = self::match_ready_pattern( $gateway, $prompt, $block_name );
-				if ( is_array( $pattern_result['match'] ) ) {
+				$content        = is_array( $pattern_result['match'] )
+					? self::pattern_content( $pattern_result['match']['pattern'] )
+					: null;
+
+				// A match whose markup cannot be loaded is no answer at all: the
+				// prompt is built from attributes below instead.
+				if ( null !== $content ) {
 					return array(
 						'mode'       => 'pattern',
 						'pattern'    => $pattern_result['match']['pattern'],
+						'content'    => $content,
 						'confidence' => $pattern_result['match']['confidence'],
 						'reason'     => $pattern_result['match']['reason'],
 					);
@@ -204,6 +214,30 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIController' ) 
 					: '',
 				'candidates'    => $candidates,
 			);
+		}
+
+		/**
+		 * Serialized markup of a matched pattern, ready for the editor to insert.
+		 *
+		 * Sent with the match so the editor never has to ask the Ready Patterns
+		 * routes for it — those answer only while the library module is on, and
+		 * the AI builder uses the catalog whether or not the library is shown.
+		 *
+		 * @param array $pattern Matched manifest item.
+		 * @return string|null Markup, or null when it is missing or not a Logo Carousel pattern.
+		 */
+		private static function pattern_content( array $pattern ) {
+			if ( ! isset( $pattern['id'] ) || '' === (string) $pattern['id'] ) {
+				return null;
+			}
+
+			$content = ( new PatternRepository() )->get_pattern_content( $pattern['id'] );
+
+			if ( ! is_string( $content ) || '' === $content || ! PatternsController::is_valid_pattern_markup( $content ) ) {
+				return null;
+			}
+
+			return $content;
 		}
 
 		/**

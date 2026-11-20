@@ -46,13 +46,21 @@ if ( ! class_exists( 'SPLC_FREE_Field_button_set' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'multiple'   => false,
-					'options'    => array(),
-					'query_args' => array(),
+					'multiple'         => false,
+					'options'          => array(),
+					'query_args'       => array(),
+					'pro_only_options' => array(),
 				)
 			);
 
 			$value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
+
+			// Pro-only options can't be chosen here. A value saved by Pro shows as the
+			// field's default, as the frontend treats it; it's stored only on the next save.
+			$pro_only_options = (array) $args['pro_only_options'];
+			if ( $pro_only_options && ! $args['multiple'] && array_intersect( $value, $pro_only_options ) ) {
+				$value = isset( $this->field['default'] ) ? array_filter( (array) $this->field['default'] ) : array();
+			}
 
 			echo wp_kses_post( $this->field_before() );
 
@@ -71,9 +79,10 @@ if ( ! class_exists( 'SPLC_FREE_Field_button_set' ) ) {
 						$extra   = ( $args['multiple'] ) ? '[]' : '';
 						$active  = ( in_array( $key, $value ) || ( empty( $value ) && empty( $key ) ) ) ? ' splogocarousel--active' : '';
 						$checked = ( in_array( $key, $value ) || ( empty( $value ) && empty( $key ) ) ) ? ' checked' : '';
+						$is_pro  = in_array( $key, $pro_only_options, true );
 
-						echo '<div class="splogocarousel--sibling splogocarousel--button' . esc_attr( $active ) . '">';
-						echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<div class="splogocarousel--sibling splogocarousel--button' . esc_attr( $active ) . ( $is_pro ? ' sp-lc-pro-only' : '' ) . '"' . ( $is_pro ? ' aria-disabled="true"' : '' ) . '>';
+						echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . ( $is_pro ? ' disabled' : '' ) . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo wp_kses_post( $option );
 						echo '</div>';
 

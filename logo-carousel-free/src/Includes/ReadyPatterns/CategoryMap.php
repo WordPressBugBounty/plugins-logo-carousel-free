@@ -22,18 +22,23 @@ class CategoryMap {
 	/**
 	 * Category slug → block name.
 	 *
-	 * List, Marquee and Table stay mapped in the free plugin: their patterns are
-	 * still listed (flagged `requiresPro` by the Normalizer) so the library can
-	 * offer an Upgrade action for them.
+	 * List, Marquee, Table, Justified, Animated Orbit and Nexus stay mapped in
+	 * the free plugin: their patterns are still listed (flagged `requiresPro`
+	 * by the Normalizer) so the library can offer an Upgrade action for them.
 	 *
 	 * @var array<string, string>
 	 */
 	public const BLOCK_MAP = array(
-		'carousel' => 'sp-logo-carousel/carousel',
-		'marquee'  => 'sp-logo-carousel/marquee',
-		'grid'     => 'sp-logo-carousel/grid',
-		'list'     => 'sp-logo-carousel/list',
-		'table'    => 'sp-logo-carousel/table',
+		'carousel'   => 'sp-logo-carousel/carousel',
+		'carousel3d' => 'sp-logo-carousel/carousel3d',
+		'marquee'    => 'sp-logo-carousel/marquee',
+		'grid'       => 'sp-logo-carousel/grid',
+		'masonry'    => 'sp-logo-carousel/masonry',
+		'justified'  => 'sp-logo-carousel/justified',
+		'list'       => 'sp-logo-carousel/list',
+		'table'      => 'sp-logo-carousel/table',
+		'orbit'      => 'sp-logo-carousel/orbit',
+		'nexus'      => 'sp-logo-carousel/nexus',
 	);
 
 	/**
@@ -42,11 +47,16 @@ class CategoryMap {
 	 * @var array<string, string>
 	 */
 	public const LABEL_MAP = array(
-		'carousel' => 'Carousel',
-		'marquee'  => 'Marquee',
-		'grid'     => 'Grid',
-		'list'     => 'List',
-		'table'    => 'Table',
+		'carousel'   => 'Carousel',
+		'carousel3d' => '3D Carousel',
+		'marquee'    => 'Marquee',
+		'grid'       => 'Grid',
+		'masonry'    => 'Masonry',
+		'justified'  => 'Justified',
+		'list'       => 'List',
+		'table'      => 'Table',
+		'orbit'      => 'Animated Orbit',
+		'nexus'      => 'Nexus',
 	);
 
 	/**

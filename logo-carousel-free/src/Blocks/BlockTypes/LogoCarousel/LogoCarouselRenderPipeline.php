@@ -10,9 +10,11 @@ namespace ShapedPlugin\LogoCarouselFree\Blocks\BlockTypes\LogoCarousel;
 use ShapedPlugin\LogoCarouselFree\Blocks\Config\BlockConfigBuilder;
 use ShapedPlugin\LogoCarouselFree\Blocks\Config\BlockConfig;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\BlockShell;
+use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\Carousel3dFreeGate;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\CarouselFreeGate;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\GridFreeGate;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\LogoShowcaseRenderer;
+use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\MasonryFreeGate;
 use ShapedPlugin\LogoCarouselFree\Blocks\Rendering\ModuleGate;
 use ShapedPlugin\LogoCarouselFree\Blocks\Sections\SectionRegistry;
 use ShapedPlugin\LogoCarouselFree\Blocks\Sources\LogoShowcaseSource;
@@ -103,6 +105,10 @@ if ( ! class_exists( 'LogoCarouselRenderPipeline' ) ) {
 				$attributes = CarouselFreeGate::apply( $attributes );
 			} elseif ( 'grid' === $slug ) {
 				$attributes = GridFreeGate::apply( $attributes );
+			} elseif ( 'masonry' === $slug ) {
+				$attributes = MasonryFreeGate::apply( $attributes );
+			} elseif ( 'carousel3d' === $slug ) {
+				$attributes = Carousel3dFreeGate::apply( $attributes );
 			}
 
 			AssetManager::instance()->enqueue_block_frontend_assets();

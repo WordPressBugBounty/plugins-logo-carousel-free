@@ -7,7 +7,9 @@
  * off) and by AssetManager (editor unregisters off blocks). Pure resolve/
  * sanitize logic is separated from WordPress I/O for unit testing.
  *
- * The free plugin registers only Carousel and Grid; the Pro-only blocks
+ * The free plugin registers Carousel, Grid, Masonry and 3D Carousel plus the
+ * legacy Classic Shortcode block (`shortcode`, gated by
+ * Logo_Carousel_Free_Gutenberg_Block_Init). The Pro-only blocks
  * (ProFeatures::PRO_BLOCKS) are never stored here and always read as off.
  *
  * @package    logo-carousel-free
@@ -35,6 +37,14 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\Dashboard\BlocksVis
 		const OPTION = 'sp_lcpro_blocks_visibility';
 
 		/**
+		 * Slug of the legacy Classic Shortcode block
+		 * (`sp-logo-carousel-pro/shortcode`).
+		 *
+		 * @var string
+		 */
+		const CLASSIC_SHORTCODE = 'shortcode';
+
+		/**
 		 * Registrable block slugs and their default state (all on).
 		 *
 		 * Coming-soon blocks are display-only in the dashboard and are NOT
@@ -43,8 +53,11 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\Dashboard\BlocksVis
 		 * @var array<string, bool>
 		 */
 		const DEFAULTS = array(
-			'carousel' => true,
-			'grid'     => true,
+			'carousel'   => true,
+			'grid'       => true,
+			'masonry'    => true,
+			'carousel3d' => true,
+			'shortcode'  => true,
 		);
 
 		/**

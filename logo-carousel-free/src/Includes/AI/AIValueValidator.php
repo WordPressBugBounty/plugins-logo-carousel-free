@@ -9,6 +9,7 @@
 
 namespace ShapedPlugin\LogoCarouselFree\Includes\AI;
 
+use ShapedPlugin\LogoCarouselFree\Blocks\Schema\Defaults\Carousel3dDefaults;
 use ShapedPlugin\LogoCarouselFree\Blocks\Styles\CssUtils;
 
 defined( 'ABSPATH' ) || exit;
@@ -135,6 +136,10 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIValueValidator
 			// covers `shared` too, which is where the fan-out lands the same
 			// values.
 			'layout.*.alignment'                       => array( 'enum', array( 'top', 'center', 'bottom', 'left', 'right', 'start', 'end', 'stretch', 'flex-start', 'flex-end' ) ),
+
+			// -- 3D Carousel (Side Items: `carousel3d_rule()`) --------------
+			'carousel3d.autoplayDirection'             => array( 'enum', Carousel3dDefaults::DIRECTIONS ),
+			'carousel3d.grabCursor'                    => array( 'bool' ),
 
 			// -- Images -----------------------------------------------------
 			'imagesSettings.aspectRatio'               => array( 'enum', array( 'original', '1:1', '4:3', '3:4', '3:2', '2:3', '16:9', '9:16', 'custom' ) ),
@@ -271,6 +276,9 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIValueValidator
 			// still applies to a container — a group where a scalar belongs is a
 			// mistake.
 			$rule = self::exact_rule( $path );
+			if ( null === $rule ) {
+				$rule = self::carousel3d_rule( $path, $value );
+			}
 			if ( null === $rule && ! is_array( $value ) ) {
 				$rule = self::suffix_rule( $path );
 			}
@@ -341,7 +349,7 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIValueValidator
 				return null;
 			}
 
-			$containers = AILayoutProfileWriter::CONTAINER_KEYS[ $context['slug'] ] ?? array( 'shared' );
+			$containers = AILayoutProfileWriter::container_keys( $context['slug'] );
 			foreach ( $containers as $container ) {
 				if ( isset( $schema_default[ $container ][ $child_key ] ) ) {
 					return $schema_default[ $container ][ $child_key ];
@@ -369,6 +377,40 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIValueValidator
 			}
 
 			return null;
+		}
+
+		/**
+		 * Rule for a 3D Carousel field the free plugin offers.
+		 *
+		 * Side Items is checked against the same 1-4 range its control and
+		 * `Carousel3dConfig` use, written per device or as one number. The
+		 * style, its 3D Settings and the sliding effect are Pro: any other
+		 * `carousel3d` path is rejected rather than stored.
+		 *
+		 * @param string $path  Dotted attribute path.
+		 * @param mixed  $value AI-supplied value.
+		 * @return array|null Rule tuple, or null when the path is not a 3D field.
+		 */
+		private static function carousel3d_rule( $path, $value ) {
+			$segments = explode( '.', $path );
+			if ( 'carousel3d' !== $segments[0] || count( $segments ) < 2 ) {
+				return null;
+			}
+
+			if ( in_array( $segments[1], array( 'autoplayDirection', 'grabCursor' ), true ) ) {
+				return null;
+			}
+
+			if ( 'sideItems' !== $segments[1] ) {
+				return array( 'enum', array() );
+			}
+
+			$spec    = Carousel3dDefaults::side_items();
+			$rest    = array_slice( $segments, 2 );
+			$is_leaf = ( empty( $rest ) && ! is_array( $value ) )
+				|| ( 2 === count( $rest ) && 'device' === $rest[0] && in_array( $rest[1], Carousel3dDefaults::DEVICES, true ) );
+
+			return $is_leaf ? array( 'int', array( $spec['min'], $spec['max'] ) ) : null;
 		}
 
 		/**

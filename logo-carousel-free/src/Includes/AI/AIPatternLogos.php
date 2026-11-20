@@ -25,8 +25,8 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIPatternLogos' 
 	 * set of demo logos — real images, with titles, descriptions and categories —
 	 * so the attribute path borrows them instead of inventing anything.
 	 *
-	 * When no pattern can lend logos (patterns switched off, the catalog
-	 * unreachable, no pattern carrying items) the block is left exactly as the
+	 * When no pattern can lend logos (the AI's pattern use filtered off, the
+	 * catalog unreachable, no pattern carrying items) the block is left exactly as the
 	 * merge produced it. Nothing is ever fabricated in their place: the block's
 	 * own source-selection screen is the honest empty state.
 	 *
@@ -72,7 +72,7 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIPatternLogos' 
 				return $attributes;
 			}
 
-			if ( ! PatternRepository::is_enabled() ) {
+			if ( ! AIFeature::uses_ready_patterns() ) {
 				return self::apply( $attributes, null );
 			}
 

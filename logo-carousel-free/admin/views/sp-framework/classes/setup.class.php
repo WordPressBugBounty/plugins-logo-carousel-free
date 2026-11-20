@@ -474,7 +474,8 @@ if ( ! class_exists( 'SPLC' ) ) {
 					'previewJS'     => esc_url( SP_LC_URL . 'public/assets/js/splc-script' . $min . '.js' ),
 					'i18n'          => array(
 						'confirm'         => esc_html__( 'Are you sure?', 'logo-carousel-free' ),
-						'typing_text'     => esc_html__( 'Please enter or more characters', 'logo-carousel-free' ),
+						/* translators: %s: number of characters still needed. */
+						'typing_text'     => esc_html__( 'Please enter %s or more characters', 'logo-carousel-free' ),
 						'searching_text'  => esc_html__( 'Searching...', 'logo-carousel-free' ),
 						'no_results_text' => esc_html__( 'No results found.', 'logo-carousel-free' ),
 					),

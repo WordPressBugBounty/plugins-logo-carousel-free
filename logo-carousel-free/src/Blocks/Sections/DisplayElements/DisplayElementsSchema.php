@@ -45,10 +45,10 @@ if ( ! class_exists( 'DisplayElementsSchema' ) ) {
 			return AttributeFactory::object(
 				self::defaults(),
 				array(
-					'order'                 => AttributeFactory::array(
+					'order'                      => AttributeFactory::array(
 						DisplayElementsDefaults::get_default_order()
 					),
-					'enabled'               => AttributeFactory::object(
+					'enabled'                    => AttributeFactory::object(
 						DisplayElementsDefaults::get_enabled_defaults(),
 						array(
 							'title'       => AttributeFactory::boolean( false ),
@@ -58,54 +58,54 @@ if ( ! class_exists( 'DisplayElementsSchema' ) ) {
 							'readMore'    => AttributeFactory::boolean( false ),
 						)
 					),
-					'titleSource'           => AttributeFactory::string(
+					'titleSource'                => AttributeFactory::string(
 						'title',
 						DisplayElementsDefaults::get_title_source_options()
 					),
-					'descriptionSource'     => AttributeFactory::string(
+					'descriptionSource'          => AttributeFactory::string(
 						'description',
 						DisplayElementsDefaults::get_description_source_options()
 					),
-					'descriptionWordLimit'  => AttributeFactory::string(
+					'descriptionWordLimit'       => AttributeFactory::string(
 						'full',
 						DisplayElementsDefaults::get_word_limit_options()
 					),
-					'descriptionWordCount'  => AttributeFactory::single_responsive( 10, 10, 10, 'words' ),
-					'descriptionEllipsis'   => AttributeFactory::string( '...' ),
-					'ratingIconSize'        => AttributeFactory::single_responsive( 16, 16, 16, 'px' ),
-					'readMoreType'          => AttributeFactory::string(
+					'descriptionWordCount'       => AttributeFactory::single_responsive( 10, 10, 10, 'words' ),
+					'descriptionEllipsis'        => AttributeFactory::string( '...' ),
+					'ratingIconSize'             => AttributeFactory::single_responsive( 16, 16, 16, 'px' ),
+					'readMoreType'               => AttributeFactory::string(
 						'button',
 						DisplayElementsDefaults::get_read_more_type_options()
 					),
-					'readMoreLabel'         => AttributeFactory::string( 'Read More' ),
-					'clickAction'           => AttributeFactory::string(
+					'readMoreLabel'              => AttributeFactory::string( 'Read More' ),
+					'clickAction'                => AttributeFactory::string(
 						'url',
 						DisplayElementsDefaults::get_click_action_options()
 					),
-					'gapBetweenElements'    => AttributeFactory::single_responsive( 10, 10, 10, 'px' ),
-					'alignment'             => AttributeFactory::string(
+					'gapBetweenElements'         => AttributeFactory::single_responsive( 10, 10, 10, 'px' ),
+					'alignment'                  => AttributeFactory::string(
 						'left',
 						DisplayElementsDefaults::get_alignment_options()
 					),
-					'titleTypography'       => AttributeFactory::object( DisplayElementsDefaults::title_typography_default() ),
-					'taglineTypography'     => AttributeFactory::object( DisplayElementsDefaults::tagline_typography_default() ),
-					'descriptionTypography' => AttributeFactory::object( DisplayElementsDefaults::description_typography_default() ),
-					'titleColor'            => AttributeFactory::color_pair( '#000000', '#000000' ),
-					'taglineColor'          => AttributeFactory::color_pair( '#000000', '#000000' ),
-					'descriptionColor'      => AttributeFactory::color_pair( '#757575', '#757575' ),
+					'titleTypography'            => AttributeFactory::object( DisplayElementsDefaults::title_typography_default() ),
+					'taglineTypography'          => AttributeFactory::object( DisplayElementsDefaults::tagline_typography_default() ),
+					'descriptionTypography'      => AttributeFactory::object( DisplayElementsDefaults::description_typography_default() ),
+					'titleColor'                 => AttributeFactory::color_pair( '#000000', '#000000' ),
+					'taglineColor'               => AttributeFactory::color_pair( '#000000', '#000000' ),
+					'descriptionColor'           => AttributeFactory::color_pair( '#757575', '#757575' ),
 					// Filled star colour (the half star's filled side too). Defaults
 					// to the gold `_displayElements.scss` has always drawn, so the
 					// control opens on the colour that is already on screen.
-					'ratingIconColor'       => AttributeFactory::color_pair( '#f0b849', '#f0b849' ),
-					'cardBackground'        => AttributeFactory::object(
+					'ratingIconColor'            => AttributeFactory::color_pair( '#f0b849', '#f0b849' ),
+					'cardBackground'             => AttributeFactory::object(
 						DisplayElementsDefaults::get_background_defaults()
 					),
-					'border'                => AttributeFactory::object(
+					'border'                     => AttributeFactory::object(
 						DisplayElementsDefaults::get_card_border_defaults()
 					),
-					'borderWidth'           => AttributeFactory::responsive_spacing( 1, 1, 1, 1, 'px' ),
-					'borderRadius'          => AttributeFactory::responsive_spacing( 4, 4, 4, 4, 'px' ),
-					'innerPadding'          => AttributeFactory::responsive_spacing( 8, 8, 8, 8, 'px' ),
+					'borderWidth'                => AttributeFactory::responsive_spacing( 1, 1, 1, 1, 'px' ),
+					'borderRadius'               => AttributeFactory::responsive_spacing( 4, 4, 4, 4, 'px' ),
+					'innerPadding'               => AttributeFactory::responsive_spacing( 16, 16, 16, 16, 'px' ),
 					'readMoreButtonTypography'   => AttributeFactory::object( DisplayElementsDefaults::read_more_typography_default() ),
 					'readMoreButtonColor'        => AttributeFactory::color_pair( '#ffffff', '#ffffff' ),
 					'readMoreButtonBackground'   => AttributeFactory::color_pair( '#2F2F2F', '#2F2F2F' ),

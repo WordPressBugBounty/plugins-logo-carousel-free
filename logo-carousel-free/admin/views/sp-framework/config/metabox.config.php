@@ -395,19 +395,19 @@ SPLC::createSection(
 				'type'   => 'fieldset',
 				'fields' => array(
 					array(
-						'id'         => 'lcp_link_type',
-						'type'       => 'button_set',
-						'class'      => 'lcp_link_type sp-lc-link-pro--only',
-						'title'      => __( 'Click Action Type', 'logo-carousel-free' ),
-						'subtitle'   => __( 'Set logo detail link type.', 'logo-carousel-free' ),
-						'options'    => array(
+						'id'               => 'lcp_link_type',
+						'type'             => 'button_set',
+						'class'            => 'lcp_link_type sp-lc-link-pro--only',
+						'title'            => __( 'Click Action Type', 'logo-carousel-free' ),
+						'subtitle'         => __( 'Set logo detail link type.', 'logo-carousel-free' ),
+						'options'          => array(
 							'none'          => __( 'Disabled', 'logo-carousel-free' ),
 							'external_link' => __( 'Link', 'logo-carousel-free' ),
 							'popup'         => __( 'Popup', 'logo-carousel-free' ),
 						),
-						'default'    => 'none',
-						'only_pro'   => true,
-						'title_info' => sprintf(
+						'pro_only_options' => array( 'popup' ),
+						'default'          => 'none',
+						'title_info'       => sprintf(
 							'<div class="splogocarousel-info-label">%s</div> <div class="splogocarousel-short-content">%s</div><div class="info-button"><a class="splogocarousel-open-docs" href="https://docs.shapedplugin.com/docs/logo-carousel-free/configurations/how-to-select-click-action-type/" target="_blank">%s</a><a class="splogocarousel-open-live-demo" href="https://logocarousel.com/popup-with-logo-details/" target="_blank">%s</a></div>',
 							__( 'Click Action Type', 'logo-carousel-free' ),
 							__( 'This feature allows you to choose between directing to a link, opening a popup, or disabling the link entirely.', 'logo-carousel-free' ),
@@ -1583,7 +1583,7 @@ SPLC::createSection(
 			array(
 				'id'         => 'lcp_logo_opacity',
 				'type'       => 'slider',
-				'class'      => 'sp-lc-opacity',
+				'class'      => 'sp-lc-opacity lcp_free_ranger',
 				'title'      => __( 'Opacity', 'logo-carousel-free' ),
 				'subtitle'   => __( 'Set opacity for the logo images.', 'logo-carousel-free' ),
 				'step'       => 0.01,
@@ -2396,15 +2396,9 @@ SPLC::createSection(
 				'type'       => 'text',
 				'class'      => 'lcp_logo_link',
 				'title'      => __( 'Custom URL', 'logo-carousel-free' ),
-				'desc'       => sprintf(
-					/* translators: %1$s: strong tag starts %2$s: strong tag ends %3$s: link and bold tags start %4$s: bold and link tags end */
-					__( 'To add a link URL for the logo, %1$sUpgrade to Pro!%2$s', 'logo-carousel-free' ),
-					'<a href="https://logocarousel.com/pricing/?ref=1" target="_blank"><b>',
-					'</b></a>'
-				),
+				'sanitize'   => 'esc_url_raw',
 				'attributes' => array(
 					'placeholder' => 'http://example.com',
-					'disabled'    => 'disabled',
 				),
 			),
 

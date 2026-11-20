@@ -479,6 +479,10 @@ video {
 	display: block;
 }
 
+.logo-carousel-free .sp-lc-logo a.sp-lc-logo-link {
+	display: block;
+}
+
 .block-editor-page a.sp_logo_block_edit_button,
 a.sp_logo_block_edit_button {
 	display: inline-block;

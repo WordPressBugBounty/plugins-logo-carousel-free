@@ -31,9 +31,9 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\ProFeatures' ) ) {
 		/**
 		 * Modules a Ready Pattern can declare that the free plugin cannot honour.
 		 *
-		 * Every Pro module, plus Popup Details: the free gate turns logo click
-		 * actions (URL, popup) off, so a popup pattern would insert without its
-		 * popup. Kept apart from PRO_MODULES, which also drives the dashboard
+		 * Every Pro module, plus Popup Details: the free gate turns the Popup
+		 * click action off (Logo URL is free), so a popup pattern would insert
+		 * without its popup. Kept apart from PRO_MODULES, which also drives the dashboard
 		 * and the module gate.
 		 *
 		 * @var string[]
@@ -45,14 +45,14 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\ProFeatures' ) ) {
 		 *
 		 * @var string[]
 		 */
-		const PRO_BLOCKS = array( 'list', 'marquee', 'table' );
+		const PRO_BLOCKS = array( 'list', 'marquee', 'table', 'justified', 'nexus', 'orbit' );
 
 		/**
 		 * Block slugs the free plugin registers.
 		 *
 		 * @var string[]
 		 */
-		const FREE_BLOCKS = array( 'carousel', 'grid' );
+		const FREE_BLOCKS = array( 'carousel', 'grid', 'masonry', 'carousel3d' );
 
 		/**
 		 * Pro release the ported block code matches.

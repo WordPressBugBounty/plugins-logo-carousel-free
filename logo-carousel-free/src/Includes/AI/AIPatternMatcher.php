@@ -285,9 +285,11 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIPatternMatcher
 			'bold'         => array( 'bold', 'striking', 'dramatic', 'punchy', 'loud' ),
 
 			// Blocks (CategoryMap::BLOCK_MAP).
+			'carousel3d'   => array( 'carousel3d', '3d', '3d carousel', 'coverflow', 'cover flow', 'three dimensional' ),
 			'marquee'      => array( 'marquee', 'ticker', 'scrolling', 'scroll', 'sideways', 'continuous', 'endless', 'non stop', 'never stops', 'moving strip', 'ribbon', 'wave', 'infinite strip' ),
-			'grid'         => array( 'grid', 'wall', 'bento', 'masonry', 'staggered', 'zigzag' ),
+			'grid'         => array( 'grid', 'wall', 'bento', 'staggered', 'zigzag' ),
 			'list'         => array( 'list', 'directory', 'roster', 'index', 'rows of' ),
+			'masonry'      => array( 'masonry', 'pinterest', 'pinterest style', 'waterfall', 'varying heights', 'different heights', 'uneven heights' ),
 			'table'        => array( 'table', 'comparison', 'compare', 'spec sheet', 'matrix', 'column headers', 'header row' ),
 
 			// Recurring catalog keywords that no taxonomy term covers.
@@ -313,7 +315,8 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIPatternMatcher
 		 * @return array<int, array<string, mixed>> Manifest items, most relevant first.
 		 */
 		public static function shortlist( $prompt, $block_name = '' ) {
-			if ( ! PatternRepository::is_enabled() ) {
+			// The AI's own gate, not the library module's: see AIFeature::uses_ready_patterns().
+			if ( ! AIFeature::uses_ready_patterns() ) {
 				return array();
 			}
 

@@ -187,6 +187,59 @@ class Logo_Carousel_Import_Export {
 	}
 
 	/**
+	 * Recursively determine whether a decoded value contains any object.
+	 *
+	 * After unserialize( ..., array( 'allowed_classes' => false ) ) every object
+	 * becomes a __PHP_Incomplete_Class instance, so this catches both.
+	 *
+	 * @param mixed $data Decoded meta value.
+	 * @return bool
+	 */
+	private static function contains_object( $data ) {
+		if ( is_object( $data ) ) {
+			return true;
+		}
+		if ( is_array( $data ) ) {
+			foreach ( $data as $item ) {
+				if ( self::contains_object( $item ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Sanitize one imported meta value (already unserialized).
+	 *
+	 * The logo's Logo URL is kept as a URL, so query strings and encoded
+	 * characters survive; every other text value is sanitized as plain text.
+	 *
+	 * @param string $key   Meta key.
+	 * @param mixed  $value Meta value.
+	 * @return mixed
+	 */
+	private static function sanitize_import_meta( $key, $value ) {
+		$logo_link = null;
+		if ( 'sp_logo_carousel_link_option' === $key && is_array( $value ) && isset( $value['lcp_logo_link'] ) && is_string( $value['lcp_logo_link'] ) ) {
+			$logo_link = esc_url_raw( trim( $value['lcp_logo_link'] ) );
+		}
+
+		$value = map_deep(
+			$value,
+			function ( $item ) {
+				return is_string( $item ) ? sanitize_text_field( $item ) : $item;
+			}
+		);
+
+		if ( null !== $logo_link ) {
+			$value['lcp_logo_link'] = $logo_link;
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Import logo ans shortcode.
 	 *
 	 * @param  mixed $shortcodes Import logo and carousel shortcode array.
@@ -224,11 +277,28 @@ class Logo_Carousel_Import_Export {
 
 				if ( isset( $shortcode['meta'] ) && is_array( $shortcode['meta'] ) ) {
 					foreach ( $shortcode['meta'] as $key => $value ) {
-						$value = str_replace( '{#ID#}', $new_shortcode_id, $value );
-
-						if ( is_serialized( $value ) ) {
-							$value = unserialize( $value, ['allowed_classes' => false] ); // phpcs:ignore -- no classes allowed.
+						if ( ! is_string( $key ) || '' === $key || ( ! is_scalar( $value ) && ! is_array( $value ) ) ) {
+							continue;
 						}
+						if ( is_scalar( $value ) ) {
+							$value = str_replace( '{#ID#}', $new_shortcode_id, (string) $value );
+						}
+
+						if ( is_string( $value ) && is_serialized( $value ) ) {
+							$serialized_false = 'b:0;' === $value;
+							$value            = unserialize( $value, array( 'allowed_classes' => false ) ); // phpcs:ignore -- no classes allowed.
+							// Skip a setting that failed to unserialize or carried a PHP object.
+							if ( ( false === $value && ! $serialized_false ) || self::contains_object( $value ) ) {
+								continue;
+							}
+						} elseif ( is_array( $value ) && self::contains_object( $value ) ) {
+							continue;
+						}
+
+						// Sanitized after unserializing: run over the serialized text, a value
+						// whose length changed (a URL with "&" or "%20") broke the whole setting.
+						$value = self::sanitize_import_meta( $key, $value );
+
 						update_post_meta(
 							$new_shortcode_id,
 							$key,
@@ -277,7 +347,8 @@ class Logo_Carousel_Import_Export {
 			wp_send_json_error( array( 'error' => esc_html__( 'You do not have permission to import.', 'logo-carousel-free' ) ) );
 		}
 
-		$data = isset( $_POST['shortcode'] ) ? wp_kses_data( wp_unslash( $_POST['shortcode'] ) ) : '';
+		// Decoded raw: meta values are serialized, and are sanitized in import() once unserialized.
+		$data = isset( $_POST['shortcode'] ) && is_string( $_POST['shortcode'] ) ? wp_unslash( $_POST['shortcode'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 		if ( ! $data ) {
 			wp_send_json_error( array( 'message' => esc_html__( 'Nothing to import.', 'logo-carousel-free' ) ), 400 );
@@ -307,12 +378,23 @@ class Logo_Carousel_Import_Export {
 			);
 		}
 
-		$shortcodes = map_deep(
-			$decoded_data['shortcode'],
-			function ( $value ) {
-				return is_string( $value ) ? sanitize_text_field( $value ) : $value;
+		$shortcodes = array();
+		foreach ( $decoded_data['shortcode'] as $index => $item ) {
+			if ( ! is_array( $item ) ) {
+				continue;
 			}
-		);
+			$meta = isset( $item['meta'] ) && is_array( $item['meta'] ) ? $item['meta'] : array();
+			unset( $item['meta'] );
+			$item         = map_deep(
+				$item,
+				function ( $value ) {
+					return is_string( $value ) ? sanitize_text_field( $value ) : $value;
+				}
+			);
+			$item['meta'] = $meta;
+
+			$shortcodes[ $index ] = $item;
+		}
 
 		$status = $this->import( $shortcodes );
 

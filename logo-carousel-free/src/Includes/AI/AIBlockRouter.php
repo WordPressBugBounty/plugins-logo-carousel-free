@@ -29,7 +29,8 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIBlockRouter' )
 	 * the branches `AILayoutProfileWriter` fans out to. So a "bento wall of
 	 * logos" prompt would be answered with the carousel catalog, and every
 	 * grid-only value the model did produce (`gridStyle`, `strip`) dropped as
-	 * unknown. The free plugin routes only between Carousel and Grid.
+	 * unknown. The free plugin routes only between Carousel, Grid, Masonry and
+	 * 3D Carousel.
 	 *
 	 * This resolves the block from the prompt itself, on the vocabulary
 	 * `AIPatternMatcher` already maintains, and only when the words are decisive:

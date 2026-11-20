@@ -121,6 +121,13 @@ Worked Examples (these show the expected shape and level of finish — adapt the
 				),
 			);
 
+			if ( 'carousel3d' === $slug ) {
+				$muted['carousel3d'] = array(
+					'sideItems'  => self::example_count( 2, 2, 1 ),
+					'grabCursor' => true,
+				);
+			}
+
 			$carded = array(
 				'displayElements' => array(
 					'cardBackground'  => array(
@@ -140,6 +147,13 @@ Worked Examples (these show the expected shape and level of finish — adapt the
 			);
 
 			$refine = array( 'layout' => self::example_refine( $slug ) );
+
+			// A 3D stage has no gaps: "wider" shows fewer logos either side.
+			if ( 'carousel3d' === $slug ) {
+				$refine['carousel3d'] = array(
+					'sideItems' => self::example_count( 1, 1, 1 ),
+				);
+			}
 
 			return 'Request: "a muted client logo strip that goes full colour on hover"'
 				. "\nResponse: " . wp_json_encode( $muted )
@@ -166,6 +180,27 @@ Worked Examples (these show the expected shape and level of finish — adapt the
 				);
 			}
 
+			// The 3D stage has no columns or gap; its Side Items live on `carousel3d`.
+			if ( 'carousel3d' === $slug ) {
+				return array(
+					'autoplay'         => true,
+					'autoplayDelay'    => 3500,
+					'sliderSpeed'      => 800,
+					'pauseOnHover'     => true,
+					'infiniteLoop'     => true,
+					'navigationArrows' => true,
+					'paginationDots'   => false,
+				);
+			}
+
+			if ( 'masonry' === $slug ) {
+				return array(
+					'columns'       => self::example_count( 5, 3, 2 ),
+					'horizontalGap' => self::example_size( 24, 20, 12 ),
+					'verticalGap'   => self::example_size( 24, 20, 12 ),
+				);
+			}
+
 			return array(
 				'carouselStyle'    => 'standard',
 				'columns'          => self::example_count( 6, 4, 2 ),
@@ -187,11 +222,15 @@ Worked Examples (these show the expected shape and level of finish — adapt the
 		 * @return array<string, mixed>
 		 */
 		private static function example_refine( $slug ) {
-			if ( 'grid' === $slug ) {
+			if ( in_array( $slug, array( 'grid', 'masonry' ), true ) ) {
 				return array(
 					'horizontalGap' => self::example_size( 64, 44, 30 ),
 					'verticalGap'   => self::example_size( 64, 44, 30 ),
 				);
+			}
+
+			if ( 'carousel3d' === $slug ) {
+				return array( 'sliderSpeed' => 1200 );
 			}
 
 			return array(

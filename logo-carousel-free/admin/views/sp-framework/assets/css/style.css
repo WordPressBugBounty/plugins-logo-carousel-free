@@ -4532,10 +4532,6 @@ input.splogocarousel-input-number.ui-spinner-input {
 	margin-top: 5px;
 }
 
-.post-type-sp_logo_carousel .splogocarousel-field-checkbox.lcp_logo_link_ref .splogocarousel-checkbox {
-	pointer-events: none;
-}
-
 .post-type-sp_logo_carousel .splogocarousel-field .splogocarousel-title {
 	position: relative;
 	width: 20%;
@@ -5032,7 +5028,6 @@ input.splogocarousel-input-number.ui-spinner-input {
 }
 
 /* Pro only css */
-.sp-lc-link-pro--only .splogocarousel--button:nth-child(2),
 .sp-lc-link-pro--only .splogocarousel--button:nth-child(3),
 .sp-lc-pro-only .splogocarousel--button:nth-child(2),
 .sp-lc-pro-only .splogocarousel--button:nth-child(3),
@@ -5070,7 +5065,6 @@ input.splogocarousel-input-number.ui-spinner-input {
 	border-radius: 0 2px 0 2px;
 }
 
-.sp-lc-link-pro--only .splogocarousel--button:nth-child(2):after,
 .sp-lc-link-pro--only .splogocarousel--button:nth-child(3):after,
 .sp-lc-pro-only .splogocarousel--button:nth-child(2):after,
 .sp-lc-pro-only .splogocarousel--button:nth-child(3):after,
@@ -5109,7 +5103,8 @@ input.splogocarousel-input-number.ui-spinner-input {
 	pointer-events: none;
 }
 
-.splogocarousel-field-slider.lcp_carousel_auto_play_ranger .splogocarousel-fieldset {
+.splogocarousel-field-slider.lcp_carousel_auto_play_ranger .splogocarousel-fieldset,
+.splogocarousel-field-slider.lcp_free_ranger .splogocarousel-fieldset {
 	opacity: 1;
 	pointer-events: painted;
 }

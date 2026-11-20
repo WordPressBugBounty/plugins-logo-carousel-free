@@ -215,7 +215,7 @@ class Controller {
 	 * @param string $content Serialized block markup.
 	 * @return bool
 	 */
-	private static function is_valid_pattern_markup( string $content ): bool {
+	public static function is_valid_pattern_markup( string $content ): bool {
 		if ( strlen( $content ) > PatternRepository::MAX_PAYLOAD_BYTES ) {
 			return false;
 		}

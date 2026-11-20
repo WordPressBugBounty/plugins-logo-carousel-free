@@ -280,11 +280,16 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Admin\Dashboard\SavedTemplat
 		 */
 		private static function block_names() {
 			return array(
-				'carousel' => __( 'Carousel', 'logo-carousel-free' ),
-				'grid'     => __( 'Grid', 'logo-carousel-free' ),
-				'list'     => __( 'List', 'logo-carousel-free' ),
-				'marquee'  => __( 'Marquee', 'logo-carousel-free' ),
-				'table'    => __( 'Table', 'logo-carousel-free' ),
+				'carousel'   => __( 'Carousel', 'logo-carousel-free' ),
+				'carousel3d' => __( '3D Carousel', 'logo-carousel-free' ),
+				'grid'       => __( 'Grid', 'logo-carousel-free' ),
+				'justified'  => __( 'Justified', 'logo-carousel-free' ),
+				'list'       => __( 'List', 'logo-carousel-free' ),
+				'marquee'    => __( 'Marquee', 'logo-carousel-free' ),
+				'masonry'    => __( 'Masonry', 'logo-carousel-free' ),
+				'nexus'      => __( 'Nexus', 'logo-carousel-free' ),
+				'orbit'      => __( 'Animated Orbit', 'logo-carousel-free' ),
+				'table'      => __( 'Table', 'logo-carousel-free' ),
 			);
 		}
 

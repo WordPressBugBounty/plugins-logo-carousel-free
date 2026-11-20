@@ -162,6 +162,9 @@ if ( ! class_exists( 'ShapedPlugin\LogoCarouselFree\Includes\AI\AIRestController
 						'mode'       => 'pattern',
 						'blockName'  => $result['pattern']['blockName'],
 						'pattern'    => $result['pattern'],
+						// The markup to insert, so the editor never depends on
+						// the Ready Patterns routes (off with the library module).
+						'content'    => $result['content'],
 						'confidence' => $result['confidence'],
 						'reason'     => $result['reason'],
 					)

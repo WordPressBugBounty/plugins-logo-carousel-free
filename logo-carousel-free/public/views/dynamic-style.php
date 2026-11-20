@@ -65,6 +65,19 @@ $dynamic_css .= 'div#logo-carousel-free-' . esc_attr( $post_id ) . '.logo-carous
 $dynamic_css .= 'div#logo-carousel-free-' . esc_attr( $post_id ) . '.logo-carousel-free .sp-lc-logo:hover{
 	border-color: ' . esc_attr( $logo_border_hover_color ) . ';
 }';
+
+// Logo image opacity (Logo Image settings). Clamped to the field's 0.01–1 range; the image returns to full opacity on hover, matching Pro.
+$logo_opacity = isset( $logo_data['lcp_logo_opacity'] ) && is_numeric( $logo_data['lcp_logo_opacity'] ) ? (float) $logo_data['lcp_logo_opacity'] : 1;
+$logo_opacity = max( 0.01, min( 1, $logo_opacity ) );
+if ( $logo_opacity < 1 ) {
+	$dynamic_css .= 'div#logo-carousel-free-' . esc_attr( $post_id ) . '.logo-carousel-free .sp-lc-logo img.sp-lc-image{
+	opacity: ' . esc_attr( number_format( $logo_opacity, 2, '.', '' ) ) . ';
+	transition: opacity 0.3s;
+}
+div#logo-carousel-free-' . esc_attr( $post_id ) . '.logo-carousel-free .sp-lc-logo:hover img.sp-lc-image{
+	opacity: 1;
+}';
+}
 if ( 'true' === $dots || 'true' === $dots_mobile ) {
 	$dynamic_css .= '#logo-carousel-free-' . esc_attr( $post_id ) . '.sp-lc-container .sp-lc-pagination .swiper-pagination-bullet {
 			background-color: ' . esc_attr( $dots_color ) . ';
