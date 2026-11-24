@@ -4,7 +4,7 @@ Tags: logo carousel, logo slider, logo showcase, logo grid, client logos
 Requires at least: 6.3
 Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 4.1.0
+Stable tag: 4.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,14 +18,14 @@ Display client logos, partner logos, and sponsor logos in a responsive logo caro
 
 [Live Demo](https://logocarousel.com/patterns/) | [Documentation](https://docs.logocarousel.com/guide/introduction) | [Support](https://shapedplugin.com/create-new-ticket/) | [Upgrade to Pro](https://logocarousel.com/pricing/?ref=1)
 
-== What Does Logo Carousel Mainly Do? ==
+### What Does Logo Carousel Mainly Do?
 * Shows your logos in responsive Carousel, Grid, Masonry, and 3D Carousel blocks
 * Insert ready-made designs in one click with Ready Patterns
 * Build and Refine logo showcases with AI
 * Saves any showcase as a template you can reuse in Elementor, Divi, Bricks, and other page builders
 * Keeps your existing `[logocarousel]` shortcodes, classic block, and Elementor widget working
 
-== Key Features List ==
+### Key Features List
 **Display Your Logos with Four Free Blocks**
 Four fully responsive blocks to show your logos, each styled right from the block editor sidebar.
 
@@ -86,7 +86,7 @@ Prefer shortcodes? The classic Manage Logo Views builder and the `[logocarousel 
 **Translation and RTL Ready**
 Logo Carousel is translation ready, RTL ready, and includes German, Spanish, French, Italian, Japanese, and Dutch translations. It works with multilingual plugins such as WPML, Polylang, GTranslate, and WPGlobus.
 
-== Logo Carousel Pro Features ==
+### Logo Carousel Pro Features
 Logo Carousel Pro builds on everything in the free version and gives you complete control over how your logos look and behave.
 
 **More Blocks and Styles for Every Layout**
@@ -147,12 +147,12 @@ See exactly how each logo performs. [Logo Carousel Pro](https://logocarousel.com
 * Trends over the last 7, 15, 30, or 90 days, or a custom date range
 * Export logo reports to CSV
 
-== Upgrade to Logo Carousel Pro ==
+### Upgrade to Logo Carousel Pro
 If logos of your clients and partners help you win trust, Logo Carousel Pro gives you the layouts, effects, and analytics to present them at their best.
 
 [Get Logo Carousel Pro](https://logocarousel.com/pricing/?ref=1)
 
-== Fully Compatible with Page Builders & Themes ==
+### Fully Compatible with Page Builders & Themes
 No compatibility worries! Logo Carousel works with your existing setup and integrates with:
 
 * **Gutenberg Block Editor**: native Carousel and Grid blocks
@@ -161,7 +161,7 @@ No compatibility worries! Logo Carousel works with your existing setup and integ
 * **Multilingual Plugins**: WPML, Polylang, GTranslate, WPGlobus, and more. You can [translate](https://translate.wordpress.org/projects/wp-plugins/logo-carousel-free) Logo Carousel on translate.wordpress.org.
 * **WordPress Multisite** networks
 
-== Documentation & Support ==
+### Documentation & Support
 Logo Carousel is beginner-friendly with a minimal learning curve, and it's well documented. Dedicated support is there whenever you need it.
 
 👉 Read the well-organized Logo Carousel [Documentation](https://docs.logocarousel.com/guide/introduction)
@@ -172,10 +172,10 @@ Logo Carousel is beginner-friendly with a minimal learning curve, and it's well 
 
 👉 Learn more about Logo Carousel at [https://logocarousel.com/](https://logocarousel.com/)
 
-== Author ==
+### Author
 **[Logo Carousel](https://logocarousel.com/)** is developed by **[ShapedPlugin LLC](https://shapedplugin.com/)**, a team with over a decade of experience in building WordPress plugins, focused on quality, performance, and ongoing improvements.
 
-== 🔥 WHAT’S NEXT ==
+### 🔥 WHAT’S NEXT
 If you like Logo Carousel, then consider checking out our other WordPress plugins:
 
 **[Easy Accordion](https://wordpress.org/plugins/easy-accordion-free/)** – Build responsive accordions and FAQ sections that keep long content tidy and easy to scan
@@ -316,6 +316,9 @@ Post your question in the [support forum](https://wordpress.org/support/plugin/l
 15. All Logos: view, edit, and organize your logo library.
 
 == Changelog ==
+
+= Version 4.1.1 – Nov 24, 2026 =
+* Fixed: The 3D Carousel block now shows its 3D effect in the editor preview as soon as the block loads and after switching the preview device.
 
 = Version 4.1.0 – Nov 20, 2026 =
 * New: Masonry block that fits logos of different sizes into a compact, gap-free layout with no wasted space.
@@ -717,6 +720,9 @@ Post your question in the [support forum](https://wordpress.org/support/plugin/l
 * First Release
 
 == Upgrade Notice ==
+
+= 4.1.1 =
+Fixes the 3D Carousel block showing flat in the editor preview. Updating is recommended.
 
 = 4.1.0 =
 Adds the Masonry and 3D Carousel blocks, custom links for every logo, and six new translations. Tested with WordPress 7.2.
